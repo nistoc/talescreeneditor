@@ -1,43 +1,54 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box, Typography, Paper, Button, Avatar, Grid } from '@mui/material';
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Profile</h1>
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center space-x-4 mb-6">
-            <div className="w-24 h-24 bg-gray-200 rounded-full"></div>
-            <div>
-              <h2 className="text-xl font-semibold">User Name</h2>
-              <p className="text-gray-600">user@example.com</p>
-            </div>
-          </div>
+    <Box sx={{ p: 3 }}>
+      <Box sx={{ maxWidth: 800, mx: 'auto' }}>
+        <Typography variant="h4" gutterBottom>
+          Profile
+        </Typography>
+        <Paper sx={{ p: 3 }}>
+          <Grid container spacing={3} alignItems="center" sx={{ mb: 3 }}>
+            <Grid item>
+              <Avatar sx={{ width: 96, height: 96 }} />
+            </Grid>
+            <Grid item>
+              <Typography variant="h6">User Name</Typography>
+              <Typography color="text.secondary">user@example.com</Typography>
+            </Grid>
+          </Grid>
           
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Bio</label>
-              <p className="mt-1 text-gray-600">User bio goes here...</p>
-            </div>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box>
+              <Typography variant="subtitle2" color="text.secondary">
+                Bio
+              </Typography>
+              <Typography>User bio goes here...</Typography>
+            </Box>
             
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Location</label>
-              <p className="mt-1 text-gray-600">User location</p>
-            </div>
+            <Box>
+              <Typography variant="subtitle2" color="text.secondary">
+                Location
+              </Typography>
+              <Typography>User location</Typography>
+            </Box>
             
-            <button 
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            <Button 
+              variant="contained" 
+              color="primary"
               onClick={() => navigate('/profile/edit')}
+              sx={{ mt: 2 }}
             >
               Edit Profile
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Button>
+          </Box>
+        </Paper>
+      </Box>
+    </Box>
   );
 };
 
