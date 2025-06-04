@@ -5,9 +5,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import Projects from './pages/Projects';
+import { ProjectsPage } from './pages/ProjectsPage';
 import Admin from './pages/Admin';
-import Profile from './pages/Profile';
+import ProfilePage from './pages/ProfilePage';
+import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
+import { ProfileEditorPage } from './pages/ProfileEditorPage';
 
 const NavigationDrawer: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
   const menuItems = [
@@ -99,9 +101,11 @@ const App: React.FC = () => {
                 </Typography>
               </Box>
             } />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/edit" element={<ProfileEditorPage />} />
           </Routes>
         </Container>
       </Box>

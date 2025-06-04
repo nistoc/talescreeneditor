@@ -1,76 +1,44 @@
 import React from 'react';
-import { useProfile, useUpdateProfile } from '../api/profile';
-import { Box, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-export const ProfilePage: React.FC = () => {
-  const userId = 1; // В реальном приложении это должно приходить из контекста авторизации
-  const { data: profile, isLoading, error } = useProfile(userId);
-  const updateProfile = useUpdateProfile(userId);
-
-  const [formData, setFormData] = React.useState({
-    name: profile?.name || '',
-    email: profile?.email || '',
-  });
-
-  React.useEffect(() => {
-    if (profile) {
-      setFormData({
-        name: profile.name,
-        email: profile.email,
-      });
-    }
-  }, [profile]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    updateProfile.mutate(formData);
-  };
-
-  if (isLoading) {
-    return (
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="200px">
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  if (error) {
-    return (
-      <Box p={2}>
-        <Alert severity="error">Ошибка загрузки профиля</Alert>
-      </Box>
-    );
-  }
+const ProfilePage: React.FC = () => {
+  const navigate = useNavigate();
 
   return (
-    <Box p={3}>
-      <Typography variant="h4" gutterBottom>
-        Профиль пользователя
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <Box display="flex" flexDirection="column" gap={2} maxWidth="400px">
-          <TextField
-            label="Имя"
-            value={formData.name}
-            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-            fullWidth
-          />
-          <TextField
-            label="Email"
-            value={formData.email}
-            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-            fullWidth
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            disabled={updateProfile.isPending}
-          >
-            {updateProfile.isPending ? 'Сохранение...' : 'Сохранить'}
-          </Button>
-        </Box>
-      </form>
-    </Box>
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Profile</h1>
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-24 h-24 bg-gray-200 rounded-full"></div>
+            <div>
+              <h2 className="text-xl font-semibold">User Name</h2>
+              <p className="text-gray-600">user@example.com</p>
+            </div>
+          </div>
+          
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Bio</label>
+              <p className="mt-1 text-gray-600">User bio goes here...</p>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Location</label>
+              <p className="mt-1 text-gray-600">User location</p>
+            </div>
+            
+            <button 
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              onClick={() => navigate('/profile/edit')}
+            >
+              Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}; 
+};
+
+export default ProfilePage; 

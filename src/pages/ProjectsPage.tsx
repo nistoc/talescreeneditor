@@ -1,6 +1,7 @@
 import React from 'react';
 import { useProjects, useCreateProject, useUpdateProject } from '../api/projects';
 import { Project } from '../types/api';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -16,9 +17,11 @@ import {
   DialogContent,
   DialogActions,
   TextField,
+  Chip,
 } from '@mui/material';
 
 export const ProjectsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [page, setPage] = React.useState(1);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = React.useState(false);
   const [newProject, setNewProject] = React.useState<Omit<Project, 'id' | 'createdAt' | 'updatedAt'>>({
@@ -59,6 +62,19 @@ export const ProjectsPage: React.FC = () => {
     );
   };
 
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'active':
+        return 'success';
+      case 'archived':
+        return 'error';
+      case 'draft':
+        return 'warning';
+      default:
+        return 'default';
+    }
+  };
+
   if (isLoading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="200px">
@@ -93,17 +109,32 @@ export const ProjectsPage: React.FC = () => {
           <Grid item xs={12} sm={6} md={4} key={project.id}>
             <Card>
               <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {project.title}
-                </Typography>
+                <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+                  <Typography variant="h6" gutterBottom>
+                    {project.title}
+                  </Typography>
+                  <Chip
+                    label={project.status}
+                    color={getStatusColor(project.status)}
+                    size="small"
+                    sx={{ textTransform: 'capitalize' }}
+                  />
+                </Box>
                 <Typography color="textSecondary" gutterBottom>
                   {project.description}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  Статус: {project.status}
+                  Создан: {new Date(project.createdAt).toLocaleDateString()}
                 </Typography>
               </CardContent>
               <CardActions>
+                <Button
+                  size="small"
+                  color="primary"
+                  onClick={() => navigate(`/projects/${project.id}`)}
+                >
+                  Подробнее
+                </Button>
                 <Button
                   size="small"
                   color="primary"

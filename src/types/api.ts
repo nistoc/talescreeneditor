@@ -77,4 +77,35 @@ export const defaultProject: Project = {
 
 // Пустые массивы для списков
 export const defaultUserList: UserManagement[] = [];
-export const defaultProjectList: Project[] = []; 
+export const defaultProjectList: Project[] = [
+  {
+    id: 1,
+    title: 'Мой первый проект',
+    description: 'Это мой первый проект в системе',
+    status: 'active',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    ownerId: 1,
+    collaborators: []
+  },
+  {
+    id: 2,
+    title: 'Проект в разработке',
+    description: 'Проект находится в стадии разработки',
+    status: 'draft',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    ownerId: 1,
+    collaborators: []
+  },
+  {
+    id: 3,
+    title: 'Завершенный проект',
+    description: 'Этот проект уже завершен',
+    status: 'archived',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    ownerId: 1,
+    collaborators: []
+  }
+]; 
