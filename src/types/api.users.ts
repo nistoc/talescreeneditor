@@ -10,7 +10,7 @@ export interface UserProfile {
 
 export const defaultUserProfile: UserProfile = {
   id: 0,
-  name: 'Гость',
+  name: 'Guest',
   email: 'guest@example.com',
   role: 'user',
   createdAt: new Date().toISOString()

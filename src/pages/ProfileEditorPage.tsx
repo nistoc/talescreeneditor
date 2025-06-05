@@ -37,7 +37,7 @@ export const ProfileEditorPage: React.FC = () => {
   if (error) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки профиля</Alert>
+        <Alert severity="error">Error loading profile</Alert>
       </Box>
     );
   }
@@ -45,12 +45,12 @@ export const ProfileEditorPage: React.FC = () => {
   return (
     <Box p={3}>
       <Typography variant="h4" gutterBottom>
-        Редактирование профиля
+        Edit Profile
       </Typography>
       <form onSubmit={handleSubmit}>
         <Box display="flex" flexDirection="column" gap={2} maxWidth="400px">
           <TextField
-            label="Имя"
+            label="Name"
             value={formData.name}
             onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
             fullWidth
@@ -67,7 +67,7 @@ export const ProfileEditorPage: React.FC = () => {
             color="primary"
             disabled={updateProfile.isPending}
           >
-            {updateProfile.isPending ? 'Сохранение...' : 'Сохранить'}
+            {updateProfile.isPending ? 'Saving...' : 'Save'}
           </Button>
         </Box>
       </form>

@@ -45,7 +45,7 @@ export const ScenarioPage: React.FC = () => {
   if (error || !scenario) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки сценария</Alert>
+        <Alert severity="error">Error loading scenario</Alert>
       </Box>
     );
   }
@@ -70,7 +70,7 @@ export const ScenarioPage: React.FC = () => {
         onClick={() => navigate('/scenarios')}
         sx={{ mb: 3 }}
       >
-        Назад к списку сценариев
+        Back to Scenarios
       </Button>
 
       <Paper sx={{ p: 3 }}>
@@ -88,7 +88,7 @@ export const ScenarioPage: React.FC = () => {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Typography variant="h6" gutterBottom>
-              Описание
+              Description
             </Typography>
             <Typography color="textSecondary" paragraph>
               {scenario.description}
@@ -97,20 +97,20 @@ export const ScenarioPage: React.FC = () => {
 
           <Grid item xs={12} sm={6}>
             <Typography variant="h6" gutterBottom>
-              Информация о сценарии
+              Scenario Information
             </Typography>
             <Box>
               <Typography variant="body2" color="textSecondary">
-                ID проекта: {scenario.id}
+                Project ID: {scenario.id}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Создан: {new Date(scenario.createdAt).toLocaleDateString()}
+                Created: {new Date(scenario.createdAt).toLocaleDateString()}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Обновлен: {new Date(scenario.updatedAt).toLocaleDateString()}
+                Updated: {new Date(scenario.updatedAt).toLocaleDateString()}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Владелец: {scenario.ownerId}
+                Owner: {scenario.ownerId}
               </Typography>
             </Box>
           </Grid>
@@ -123,7 +123,7 @@ export const ScenarioPage: React.FC = () => {
                 onClick={() => handleStatusChange('active')}
                 disabled={scenario.status === 'active'}
               >
-                Активировать
+                Activate
               </Button>
               <Button
                 variant="contained"
@@ -131,7 +131,7 @@ export const ScenarioPage: React.FC = () => {
                 onClick={() => handleStatusChange('draft')}
                 disabled={scenario.status === 'draft'}
               >
-                В черновики
+                Move to Draft
               </Button>
               <Button
                 variant="contained"
@@ -139,7 +139,7 @@ export const ScenarioPage: React.FC = () => {
                 onClick={() => handleStatusChange('archived')}
                 disabled={scenario.status === 'archived'}
               >
-                Архивировать
+                Archive
               </Button>
             </Box>
           </Grid>

@@ -14,7 +14,7 @@ import AdminPage from './pages/AdminPage';
 
 const NavigationDrawer: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
   const menuItems = [
-    { text: 'Сценарии', path: '/scenarios', icon: <DashboardIcon /> },
+    { text: 'Scenarios', path: '/scenarios', icon: <DashboardIcon /> },
     { text: 'Admin', path: '/admin', icon: <AdminPanelSettingsIcon /> },
     { text: 'Profile', path: '/profile', icon: <PersonIcon /> },
   ];

@@ -86,7 +86,7 @@ export const ScenariosPage: React.FC = () => {
   if (error) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки сценариев</Alert>
+        <Alert severity="error">Error loading scenarios</Alert>
       </Box>
     );
   }
@@ -94,13 +94,13 @@ export const ScenariosPage: React.FC = () => {
   return (
     <Box p={3}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h4">Сценарии</Typography>
+        <Typography variant="h4">Scenarios</Typography>
         <Button
           variant="contained"
           color="primary"
           onClick={() => setIsCreateDialogOpen(true)}
         >
-          Создать сценарий
+          Create Scenario
         </Button>
       </Box>
 
@@ -124,7 +124,7 @@ export const ScenariosPage: React.FC = () => {
                   {scenario.description}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  Создан: {new Date(scenario.createdAt).toLocaleDateString()}
+                  Created: {new Date(scenario.createdAt).toLocaleDateString()}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -133,7 +133,7 @@ export const ScenariosPage: React.FC = () => {
                   color="primary"
                   onClick={() => navigate(`/scenarios/${scenario.id}`)}
                 >
-                  Подробнее
+                  Details
                 </Button>
                 <Button
                   size="small"
@@ -141,7 +141,7 @@ export const ScenariosPage: React.FC = () => {
                   onClick={() => handleStatusChange(scenario.id, 'active')}
                   disabled={scenario.status === 'active'}
                 >
-                  Активировать
+                  Activate
                 </Button>
                 <Button
                   size="small"
@@ -149,7 +149,7 @@ export const ScenariosPage: React.FC = () => {
                   onClick={() => handleStatusChange(scenario.id, 'archived')}
                   disabled={scenario.status === 'archived'}
                 >
-                  Архивировать
+                  Archive
                 </Button>
               </CardActions>
             </Card>
@@ -157,14 +157,14 @@ export const ScenariosPage: React.FC = () => {
         ))}
       </Grid>
 
-      {/* Диалог создания сценария */}
+      {/* Create Scenario Dialog */}
       <Dialog open={isCreateDialogOpen} onClose={() => setIsCreateDialogOpen(false)}>
-        <DialogTitle>Создать новый сценарий</DialogTitle>
+        <DialogTitle>Create New Scenario</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
             margin="dense"
-            label="Название"
+            label="Title"
             type="text"
             fullWidth
             value={newScenario.title}
@@ -172,7 +172,7 @@ export const ScenariosPage: React.FC = () => {
           />
           <TextField
             margin="dense"
-            label="Описание"
+            label="Description"
             type="text"
             fullWidth
             multiline
@@ -182,14 +182,14 @@ export const ScenariosPage: React.FC = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setIsCreateDialogOpen(false)}>Отмена</Button>
+          <Button onClick={() => setIsCreateDialogOpen(false)}>Cancel</Button>
           <Button
             onClick={handleCreateScenario}
             variant="contained"
             color="primary"
             disabled={!newScenario.title || createScenario.isPending}
           >
-            {createScenario.isPending ? 'Создание...' : 'Создать'}
+            {createScenario.isPending ? 'Creating...' : 'Create'}
           </Button>
         </DialogActions>
       </Dialog>

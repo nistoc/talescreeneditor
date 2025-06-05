@@ -22,8 +22,8 @@ export const defaultScenario: Scenario = {
 
 const scenario_01: Scenario ={
   id: 'scenario_01',
-  title: 'Мой первый проект',
-  description: 'Это мой первый проект в системе',
+  title: 'My First Project',
+  description: 'This is my first project in the system',
   status: 'active',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
@@ -32,8 +32,8 @@ const scenario_01: Scenario ={
 };
 const scenario_02: Scenario ={
   id: 'scenario_02',
-  title: 'Мой первый проект',
-  description: 'Это мой первый проект в системе',
+  title: 'My First Project',
+  description: 'This is my first project in the system',
   status: 'active',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
@@ -42,8 +42,8 @@ const scenario_02: Scenario ={
 };
 const scenario_03: Scenario ={
   id: 'scenario_03',
-  title: 'Проект в разработке',
-  description: 'Проект находится в стадии разработки',
+  title: 'Project in Development',
+  description: 'Project is in development stage',
   status: 'draft',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
@@ -52,8 +52,8 @@ const scenario_03: Scenario ={
 };
 const scenario_04: Scenario ={
   id: 'scenario_04',
-  title: 'Завершенный проект',
-  description: 'Этот проект уже завершен',
+  title: 'Completed Project',
+  description: 'This project is already completed',
   status: 'archived',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
@@ -62,8 +62,8 @@ const scenario_04: Scenario ={
 };
 const scenario_05: Scenario ={
   id: 'scenario_05',
-  title: 'Завершенный проект',
-  description: 'Этот проект уже завершен',
+  title: 'Completed Project',
+  description: 'This project is already completed',
   status: 'archived',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
