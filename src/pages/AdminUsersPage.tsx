@@ -82,7 +82,7 @@ export const AdminUsersPage: React.FC = () => {
               <Typography color="textSecondary" gutterBottom>
                 Всего проектов
               </Typography>
-              <Typography variant="h5">{stats?.totalProjects}</Typography>
+              <Typography variant="h5">{stats?.totalScenarios}</Typography>
             </CardContent>
           </Card>
         </Grid>
@@ -92,7 +92,7 @@ export const AdminUsersPage: React.FC = () => {
               <Typography color="textSecondary" gutterBottom>
                 Активных проектов
               </Typography>
-              <Typography variant="h5">{stats?.activeProjects}</Typography>
+              <Typography variant="h5">{stats?.activeScenarios}</Typography>
             </CardContent>
           </Card>
         </Grid>

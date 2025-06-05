@@ -1,8 +1,8 @@
 export interface AdminStats {
   totalUsers: number;
   activeUsers: number;
-  totalProjects: number;
-  activeProjects: number;
+  totalScenarios: number;
+  activeScenarios: number;
 }
 
 export interface UserManagement {
@@ -17,8 +17,8 @@ export interface UserManagement {
 export const defaultAdminStats: AdminStats = {
   totalUsers: 0,
   activeUsers: 0,
-  totalProjects: 0,
-  activeProjects: 0
+  totalScenarios: 0,
+  activeScenarios: 0
 };
 
 export const defaultUserList: UserManagement[] = []; 

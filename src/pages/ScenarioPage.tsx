@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useProject, useUpdateProject } from '../api/projects';
+import { useScenario, useUpdateScenario } from '../api/scenarios';
 import {
   Box,
   Typography,
@@ -14,17 +14,17 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export const ProjectDetailsPage: React.FC = () => {
-  const { projectId } = useParams<{ projectId: string }>();
-  if (!projectId) {
-    throw new Error('Project ID is required');
+export const ScenarioPage: React.FC = () => {
+  const { scenarioId } = useParams<{ scenarioId: string }>();
+  if (!scenarioId) {
+    throw new Error('Scenario ID is required');
   }
   const navigate = useNavigate();
-  const { data: project, isLoading, error } = useProject(projectId);
-  const updateProject = useUpdateProject(projectId);
+  const { data: scenario, isLoading, error } = useScenario(scenarioId);
+  const updateScenario = useUpdateScenario(scenarioId);
 
   const handleStatusChange = (newStatus: 'active' | 'archived' | 'draft') => {
-    updateProject.mutate(
+    updateScenario.mutate(
       { status: newStatus },
       {
         onSuccess: () => {
@@ -42,10 +42,10 @@ export const ProjectDetailsPage: React.FC = () => {
     );
   }
 
-  if (error || !project) {
+  if (error || !scenario) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки проекта</Alert>
+        <Alert severity="error">Ошибка загрузки сценария</Alert>
       </Box>
     );
   }
@@ -67,71 +67,61 @@ export const ProjectDetailsPage: React.FC = () => {
     <Box p={3}>
       <Button
         startIcon={<ArrowBackIcon />}
-        onClick={() => navigate('/projects')}
+        onClick={() => navigate('/scenarios')}
         sx={{ mb: 3 }}
       >
-        Назад к списку проектов
+        Назад к списку сценариев
       </Button>
 
-      <Paper elevation={3} sx={{ p: 3 }}>
+      <Paper sx={{ p: 3 }}>
+        <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+          <Typography variant="h4">{scenario.title}</Typography>
+          <Chip
+            label={scenario.status}
+            color={getStatusColor(scenario.status)}
+            sx={{ textTransform: 'capitalize' }}
+          />
+        </Box>
+
+        <Divider sx={{ my: 2 }} />
+
         <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box display="flex" justifyContent="space-between" alignItems="center">
-              <Typography variant="h4" component="h1">
-                {project.title}
-              </Typography>
-              <Chip
-                label={project.status}
-                color={getStatusColor(project.status)}
-                sx={{ textTransform: 'capitalize' }}
-              />
-            </Box>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
-
           <Grid item xs={12}>
             <Typography variant="h6" gutterBottom>
               Описание
             </Typography>
-            <Typography variant="body1" paragraph>
-              {project.description}
+            <Typography color="textSecondary" paragraph>
+              {scenario.description}
             </Typography>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="h6" gutterBottom>
-              Информация о проекте
+              Информация о сценарии
             </Typography>
             <Box>
               <Typography variant="body2" color="textSecondary">
-                ID проекта: {project.id}
+                ID проекта: {scenario.id}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Создан: {new Date(project.createdAt).toLocaleDateString()}
+                Создан: {new Date(scenario.createdAt).toLocaleDateString()}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Обновлен: {new Date(project.updatedAt).toLocaleDateString()}
+                Обновлен: {new Date(scenario.updatedAt).toLocaleDateString()}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Владелец: {project.ownerId}
+                Владелец: {scenario.ownerId}
               </Typography>
             </Box>
           </Grid>
 
           <Grid item xs={12}>
-            <Divider />
-          </Grid>
-
-          <Grid item xs={12}>
-            <Box display="flex" gap={2}>
+            <Box display="flex" gap={2} mt={3}>
               <Button
                 variant="contained"
                 color="primary"
                 onClick={() => handleStatusChange('active')}
-                disabled={project.status === 'active'}
+                disabled={scenario.status === 'active'}
               >
                 Активировать
               </Button>
@@ -139,7 +129,7 @@ export const ProjectDetailsPage: React.FC = () => {
                 variant="contained"
                 color="warning"
                 onClick={() => handleStatusChange('draft')}
-                disabled={project.status === 'draft'}
+                disabled={scenario.status === 'draft'}
               >
                 В черновики
               </Button>
@@ -147,7 +137,7 @@ export const ProjectDetailsPage: React.FC = () => {
                 variant="contained"
                 color="error"
                 onClick={() => handleStatusChange('archived')}
-                disabled={project.status === 'archived'}
+                disabled={scenario.status === 'archived'}
               >
                 Архивировать
               </Button>

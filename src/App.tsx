@@ -5,16 +5,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import { ProjectsPage } from './pages/ProjectsPage';
 import { AdminUsersPage } from './pages/AdminUsersPage';
 import ProfilePage from './pages/ProfilePage';
-import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
-import { ProfileEditorPage } from './pages/ProfileEditorPage';
+import { ScenariosPage } from './pages/ScenariosPage';
+import { ScenarioPage } from './pages/ScenarioPage';
+import { ProfileEditorPage } from './pages/ProfileEditorPage'; 
 import AdminPage from './pages/AdminPage';
 
 const NavigationDrawer: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
   const menuItems = [
-    { text: 'Projects', path: '/projects', icon: <DashboardIcon /> },
+    { text: 'Сценарии', path: '/scenarios', icon: <DashboardIcon /> },
     { text: 'Admin', path: '/admin', icon: <AdminPanelSettingsIcon /> },
     { text: 'Profile', path: '/profile', icon: <PersonIcon /> },
   ];
@@ -102,8 +102,8 @@ const App: React.FC = () => {
                 </Typography>
               </Box>
             } />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
+            <Route path="/scenarios" element={<ScenariosPage />} />
+            <Route path="/scenarios/:scenarioId" element={<ScenarioPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/users" element={<AdminUsersPage />} />
             <Route path="/profile" element={<ProfilePage />} />

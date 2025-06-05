@@ -1,6 +1,6 @@
 import React from 'react';
-import { useProjects, useCreateProject, useUpdateProject } from '../api/projects';
-import { Project } from '../types/api.projects';
+import { useScenarios, useCreateScenario, useUpdateScenario } from '../api/scenarios';
+import { Scenario } from '../types/api.scenarios';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -20,11 +20,11 @@ import {
   Chip,
 } from '@mui/material';
 
-export const ProjectsPage: React.FC = () => {
+export const ScenariosPage: React.FC = () => {
   const navigate = useNavigate();
   const [page, setPage] = React.useState(1);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = React.useState(false);
-  const [newProject, setNewProject] = React.useState<Omit<Project, 'id' | 'createdAt' | 'updatedAt'>>({
+  const [newScenario, setNewScenario] = React.useState<Omit<Scenario, 'id' | 'createdAt' | 'updatedAt'>>({
     title: '',
     description: '',
     status: 'draft',
@@ -32,15 +32,15 @@ export const ProjectsPage: React.FC = () => {
     collaborators: [],
   });
 
-  const { data: projects, isLoading, error } = useProjects(page);
-  const createProject = useCreateProject();
-  const updateProject = useUpdateProject('0'); // projectId будет установлен при вызове
+  const { data: scenarios, isLoading, error } = useScenarios(page);
+  const createScenario = useCreateScenario();
+  const updateScenario = useUpdateScenario('new_scenario');
 
-  const handleCreateProject = () => {
-    createProject.mutate(newProject, {
+  const handleCreateScenario = () => {
+    createScenario.mutate(newScenario, {
       onSuccess: () => {
         setIsCreateDialogOpen(false);
-        setNewProject({
+        setNewScenario({
           title: '',
           description: '',
           status: 'draft',
@@ -51,12 +51,12 @@ export const ProjectsPage: React.FC = () => {
     });
   };
 
-  const handleStatusChange = (projectId: string, newStatus: 'active' | 'archived' | 'draft') => {
-    updateProject.mutate(
+  const handleStatusChange = (scenarioId: string, newStatus: 'active' | 'archived' | 'draft') => {
+    updateScenario.mutate(
       { status: newStatus },
       {
         onSuccess: () => {
-          // Можно добавить обновление списка проектов
+          // Можно добавить обновление списка сценариев
         },
       }
     );
@@ -86,7 +86,7 @@ export const ProjectsPage: React.FC = () => {
   if (error) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки проектов</Alert>
+        <Alert severity="error">Ошибка загрузки сценариев</Alert>
       </Box>
     );
   }
@@ -94,60 +94,60 @@ export const ProjectsPage: React.FC = () => {
   return (
     <Box p={3}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h4">Проекты</Typography>
+        <Typography variant="h4">Сценарии</Typography>
         <Button
           variant="contained"
           color="primary"
           onClick={() => setIsCreateDialogOpen(true)}
         >
-          Создать проект
+          Создать сценарий
         </Button>
       </Box>
 
       <Grid container spacing={3}>
-        {projects?.map((project: Project) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id}>
+        {scenarios?.map((scenario: Scenario) => (
+          <Grid item xs={12} sm={6} md={4} key={scenario.id}>
             <Card>
               <CardContent>
                 <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
                   <Typography variant="h6" gutterBottom>
-                    {project.title}
+                    {scenario.title}
                   </Typography>
                   <Chip
-                    label={project.status}
-                    color={getStatusColor(project.status)}
+                    label={scenario.status}
+                    color={getStatusColor(scenario.status)}
                     size="small"
                     sx={{ textTransform: 'capitalize' }}
                   />
                 </Box>
                 <Typography color="textSecondary" gutterBottom>
-                  {project.description}
+                  {scenario.description}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  Создан: {new Date(project.createdAt).toLocaleDateString()}
+                  Создан: {new Date(scenario.createdAt).toLocaleDateString()}
                 </Typography>
               </CardContent>
               <CardActions>
                 <Button
                   size="small"
                   color="primary"
-                  onClick={() => navigate(`/projects/${project.id}`)}
+                  onClick={() => navigate(`/scenarios/${scenario.id}`)}
                 >
                   Подробнее
                 </Button>
                 <Button
                   size="small"
                   color="primary"
-                  onClick={() => handleStatusChange(project.id, 'active')}
-                  disabled={project.status === 'active'}
+                  onClick={() => handleStatusChange(scenario.id, 'active')}
+                  disabled={scenario.status === 'active'}
                 >
                   Активировать
                 </Button>
                 <Button
                   size="small"
                   color="error"
-                  onClick={() => handleStatusChange(project.id, 'archived')}
-                  disabled={project.status === 'archived'}
+                  onClick={() => handleStatusChange(scenario.id, 'archived')}
+                  disabled={scenario.status === 'archived'}
                 >
                   Архивировать
                 </Button>
@@ -157,36 +157,39 @@ export const ProjectsPage: React.FC = () => {
         ))}
       </Grid>
 
-      {/* Диалог создания проекта */}
+      {/* Диалог создания сценария */}
       <Dialog open={isCreateDialogOpen} onClose={() => setIsCreateDialogOpen(false)}>
-        <DialogTitle>Создать новый проект</DialogTitle>
+        <DialogTitle>Создать новый сценарий</DialogTitle>
         <DialogContent>
-          <Box display="flex" flexDirection="column" gap={2} mt={1}>
-            <TextField
-              label="Название"
-              value={newProject.title}
-              onChange={(e) => setNewProject(prev => ({ ...prev, title: e.target.value }))}
-              fullWidth
-            />
-            <TextField
-              label="Описание"
-              value={newProject.description}
-              onChange={(e) => setNewProject(prev => ({ ...prev, description: e.target.value }))}
-              multiline
-              rows={4}
-              fullWidth
-            />
-          </Box>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Название"
+            type="text"
+            fullWidth
+            value={newScenario.title}
+            onChange={(e) => setNewScenario({ ...newScenario, title: e.target.value })}
+          />
+          <TextField
+            margin="dense"
+            label="Описание"
+            type="text"
+            fullWidth
+            multiline
+            rows={4}
+            value={newScenario.description}
+            onChange={(e) => setNewScenario({ ...newScenario, description: e.target.value })}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setIsCreateDialogOpen(false)}>Отмена</Button>
           <Button
-            onClick={handleCreateProject}
+            onClick={handleCreateScenario}
             variant="contained"
             color="primary"
-            disabled={!newProject.title || createProject.isPending}
+            disabled={!newScenario.title || createScenario.isPending}
           >
-            {createProject.isPending ? 'Создание...' : 'Создать'}
+            {createScenario.isPending ? 'Создание...' : 'Создать'}
           </Button>
         </DialogActions>
       </Dialog>
