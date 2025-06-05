@@ -1,11 +1,6 @@
 import { useQuery, useMutation, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
-import { 
-  Project, 
-  defaultProject, 
-  defaultProjectList,
-  ApiResponse, 
-  API_BASE_URL 
-} from '../types/api';
+import { ApiResponse, API_BASE_URL } from '../types/api';
+import { Project, defaultProject, defaultProjectList } from '../types/api.projects';
 
 // Функции для работы с API
 async function fetchProjects(page: number = 1, limit: number = 10): Promise<Project[]> {
@@ -22,7 +17,7 @@ async function fetchProjects(page: number = 1, limit: number = 10): Promise<Proj
   }
 }
 
-async function fetchProject(projectId: number): Promise<Project> {
+async function fetchProject(projectId: string): Promise<Project> {
   try {
     const response = await fetch(`${API_BASE_URL}/projects/${projectId}`);
     if (!response.ok) {
@@ -56,7 +51,7 @@ async function createProject(project: Omit<Project, 'id' | 'createdAt' | 'update
   }
 }
 
-async function updateProject(projectId: number, project: Partial<Project>): Promise<Project> {
+async function updateProject(projectId: string, project: Partial<Project>): Promise<Project> {
   try {
     const response = await fetch(`${API_BASE_URL}/projects/${projectId}`, {
       method: 'PATCH',
@@ -89,7 +84,7 @@ export function useProjects(page: number = 1, limit: number = 10, options?: UseQ
   });
 }
 
-export function useProject(projectId: number, options?: UseQueryOptions<Project>) {
+export function useProject(projectId: string, options?: UseQueryOptions<Project>) {
   return useQuery({
     queryKey: ['project', projectId],
     queryFn: () => fetchProject(projectId),
@@ -108,7 +103,7 @@ export function useCreateProject(options?: UseMutationOptions<Project, Error, Om
   });
 }
 
-export function useUpdateProject(projectId: number, options?: UseMutationOptions<Project, Error, Partial<Project>>) {
+export function useUpdateProject(projectId: string, options?: UseMutationOptions<Project, Error, Partial<Project>>) {
   return useMutation({
     mutationFn: (project: Partial<Project>) => updateProject(projectId, project),
     ...options,

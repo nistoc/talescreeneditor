@@ -16,9 +16,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const ProjectDetailsPage: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
+  if (!projectId) {
+    throw new Error('Project ID is required');
+  }
   const navigate = useNavigate();
-  const { data: project, isLoading, error } = useProject(Number(projectId));
-  const updateProject = useUpdateProject(Number(projectId));
+  const { data: project, isLoading, error } = useProject(projectId);
+  const updateProject = useUpdateProject(projectId);
 
   const handleStatusChange = (newStatus: 'active' | 'archived' | 'draft') => {
     updateProject.mutate(

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useProjects, useCreateProject, useUpdateProject } from '../api/projects';
-import { Project } from '../types/api';
+import { Project } from '../types/api.projects';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -34,7 +34,7 @@ export const ProjectsPage: React.FC = () => {
 
   const { data: projects, isLoading, error } = useProjects(page);
   const createProject = useCreateProject();
-  const updateProject = useUpdateProject(0); // projectId будет установлен при вызове
+  const updateProject = useUpdateProject('0'); // projectId будет установлен при вызове
 
   const handleCreateProject = () => {
     createProject.mutate(newProject, {
@@ -51,7 +51,7 @@ export const ProjectsPage: React.FC = () => {
     });
   };
 
-  const handleStatusChange = (projectId: number, newStatus: 'active' | 'archived' | 'draft') => {
+  const handleStatusChange = (projectId: string, newStatus: 'active' | 'archived' | 'draft') => {
     updateProject.mutate(
       { status: newStatus },
       {
