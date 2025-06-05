@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tales-screen-editor-dev
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: STORAGE_PATH
+        value: /opt/render/project/taleseditorstoragedev
+    disk:
+      name: editorstoragedev
+      mountPath: /opt/render/project/taleseditorstoragedev
+      sizeGB: 1
+    plan: starter
+    healthCheckPath: /
+    autoDeploy: true 
