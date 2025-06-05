@@ -29,7 +29,10 @@ export const ScenariosPage: React.FC = () => {
     description: '',
     status: 'draft',
     ownerId: 1, // В реальном приложении это должно приходить из контекста авторизации
-    collaborators: [],
+    characters: [],
+    maxBranchLength: 0,
+    firstScreenId: '',
+    screens: []
   });
 
   const { data: scenarios, isLoading, error } = useScenarios(page);
@@ -45,7 +48,10 @@ export const ScenariosPage: React.FC = () => {
           description: '',
           status: 'draft',
           ownerId: 1,
-          collaborators: [],
+          characters: [],
+          maxBranchLength: 0,
+          firstScreenId: '',
+          screens: []
         });
       },
     });
