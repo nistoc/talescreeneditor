@@ -158,6 +158,8 @@ export const CharactersTab: React.FC = () => {
 
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [characterToDelete, setCharacterToDelete] = useState<Character | null>(null);
   const [editingCharacterIndex, setEditingCharacterIndex] = useState<number | null>(null);
   const [formData, setFormData] = useState<CharacterFormData>(defaultCharacterForm);
 
@@ -206,9 +208,18 @@ export const CharactersTab: React.FC = () => {
   };
 
   const handleDeleteCharacter = (characterId: string) => {
-    const characterToDelete = scenario?.characters.find(char => char.id === characterId);
-    if (characterToDelete && window.confirm(`Are you sure you want to delete character "${characterToDelete.name}"?`)) {
-      deleteCharacter.mutate(characterId);
+    const character = scenario?.characters.find(char => char.id === characterId);
+    if (character) {
+      setCharacterToDelete(character);
+      setIsDeleteDialogOpen(true);
+    }
+  };
+
+  const confirmDelete = () => {
+    if (characterToDelete) {
+      deleteCharacter.mutate(characterToDelete.id);
+      setIsDeleteDialogOpen(false);
+      setCharacterToDelete(null);
     }
   };
 
@@ -274,7 +285,12 @@ export const CharactersTab: React.FC = () => {
       </Paper>
 
       {/* Add Character Dialog */}
-      <Dialog open={isAddDialogOpen} onClose={() => setIsAddDialogOpen(false)}>
+      <Dialog 
+        open={isAddDialogOpen} 
+        onClose={() => setIsAddDialogOpen(false)}
+        keepMounted={false}
+        disableEnforceFocus
+      >
         <DialogTitle>Add New Character</DialogTitle>
         <DialogContent>
           <Box display="flex" flexDirection="column" gap={2} mt={1}>
@@ -283,6 +299,7 @@ export const CharactersTab: React.FC = () => {
               value={formData.name}
               onChange={handleFormChange('name')}
               fullWidth
+              autoFocus
             />
             <TextField
               select
@@ -329,7 +346,12 @@ export const CharactersTab: React.FC = () => {
       </Dialog>
 
       {/* Edit Character Dialog */}
-      <Dialog open={isEditDialogOpen} onClose={() => setIsEditDialogOpen(false)}>
+      <Dialog 
+        open={isEditDialogOpen} 
+        onClose={() => setIsEditDialogOpen(false)}
+        keepMounted={false}
+        disableEnforceFocus
+      >
         <DialogTitle>Edit Character</DialogTitle>
         <DialogContent>
           <Box display="flex" flexDirection="column" gap={2} mt={1}>
@@ -338,6 +360,7 @@ export const CharactersTab: React.FC = () => {
               value={formData.name}
               onChange={handleFormChange('name')}
               fullWidth
+              autoFocus
             />
             <TextField
               select
@@ -379,6 +402,35 @@ export const CharactersTab: React.FC = () => {
           <Button onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
           <Button onClick={handleEditCharacter} variant="contained" color="primary">
             Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Delete Confirmation Dialog */}
+      <Dialog
+        open={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setCharacterToDelete(null);
+        }}
+        keepMounted={false}
+        disableEnforceFocus
+      >
+        <DialogTitle>Delete Character</DialogTitle>
+        <DialogContent>
+          <Typography>
+            Are you sure you want to delete character "{characterToDelete?.name}"?
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => {
+            setIsDeleteDialogOpen(false);
+            setCharacterToDelete(null);
+          }}>
+            Cancel
+          </Button>
+          <Button onClick={confirmDelete} color="error" variant="contained">
+            Delete
           </Button>
         </DialogActions>
       </Dialog>
