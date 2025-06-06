@@ -81,11 +81,48 @@ const SortableCharacterItem: React.FC<SortableCharacterItemProps> = ({ character
 
   return (
     <ListItem
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      secondaryAction={
+      sx={{
+        '&:hover': {
+          backgroundColor: 'rgba(0, 0, 0, 0.04)',
+          transition: 'background-color 0.2s ease',
+        }
+      }}
+    >
+      <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' }}>
+        <Box
+          ref={setNodeRef}
+          {...attributes}
+          {...listeners}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            flex: 1,
+            cursor: 'grab',
+            '&:active': {
+              cursor: 'grabbing',
+            }
+          }}
+          style={style}
+        >
+          <ListItemAvatar>
+            <Avatar src={character.image} alt={character.name} />
+          </ListItemAvatar>
+          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+            <ListItemText primary={character.name} />
+            <Box sx={{ display: 'flex', gap: 1, mt: 0.5 }}>
+              <Chip
+                size="small"
+                label={character.type}
+                color={character.type === 'player' ? 'primary' : 'default'}
+              />
+              <Chip
+                size="small"
+                label={character.gender}
+                color={character.gender === 'mal' ? 'info' : 'secondary'}
+              />
+            </Box>
+          </Box>
+        </Box>
         <Box>
           <IconButton
             edge="end"
@@ -101,25 +138,6 @@ const SortableCharacterItem: React.FC<SortableCharacterItemProps> = ({ character
           >
             <DeleteIcon />
           </IconButton>
-        </Box>
-      }
-    >
-      <ListItemAvatar>
-        <Avatar src={character.image} alt={character.name} />
-      </ListItemAvatar>
-      <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <ListItemText primary={character.name} />
-        <Box sx={{ display: 'flex', gap: 1, mt: 0.5 }}>
-          <Chip
-            size="small"
-            label={character.type}
-            color={character.type === 'player' ? 'primary' : 'default'}
-          />
-          <Chip
-            size="small"
-            label={character.gender}
-            color={character.gender === 'mal' ? 'info' : 'secondary'}
-          />
         </Box>
       </Box>
     </ListItem>
@@ -188,7 +206,8 @@ export const CharactersTab: React.FC = () => {
   };
 
   const handleDeleteCharacter = (characterId: string) => {
-    if (window.confirm('Are you sure you want to delete this character?')) {
+    const characterToDelete = scenario?.characters.find(char => char.id === characterId);
+    if (characterToDelete && window.confirm(`Are you sure you want to delete character "${characterToDelete.name}"?`)) {
       deleteCharacter.mutate(characterId);
     }
   };
