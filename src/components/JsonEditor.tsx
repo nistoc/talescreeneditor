@@ -22,7 +22,14 @@ export const JsonEditor: React.FC<JsonEditorProps> = ({ value, onChange, readOnl
   };
 
   return (
-    <Box sx={{ height: '100%', width: '100%' }}>
+    <Box sx={{ 
+      height: '100%', 
+      display: 'flex', 
+      flexDirection: 'column',
+      border: '1px solid',
+      borderColor: 'divider',
+      borderRadius: 1
+    }}>
       <Editor
         height="100%"
         defaultLanguage="json"

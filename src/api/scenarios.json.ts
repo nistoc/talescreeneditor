@@ -1,15 +1,20 @@
 import { useQuery, useMutation, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
 import { ApiResponse, API_BASE_URL } from '../types/api';
+import { defaultScenarios } from '../types/defaults';
 
 // Function to load JSON from default files
 async function loadDefaultJson(scenarioId: string): Promise<string> {
   try {
-    // Try to fetch the default JSON file
-    const response = await fetch(`/src/types/defaults/${scenarioId}.json`);
-    if (!response.ok) {
-      throw new Error('Default file not found');
+    // Try to find matching scenario in default scenarios
+    const matchingScenario = defaultScenarios.find(scenario => 
+      scenario.id?.toLowerCase() === scenarioId.toLowerCase()
+    );
+
+    if (matchingScenario) {
+      return JSON.stringify(matchingScenario, null, 2);
     }
-    return await response.text();
+
+    throw new Error('No matching default scenario found');
   } catch (error) {
     console.error('Error loading default JSON:', error);
     throw error;

@@ -72,7 +72,7 @@ export const ScenarioEditorPage: React.FC = () => {
   };
 
   return (
-    <Box p={3}>
+    <Box p={3} sx={{ height: 'calc(100vh - 64px)', display: 'flex', flexDirection: 'column' }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
         <Button
           startIcon={<ArrowBackIcon />}
@@ -108,14 +108,16 @@ export const ScenarioEditorPage: React.FC = () => {
         </ButtonGroup>
       </Box>
 
-      <Paper sx={{ p: 3 }}>
+      <Paper sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
         <Box sx={{ mb: 3 }}>
           <Typography variant="h4" component="div">
             Edit Scenario: {scenario.title}
           </Typography>
         </Box>
 
-        {renderTabContent()}
+        <Box sx={{ flex: 1, overflow: 'hidden' }}>
+          {renderTabContent()}
+        </Box>
       </Paper>
     </Box>
   );

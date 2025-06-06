@@ -1,3 +1,8 @@
 import defaultScenarioData from './moonlight_heist.json';
 
-export { defaultScenarioData }; 
+// Array of all default scenarios
+const defaultScenarios = [
+  defaultScenarioData
+];
+
+export { defaultScenarioData, defaultScenarios }; 
