@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAdminStats, useUsers, useUpdateUserStatus } from '../api/admin';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -17,12 +18,18 @@ import {
   Card,
   CardContent,
 } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 export const AdminUsersPage: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [page, setPage] = React.useState(1);
   const { data: stats, isLoading: statsLoading, error: statsError } = useAdminStats();
   const { data: users, isLoading: usersLoading, error: usersError } = useUsers(page);
   const updateUserStatus = useUpdateUserStatus(0); // userId будет установлен при вызове
+  const { isFocusMode } = useFocusMode();
 
   const handleStatusChange = (userId: number, newStatus: 'active' | 'inactive' | 'banned') => {
     updateUserStatus.mutate(newStatus, {
@@ -49,10 +56,27 @@ export const AdminUsersPage: React.FC = () => {
   }
 
   return (
-    <Box p={3}>
-      <Typography variant="h4" gutterBottom>
-        User Management
-      </Typography>
+    <Box sx={{ p: isFocusMode ? 0 : 3 }}>
+      <Box display="flex" alignItems="center" gap={2} mb={3}>
+        {isFocusMode && <FocusModeMenu />}
+        <Button
+          startIcon={<ArrowBackIcon />}
+          onClick={() => navigate('/admin')}
+        >
+          Back to Admin
+        </Button>
+        {isFocusMode && (
+          <Typography variant="h5" component="div">
+            User Management
+          </Typography>
+        )}
+      </Box>
+
+      {!isFocusMode && (
+        <Typography variant="h4" gutterBottom>
+          User Management
+        </Typography>
+      )}
 
       {/* Statistics */}
       <Grid container spacing={3} mb={4}>
@@ -99,7 +123,12 @@ export const AdminUsersPage: React.FC = () => {
       </Grid>
 
       {/* Users Table */}
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ 
+        '& .MuiTableCell-root': {
+          px: isFocusMode ? 1 : 2,
+          py: isFocusMode ? 1 : 2
+        }
+      }}>
         <Table>
           <TableHead>
             <TableRow>

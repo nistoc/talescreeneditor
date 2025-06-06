@@ -3,11 +3,12 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Box, Typography, Grid, Paper, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 const AdminPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
+  const { isFocusMode } = useFocusMode();
 
   return (
     <Box sx={{ p: 3 }}>

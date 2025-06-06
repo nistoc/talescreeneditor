@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box, Container, Typography, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon, Tooltip } from '@mui/material';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -14,6 +14,7 @@ import { ScenarioPage } from './pages/ScenarioPage';
 import { ScenarioEditorPage } from './pages/ScenarioEditorPage';
 import { ProfileEditorPage } from './pages/ProfileEditorPage'; 
 import AdminPage from './pages/AdminPage';
+import { FocusModeProvider, useFocusMode } from './contexts/FocusModeContext';
 
 const NavigationDrawer: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
   const menuItems = [
@@ -69,24 +70,11 @@ const Breadcrumbs: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [isFocusMode, setIsFocusMode] = useState(() => {
-    // Initialize from localStorage
-    const savedFocusMode = localStorage.getItem('focusMode');
-    return savedFocusMode === 'true';
-  });
+  const { isFocusMode, toggleFocusMode } = useFocusMode();
   const location = useLocation();
   const navigate = useNavigate();
-
-  // Update localStorage when focus mode changes
-  useEffect(() => {
-    localStorage.setItem('focusMode', isFocusMode.toString());
-  }, [isFocusMode]);
-
-  const toggleFocusMode = () => {
-    setIsFocusMode(!isFocusMode);
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -169,6 +157,14 @@ const App: React.FC = () => {
         </Box>
       </Container>
     </Box>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <FocusModeProvider>
+      <AppContent />
+    </FocusModeProvider>
   );
 };
 

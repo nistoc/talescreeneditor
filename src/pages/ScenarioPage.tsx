@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 export const ScenarioPage: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
@@ -25,7 +26,7 @@ export const ScenarioPage: React.FC = () => {
   const location = useLocation();
   const { data: scenario, isLoading, error } = useScenario(scenarioId);
   const updateScenario = useUpdateScenario(scenarioId);
-  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
+  const { isFocusMode } = useFocusMode();
 
   const handleStatusChange = (newStatus: 'active' | 'archived' | 'draft') => {
     updateScenario.mutate(

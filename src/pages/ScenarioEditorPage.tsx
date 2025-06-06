@@ -16,6 +16,7 @@ import { CharactersTab } from '../components/editortabs/CharactersTab';
 import { JsonTab } from '../components/editortabs/JsonTab';
 import { RootsTab } from '../components/editortabs/RootsTab';
 import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 type TabType = 'editor' | 'characters' | 'json' | 'roots';
 
@@ -27,7 +28,7 @@ export const ScenarioEditorPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { data: scenario, isLoading, error } = useScenario(scenarioId);
-  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
+  const { isFocusMode } = useFocusMode();
 
   // Get initial tab from URL hash or default to 'editor'
   const getInitialTab = (): TabType => {

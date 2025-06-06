@@ -18,13 +18,14 @@ import {
 import { CreateScenarioModal } from '../modals/CreateScenarioModal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 export const ScenariosPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [page, setPage] = React.useState(1);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = React.useState(false);
-  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
+  const { isFocusMode } = useFocusMode();
 
   const { data: scenarios, isLoading, error } = useScenarios(page);
   const updateScenario = useUpdateScenario('new_scenario');

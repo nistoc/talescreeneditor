@@ -4,13 +4,14 @@ import { Box, Typography, Paper, Button, Avatar, Grid, CircularProgress, Alert }
 import { useProfile } from '../api/profile';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const userId = 1; // В реальном приложении это должно приходить из контекста авторизации
   const { data: profile, isLoading, error } = useProfile(userId);
-  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
+  const { isFocusMode } = useFocusMode();
 
   if (isLoading) {
     return (
