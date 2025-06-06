@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useScenario } from '../api/scenarios';
-import { ScenarioDetails } from '../components/ScenarioDetails';
 import {
   Box,
   Typography,
@@ -25,8 +24,21 @@ export const ScenarioEditorPage: React.FC = () => {
     throw new Error('Scenario ID is required');
   }
   const navigate = useNavigate();
+  const location = useLocation();
   const { data: scenario, isLoading, error } = useScenario(scenarioId);
-  const [activeTab, setActiveTab] = useState<TabType>('editor');
+  
+  // Get initial tab from URL hash or default to 'editor'
+  const getInitialTab = (): TabType => {
+    const hash = location.hash.replace('#', '');
+    return ['editor', 'characters', 'json', 'roots'].includes(hash) ? hash as TabType : 'editor';
+  };
+  
+  const [activeTab, setActiveTab] = useState<TabType>(getInitialTab());
+
+  // Update URL hash when tab changes
+  useEffect(() => {
+    window.location.hash = activeTab;
+  }, [activeTab]);
 
   if (isLoading) {
     return (
@@ -97,9 +109,11 @@ export const ScenarioEditorPage: React.FC = () => {
       </Box>
 
       <Paper sx={{ p: 3 }}>
-        <Typography variant="h4" sx={{ mb: 3 }}>
-          Edit Scenario: {scenario.title}
-        </Typography>
+        <Box sx={{ mb: 3 }}>
+          <Typography variant="h4" component="div">
+            Edit Scenario: {scenario.title}
+          </Typography>
+        </Box>
 
         {renderTabContent()}
       </Paper>
