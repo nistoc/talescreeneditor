@@ -1,7 +1,29 @@
 {
-  "id": "scenario_01",
-  "title": "Новый сценарий",
-  "description": "",
+  "id": "moonlight_heist",
+  "price": {
+    "type": "credits",
+    "value": 2000
+  },
+  "title": "Moonlight Heist",
+  "animatedCover": "videocover.webm",
+  "intro": {
+    "mal": {
+      "content": "You thought she’d never work with you again. Yet here she is — same fire in her eyes, same target in her sights. The Moonstone is within reach. But can you pull this off without losing your edge… or her?",
+      "image": "cover.webp"
+    },
+    "fem": {
+      "content": "You didn’t plan to see him again — not after what he did. But now you’re back together on the same rooftop, chasing the same priceless gem… and the tension is still sharp. Can you finish the mission without reopening old wounds — or falling back in?",
+      "image": "cover.webp"
+    }
+  },
+  "genres": [
+    "thriller"
+  ],
+  "labels": [
+    "promo"
+  ],
+  "createdDate": "2025-06-11",
+
   "status": "draft",
   "createdAt": "2025-06-05T12:00:00Z",
   "updatedAt": "2025-06-05T12:00:00Z",
@@ -57,7 +79,6 @@
           "progress": 1,
           "type": "narrative",
           "content": "Tonight’s target is the legendary Moonstone — a rare gem showcased during a high-profile gala below. The vault’s security resets every hour. The window is tight. The payout is extraordinary.",
-          "image": "scene_01_a.webp",
           "next": "Sc1_2"
         },
         {
@@ -65,7 +86,6 @@
           "progress": 2,
           "type": "narrative",
           "content": "The client called in the best duo in the business. Too bad they haven’t spoken in a year.\n",
-          "image": "scene_01_a.webp",
           "next": "Sc1_3"
         },
         {
@@ -73,7 +93,78 @@
           "progress": 3,
           "type": "narrative",
           "content": "Eva has the inside access, surveillance control, and the escape plan. Luca has the vault codes, the tools, and the nerve. Separately, they’re good. Together, they’re lethal, but only if they can get through the night without killing each other.\n",
-          "image": "scene_01_a.webp",
+          "next": "Sc1_4"
+        },
+        {
+          "id": "Sc1_4",
+          "progress": 4,
+          "type": "narrative",
+          "content": "The wind hums over the rooftop's edge, carrying the muted sound of classical music from the gala. The city skyline glitters in the distance like a promise neither of them fully trusts.",
+          "next": "Sc1_5"
+        },
+        {
+          "id": "Sc1_5",
+          "progress": 5,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "…",
+          "next": "Sc1_6"
+        },
+        {
+          "id": "Sc1_6",
+          "progress": 6,
+          "type": "narrative",
+          "content": "A compact utility bag is slung across her torso — discreet, but clearly loaded with gear. She surveys the roof with a practiced calm… until a soft chuckle stops her in her tracks.\n",
+          "next": "Sc1_7"
+        },
+        {
+          "id": "Sc1_7",
+          "progress": 7,
+          "type": "narrative",
+          "content": "Luca leans against the metal railing in a dark tuxedo shirt, sleeves rolled to his forearms, the top button undone like an afterthought. His charcoal dress pants are sharp, but the soft scuff on his boots hints at a faster getaway. \n",
+          "next": "Sc1_8"
+        },
+        {
+          "id": "Sc1_8",
+          "progress": 8,
+          "type": "narrative",
+          "content": "A canvas satchel rests casually against his hip — just stylish enough to pass, just rugged enough to carry tools. His expression is unreadable, but his eyes never left her.\n\n",
+          "next": "Sc1_9"
+        },
+        {
+          "id": "Sc1_9",
+          "progress": 9,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "Didn’t think you’d show.\n",
+          "next": "Sc1_10"
+        },
+        {
+          "id": "Sc1_10",
+          "progress": 10,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(smoothly) And miss watching you fumble with a laser grid? Not a chance.\n\n",
+          "next": "Sc1_11"
+        },
+        {
+          "id": "Sc1_11",
+          "progress": 11,
+          "type": "narrative",
+          "content": "They stand there for a breath. The job brought them here, but the air is charged with everything unsaid.",
+          "next": "Sc1_12"
+        },
+        {
+          "id": "Sc1_12",
+          "progress": 12,
+          "type": "narrative",
+          "content": "Last time, the job went wrong. He disappeared with the payout. She took the fall. Eva spent two days dodging Interpol in Prague; Luca ended up drinking mojitos in Havana. \n\n",
           "next": "Sc1_13"
         },
         {
@@ -81,7 +172,6 @@
           "progress": 13,
           "type": "narrative",
           "content": "Neither of them has quite forgiven the other, though Luca looks like he’d love to pretend it was all a misunderstanding.\n",
-          "image": "scene_01_a.webp",
           "next": "Sc1_14"
         },
         {
@@ -89,7 +179,6 @@
           "progress": 14,
           "type": "narrative",
           "content": "For a second, neither of them moves. Somewhere behind them, fireworks begin to crackle in the sky, timed for the gala’s grand finale. But this, right now, is their own spark waiting to detonate.",
-          "image": "scene_01_a.webp",
           "next": "Choice_1_"
         },
         {
@@ -100,8 +189,7 @@
             "playerId": "player_fem_eva"
           },
           "availableFor": "player_mal_luca",
-          "content": "Your partner is making their choice - please, wait...",
-          "image": "scene_01_a.webp"
+          "content": "Your partner is making their choice - please, wait..."
         },
         {
           "id": "Choice_1_",
@@ -112,7 +200,6 @@
           },
           "availableFor": "player_fem_eva",
           "content": "How do you react to Luca’s reappearance?",
-          "image": "scene_01_a.webp",
           "options": [
             {
               "text": "Stay cold — it’s just business.",
@@ -133,7 +220,6 @@
           "progress": 16,
           "type": "narrative",
           "content": "Eva crosses her arms, posture rigid.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_a2"
         },
         {
@@ -144,7 +230,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "Let’s get this over with. I’ll handle the cameras, you disable the locks. No surprises.\n",
-          "image": "scene_01_a.webp",
           "next": "Ch1_a3"
         },
         {
@@ -152,7 +237,6 @@
           "progress": 18,
           "type": "narrative",
           "content": "Luca nods, all teasing gone. But there’s a flicker of disappointment — like he expected something else.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_a4"
         },
         {
@@ -160,7 +244,6 @@
           "progress": 19,
           "type": "narrative",
           "content": "They move into position, professional but distant. Like coiled wires refusing to touch. Whatever they once had is buried deep — or at least, she’s trying to bury it.",
-          "image": "scene_01_a.webp",
           "next": "Sc1_ac1"
         },
         {
@@ -168,7 +251,6 @@
           "progress": 16,
           "type": "narrative",
           "content": "Eva smirks, circling him slowly, the glint in her eye more guarded than amused.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_b2"
         },
         {
@@ -179,7 +261,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "Wow. Same smirk, same shoes. Tell me you at least upgraded your gear.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_b3"
         },
         {
@@ -190,7 +271,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(chuckling) Some things never change. Like how you always show up just in time to set the place on fire.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_b4"
         },
         {
@@ -198,7 +278,6 @@
           "progress": 19,
           "type": "narrative",
           "content": "Their energy crackles — teasing and tense, like a dance they remember but haven’t practiced in too long.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_b5"
         },
         {
@@ -206,7 +285,6 @@
           "progress": 20,
           "type": "narrative",
           "content": "She brushes past him to examine the vent entrance. Her shoulder almost grazes his. Her perfume hits him like a memory he didn’t ask for. He doesn’t turn — but his jaw tightens.",
-          "image": "scene_01_a.webp",
           "next": "Sc1_ac1"
         },
         {
@@ -214,7 +292,6 @@
           "progress": 16,
           "type": "narrative",
           "content": "Eva’s voice falters for just a moment, like a ghost passing through her throat.\n",
-          "image": "scene_01_a.webp",
           "next": "Ch1_c2"
         },
         {
@@ -225,7 +302,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "Didn’t expect the Moonstone job to come with ghosts.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_c3"
         },
         {
@@ -236,7 +312,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(softly) Some ghosts don’t let go.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_c4"
         },
         {
@@ -244,7 +319,6 @@
           "progress": 19,
           "type": "narrative",
           "content": "They don’t touch, but they’re standing too close now. One step, and it wouldn’t be just memory. The tension is thick, edged with possibility — a residue of the last time they trusted each other and paid the price.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_c5"
         },
         {
@@ -252,7 +326,6 @@
           "progress": 20,
           "type": "narrative",
           "content": "Suddenly, a faint click echoes from the far corner. A motion sensor blinks red. Without thinking, Luca grabs Eva’s arm and pulls her into the shadow of a rooftop pillar.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_c6"
         },
         {
@@ -260,7 +333,6 @@
           "progress": 21,
           "type": "narrative",
           "content": "They freeze — pressed close, breath held. The sensor quiets. But neither moves. His hand lingers. Her eyes flick upward to meet his. Everything is loud in the silence.",
-          "image": "scene_01_a.webp",
           "next": "Ch1_c7"
         },
         {
@@ -268,7 +340,6 @@
           "progress": 22,
           "type": "narrative",
           "content": "She turns first, but not before he sees it in her eyes — not fear, not anger, but something dangerously close to missing him.",
-          "image": "scene_01_a.webp",
           "next": "Sc1_ac1"
         },
         {
@@ -276,7 +347,6 @@
           "progress": 20,
           "type": "narrative",
           "content": "For a second, neither of them moves. Somewhere behind them, fireworks begin to crackle in the sky, timed for the gala’s grand finale. But this, right now, is their own spark waiting to detonate.",
-          "image": "scene_01_a.webp",
           "next": "Sc1_ac2"
         },
         {
@@ -284,7 +354,6 @@
           "progress": 21,
           "type": "narrative",
           "content": "They move toward the maintenance hatch, slipping back into the dance of silent signals and shared danger. Trying not to remember how familiar this used to feel.",
-          "image": "scene_01_a.webp",
           "next": "Sc2"
         }
       ]
@@ -303,7 +372,6 @@
           "progress": 22,
           "type": "narrative",
           "content": "The maintenance hatch creaks open, revealing a dim hallway lined with sensor panels and soft, mechanical hums. They slip inside like shadows, every footstep calculated.\n",
-          "image": "scene_02_a.webp",
           "next": "Sc2_2"
         },
         {
@@ -311,7 +379,6 @@
           "progress": 23,
           "type": "narrative",
           "content": "The gala just ended — the crowd is dispersing, and most of the guards are rerouting to escort VIPs out. That gives them just enough breathing room.\n",
-          "image": "scene_02_a.webp",
           "next": "Sc2_3"
         },
         {
@@ -322,7 +389,23 @@
             "playerId": "player_fem_eva"
           },
           "content": "(whispering) Patrols are thinning. We've got maybe two minutes before someone loops back.\n\n",
-          "image": "scene_02_a.webp",
+          "next": "Sc2_4"
+        },
+        {
+          "id": "Sc2_4",
+          "progress": 25,
+          "type": "narrative",
+          "content": "Eva spent days studying schematics and camera sweeps, logging every margin of error. She timed the patrol rotations, traced the camera blind zones, and mapped a path only ghosts could follow.\n",
+          "next": "Sc2_5"
+        },
+        {
+          "id": "Sc2_5",
+          "progress": 26,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(mutters) Still feels like we’re dancing through glass.\n",
           "next": "Sc2_6"
         },
         {
@@ -330,7 +413,6 @@
           "progress": 27,
           "type": "narrative",
           "content": "They slip past the last sensor and descend a short metal staircase. At the bottom — a reinforced door. Luca overrides it in three moves.",
-          "image": "scene_02_a.webp",
           "next": "Sc2_7"
         }
       ]
@@ -348,7 +430,6 @@
           "progress": 29,
           "type": "narrative",
           "content": "A soft pulse of green light flashes above the hallway panel — right on time. Eva’s internal timer syncs with it instantly. She’s been tracking the system’s rhythm for over a week, watching cycles in real time through a backdoor feed. ",
-          "image": "scene_02_b.webp",
           "next": "Sc2_9"
         },
         {
@@ -359,7 +440,90 @@
             "playerId": "player_fem_eva"
           },
           "content": "(quietly) Security cycles in ninety seconds. This exact window is the only blind spot. After that, the net resets and locks for six hours. And then it’s game over. ",
-          "image": "scene_02_b.webp",
+          "next": "Sc2_10"
+        },
+        {
+          "id": "Sc2_10",
+          "progress": 31,
+          "type": "narrative",
+          "content": "Eva kneels by a panel near the access hub, pulling out her custom interface. A glowing map of the building’s security system flickers to life.",
+          "next": "Sc2_11"
+        },
+        {
+          "id": "Sc2_11",
+          "progress": 32,
+          "type": "narrative",
+          "content": "Luca stands at a mirrored console beside the security hub, unzipping a pouch of tools with practiced ease. He glances at Eva — something between habit and the echo of something unfinished.",
+          "next": "Sc2_12"
+        },
+        {
+          "id": "Sc2_12",
+          "progress": 33,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(pinned) Alright. You take the grid and surveillance. I’ll keep the system from panicking.",
+          "next": "Sc2_13"
+        },
+        {
+          "id": "Sc2_13",
+          "progress": 34,
+          "type": "narrative",
+          "content": "Eva smirks without looking up. They work fast, not gracefully, not comfortably — but with a friction that works.",
+          "next": "Sc2_14"
+        },
+        {
+          "id": "Sc2_14",
+          "progress": 35,
+          "type": "narrative",
+          "content": "Suddenly, Eva's screen blinks red. Her jaw tightens.",
+          "next": "Sc2_15"
+        },
+        {
+          "id": "Sc2_15",
+          "progress": 36,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(pinned) Surveillance and vault protocols just cross-linked. This wasn’t in the brief. I can’t isolate them individually — it’s multi-threaded. ",
+          "image": "scene_04_a.webp",
+          "next": "Sc2_16"
+        },
+        {
+          "id": "Sc2_16",
+          "progress": 37,
+          "type": "narrative",
+          "content": "Luca swears under his breath and crosses to her side, crouching beside the panel.",
+          "next": "Sc2_17"
+        },
+        {
+          "id": "Sc2_17",
+          "progress": 38,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "We bridge your uplink to mine — daisy-chain the signal. Like we did in Buenos Aires.",
+          "next": "Sc2_18"
+        },
+        {
+          "id": "Sc2_18",
+          "progress": 39,
+          "type": "narrative",
+          "content": "They slip past the last sensor and descend a short metal staircase. At the bottom — a reinforced door. Luca overrides it in three moves.",
+          "next": "Sc2_19"
+        },
+        {
+          "id": "Sc2_19",
+          "progress": 40,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(quiet) That only worked because we had three minutes of dead air.",
+          "image": "scene_04_a.webp",
           "next": "Sc2_20"
         },
         {
@@ -370,7 +534,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "Then we’d better move faster.",
-          "image": "scene_02_b.webp",
           "next": "Choice_2_"
         },
         {
@@ -381,8 +544,7 @@
             "playerId": "player_mal_luca"
           },
           "availableFor": "player_fem_eva",
-          "content": "Your partner is making their choice - please, wait...",
-          "image": "scene_02_b.webp"
+          "content": "Your partner is making their choice - please, wait..."
         },
         {
           "id": "Choice_2_",
@@ -393,7 +555,6 @@
           },
           "availableFor": "player_mal_luca",
           "content": "The system’s failing, how do you show up?",
-          "image": "scene_02_b.webp",
           "options": [
             {
               "text": "Treat it like defusal",
@@ -408,15 +569,17 @@
               "id": "Ch2_c1"
             }
           ]
-        },
-        {
-          "id": "Ch2_a1",
-          "progress": 43,
-          "type": "narrative",
-          "content": "Luca syncs her uplink to his, fingers flying over the interface.\n\n",
-          "image": "scene_02_b.webp",
-          "next": "Ch2_a2"
-        },
+        }
+      ]
+    },
+    {
+      "id": "Ch2_a1",
+      "progress": 43,
+      "type": "narrative",
+      "content": "Luca syncs her uplink to his, fingers flying over the interface.\n\n",
+      "image": "scene_02_b.webp",
+      "next": "Ch2_a2",
+      "screens": [
         {
           "id": "Ch2_a2",
           "progress": 44,
@@ -425,7 +588,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(tight) Just keep your end stable. I’ll thread the overload.\n",
-          "image": "scene_02_b.webp",
           "next": "Ch2_a3"
         },
         {
@@ -433,7 +595,6 @@
           "progress": 45,
           "type": "narrative",
           "content": "He doesn’t speak again — doesn’t look at her. It’s like disabling a bomb: too many threads, too many ways it goes wrong. He works faster than she remembers. But colder too. Professional. Precise. ",
-          "image": "scene_02_b.webp",
           "next": "Ch2_a4"
         },
         {
@@ -441,17 +602,18 @@
           "progress": 46,
           "type": "narrative",
           "content": "She exhales — not sure whether it’s relief or disappointment.",
-          "image": "scene_02_b.webp",
           "next": "Sc2_ac1"
-        },
-        {
-          "id": "Ch2_b1",
-          "progress": 43,
-          "type": "narrative",
-          "content": "He doesn’t ask — just adjusts her wiring, reassigns two input nodes, and catches a flicker of her surprise.",
-          "image": "scene_02_b.webp",
-          "next": "Ch2_b2"
-        },
+        }
+      ]
+    },
+    {
+      "id": "Ch2_b1",
+      "progress": 43,
+      "type": "narrative",
+      "content": "He doesn’t ask — just adjusts her wiring, reassigns two input nodes, and catches a flicker of her surprise.",
+      "image": "scene_02_b.webp",
+      "next": "Ch2_b2",
+      "screens": [
         {
           "id": "Ch2_b2",
           "progress": 44,
@@ -460,7 +622,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(grinning faintly) You still reroute left-handed? Old habits die hard.",
-          "image": "scene_02_b.webp",
           "next": "Ch2_b3"
         },
         {
@@ -468,17 +629,18 @@
           "progress": 45,
           "type": "narrative",
           "content": "She rolls her eyes, but the corner of her mouth twitches. They shift into flow. Fingers brushing as they pass the tools. A glance too long. A smile too late. For the first time tonight, they’re not two operatives — they’re a team.",
-          "image": "scene_02_b.webp",
           "next": "Sc2_ac1"
-        },
-        {
-          "id": "Ch2_c1",
-          "progress": 43,
-          "type": "narrative",
-          "content": "He connects her uplink, then hesitates.",
-          "image": "scene_02_b.webp",
-          "next": "Ch2_c2"
-        },
+        }
+      ]
+    },
+    {
+      "id": "Ch2_c1",
+      "progress": 43,
+      "type": "narrative",
+      "content": "He connects her uplink, then hesitates.",
+      "image": "scene_02_b.webp",
+      "next": "Ch2_c2",
+      "screens": [
         {
           "id": "Ch2_c2",
           "progress": 44,
@@ -487,7 +649,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(quiet) I should’ve told you the job was compromised. Before Marrakesh.",
-          "image": "scene_02_b.webp",
           "next": "Ch2_c3"
         },
         {
@@ -495,7 +656,6 @@
           "progress": 45,
           "type": "narrative",
           "content": "The screen glitches. She doesn’t look up. But her hands tremble — just once.",
-          "image": "scene_02_b.webp",
           "next": "Ch2_c4"
         },
         {
@@ -506,7 +666,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "We’re not rewiring the past, Luca.",
-          "image": "scene_02_b.webp",
           "next": "Ch2_c5"
         },
         {
@@ -514,23 +673,23 @@
           "progress": 47,
           "type": "narrative",
           "content": "But she doesn’t stop. Not this time.",
-          "image": "scene_02_b.webp",
           "next": "Sc2_ac1"
-        },
-        {
-          "id": "Sc2_ac1",
-          "progress": 46,
-          "type": "narrative",
-          "content": "The final command executes — and the red motion grid flickers, then drops. They made it just before the 90-second window closed. ",
-          "image": "scene_02_b.webp",
-          "next": "Sc2_ac2"
-        },
+        }
+      ]
+    },
+    {
+      "id": "Sc2_ac1",
+      "progress": 46,
+      "type": "narrative",
+      "content": "The final command executes — and the red motion grid flickers, then drops. They made it just before the 90-second window closed. ",
+      "image": "scene_02_b.webp",
+      "next": "Sc2_ac2",
+      "screens": [
         {
           "id": "Sc2_ac2",
           "progress": 47,
           "type": "narrative",
           "content": "No alarms. No alerts. No guards. The building exhales. They just disarmed the system.",
-          "image": "scene_02_b.webp",
           "next": "Sc2_ac3"
         },
         {
@@ -538,7 +697,6 @@
           "progress": 48,
           "type": "narrative",
           "content": "At the far end of the hall, a set of reinforced doors clicks as the vault area unlocks. A soft green light pulses — inviting them to come in.",
-          "image": "scene_02_b.webp",
           "next": "Sc3"
         }
       ]
@@ -557,7 +715,6 @@
           "progress": 49,
           "type": "narrative",
           "content": "They enter the vault chamber, darker than expected. No spotlights. No case displays. Just a sleek pedestal lit from below like something sacred.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_2"
         },
         {
@@ -565,7 +722,6 @@
           "progress": 50,
           "type": "narrative",
           "content": "Eva steps in first, scanning for laser tripwires — but none activate. Just pressure sensors, silent alarms.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_3"
         },
         {
@@ -573,7 +729,6 @@
           "progress": 51,
           "type": "narrative",
           "content": "Luca follows, his gaze flicking across the polished floor and clean lines of the pedestal. His voice is low and steady.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_4"
         },
         {
@@ -584,7 +739,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "No visual trip sensors. We might actually be ahead of schedule.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_5"
         },
         {
@@ -595,7 +749,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(whispering) Surveillance’s down, but this thing could still have pressure triggers. Let’s not test the fireworks.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_6"
         },
         {
@@ -603,7 +756,6 @@
           "progress": 54,
           "type": "narrative",
           "content": "The Moonstone gleams beneath a glass dome, pale and otherworldly. Silent alarm nodes shimmer on the perimeter, waiting to be triggered.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_7"
         },
         {
@@ -611,7 +763,6 @@
           "progress": 55,
           "type": "narrative",
           "content": "Luca crouches by the pedestal, scanning the seams. Eva traces the dome’s outer circuit with a tool barely larger than a pen.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_8"
         },
         {
@@ -622,7 +773,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(focused) Same model as the vault in Prague. Should crack clean.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_9"
         },
         {
@@ -633,7 +783,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(deadpan) You said that in Prague, too. We ended up in a river.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_10"
         },
         {
@@ -641,7 +790,6 @@
           "progress": 58,
           "type": "narrative",
           "content": "Their hands don’t touch, but they move in sync. Like a duet they never quite forgot.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_11"
         },
         {
@@ -649,7 +797,6 @@
           "progress": 59,
           "type": "narrative",
           "content": "A low mechanical hiss escapes as the vault system accepts Luca’s final code. The floor vibrates faintly. The dome unlocks and begins to rise, smooth and precise.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_12"
         },
         {
@@ -657,7 +804,6 @@
           "progress": 60,
           "type": "narrative",
           "content": "The Moonstone sits exposed, flawless, delicate, and deadly. But victory doesn’t feel clean, not with so much dirty laundry between them. ",
-          "image": "scene_03_a.webp",
           "next": "Sc3_13"
         },
         {
@@ -668,7 +814,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(low) You vanished after Prague. I covered your trail for days. I thought you were dead — or worse.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_14"
         },
         {
@@ -679,7 +824,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(quiet) I thought walking away was the only way to keep you clear. I didn’t know what else to do. (pauses) But I never forgot what we were. Or how fast I ruined it.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_15"
         },
         {
@@ -687,7 +831,6 @@
           "progress": 63,
           "type": "narrative",
           "content": "His voice isn’t defensive — it’s something quieter. Regret, maybe. Or longing. Eva doesn’t answer, but she doesn’t turn away either.",
-          "image": "scene_03_a.webp",
           "next": "Sc3_16"
         },
         {
@@ -695,7 +838,6 @@
           "progress": 64,
           "type": "narrative",
           "content": "The vault is silent, but inside her, something is roaring. The gem glows between them like a memory neither of them can forget. Eva’s fingers hover near the gem — and closer still to his. The air between them is heavier than the vault itself.",
-          "image": "scene_03_a.webp",
           "next": "Choice_3_"
         },
         {
@@ -706,8 +848,7 @@
             "playerId": "player_fem_eva"
           },
           "availableFor": "player_mal_luca",
-          "content": "Your partner is making their choice - please, wait...",
-          "image": "scene_03_a.webp"
+          "content": "Your partner is making their choice - please, wait..."
         },
         {
           "id": "Choice_3_",
@@ -718,7 +859,6 @@
           },
           "availableFor": "player_fem_eva",
           "content": " Luca’s words bring back more than the gem. What do you do?",
-          "image": "scene_03_a.webp",
           "options": [
             {
               "text": "Pull him in — one last kiss!",
@@ -743,7 +883,6 @@
           "progress": 66,
           "type": "narrative",
           "content": "Eva turns toward him, sharp and sudden, and grabs his collar. ",
-          "image": "scene_03_a.webp",
           "next": "Ch3_a2"
         },
         {
@@ -754,7 +893,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "Eva: (softly) It still burns.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_a3"
         },
         {
@@ -797,7 +935,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(murmuring against her lips) Still feels like Marseille.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_a8"
         },
         {
@@ -805,7 +942,6 @@
           "progress": 73,
           "type": "narrative",
           "content": "Then — a sound. Boots on metal. Too close.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_a9"
         },
         {
@@ -813,7 +949,6 @@
           "progress": 74,
           "type": "narrative",
           "content": "They break apart, eyes wide. No time for words.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_a10"
         },
         {
@@ -824,7 +959,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(grabbing the gem) Move!",
-          "image": "scene_03_a.webp",
           "next": "Ch3_a11"
         },
         {
@@ -832,7 +966,6 @@
           "progress": 76,
           "type": "narrative",
           "content": "Luca triggers the smoke charge. They vanish.",
-          "image": "scene_03_a.webp",
           "next": "Sc4"
         },
         {
@@ -840,7 +973,6 @@
           "progress": 66,
           "type": "narrative",
           "content": "Eva exhales softly. She doesn't lean in — but she doesn’t pull back either. Their foreheads almost touch.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_b2"
         },
         {
@@ -848,7 +980,6 @@
           "progress": 67,
           "type": "narrative",
           "content": "They stay there, breath mingling, hands resting side by side on the pedestal — suspended in a tension too fragile to break.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_b3"
         },
         {
@@ -856,7 +987,6 @@
           "progress": 68,
           "type": "narrative",
           "content": "Then — footsteps. Loud and definite.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_b4"
         },
         {
@@ -864,7 +994,6 @@
           "progress": 69,
           "type": "narrative",
           "content": "Eva grabs the gem. Luca’s hand finds hers for just a second. Then they vanish into the smoke.",
-          "image": "scene_03_a.webp",
           "next": "Sc4"
         },
         {
@@ -872,7 +1001,6 @@
           "progress": 66,
           "type": "narrative",
           "content": "Eva doesn’t turn or even flinch.  Her hand closes around the Moonstone.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_c2"
         },
         {
@@ -883,7 +1011,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(firm) That was then. This is the job.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_c3"
         },
         {
@@ -891,7 +1018,6 @@
           "progress": 68,
           "type": "narrative",
           "content": "Luca straightens, almost smiling. He respects it — even if it stings.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_c4"
         },
         {
@@ -899,7 +1025,6 @@
           "progress": 69,
           "type": "narrative",
           "content": "Behind them, metal echoes. Footsteps.",
-          "image": "scene_03_a.webp",
           "next": "Ch3_c5"
         }
       ]
@@ -918,7 +1043,6 @@
           "type": "scene",
           "title": "Scene 4",
           "content": "The Getaway",
-          "image": "scene_04_a.webp",
           "next": "Sc4_1"
         },
         {
@@ -926,7 +1050,6 @@
           "progress": 70,
           "type": "narrative",
           "content": "Smoke floods the hallway. Shapes blur. Eva turns — but Luca isn’t behind her.\n",
-          "image": "scene_04_a.webp",
           "next": "Sc4_2"
         },
         {
@@ -934,7 +1057,6 @@
           "progress": 71,
           "type": "narrative",
           "content": "A beat of panic pulses under her skin. She freezes, torn between running and turning back.\n",
-          "image": "scene_04_a.webp",
           "next": "Sc4_3"
         },
         {
@@ -945,7 +1067,122 @@
             "playerId": "player_fem_eva"
           },
           "content": "(tense, under her breath) Luca?",
-          "image": "scene_04_a.webp",
+          "next": "Sc4_4"
+        },
+        {
+          "id": "Sc4_4",
+          "progress": 73,
+          "type": "narrative",
+          "content": "Then: footsteps. He stumbles through the haze, coughing, eyes scanning until they lock on hers",
+          "next": "Sc4_5"
+        },
+        {
+          "id": "Sc4_5",
+          "progress": 74,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(relieved) Thought I lost you!",
+          "next": "Sc4_6"
+        },
+        {
+          "id": "Sc4_6",
+          "progress": 75,
+          "type": "narrative",
+          "content": "She doesn’t answer — just grabs his wrist and pulls him forward. But her grip lingers longer than it needs to. And he squeezes back — just once — before they break into motion again.",
+          "next": "Sc4_7"
+        },
+        {
+          "id": "Sc4_7",
+          "progress": 76,
+          "type": "narrative",
+          "content": "The smoke still clings to their clothes as they sprint through the emergency access corridor. Their steps echo like gunfire in the silence. By the time the first guard enters the vault, Eva and Luca are already gone.",
+          "next": "Sc4_8"
+        },
+        {
+          "id": "Sc4_8",
+          "progress": 77,
+          "type": "narrative",
+          "content": "They race down the maintenance tunnel — slick floor, humming pipes, blinking emergency lights. The sound of boots and radio chatter echoes behind them, too close.",
+          "next": "Sc4_9"
+        },
+        {
+          "id": "Sc4_9",
+          "progress": 78,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(breathless) The exit is two levels up. Miguel should be there with the car.",
+          "next": "Sc4_10"
+        },
+        {
+          "id": "Sc4_10",
+          "progress": 79,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(grim) He better be. Or this turns into Marrakesh all over again.",
+          "next": "Sc4_11"
+        },
+        {
+          "id": "Sc4_11",
+          "progress": 80,
+          "type": "narrative",
+          "content": "They reach the service lift. Luca taps his comm, trying to reach Miguel. Nothing. Just static — and silence.",
+          "next": "Sc4_12"
+        },
+        {
+          "id": "Sc4_12",
+          "progress": 81,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "No signal. Damn. Either he bailed — or someone got to him.",
+          "next": "Sc4_13"
+        },
+        {
+          "id": "Sc4_13",
+          "progress": 82,
+          "type": "narrative",
+          "content": "They exchange a look — half tension, half memory. They’ve been stranded before. Neither of them says it: they’ve been burned before.",
+          "next": "Sc4_14"
+        },
+        {
+          "id": "Sc4_14",
+          "progress": 83,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(flat) We need a new exit.",
+          "next": "Sc4_15"
+        },
+        {
+          "id": "Sc4_15",
+          "progress": 84,
+          "type": "narrative",
+          "content": "She checks the side panel: an old delivery shaft — barely wide enough for one person at a time. No lights. No guarantees.",
+          "next": "Sc4_16"
+        },
+        {
+          "id": "Sc4_16",
+          "progress": 85,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(clipped) Not our worst option.",
+          "next": "Sc4_17"
+        },
+        {
+          "id": "Sc4_17",
+          "progress": 86,
+          "type": "narrative",
+          "content": "He holds her gaze. Something unsaid flickers there — maybe fear, maybe faith. The kind of look you only give someone who once left… and still came back.",
           "next": "Sc4_18"
         },
         {
@@ -956,7 +1193,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "Your call, partner.",
-          "image": "scene_04_a.webp",
           "next": "Sc4_19"
         },
         {
@@ -967,8 +1203,7 @@
             "playerId": "player_mal_luca"
           },
           "availableFor": "player_fem_eva",
-          "content": "Your partner is making their choice - please, wait...",
-          "image": "scene_04_a.webp"
+          "content": "Your partner is making their choice - please, wait..."
         },
         {
           "id": "Sc4_19",
@@ -979,7 +1214,6 @@
           },
           "availableFor": "player_mal_luca",
           "content": "The backup’s gone. The exit’s tight. What do you choose?",
-          "image": "scene_04_a.webp",
           "options": [
             {
               "text": "Let her go first — cover her from behind.",
@@ -1004,7 +1238,6 @@
           "progress": 89,
           "type": "narrative",
           "content": "Luca steps aside and gestures quickly.\n",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a2"
         },
         {
@@ -1015,7 +1248,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "Go. I’ll cover you.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a3"
         },
         {
@@ -1023,7 +1255,6 @@
           "progress": 91,
           "type": "narrative",
           "content": "Eva hesitates for just a breath, then nods and slips into the shaft. The sound of boots grows louder behind them.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a4"
         },
         {
@@ -1034,7 +1265,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(low) It’s tight — watch your gear.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a5"
         },
         {
@@ -1042,7 +1272,6 @@
           "progress": 93,
           "type": "narrative",
           "content": "Luca draws his small sidearm, steady and calm. For once, he's not the one running first.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a6"
         },
         {
@@ -1053,7 +1282,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(breathing out) Remind me never to agree to underground exits again.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a7"
         },
         {
@@ -1061,7 +1289,6 @@
           "progress": 95,
           "type": "narrative",
           "content": "He backs into the shaft after her, sliding the panel closed behind them. The space is narrow, echoing with every scrape of their movement. Dust coats their clothes. It’s like crawling through a forgotten lung of the building.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_a8"
         }
       ]
@@ -1082,7 +1309,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(relieved) Still breathing. And no one's chasing us.",
-          "image": "scene_04_b.webp",
           "next": "Ch4_a10"
         },
         {
@@ -1093,7 +1319,51 @@
             "playerId": "player_fem_eva"
           },
           "content": "(half-smiling) We actually pulled it off.",
-          "image": "scene_04_b.webp",
+          "next": "Ch4_a11"
+        },
+        {
+          "id": "Ch4_a11",
+          "progress": 99,
+          "type": "narrative",
+          "content": "She stares at him for a beat, then steps forward and throws her arms around him. It's not calculated — just instinct, relief, and something deeper she hadn’t let herself feel until now.",
+          "next": "Ch4_a12"
+        },
+        {
+          "id": "Ch4_a12",
+          "progress": 100,
+          "type": "narrative",
+          "content": "His response is immediate — arms closing around her waist, pulling her in tight. It’s not just instinct — it’s memory, need, and something he thought he’d locked away. ",
+          "next": "Ch4_a13"
+        },
+        {
+          "id": "Ch4_a13",
+          "progress": 101,
+          "type": "narrative",
+          "content": "They stay like that — tangled in adrenaline, silence, and something dangerously close to gratitude.",
+          "next": "Ch4_a14"
+        },
+        {
+          "id": "Ch4_a14",
+          "progress": 102,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(quiet) I forgot what it felt like... working with you.",
+          "next": "Ch4_a15"
+        },
+        {
+          "id": "Ch4_a15",
+          "progress": 103,
+          "type": "narrative",
+          "content": "Luca exhales, still holding her. Then, without a word, he leans in and kisses her. Deliberate. Steady. It’s not rushed or reckless. It’s a choice.",
+          "next": "Ch4_a16"
+        },
+        {
+          "id": "Ch4_a16",
+          "progress": 104,
+          "type": "narrative",
+          "content": "She answers without hesitation, fingers curling against his collar, leaning into him like she requires it — not just the kiss, but the confirmation: they made it and still mean something to each other.",
           "next": "Ch4_a17"
         },
         {
@@ -1101,7 +1371,6 @@
           "progress": 105,
           "type": "narrative",
           "content": "Their breaths mingle, and for one suspended beat, the world slows to match their rhythm.",
-          "image": "scene_04_b.webp",
           "next": "Ch4_a19"
         },
         {
@@ -1109,7 +1378,6 @@
           "progress": 106,
           "type": "narrative",
           "content": "When they break apart, there’s no smile. Just heat. Understanding. And the kind of calm that only comes after chaos.",
-          "image": "scene_04_b.webp",
           "next": "Ch4_a20"
         },
         {
@@ -1117,7 +1385,6 @@
           "progress": 107,
           "type": "narrative",
           "content": "They don’t wait. Luca leads the way up the rusted service ladder, pushing open a grate above. The city greets them with stillness — back alley shadows, distant streetlamps, and a cool breeze.",
-          "image": "scene_04_b.webp",
           "next": "Ch4_a21"
         }
       ]
@@ -1138,7 +1405,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(soft) We’re out.",
-          "image": "scene_04_c.webp",
           "next": "Ch4_a23"
         },
         {
@@ -1149,7 +1415,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(quiet) And no one saw it coming.",
-          "image": "scene_04_c.webp",
           "next": "Ch4_a24"
         },
         {
@@ -1157,7 +1422,6 @@
           "progress": 111,
           "type": "narrative",
           "content": "They exchange a glance — half disbelief, half relief. They don’t smile. Not yet. But something in their shoulders loosens.",
-          "image": "scene_04_c.webp",
           "next": "Ch4_a25"
         },
         {
@@ -1165,7 +1429,6 @@
           "progress": 112,
           "type": "narrative",
           "content": "For now, they’ve won.",
-          "image": "scene_04_c.webp",
           "next": "Sc5"
         }
       ]
@@ -1186,7 +1449,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "If there’s a trap, I’d rather it hit me.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_b3"
         },
         {
@@ -1197,7 +1459,33 @@
             "playerId": "player_fem_eva"
           },
           "content": "(small scoff) Chivalry? Or guilt?",
-          "image": "scene_04_a.webp",
+          "next": "Ch4_b4"
+        },
+        {
+          "id": "Ch4_b4",
+          "progress": 92,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(flat) Call it tactics.",
+          "next": "Ch4_b5"
+        },
+        {
+          "id": "Ch4_b5",
+          "progress": 93,
+          "type": "narrative",
+          "content": "He disappears into the shaft. Seconds later, his voice comes back — low but clear.",
+          "next": "Ch4_b6"
+        },
+        {
+          "id": "Ch4_b6",
+          "progress": 94,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "It’s tight, but it works. Come on.",
           "next": "Ch4_b7"
         },
         {
@@ -1205,7 +1493,6 @@
           "progress": 95,
           "type": "narrative",
           "content": "Eva follows. The shaft rattles around them. They hit the lower exit hard, stumbling into the shadows. Behind them, distant voices echo — too far, too late.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_b8"
         }
       ]
@@ -1226,7 +1513,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "(relieved) Clean exit.",
-          "image": "scene_04_b.webp",
           "next": "Ch4_b10"
         },
         {
@@ -1237,7 +1523,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(smiling) And no one’s dead. That’s new.",
-          "image": "scene_04_b.webp",
           "next": "Ch4_b11"
         }
       ]
@@ -1263,7 +1548,60 @@
           "progress": 89,
           "type": "narrative",
           "content": "Luca pauses, eyes darting to the second hallway.\n",
-          "image": "scene_04_a.webp",
+          "next": "Ch4_c2"
+        },
+        {
+          "id": "Ch4_c2",
+          "progress": 90,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "We split. Cut their trail in two.",
+          "next": "Ch4_c3"
+        },
+        {
+          "id": "Ch4_c3",
+          "progress": 91,
+          "type": "narrative",
+          "content": "Eva’s brow furrows instantly.",
+          "next": "Ch4_c4"
+        },
+        {
+          "id": "Ch4_c4",
+          "progress": 92,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "You’re serious? After last time?",
+          "next": "Ch4_c5"
+        },
+        {
+          "id": "Ch4_c5",
+          "progress": 93,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "This isn’t about trust. It’s about odds.",
+          "next": "Ch4_c6"
+        },
+        {
+          "id": "Ch4_c6",
+          "progress": 94,
+          "type": "narrative",
+          "content": "She studies him, jaw tense. Then — a clipped nod.",
+          "next": "Ch4_c7"
+        },
+        {
+          "id": "Ch4_c7",
+          "progress": 95,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "See you topside. Don’t disappear this time.",
           "next": "Ch4_c8"
         },
         {
@@ -1271,7 +1609,6 @@
           "progress": 96,
           "type": "narrative",
           "content": "They part in silence, each vanishing down separate paths — one step away from disaster.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_c9"
         },
         {
@@ -1279,7 +1616,6 @@
           "progress": 97,
           "type": "narrative",
           "content": "Luca slips through an old maintenance route, ducking sensors and broken lights. Eva pushes through a ventilation crawl space that brings her behind the eastern lot.",
-          "image": "scene_04_a.webp",
           "next": "Ch4_c10"
         }
       ]
@@ -1297,7 +1633,6 @@
           "progress": 99,
           "type": "narrative",
           "content": "No guards. No alarm. Just cold air, pounding hearts, and the weight of survival.",
-          "image": "scene_04_c.webp",
           "next": "Ch4_c12"
         },
         {
@@ -1308,7 +1643,23 @@
             "playerId": "player_mal_luca"
           },
           "content": "(breathless) You made it.",
-          "image": "scene_04_c.webp",
+          "next": "Ch4_c13"
+        },
+        {
+          "id": "Ch4_c13",
+          "progress": 101,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(flat) So did you.",
+          "next": "Ch4_c14"
+        },
+        {
+          "id": "Ch4_c14",
+          "progress": 102,
+          "type": "narrative",
+          "content": "She walks over. For a beat, they say nothing.",
           "next": "Ch4_c15"
         },
         {
@@ -1316,7 +1667,6 @@
           "progress": 103,
           "type": "narrative",
           "content": "Then she nods. They turn, vanishing together down the street, like shadows slipping into freedom.",
-          "image": "scene_04_c.webp",
           "next": "Ch4_c16"
         },
         {
@@ -1324,7 +1674,6 @@
           "progress": 104,
           "type": "narrative",
           "content": "They did it. Apart, then together. Almost always too late. But not tonight.",
-          "image": "scene_04_c.webp",
           "next": "Sc5"
         }
       ]
@@ -1351,7 +1700,6 @@
           "progress": 102,
           "type": "narrative",
           "content": "Eva and Luca step into the lobby, greeted only by the buzz of overhead lights. A tall man in a dark suit looks them over, then gives a short nod.",
-          "image": "scene_05_a.webp",
           "next": "Sc5_3"
         },
         {
@@ -1362,7 +1710,6 @@
             "playerId": "npc_mal_security_guard"
           },
           "content": "(flat) They’re expected. Top floor.",
-          "image": "scene_05_a.webp",
           "next": "Sc5_4"
         },
         {
@@ -1370,7 +1717,6 @@
           "progress": 104,
           "type": "narrative",
           "content": "He presses a button, and the elevator doors slide open.",
-          "image": "scene_05_a.webp",
           "next": "Sc5_5"
         },
         {
@@ -1378,7 +1724,6 @@
           "progress": 105,
           "type": "narrative",
           "content": "Inside the elevator, Eva and Luca stand side by side, shoulders just barely touching. Neither speaks — the moment is too dense, the memory of adrenaline and closeness still clinging to their skin.",
-          "image": "scene_05_a.webp",
           "next": "Sc5_6"
         },
         {
@@ -1386,7 +1731,6 @@
           "progress": 106,
           "type": "narrative",
           "content": " The lift rises. The atmosphere is silent but charged. There’s no need to talk. The gem is safe. The mission’s complete. But between them, the tension hasn’t faded. It’s only shifted — from urgency to possibility.",
-          "image": "scene_05_a.webp",
           "next": "Sc5_7"
         }
       ]
@@ -1410,7 +1754,6 @@
             "playerId": "npc_mal_client"
           },
           "content": "(eyeing the case) Let’s see if it’s as perfect as your timing.",
-          "image": "scene_05_b.webp",
           "next": "Sc5_9"
         },
         {
@@ -1418,7 +1761,6 @@
           "progress": 109,
           "type": "narrative",
           "content": "He doesn’t offer his name — just a measured smile and an open briefcase lined with velvet.",
-          "image": "scene_05_b.webp",
           "next": "Sc5_10"
         },
         {
@@ -1426,7 +1768,163 @@
           "progress": 110,
           "type": "narrative",
           "content": "Eva places the Moonstone inside. The client takes a moment, lifting the gem delicately from the case with gloved hands. He holds it to the light — the Moonstone glows faintly, almost ethereal.",
-          "image": "scene_05_b.webp",
+          "next": "Sc5_11"
+        },
+        {
+          "id": "Sc5_11",
+          "progress": 111,
+          "type": "dialog",
+          "actor": {
+            "playerId": "npc_mal_client"
+          },
+          "content": "(low, impressed) Beautiful. Untouched. You're as good as they say.",
+          "next": "Sc5_12"
+        },
+        {
+          "id": "Sc5_12",
+          "progress": 112,
+          "type": "narrative",
+          "content": "He places it back inside, locks the case with a smooth motion, then hands over a thick envelope.",
+          "next": "Sc5_13"
+        },
+        {
+          "id": "Sc5_13",
+          "progress": 113,
+          "type": "dialog",
+          "actor": {
+            "playerId": "npc_mal_client"
+          },
+          "content": "(sincerely) Thank you. Consider this partnership…",
+          "next": "Sc5_14"
+        },
+        {
+          "id": "Sc5_14",
+          "progress": 114,
+          "type": "narrative",
+          "content": "He pauses. Behind him, a faint click. The sound of a lock engaging.",
+          "next": "Sc5_15"
+        },
+        {
+          "id": "Sc5_15",
+          "progress": 115,
+          "type": "dialog",
+          "actor": {
+            "playerId": "npc_mal_client"
+          },
+          "content": "…terminated.",
+          "next": "Sc5_16"
+        },
+        {
+          "id": "Sc5_16",
+          "progress": 116,
+          "type": "narrative",
+          "content": " Before they can move, gas hisses from vents in the corners. The room seals. The frosted glass darkens. Eva’s eyes flash toward the only exit.",
+          "next": "Sc5_17"
+        },
+        {
+          "id": "Sc5_17",
+          "progress": 117,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(grim) I knew it was too smooth.",
+          "next": "Sc5_18"
+        },
+        {
+          "id": "Sc5_18",
+          "progress": 118,
+          "type": "narrative",
+          "content": "The client turns, slipping the gem into an inner pocket. No rush, no fear. He presses a silent alarm.",
+          "next": "Sc5_19"
+        },
+        {
+          "id": "Sc5_19",
+          "progress": 119,
+          "type": "dialog",
+          "actor": {
+            "playerId": "npc_mal_client"
+          },
+          "content": "(flat) Nothing personal. But clients like mine don’t like loose ends. You two? You’ve seen too much. I can’t afford anyone remembering my face — or how I got that gem.",
+          "next": "Sc5_20"
+        },
+        {
+          "id": "Sc5_20",
+          "progress": 120,
+          "type": "narrative",
+          "content": " Luca yanks Eva down behind the desk as the walls crack open — hidden panels revealing armed guards. Eva’s already rewiring the control panel on the underside of the table.",
+          "next": "Sc5_21"
+        },
+        {
+          "id": "Sc5_21",
+          "progress": 121,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(focused) Three wires, left to right. Jam their locks, kill the ventilation. Buy us twenty seconds.",
+          "next": "Sc5_22"
+        },
+        {
+          "id": "Sc5_22",
+          "progress": 122,
+          "type": "narrative",
+          "content": "Luca draws his sidearm, takes cover, and fires — one shot takes out the overhead light, another the nearest camera.",
+          "next": "Sc5_23"
+        },
+        {
+          "id": "Sc5_23",
+          "progress": 123,
+          "type": "narrative",
+          "content": "Chaos. Smoke. Shouting. A crash of reinforced glass.",
+          "next": "Sc5_24"
+        },
+        {
+          "id": "Sc5_24",
+          "progress": 124,
+          "type": "narrative",
+          "content": "They burst through the side wall, Luca shielding Eva as they roll into the dark emergency stairwell. Blood on his sleeve. Her hand wrapped tightly around the stolen envelope.",
+          "next": "Sc5_25"
+        },
+        {
+          "id": "Sc5_25",
+          "progress": 125,
+          "type": "narrative",
+          "content": "The Moonstone’s gone… The client is gone. But they made it out alive. Barely.",
+          "next": "Sc5_26"
+        },
+        {
+          "id": "Sc5_26",
+          "progress": 126,
+          "type": "narrative",
+          "content": " They stumble into the basement corridor, breath ragged. No more deals. Just survival — and each other.",
+          "next": "Sc5_27"
+        },
+        {
+          "id": "Sc5_27",
+          "progress": 127,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": " (quiet, breathless) You didn’t know.",
+          "next": "Sc5_28"
+        },
+        {
+          "id": "Sc5_28",
+          "progress": 128,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "(shaking his head) Not a word. But I wasn’t leaving without you.",
+          "next": "Sc5_29"
+        },
+        {
+          "id": "Sc5_29",
+          "progress": 129,
+          "type": "narrative",
+          "content": "After the chaos, they don’t speak much. The city closes behind them in silence as they move through dark alleys and empty backstreets — running, ducking, breathing again only when they reach the car.",
           "next": "Sc5_30"
         },
         {
@@ -1434,7 +1932,6 @@
           "progress": 130,
           "type": "narrative",
           "content": "They pull up outside her place — a quiet high-rise near the edge of the city. Unassuming. Safe. She doesn’t ask. Just unlocks the door. He follows.",
-          "image": "scene_05_b.webp",
           "next": "Sc5__30"
         }
       ]
@@ -1455,7 +1952,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "Do you ever think it could’ve been different?",
-          "image": "scene_05_c.webp",
           "next": "Sc5_32"
         },
         {
@@ -1466,7 +1962,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(turns slightly) Different how?",
-          "image": "scene_05_c.webp",
           "next": "Sc5_33"
         },
         {
@@ -1477,7 +1972,13 @@
             "playerId": "player_mal_luca"
           },
           "content": "A life without vaults. Or regrets.",
-          "image": "scene_05_c.webp",
+          "next": "Sc5_34"
+        },
+        {
+          "id": "Sc5_34",
+          "progress": 135,
+          "type": "narrative",
+          "content": "She doesn’t answer right away. The elevator keeps rising. So does the tension between them.",
           "next": "Choice_5_"
         },
         {
@@ -1488,8 +1989,7 @@
             "playerId": "player_fem_eva"
           },
           "availableFor": "player_mal_luca",
-          "content": "Your partner is making their choice - please, wait...",
-          "image": "scene_05_c.webp"
+          "content": "Your partner is making their choice - please, wait..."
         },
         {
           "id": "Choice_5_",
@@ -1500,7 +2000,6 @@
           },
           "availableFor": "player_fem_eva",
           "content": "The job’s done. The night’s not. What do you do?",
-          "image": "scene_05_c.webp",
           "options": [
             {
               "text": "Say goodbye — you’ve had enough",
@@ -1579,7 +2078,6 @@
           "progress": 138,
           "type": "narrative",
           "content": " Luca raises an eyebrow — just slightly — then nods, the corner of his mouth twitching with something between relief, curiosity, and hope.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_b3"
         },
         {
@@ -1590,7 +2088,6 @@
             "playerId": "player_mal_luca"
           },
           "content": "I thought you burned all those.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_b4"
         },
         {
@@ -1601,7 +2098,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(softly)\nNot all of them.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_b5"
         },
         {
@@ -1609,7 +2105,6 @@
           "progress": 141,
           "type": "narrative",
           "content": "The elevator dings. She steps out, tossing him a glance over her shoulder — not a promise, but not nothing.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_b6"
         },
         {
@@ -1617,15 +2112,13 @@
           "progress": 142,
           "type": "narrative",
           "content": "The hallway lights flicker softly around them as she unlocks the door. This time, he follows without hesitation.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_b7_fin"
         },
         {
           "id": "Ch5_b7_fin",
           "progress": 143,
           "type": "final",
-          "content": " The mission’s over — but their story might not be. What happens next? That’s for the two of you to decide. Go ahead — discuss it in the chat.",
-          "image": "scene_05_c.webp"
+          "content": " The mission’s over — but their story might not be. What happens next? That’s for the two of you to decide. Go ahead — discuss it in the chat."
         }
       ]
     },
@@ -1642,7 +2135,6 @@
           "progress": 138,
           "type": "narrative",
           "content": " Without a word, Eva reaches out and hits the emergency stop. The lift jolts. Lights dim. Silence crashes in.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_c3"
         },
         {
@@ -1653,7 +2145,6 @@
             "playerId": "player_fem_eva"
           },
           "content": "(breathless) I couldn’t wait any longer.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_c4"
         },
         {
@@ -1661,7 +2152,114 @@
           "progress": 140,
           "type": "narrative",
           "content": "They move against the mirrored wall, bodies instinctively colliding just like old times. Every motion is familiar. Every sound is electric.",
-          "image": "scene_05_c.webp",
+          "next": "Ch5_c5"
+        },
+        {
+          "id": "Ch5_c5",
+          "progress": 141,
+          "type": "narrative",
+          "content": "She steps in close — no more doubt, no more distance. Her fingers slide to his collar as his hands find the seams of her jumpsuit. It’s not polite. It’s not slow. It’s a need, pure and familiar.",
+          "image": "cutscene.webp",
+          "next": "Ch5_c6"
+        },
+        {
+          "id": "Ch5_c6",
+          "progress": 142,
+          "type": "narrative",
+          "content": "Their lips crash together — desperate and raw. Her jumpsuit slips down beneath his hands. His shirt pulls loose beneath hers. They move with a rhythm only memory could’ve kept alive this long.",
+          "image": "cutscene.webp",
+          "next": "Ch5_c7"
+        },
+        {
+          "id": "Ch5_c7",
+          "progress": 143,
+          "type": "narrative",
+          "content": "Her breath catches as his hands trail the curve of her spine. His mouth grazes her collarbone, then lower, drawing out sounds she never made for anyone else.",
+          "image": "cutscene.webp",
+          "next": "Ch5_c8"
+        },
+        {
+          "id": "Ch5_c8",
+          "progress": 144,
+          "type": "narrative",
+          "content": "She unhooks his belt, fingers slow, steady, the tension stretching deliciously.  Bodies press, grind, lose rhythm, but they find it again — a push and pull of everything they left unsaid, now finally unraveling in the space between heartbeats.",
+          "image": "cutscene.webp",
+          "next": "Ch5_c9"
+        },
+        {
+          "id": "Ch5_c9",
+          "progress": 145,
+          "type": "narrative",
+          "content": "The lift hums again, but they don’t move. There’s no rush now. ",
+          "image": "cutscene.webp",
+          "next": "Ch5_c10"
+        },
+        {
+          "id": "Ch5_c10",
+          "progress": 146,
+          "type": "narrative",
+          "content": "As they finally come to a pause, their foreheads press together, breathless, Eva leans in close, her voice low, teasing but steady:",
+          "next": "Ch5_c11"
+        },
+        {
+          "id": "Ch5_c11",
+          "progress": 147,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "(softly, teasing) \nThat wasn’t the real Moonstone.",
+          "next": "Ch5_c12"
+        },
+        {
+          "id": "Ch5_c12",
+          "progress": 148,
+          "type": "narrative",
+          "content": "Luca blinks, startled. She watches him, waiting.",
+          "next": "Ch5_c13"
+        },
+        {
+          "id": "Ch5_c13",
+          "progress": 149,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "You switched it?\n",
+          "next": "Ch5_c14"
+        },
+        {
+          "id": "Ch5_c14",
+          "progress": 150,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_fem_eva"
+          },
+          "content": "Replica. Micro-tagger embedded in the setting. He got his gem... and a silent alarm straight to Interpol.",
+          "next": "Ch5_c15"
+        },
+        {
+          "id": "Ch5_c15",
+          "progress": 151,
+          "type": "narrative",
+          "content": "Luca stares at her, then he lets out a breathless laugh.",
+          "next": "Ch5_c16"
+        },
+        {
+          "id": "Ch5_c16",
+          "progress": 152,
+          "type": "dialog",
+          "actor": {
+            "playerId": "player_mal_luca"
+          },
+          "content": "You crafty, dangerous, brilliant woman.",
+          "next": "Ch5_c17"
+        },
+        {
+          "id": "Ch5_c17",
+          "progress": 153,
+          "type": "narrative",
+          "content": "She smiles — the kind that reaches her eyes. Then kisses him again — slower, steadier.  No rush. No heat of the moment. Just two people choosing each other again, against all odds.",
           "next": "Ch5_c18"
         },
         {
@@ -1669,15 +2267,13 @@
           "progress": 154,
           "type": "narrative",
           "content": "They stay close — breath tangled, heartbeat steady. Whatever this is… it’s not just about the past anymore.",
-          "image": "scene_05_c.webp",
           "next": "Ch5_c19_fin"
         },
         {
           "id": "Ch5_c19_fin",
           "progress": 155,
           "type": "final",
-          "content": "The mission’s over — but their story is not. What happens next? That’s for the two of you to decide. Go ahead — discuss it in the chat.",
-          "image": "scene_05_c.webp"
+          "content": "The mission’s over — but their story is not. What happens next? That’s for the two of you to decide. Go ahead — discuss it in the chat."
         }
       ]
     }

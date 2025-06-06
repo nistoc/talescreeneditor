@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useScenario, useUpdateScenario } from '../api/scenarios';
+import { ScenarioDetails } from '../components/ScenarioDetails';
 import {
   Box,
   Typography,
@@ -87,32 +88,7 @@ export const ScenarioPage: React.FC = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Typography variant="h6" gutterBottom>
-              Description
-            </Typography>
-            <Typography color="textSecondary" paragraph>
-              {scenario.description}
-            </Typography>
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <Typography variant="h6" gutterBottom>
-              Scenario Information
-            </Typography>
-            <Box>
-              <Typography variant="body2" color="textSecondary">
-                Project ID: {scenario.id}
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                Created: {new Date(scenario.createdAt).toLocaleDateString()}
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                Updated: {new Date(scenario.updatedAt).toLocaleDateString()}
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                Owner: {scenario.ownerId}
-              </Typography>
-            </Box>
+            <ScenarioDetails scenario={scenario} />
           </Grid>
 
           <Grid item xs={12}>

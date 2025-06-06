@@ -1,3 +1,5 @@
+import { defaultScenarioData } from './defaults';
+
 interface Character {
   id: string;
   name: string;
@@ -70,19 +72,32 @@ interface ScreenFinal extends BaseScreen {
 // Union type for all screen types
 type Screen = ScreenNarrative | ScreenDialog | ScreenChoice | ScreenBlock | ScreenScene | ScreenFinal;
 
+interface IntroContent {
+  content: string;
+  image: string;
+}
+
+interface Intro {
+  mal: IntroContent;
+  fem: IntroContent;
+}
+
 interface Scenario {
   id: string;
   title: string;
-  description: string;
   status: 'active' | 'archived' | 'draft';
-  createdAt: string;
   updatedAt: string;
   ownerId: number;
-
   characters: Character[];
   maxBranchLength: number;
   firstScreenId: string;
   screens: Screen[];
+  price?: Price;
+  animatedCover?: string;
+  intro?: Intro;
+  genres?: string[];
+  labels?: string[];
+  createdDate?: string;
 }
 
 export type { 
@@ -101,39 +116,102 @@ export type {
   Scenario 
 }; 
 
+function transformScreen(screen: any): Screen {
+  const baseScreen = {
+    id: screen.id,
+    progress: screen.progress,
+    content: screen.content,
+    image: screen.image,
+    notes: screen.notes || '',
+    next: screen.next
+  };
+
+  switch (screen.type) {
+    case 'narrative':
+      return {
+        ...baseScreen,
+        type: 'narrative',
+        screens: screen.screens?.map(transformScreen) || []
+      };
+    case 'dialog':
+      return {
+        ...baseScreen,
+        type: 'dialog',
+        actor: screen.actor,
+        screens: screen.screens?.map(transformScreen) || []
+      };
+    case 'choice':
+      return {
+        ...baseScreen,
+        type: 'choice',
+        actor: screen.actor,
+        availableFor: screen.availableFor,
+        options: screen.options || []
+      };
+    case 'block':
+      return {
+        ...baseScreen,
+        type: 'block',
+        actor: screen.actor,
+        availableFor: screen.availableFor
+      };
+    case 'scene':
+      return {
+        ...baseScreen,
+        type: 'scene',
+        title: screen.title,
+        screens: screen.screens?.map(transformScreen) || []
+      };
+    case 'final':
+      return {
+        ...baseScreen,
+        type: 'final'
+      };
+    default:
+      throw new Error(`Unknown screen type: ${screen.type}`);
+  }
+}
+
 export const defaultScenario: Scenario = {
-  id: '0',
-  title: 'Новый сценарий',
-  description: '',
-  status: 'draft',
-  createdAt: new Date().toISOString(),
+  ...defaultScenarioData,
+  status: defaultScenarioData.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioData.characters.map(char => ({
+    ...char,
+    type: char.type as 'player' | 'npc',
+    gender: char.gender as 'mal' | 'fem'
+  })),
+  screens: defaultScenarioData.screens.map(transformScreen),
   updatedAt: new Date().toISOString(),
-  ownerId: 0,
+  price: {
+    type: 'credits',
+    value: defaultScenarioData.price?.value || 0
+  },
+  animatedCover: defaultScenarioData.animatedCover || '',
+  intro: defaultScenarioData.intro || {
+    mal: { content: '', image: '' },
+    fem: { content: '', image: '' }
+  },
+  genres: defaultScenarioData.genres || [],
+  labels: defaultScenarioData.labels || [],
+  createdDate: defaultScenarioData.createdDate || new Date().toISOString()
+};
+
+const scenario_01: Scenario = {
+  id: 'scenario_01',
+  title: 'My First Project',
+  status: 'active',
+  updatedAt: new Date().toISOString(),
+  ownerId: 1,
   characters: [],
   maxBranchLength: 0,
   firstScreenId: '',
   screens: []
 };
 
-const scenario_01: Scenario ={
-  id: 'scenario_01',
-  title: 'My First Project',
-  description: 'This is my first project in the system',
-  status: 'active',
-  createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString(),
-  ownerId: 1,
-  characters: [],
-  maxBranchLength: 0,
-  firstScreenId: '',
-  screens: []
-};
-const scenario_03: Scenario ={
+const scenario_03: Scenario = {
   id: 'scenario_03',
   title: 'Project in Development',
-  description: 'Project is in development stage',
   status: 'draft',
-  createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
   ownerId: 1,
   characters: [],
@@ -141,12 +219,11 @@ const scenario_03: Scenario ={
   firstScreenId: '',
   screens: []
 };
-const scenario_04: Scenario ={
+
+const scenario_04: Scenario = {
   id: 'scenario_04',
   title: 'Completed Project',
-  description: 'This project is already completed',
   status: 'archived',
-  createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
   ownerId: 1,
   characters: [],

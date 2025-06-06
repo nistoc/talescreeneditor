@@ -26,12 +26,19 @@ async function fetchScenario(scenarioId: string): Promise<Scenario> {
     const data: ApiResponse<Scenario> = await response.json();
     return data.data;
   } catch (error) {
-    console.error('Error fetching scenario:', error);
+    console.log('Using default scenario:', defaultScenario);
+    console.log('Default scenario details:', {
+      id: defaultScenario.id,
+      title: defaultScenario.title,
+      status: defaultScenario.status,
+      characters: defaultScenario.characters.length,
+      screens: defaultScenario.screens.length
+    });
     return defaultScenario;
   }
 }
 
-async function createScenario(scenario: Omit<Scenario, 'id' | 'createdAt' | 'updatedAt'>): Promise<Scenario> {
+async function createScenario(scenario: Omit<Scenario, 'id' | 'updatedAt'>): Promise<Scenario> {
   try {
     const response = await fetch(`${API_BASE_URL}/scenarios`, {
       method: 'POST',
@@ -79,7 +86,6 @@ export function useScenarios(page: number = 1, limit: number = 10, options?: Use
     retry: 1,
     staleTime: 5 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
-    initialData: defaultScenarioList,
     ...options,
   });
 }
@@ -91,12 +97,11 @@ export function useScenario(scenarioId: string, options?: UseQueryOptions<Scenar
     retry: 1,
     staleTime: 5 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
-    initialData: defaultScenario,
     ...options,
   });
 }
 
-export function useCreateScenario(options?: UseMutationOptions<Scenario, Error, Omit<Scenario, 'id' | 'createdAt' | 'updatedAt'>>) {
+export function useCreateScenario(options?: UseMutationOptions<Scenario, Error, Omit<Scenario, 'id' | 'updatedAt'>>) {
   return useMutation({
     mutationFn: createScenario,
     ...options,

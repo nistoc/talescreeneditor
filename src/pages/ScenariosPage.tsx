@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScenarios, useCreateScenario, useUpdateScenario } from '../api/scenarios';
+import { useScenarios, useUpdateScenario } from '../api/scenarios';
 import { Scenario } from '../types/api.scenarios';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -12,50 +12,17 @@ import {
   Button,
   CircularProgress,
   Alert,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
   Chip,
 } from '@mui/material';
+import { CreateScenarioModal } from '../modals/CreateScenarioModal';
 
 export const ScenariosPage: React.FC = () => {
   const navigate = useNavigate();
   const [page, setPage] = React.useState(1);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = React.useState(false);
-  const [newScenario, setNewScenario] = React.useState<Omit<Scenario, 'id' | 'createdAt' | 'updatedAt'>>({
-    title: '',
-    description: '',
-    status: 'draft',
-    ownerId: 1, // В реальном приложении это должно приходить из контекста авторизации
-    characters: [],
-    maxBranchLength: 0,
-    firstScreenId: '',
-    screens: []
-  });
 
   const { data: scenarios, isLoading, error } = useScenarios(page);
-  const createScenario = useCreateScenario();
   const updateScenario = useUpdateScenario('new_scenario');
-
-  const handleCreateScenario = () => {
-    createScenario.mutate(newScenario, {
-      onSuccess: () => {
-        setIsCreateDialogOpen(false);
-        setNewScenario({
-          title: '',
-          description: '',
-          status: 'draft',
-          ownerId: 1,
-          characters: [],
-          maxBranchLength: 0,
-          firstScreenId: '',
-          screens: []
-        });
-      },
-    });
-  };
 
   const handleStatusChange = (scenarioId: string, newStatus: 'active' | 'archived' | 'draft') => {
     updateScenario.mutate(
@@ -126,12 +93,37 @@ export const ScenariosPage: React.FC = () => {
                     sx={{ textTransform: 'capitalize' }}
                   />
                 </Box>
-                <Typography color="textSecondary" gutterBottom>
-                  {scenario.description}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Created: {new Date(scenario.createdAt).toLocaleDateString()}
-                </Typography>
+                <Box mb={2}>
+                  <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+                    Male Intro:
+                  </Typography>
+                  <Typography color="textSecondary" gutterBottom>
+                    {scenario.intro?.mal.content || 'No male intro available'}
+                  </Typography>
+                  <Typography variant="subtitle2" color="textSecondary" gutterBottom sx={{ mt: 2 }}>
+                    Female Intro:
+                  </Typography>
+                  <Typography color="textSecondary" gutterBottom>
+                    {scenario.intro?.fem.content || 'No female intro available'}
+                  </Typography>
+                </Box>
+                {scenario.price && (
+                  <Typography variant="body2" color="textSecondary" gutterBottom>
+                    Price: {scenario.price.value} {scenario.price.type}
+                  </Typography>
+                )}
+                {scenario.genres && scenario.genres.length > 0 && (
+                  <Box display="flex" gap={1} flexWrap="wrap" mb={1}>
+                    {scenario.genres.map((genre) => (
+                      <Chip key={genre} label={genre} size="small" />
+                    ))}
+                  </Box>
+                )}
+                {scenario.createdDate && (
+                  <Typography variant="body2" color="textSecondary">
+                    Created: {new Date(scenario.createdDate).toLocaleDateString()}
+                  </Typography>
+                )}
               </CardContent>
               <CardActions>
                 <Button
@@ -163,42 +155,13 @@ export const ScenariosPage: React.FC = () => {
         ))}
       </Grid>
 
-      {/* Create Scenario Dialog */}
-      <Dialog open={isCreateDialogOpen} onClose={() => setIsCreateDialogOpen(false)}>
-        <DialogTitle>Create New Scenario</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Title"
-            type="text"
-            fullWidth
-            value={newScenario.title}
-            onChange={(e) => setNewScenario({ ...newScenario, title: e.target.value })}
-          />
-          <TextField
-            margin="dense"
-            label="Description"
-            type="text"
-            fullWidth
-            multiline
-            rows={4}
-            value={newScenario.description}
-            onChange={(e) => setNewScenario({ ...newScenario, description: e.target.value })}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsCreateDialogOpen(false)}>Cancel</Button>
-          <Button
-            onClick={handleCreateScenario}
-            variant="contained"
-            color="primary"
-            disabled={!newScenario.title || createScenario.isPending}
-          >
-            {createScenario.isPending ? 'Creating...' : 'Create'}
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <CreateScenarioModal
+        open={isCreateDialogOpen}
+        onClose={() => setIsCreateDialogOpen(false)}
+        onSuccess={() => {
+          // Можно добавить обновление списка сценариев
+        }}
+      />
     </Box>
   );
 }; 
