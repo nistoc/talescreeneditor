@@ -109,7 +109,11 @@ const App: React.FC = () => {
           sx={{ 
             mt: isFocusMode ? 0 : 4,
             px: isFocusMode ? 0 : 2,
-            width: '100%'
+            width: '100%',
+            '& .MuiBox-root': {
+              px: isFocusMode ? 0 : undefined,
+              py: undefined
+            }
           }}
         >
           {!isFocusMode && <Breadcrumbs />}
