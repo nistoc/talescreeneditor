@@ -15,6 +15,7 @@ import { EditorTab } from '../components/editortabs/EditorTab';
 import { CharactersTab } from '../components/editortabs/CharactersTab';
 import { JsonTab } from '../components/editortabs/JsonTab';
 import { RootsTab } from '../components/editortabs/RootsTab';
+import { FocusModeMenu } from '../components/FocusModeMenu';
 
 type TabType = 'editor' | 'characters' | 'json' | 'roots';
 
@@ -26,13 +27,14 @@ export const ScenarioEditorPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { data: scenario, isLoading, error } = useScenario(scenarioId);
-  
+  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
+
   // Get initial tab from URL hash or default to 'editor'
   const getInitialTab = (): TabType => {
     const hash = location.hash.replace('#', '');
     return ['editor', 'characters', 'json', 'roots'].includes(hash) ? hash as TabType : 'editor';
   };
-  
+
   const [activeTab, setActiveTab] = useState<TabType>(getInitialTab());
 
   // Update URL hash when tab changes
@@ -74,12 +76,20 @@ export const ScenarioEditorPage: React.FC = () => {
   return (
     <Box p={3} sx={{ height: 'calc(100vh - 64px)', display: 'flex', flexDirection: 'column' }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Button
-          startIcon={<ArrowBackIcon />}
-          onClick={() => navigate(`/scenarios/${scenarioId}`)}
-        >
-          Back to Scenario
-        </Button>
+        <Box display="flex" alignItems="center" gap={2}>
+          {isFocusMode && <FocusModeMenu />}
+          <Button
+            startIcon={<ArrowBackIcon />}
+            onClick={() => navigate(`/scenarios/${scenarioId}`)}
+          >
+            Back to Scenario
+          </Button>
+          {isFocusMode && (
+            <Typography variant="h5" component="div">
+              {scenario.title}
+            </Typography>
+          )}
+        </Box>
         <ButtonGroup variant="contained">
           <Button
             onClick={() => setActiveTab('editor')}
@@ -109,15 +119,15 @@ export const ScenarioEditorPage: React.FC = () => {
       </Box>
 
       <Paper sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-        <Box sx={{ mb: 3 }}>
-          <Typography variant="h4" component="div">
-            Edit Scenario: {scenario.title}
-          </Typography>
-        </Box>
+        {!isFocusMode && (
+          <Box sx={{ mb: 3 }}>
+            <Typography variant="h4" component="div">
+              Edit Scenario: {scenario.title}
+            </Typography>
+          </Box>
+        )}
 
-        <Box sx={{ flex: 1, overflow: 'hidden' }}>
-          {renderTabContent()}
-        </Box>
+        {renderTabContent()}
       </Paper>
     </Box>
   );

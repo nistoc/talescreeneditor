@@ -1,12 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Box, Typography, Paper, Button, Avatar, Grid, CircularProgress, Alert } from '@mui/material';
 import { useProfile } from '../api/profile';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FocusModeMenu } from '../components/FocusModeMenu';
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const userId = 1; // В реальном приложении это должно приходить из контекста авторизации
   const { data: profile, isLoading, error } = useProfile(userId);
+  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
 
   if (isLoading) {
     return (
@@ -16,7 +20,7 @@ const ProfilePage: React.FC = () => {
     );
   }
 
-  if (error) {
+  if (error || !profile) {
     return (
       <Box p={2}>
         <Alert severity="error">Error loading profile</Alert>
@@ -26,10 +30,27 @@ const ProfilePage: React.FC = () => {
 
   return (
     <Box sx={{ p: 3 }}>
+      <Box display="flex" alignItems="center" gap={2} mb={3}>
+        {isFocusMode && <FocusModeMenu />}
+        <Button
+          startIcon={<ArrowBackIcon />}
+          onClick={() => navigate('/')}
+        >
+          Back to Home
+        </Button>
+        {isFocusMode && (
+          <Typography variant="h5" component="div">
+            Profile
+          </Typography>
+        )}
+      </Box>
+
       <Box sx={{ maxWidth: 800, mx: 'auto' }}>
-        <Typography variant="h4" gutterBottom>
-          Profile
-        </Typography>
+        {!isFocusMode && (
+          <Typography variant="h4" gutterBottom>
+            Profile
+          </Typography>
+        )}
         <Paper sx={{ p: 3 }}>
           <Grid container spacing={3} alignItems="center" sx={{ mb: 3 }}>
             <Grid item>

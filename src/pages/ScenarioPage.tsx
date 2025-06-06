@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useScenario, useUpdateScenario } from '../api/scenarios';
 import { ScenarioDetails } from '../components/ScenarioDetails';
 import {
@@ -14,6 +14,7 @@ import {
   Divider,
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FocusModeMenu } from '../components/FocusModeMenu';
 
 export const ScenarioPage: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
@@ -21,8 +22,10 @@ export const ScenarioPage: React.FC = () => {
     throw new Error('Scenario ID is required');
   }
   const navigate = useNavigate();
+  const location = useLocation();
   const { data: scenario, isLoading, error } = useScenario(scenarioId);
   const updateScenario = useUpdateScenario(scenarioId);
+  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
 
   const handleStatusChange = (newStatus: 'active' | 'archived' | 'draft') => {
     updateScenario.mutate(
@@ -66,23 +69,32 @@ export const ScenarioPage: React.FC = () => {
 
   return (
     <Box p={3}>
-      <Button
-        startIcon={<ArrowBackIcon />}
-        onClick={() => navigate('/scenarios')}
-        sx={{ mb: 3 }}
-      >
-        Back to Scenarios
-      </Button>
+      <Box display="flex" alignItems="center" gap={2} mb={3}>
+        {isFocusMode && <FocusModeMenu />}
+        <Button
+          startIcon={<ArrowBackIcon />}
+          onClick={() => navigate('/scenarios')}
+        >
+          Back to Scenarios
+        </Button>
+        {isFocusMode && (
+          <Typography variant="h5" component="div">
+            {scenario.title}
+          </Typography>
+        )}
+      </Box>
 
       <Paper sx={{ p: 3 }}>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-          <Typography variant="h4">{scenario.title}</Typography>
-          <Chip
-            label={scenario.status}
-            color={getStatusColor(scenario.status)}
-            sx={{ textTransform: 'capitalize' }}
-          />
-        </Box>
+        {!isFocusMode && (
+          <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+            <Typography variant="h4">{scenario.title}</Typography>
+            <Chip
+              label={scenario.status}
+              color={getStatusColor(scenario.status)}
+              sx={{ textTransform: 'capitalize' }}
+            />
+          </Box>
+        )}
 
         <Divider sx={{ my: 2 }} />
 

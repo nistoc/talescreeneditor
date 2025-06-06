@@ -1,7 +1,7 @@
 import React from 'react';
 import { useScenarios, useUpdateScenario } from '../api/scenarios';
 import { Scenario } from '../types/api.scenarios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -13,13 +13,18 @@ import {
   CircularProgress,
   Alert,
   Chip,
+  ButtonGroup,
 } from '@mui/material';
 import { CreateScenarioModal } from '../modals/CreateScenarioModal';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FocusModeMenu } from '../components/FocusModeMenu';
 
 export const ScenariosPage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [page, setPage] = React.useState(1);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = React.useState(false);
+  const isFocusMode = new URLSearchParams(location.search).get('focus') === 'true';
 
   const { data: scenarios, isLoading, error } = useScenarios(page);
   const updateScenario = useUpdateScenario('new_scenario');
@@ -67,15 +72,36 @@ export const ScenariosPage: React.FC = () => {
   return (
     <Box p={3}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h4">Scenarios</Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setIsCreateDialogOpen(true)}
-        >
-          Create Scenario
-        </Button>
+        <Box display="flex" alignItems="center" gap={2}>
+          {isFocusMode && <FocusModeMenu />}
+          <Button
+            startIcon={<ArrowBackIcon />}
+            onClick={() => navigate('/')}
+          >
+            Back to Home
+          </Button>
+          {isFocusMode && (
+            <Typography variant="h5" component="div">
+              Scenarios
+            </Typography>
+          )}
+        </Box>
+        <ButtonGroup variant="contained">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setIsCreateDialogOpen(true)}
+          >
+            Create Scenario
+          </Button>
+        </ButtonGroup>
       </Box>
+
+      {!isFocusMode && (
+        <Typography variant="h4" gutterBottom>
+          Scenarios
+        </Typography>
+      )}
 
       <Grid container spacing={3}>
         {scenarios?.map((scenario: Scenario) => (

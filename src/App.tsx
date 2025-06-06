@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Container, Typography, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon, Tooltip } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
@@ -71,95 +71,104 @@ const Breadcrumbs: React.FC = () => {
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [isFocusMode, setIsFocusMode] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(() => {
+    // Initialize from localStorage
+    const savedFocusMode = localStorage.getItem('focusMode');
+    return savedFocusMode === 'true';
+  });
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Update localStorage when focus mode changes
+  useEffect(() => {
+    localStorage.setItem('focusMode', isFocusMode.toString());
+  }, [isFocusMode]);
 
   const toggleFocusMode = () => {
     setIsFocusMode(!isFocusMode);
   };
 
   return (
-    <Router>
-      <Box sx={{ flexGrow: 1 }}>
-        {!isFocusMode && (
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={() => setDrawerOpen(true)}
-                sx={{ mr: 2 }}
-              >
-                <MenuIcon />
+    <Box sx={{ flexGrow: 1 }}>
+      {!isFocusMode && (
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setDrawerOpen(true)}
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Tales Screen Editor
+            </Typography>
+            <Tooltip title={isFocusMode ? "Exit Focus Mode" : "Enter Focus Mode"}>
+              <IconButton color="inherit" onClick={toggleFocusMode}>
+                {isFocusMode ? <CloseFullscreenIcon /> : <OpenInFullIcon />}
               </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Tales Screen Editor
-              </Typography>
-              <Tooltip title={isFocusMode ? "Exit Focus Mode" : "Enter Focus Mode"}>
-                <IconButton color="inherit" onClick={toggleFocusMode}>
-                  {isFocusMode ? <CloseFullscreenIcon /> : <OpenInFullIcon />}
-                </IconButton>
-              </Tooltip>
-            </Toolbar>
-          </AppBar>
-        )}
-        {!isFocusMode && <NavigationDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-        <Container 
-          maxWidth={isFocusMode ? false : "lg"} 
-          sx={{ 
-            mt: isFocusMode ? 0 : 4,
-            px: isFocusMode ? 0 : 2,
-            width: '100%',
-            '& .MuiBox-root': {
-              px: isFocusMode ? 0 : undefined,
-              py: undefined
-            }
-          }}
-        >
-          {!isFocusMode && <Breadcrumbs />}
-          <Box sx={{ position: 'relative' }}>
-            {isFocusMode && (
-              <Tooltip title="Exit Focus Mode">
-                <IconButton
-                  onClick={toggleFocusMode}
-                  sx={{
-                    position: 'fixed',
-                    top: 16,
-                    right: 16,
-                    zIndex: 1000,
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                    '&:hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 1)',
-                    },
-                  }}
-                >
-                  <CloseFullscreenIcon />
-                </IconButton>
-              </Tooltip>
-            )}
-            <Routes>
-              <Route path="/" element={
-                <Box>
-                  <Typography variant="h4" component="h1" gutterBottom>
-                    Welcome to Tales Screen Editor
-                  </Typography>
-                  <Typography variant="body1">
-                    This is your new React application with TypeScript and Material UI.
-                  </Typography>
-                </Box>
-              } />
-              <Route path="/scenarios" element={<ScenariosPage />} />
-              <Route path="/scenarios/:scenarioId" element={<ScenarioPage />} />
-              <Route path="/scenarios/:scenarioId/editor" element={<ScenarioEditorPage />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/admin/users" element={<AdminUsersPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/profile/edit" element={<ProfileEditorPage />} />
-            </Routes>
-          </Box>
-        </Container>
-      </Box>
-    </Router>
+            </Tooltip>
+          </Toolbar>
+        </AppBar>
+      )}
+      {!isFocusMode && <NavigationDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
+      <Container 
+        maxWidth={isFocusMode ? false : "lg"} 
+        sx={{ 
+          mt: isFocusMode ? 0 : 4,
+          px: isFocusMode ? 0 : 2,
+          width: '100%',
+          '& .MuiBox-root': {
+            px: isFocusMode ? 0 : undefined,
+            py: undefined
+          }
+        }}
+      >
+        {!isFocusMode && <Breadcrumbs />}
+        <Box sx={{ position: 'relative' }}>
+          {isFocusMode && (
+            <Tooltip title="Exit Focus Mode">
+              <IconButton
+                onClick={toggleFocusMode}
+                sx={{
+                  position: 'fixed',
+                  top: 16,
+                  right: 16,
+                  zIndex: 1000,
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                  },
+                }}
+              >
+                <CloseFullscreenIcon />
+              </IconButton>
+            </Tooltip>
+          )}
+          <Routes>
+            <Route path="/" element={
+              <Box>
+                <Typography variant="h4" component="h1" gutterBottom>
+                  Welcome to Tales Screen Editor
+                </Typography>
+                <Typography variant="body1">
+                  This is your new React application with TypeScript and Material UI.
+                </Typography>
+              </Box>
+            } />
+            <Route path="/scenarios" element={<ScenariosPage />} />
+            <Route path="/scenarios/:scenarioId" element={<ScenarioPage />} />
+            <Route path="/scenarios/:scenarioId/editor" element={<ScenarioEditorPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/users" element={<AdminUsersPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/edit" element={<ProfileEditorPage />} />
+          </Routes>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
