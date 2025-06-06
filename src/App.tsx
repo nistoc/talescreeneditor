@@ -9,6 +9,7 @@ import { AdminUsersPage } from './pages/AdminUsersPage';
 import ProfilePage from './pages/ProfilePage';
 import { ScenariosPage } from './pages/ScenariosPage';
 import { ScenarioPage } from './pages/ScenarioPage';
+import { ScenarioEditorPage } from './pages/ScenarioEditorPage';
 import { ProfileEditorPage } from './pages/ProfileEditorPage'; 
 import AdminPage from './pages/AdminPage';
 
@@ -104,6 +105,7 @@ const App: React.FC = () => {
             } />
             <Route path="/scenarios" element={<ScenariosPage />} />
             <Route path="/scenarios/:scenarioId" element={<ScenarioPage />} />
+            <Route path="/scenarios/:scenarioId/editor" element={<ScenarioEditorPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/users" element={<AdminUsersPage />} />
             <Route path="/profile" element={<ProfilePage />} />

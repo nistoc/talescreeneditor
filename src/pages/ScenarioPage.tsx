@@ -96,6 +96,13 @@ export const ScenarioPage: React.FC = () => {
               <Button
                 variant="contained"
                 color="primary"
+                onClick={() => navigate(`/scenarios/${scenarioId}/editor`)}
+              >
+                Edit Scenario
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
                 onClick={() => handleStatusChange('active')}
                 disabled={scenario.status === 'active'}
               >

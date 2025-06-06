@@ -26,14 +26,6 @@ async function fetchScenario(scenarioId: string): Promise<Scenario> {
     const data: ApiResponse<Scenario> = await response.json();
     return data.data;
   } catch (error) {
-    console.log('Using default scenario:', defaultScenario);
-    console.log('Default scenario details:', {
-      id: defaultScenario.id,
-      title: defaultScenario.title,
-      status: defaultScenario.status,
-      characters: defaultScenario.characters.length,
-      screens: defaultScenario.screens.length
-    });
     return defaultScenario;
   }
 }
