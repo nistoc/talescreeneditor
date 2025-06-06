@@ -1,5 +1,6 @@
 import { useQuery, useMutation, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
-import { UserProfile, defaultUserProfile, ApiResponse, API_BASE_URL } from '../types/api';
+import { ApiResponse, API_BASE_URL } from '../types/api';
+import { UserProfile, defaultUserProfile } from '../types/api.users';
 
 // Функции для работы с API
 async function fetchProfile(userId: number): Promise<UserProfile> {

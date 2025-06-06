@@ -1,12 +1,6 @@
 import { useQuery, useMutation, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
-import { 
-  AdminStats, 
-  UserManagement, 
-  defaultAdminStats, 
-  defaultUserList,
-  ApiResponse, 
-  API_BASE_URL 
-} from '../types/api';
+import { ApiResponse, API_BASE_URL } from '../types/api';
+import { AdminStats, UserManagement, defaultAdminStats, defaultUserList } from '../types/api.admins';
 
 // Функции для работы с API
 async function fetchAdminStats(): Promise<AdminStats> {

@@ -43,7 +43,7 @@ export const AdminUsersPage: React.FC = () => {
   if (statsError || usersError) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки данных</Alert>
+        <Alert severity="error">Error loading data</Alert>
       </Box>
     );
   }
@@ -51,16 +51,16 @@ export const AdminUsersPage: React.FC = () => {
   return (
     <Box p={3}>
       <Typography variant="h4" gutterBottom>
-        Управление пользователями
+        User Management
       </Typography>
 
-      {/* Статистика */}
+      {/* Statistics */}
       <Grid container spacing={3} mb={4}>
         <Grid item xs={12} sm={6} md={3}>
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Всего пользователей
+                Total Users
               </Typography>
               <Typography variant="h5">{stats?.totalUsers}</Typography>
             </CardContent>
@@ -70,7 +70,7 @@ export const AdminUsersPage: React.FC = () => {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Активных пользователей
+                Active Users
               </Typography>
               <Typography variant="h5">{stats?.activeUsers}</Typography>
             </CardContent>
@@ -80,9 +80,9 @@ export const AdminUsersPage: React.FC = () => {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Всего проектов
+                Total Projects
               </Typography>
-              <Typography variant="h5">{stats?.totalProjects}</Typography>
+              <Typography variant="h5">{stats?.totalScenarios}</Typography>
             </CardContent>
           </Card>
         </Grid>
@@ -90,25 +90,25 @@ export const AdminUsersPage: React.FC = () => {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Активных проектов
+                Active Projects
               </Typography>
-              <Typography variant="h5">{stats?.activeProjects}</Typography>
+              <Typography variant="h5">{stats?.activeScenarios}</Typography>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
 
-      {/* Таблица пользователей */}
+      {/* Users Table */}
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>Имя</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Роль</TableCell>
-              <TableCell>Статус</TableCell>
-              <TableCell>Действия</TableCell>
+              <TableCell>Role</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -127,7 +127,7 @@ export const AdminUsersPage: React.FC = () => {
                       color={user.status === 'active' ? 'error' : 'success'}
                       onClick={() => handleStatusChange(user.id, user.status === 'active' ? 'inactive' : 'active')}
                     >
-                      {user.status === 'active' ? 'Деактивировать' : 'Активировать'}
+                      {user.status === 'active' ? 'Deactivate' : 'Activate'}
                     </Button>
                     <Button
                       size="small"
@@ -135,7 +135,7 @@ export const AdminUsersPage: React.FC = () => {
                       color="error"
                       onClick={() => handleStatusChange(user.id, 'banned')}
                     >
-                      Забанить
+                      Ban
                     </Button>
                   </Box>
                 </TableCell>
