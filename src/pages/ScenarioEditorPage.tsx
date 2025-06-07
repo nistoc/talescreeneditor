@@ -75,7 +75,7 @@ export const ScenarioEditorPage: React.FC = () => {
   };
 
   return (
-    <Box p={3} sx={{ height: 'calc(100vh - 64px)', display: 'flex', flexDirection: 'column' }}>
+    <Box p={3} sx={{ height: isFocusMode ? 'calc(100vh - 0px)' : 'calc(100vh - 149px)', display: 'flex', flexDirection: 'column' }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
         <Box display="flex" alignItems="center" gap={2}>
           {isFocusMode && <FocusModeMenu />}

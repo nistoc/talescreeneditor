@@ -22,8 +22,7 @@ import { useFocusMode } from '../contexts/FocusModeContext';
 
 export const ScenariosPage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [page, setPage] = React.useState(1);
+  const [page] = React.useState(1);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = React.useState(false);
   const { isFocusMode } = useFocusMode();
 
