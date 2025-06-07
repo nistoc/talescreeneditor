@@ -15,6 +15,7 @@ import { ScenarioEditorPage } from './pages/ScenarioEditorPage';
 import { ProfileEditorPage } from './pages/ProfileEditorPage'; 
 import AdminPage from './pages/AdminPage';
 import { FocusModeProvider, useFocusMode } from './contexts/FocusModeContext';
+import { FocusModeMenu } from './components/FocusModeMenu';
 
 const NavigationDrawer: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
   const menuItems = [
@@ -138,9 +139,19 @@ const AppContent: React.FC = () => {
           <Routes>
             <Route path="/" element={
               <Box>
-                <Typography variant="h4" component="h1" gutterBottom>
-                  Welcome to Tales Screen Editor
-                </Typography>
+                {isFocusMode && (
+                  <Box display="flex" alignItems="center" gap={2} mb={3}>
+                    <FocusModeMenu />
+                    <Typography variant="h5" component="div">
+                      Welcome to Tales Screen Editor
+                    </Typography>
+                  </Box>
+                )}
+                {!isFocusMode && (
+                  <Typography variant="h4" component="h1" gutterBottom>
+                    Welcome to Tales Screen Editor
+                  </Typography>
+                )}
                 <Typography variant="body1">
                   This is your new React application with TypeScript and Material UI.
                 </Typography>
