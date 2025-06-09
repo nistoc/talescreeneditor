@@ -1,35 +1,43 @@
 import { create } from 'zustand';
 
+// Types
 interface ColumnProportions {
   leftPercentage: number;
   centralPercentage: number;
   rightPercentage: number;
 }
 
-interface ColumnProportionsStore {
-  proportions: ColumnProportions;
-  setProportions: (proportions: ColumnProportions) => void;
+interface ColumnCollapseState {
   isLeftCollapsed: boolean;
   isRightCollapsed: boolean;
-  toggleLeftCollapse: () => void;
-  toggleRightCollapse: () => void;
-  getEffectiveProportions: () => ColumnProportions;
 }
 
+// Constants
 const STORAGE_KEY = 'editor-column-proportions';
-
-// Default column widths in percentages (must sum up to 100%)
 const DEFAULT_COLUMN_PERCENTAGES: ColumnProportions = {
-  leftPercentage: 15,        // 15% of total width
-  centralPercentage: 50,     // 50% of total width
-  rightPercentage: 35,       // 35% of total width
+  leftPercentage: 15,
+  centralPercentage: 50,
+  rightPercentage: 35,
 };
+
+// Validation
+const validateProportions = (proportions: ColumnProportions): boolean => {
+  const sum = proportions.leftPercentage + proportions.centralPercentage + proportions.rightPercentage;
+  return Math.abs(sum - 100) < 0.01; // Allow small floating point differences
+};
+
+// Proportions Store
+interface ProportionsStore {
+  proportions: ColumnProportions;
+  setProportions: (proportions: ColumnProportions) => void;
+}
 
 const loadProportions = (): ColumnProportions => {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) {
     try {
-      return JSON.parse(stored);
+      const parsed = JSON.parse(stored);
+      return validateProportions(parsed) ? parsed : DEFAULT_COLUMN_PERCENTAGES;
     } catch {
       return DEFAULT_COLUMN_PERCENTAGES;
     }
@@ -37,29 +45,60 @@ const loadProportions = (): ColumnProportions => {
   return DEFAULT_COLUMN_PERCENTAGES;
 };
 
-export const useColumnProportions = create<ColumnProportionsStore>((set, get) => ({
+export const useProportionsStore = create<ProportionsStore>((set) => ({
   proportions: loadProportions(),
   setProportions: (proportions: ColumnProportions) => {
+    if (!validateProportions(proportions)) {
+      console.warn('Invalid proportions: sum must be 100%');
+      return;
+    }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(proportions));
     set({ proportions });
   },
+}));
+
+// Collapse Store
+interface CollapseStore {
+  isLeftCollapsed: boolean;
+  isRightCollapsed: boolean;
+  toggleLeftCollapse: () => void;
+  toggleRightCollapse: () => void;
+}
+
+export const useCollapseStore = create<CollapseStore>((set) => ({
   isLeftCollapsed: false,
   isRightCollapsed: false,
-  toggleLeftCollapse: () => set((state: ColumnProportionsStore) => ({ isLeftCollapsed: !state.isLeftCollapsed })),
-  toggleRightCollapse: () => set((state: ColumnProportionsStore) => ({ isRightCollapsed: !state.isRightCollapsed })),
-  getEffectiveProportions: () => {
-    const state = get();
-    const { proportions, isLeftCollapsed, isRightCollapsed } = state;
-    
-    // If no columns are collapsed, return original proportions
+  toggleLeftCollapse: () => set((state) => ({ isLeftCollapsed: !state.isLeftCollapsed })),
+  toggleRightCollapse: () => set((state) => ({ isRightCollapsed: !state.isRightCollapsed })),
+}));
+
+// Combined hook for convenience
+export const useColumnProportions = () => {
+  const proportions = useProportionsStore((state) => state.proportions);
+  const setProportions = useProportionsStore((state) => state.setProportions);
+  const { isLeftCollapsed, isRightCollapsed, toggleLeftCollapse, toggleRightCollapse } = useCollapseStore();
+
+  const getEffectiveProportions = (): ColumnProportions => {
     if (!isLeftCollapsed && !isRightCollapsed) {
       return proportions;
     }
     
     return {
       leftPercentage: isLeftCollapsed ? 0 : proportions.leftPercentage,
-      centralPercentage: isLeftCollapsed || isRightCollapsed ? 100 - (isLeftCollapsed ? 0 : proportions.leftPercentage) - (isRightCollapsed ? 0 : proportions.rightPercentage) : proportions.centralPercentage,
+      centralPercentage: isLeftCollapsed || isRightCollapsed 
+        ? 100 - (isLeftCollapsed ? 0 : proportions.leftPercentage) - (isRightCollapsed ? 0 : proportions.rightPercentage) 
+        : proportions.centralPercentage,
       rightPercentage: isRightCollapsed ? 0 : proportions.rightPercentage
     };
-  }
-})); 
+  };
+
+  return {
+    proportions,
+    setProportions,
+    isLeftCollapsed,
+    isRightCollapsed,
+    toggleLeftCollapse,
+    toggleRightCollapse,
+    getEffectiveProportions,
+  };
+}; 
