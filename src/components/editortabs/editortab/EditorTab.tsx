@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import { useScenario } from '../../../api/scenarios';
 import { Screen } from '../../../types/api.scenarios';
 import { ScreenItem } from './ScreenItem';
+import { Player } from './Player';
+import { MainCharacterSelector } from './MainCharacterSelector';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
@@ -14,6 +16,8 @@ export const EditorTab: React.FC = () => {
   const [selectedScreenId, setSelectedScreenId] = useState<string | null>(null);
   const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>({});
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
+  const [characters, setCharacters] = useState<any[]>([]);
+  const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
 
   const { 
     getEffectiveProportions,
@@ -65,6 +69,12 @@ export const EditorTab: React.FC = () => {
   if (!scenario) {
     return <Typography>Loading...</Typography>;
   }
+
+  React.useEffect(() => {
+    if (scenario && scenario.characters) {
+      setCharacters(scenario.characters);
+    }
+  }, [scenario]);
 
   return (
     <Box sx={{ 
@@ -124,7 +134,19 @@ export const EditorTab: React.FC = () => {
         width={getColumnWidthPercentage('right')}
         buttons={defaultButtons}
       >
-        Right Content
+        <Box sx={{ mb: 2 }}>
+          <Player
+            screens={scenario.screens}
+            selectedScreenId={selectedScreenId}
+            characters={characters}
+            selectedCharacterId={selectedCharacterId}
+          />
+        </Box>
+        <MainCharacterSelector
+          characters={characters}
+          selectedCharacterId={selectedCharacterId}
+          onSelectCharacter={setSelectedCharacterId}
+        />
       </Column>
     </Box>
   );
