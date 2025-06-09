@@ -129,14 +129,18 @@ const ScreenItem: React.FC<ScreenItemProps> = ({
         sx={{
           pl: level === 0 ? 2 : 4 + (level * 3),
           borderLeft: level > 0 ? '2px solid' : 'none',
-          borderColor: 'divider',
-          backgroundColor: isSelected ? 'primary.light' :
+          borderColor: isSelected ? 'primary.main' : 'divider',
+          backgroundColor: isSelected ? 'action.selected' :
             (scrolledScreenId === screen.id ? 'warning.light' :
               (level > 0 ? 'action.hover' : 'inherit')),
           cursor: 'pointer',
           '&:hover': {
-            backgroundColor: isSelected ? 'primary.light' : 'action.hover'
-          }
+            backgroundColor: isSelected ? 'action.selected' : 'action.hover'
+          },
+          border: isSelected ? '1px solid' : 'none',
+          borderRadius: 1,
+          m: 0.5,
+          transition: 'all 0.2s ease'
         }}
       >
         {(level === 0 || hasImage) && (
