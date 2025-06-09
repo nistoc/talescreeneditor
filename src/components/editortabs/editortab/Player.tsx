@@ -27,10 +27,10 @@ function findScreenById(screens: any[], id: string | null): any | undefined {
 export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selectedScreenParentId, characters, selectedCharacterId, scenarioId }) => {
   const screen = findScreenById(screens, selectedScreenId);
   const parentScreen = selectedScreenParentId ? findScreenById(screens, selectedScreenParentId) : undefined;
-  const character = characters.find(c => c.id === selectedCharacterId);
+  const actorCharacter = screen?.actor?.playerId ? characters.find(c => c.id === screen.actor.playerId) : undefined;
 
   const [screenImageUrl, setScreenImageUrl] = useState<string | null>(null);
-  const [characterImageUrl, setCharacterImageUrl] = useState<string | null>(null);
+  const [actorImageUrl, setActorImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadScreenImage() {
@@ -48,58 +48,60 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selec
   }, [screen, parentScreen, scenarioId]);
 
   useEffect(() => {
-    async function loadCharacterImage() {
-      if (character && character.image) {
-        const url = await getScenarioImageUrl(scenarioId, character.image);
-        setCharacterImageUrl(url);
+    async function loadActorImage() {
+      if (actorCharacter && actorCharacter.image) {
+        const url = await getScenarioImageUrl(scenarioId, actorCharacter.image);
+        setActorImageUrl(url);
       } else {
-        setCharacterImageUrl(null);
+        setActorImageUrl(null);
       }
     }
-    loadCharacterImage();
-  }, [character, scenarioId]);
+    loadActorImage();
+  }, [actorCharacter, scenarioId]);
 
   return (
     <Paper sx={{ p: 2 }}>
       <Typography variant="h6">Player</Typography>
       {screen ? (
         <Box>
-          <Typography variant="subtitle1" sx={{ mb: 1 }}>Screen: {screen.title || screen.name || screen.id}</Typography>
-          <Divider sx={{ mb: 1 }} />
-          <Typography variant="body2"><b>ID:</b> {screen.id}</Typography>
-          <Typography variant="body2"><b>Type:</b> {screen.type}</Typography>
-          {screen.title && <Typography variant="body2"><b>Title:</b> {screen.title}</Typography>}
-          <Typography variant="body2"><b>Content:</b> {screen.content}</Typography>
-          {screenImageUrl && <Box sx={{ my: 1 }}><img src={screenImageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 120 }} /></Box>}
-          <Typography variant="body2"><b>Progress:</b> {screen.progress}</Typography>
-          {screen.notes && <Typography variant="body2"><b>Notes:</b> {screen.notes}</Typography>}
-          {screen.next && <Typography variant="body2"><b>Next:</b> {screen.next}</Typography>}
-          {screen.actor && <Typography variant="body2"><b>Actor:</b> {typeof screen.actor === 'object' ? JSON.stringify(screen.actor) : screen.actor}</Typography>}
-          {screen.availableFor && <Typography variant="body2"><b>Available For:</b> {screen.availableFor}</Typography>}
-          {screen.options && Array.isArray(screen.options) && screen.options.length > 0 && (
-            <Box sx={{ mt: 1 }}>
-              <Typography variant="body2"><b>Options:</b></Typography>
-              {screen.options.map((opt: any) => (
-                <Chip key={opt.id} label={opt.text || opt.id} size="small" sx={{ mr: 0.5, mb: 0.5 }} />
-              ))}
+          <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+            {actorCharacter && actorCharacter.id === selectedCharacterId && actorImageUrl && (
+              <Box sx={{ flex: '0 0 120px' }}>
+                <img src={actorImageUrl} alt="actor" style={{ maxWidth: '100%', maxHeight: 120 }} />
+              </Box>
+            )}
+            <Box sx={{ flex: 1 }}>
+              <Typography variant="subtitle1" sx={{ mb: 1 }}>Screen: {screen.title || screen.name || screen.id}</Typography>
+              <Divider sx={{ mb: 1 }} />
+              <Typography variant="body2"><b>ID:</b> {screen.id}</Typography>
+              <Typography variant="body2"><b>Type:</b> {screen.type}</Typography>
+              {screen.title && <Typography variant="body2"><b>Title:</b> {screen.title}</Typography>}
+              <Typography variant="body2"><b>Content:</b> {screen.content}</Typography>
+              {screenImageUrl && <Box sx={{ my: 1 }}><img src={screenImageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 120 }} /></Box>}
+              <Typography variant="body2"><b>Progress:</b> {screen.progress}</Typography>
+              {screen.notes && <Typography variant="body2"><b>Notes:</b> {screen.notes}</Typography>}
+              {screen.next && <Typography variant="body2"><b>Next:</b> {screen.next}</Typography>}
+              {screen.actor && <Typography variant="body2"><b>Actor:</b> {actorCharacter?.name || screen.actor.playerId}</Typography>}
+              {screen.availableFor && <Typography variant="body2"><b>Available For:</b> {screen.availableFor}</Typography>}
+              {screen.options && Array.isArray(screen.options) && screen.options.length > 0 && (
+                <Box sx={{ mt: 1 }}>
+                  <Typography variant="body2"><b>Options:</b></Typography>
+                  {screen.options.map((opt: any) => (
+                    <Chip key={opt.id} label={opt.text || opt.id} size="small" sx={{ mr: 0.5, mb: 0.5 }} />
+                  ))}
+                </Box>
+              )}
             </Box>
-          )}
+            {actorCharacter && actorCharacter.id !== selectedCharacterId && actorImageUrl && (
+              <Box sx={{ flex: '0 0 120px' }}>
+                <img src={actorImageUrl} alt="actor" style={{ maxWidth: '100%', maxHeight: 120 }} />
+              </Box>
+            )}
+          </Box>
         </Box>
       ) : (
         <Typography variant="body2">No screen selected</Typography>
       )}
-      <Divider sx={{ my: 2 }} />
-      <Box>
-        <Typography variant="subtitle2">Selected Character:</Typography>
-        {character ? (
-          <Box>
-            <Typography variant="body2">{character.name || character.id}</Typography>
-            {characterImageUrl && <Box sx={{ my: 1 }}><img src={characterImageUrl} alt="character" style={{ maxWidth: '100%', maxHeight: 120 }} /></Box>}
-          </Box>
-        ) : (
-          <Typography variant="body2">No character selected</Typography>
-        )}
-      </Box>
     </Paper>
   );
 }; 
