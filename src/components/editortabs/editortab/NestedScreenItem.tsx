@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, IconButton, ListItem, Typography, Tooltip } from '@mui/material';
 import { Screen } from '../../../types/api.scenarios';
 import EditIcon from '@mui/icons-material/Edit';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { getScenarioImageUrl } from '../../../services/imageUtils';
 
 interface NestedScreenItemProps {
   screen: Screen;
   level: number;
   isSelected: boolean;
   isEditing: boolean;
-  onSelect: (screenId: string) => void;
+  onSelect: (screenId: string, parentId?: string) => void;
   onEdit: (screenId: string) => void;
   onExpand: (screenId: string) => void;
   isExpanded: boolean;
+  parentId: string;
+  scenarioId: string;
 }
 
 export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
@@ -24,10 +27,26 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   onSelect,
   onEdit,
   onExpand,
-  isExpanded
+  isExpanded,
+  parentId,
+  scenarioId
 }) => {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadImage() {
+      if (screen.image) {
+        const url = await getScenarioImageUrl(scenarioId, screen.image);
+        setImageUrl(url);
+      } else {
+        setImageUrl(null);
+      }
+    }
+    loadImage();
+  }, [screen.image, scenarioId]);
+
   const handleClick = () => {
-    onSelect(screen.id);
+    onSelect(screen.id, parentId);
   };
 
   return (
@@ -59,6 +78,11 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
         <Typography variant="caption" color="text.secondary" noWrap>
           {screen.content}
         </Typography>
+        {imageUrl && (
+          <Box sx={{ my: 0.5 }}>
+            <img src={imageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 60 }} />
+          </Box>
+        )}
       </Box>
       <Box sx={{ display: 'flex', gap: 0.5 }}>
         <Tooltip title="Edit">

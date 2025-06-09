@@ -120,6 +120,7 @@ export const EditorTab: React.FC = () => {
                 onSelect={handleScreenSelect}
                 onEdit={handleScreenEdit}
                 onExpand={handleScreenExpand}
+                scenarioId={scenarioId || ''}
               />
             ))}
         </List>
