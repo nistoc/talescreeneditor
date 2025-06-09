@@ -4,7 +4,6 @@ import { Column } from '../../columnTabs/Column';
 import { useColumnProportions } from '../../columnTabs/ColumnProportions';
 import { useParams } from 'react-router-dom';
 import { useScenario } from '../../../api/scenarios';
-import { Screen } from '../../../types/api.scenarios';
 import { ScreenItem } from './ScreenItem';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
@@ -29,6 +28,12 @@ export const EditorTab: React.FC = () => {
   } = useColumnProportions();
 
   const effectiveProportions = getEffectiveProportions();
+
+  React.useEffect(() => {
+    if (scenario && scenario.characters) {
+      setCharacters(scenario.characters);
+    }
+  }, [scenario]);
 
   const getColumnWidthPercentage = (column: 'left' | 'central' | 'right') => {
     if (column === 'left' && isLeftCollapsed) return '40px';
@@ -71,12 +76,6 @@ export const EditorTab: React.FC = () => {
   if (!scenario) {
     return <Typography>Loading...</Typography>;
   }
-
-  React.useEffect(() => {
-    if (scenario && scenario.characters) {
-      setCharacters(scenario.characters);
-    }
-  }, [scenario]);
 
   return (
     <Box sx={{ 
@@ -143,6 +142,7 @@ export const EditorTab: React.FC = () => {
             selectedScreenParentId={selectedScreenParentId}
             characters={characters}
             selectedCharacterId={selectedCharacterId}
+            scenarioId={scenarioId || ''}
           />
         </Box>
         <MainCharacterSelector

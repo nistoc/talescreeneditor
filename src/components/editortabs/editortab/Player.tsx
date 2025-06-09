@@ -8,6 +8,7 @@ interface PlayerProps {
   selectedScreenParentId: string | null;
   characters: any[];
   selectedCharacterId: string | null;
+  scenarioId: string;
 }
 
 // Рекурсивный поиск экрана по id среди всех уровней
@@ -23,7 +24,7 @@ function findScreenById(screens: any[], id: string | null): any | undefined {
   return undefined;
 }
 
-export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selectedScreenParentId, characters, selectedCharacterId }) => {
+export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selectedScreenParentId, characters, selectedCharacterId, scenarioId }) => {
   const screen = findScreenById(screens, selectedScreenId);
   const parentScreen = selectedScreenParentId ? findScreenById(screens, selectedScreenParentId) : undefined;
   const character = characters.find(c => c.id === selectedCharacterId);
@@ -34,29 +35,29 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selec
   useEffect(() => {
     async function loadScreenImage() {
       if (screen && screen.image) {
-        const url = await getScenarioImageUrl(screen.id, screen.image);
+        const url = await getScenarioImageUrl(scenarioId, screen.image);
         setScreenImageUrl(url);
       } else if (parentScreen && parentScreen.image) {
-        const url = await getScenarioImageUrl(parentScreen.id, parentScreen.image);
+        const url = await getScenarioImageUrl(scenarioId, parentScreen.image);
         setScreenImageUrl(url);
       } else {
         setScreenImageUrl(null);
       }
     }
     loadScreenImage();
-  }, [screen, parentScreen]);
+  }, [screen, parentScreen, scenarioId]);
 
   useEffect(() => {
     async function loadCharacterImage() {
       if (character && character.image) {
-        const url = await getScenarioImageUrl(character.id, character.image);
+        const url = await getScenarioImageUrl(scenarioId, character.image);
         setCharacterImageUrl(url);
       } else {
         setCharacterImageUrl(null);
       }
     }
     loadCharacterImage();
-  }, [character]);
+  }, [character, scenarioId]);
 
   return (
     <Paper sx={{ p: 2 }}>
