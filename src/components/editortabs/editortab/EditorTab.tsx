@@ -14,6 +14,7 @@ export const EditorTab: React.FC = () => {
   const { data: scenario } = useScenario(scenarioId || '');
   
   const [selectedScreenId, setSelectedScreenId] = useState<string | null>(null);
+  const [selectedScreenParentId, setSelectedScreenParentId] = useState<string | null>(null);
   const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>({});
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
@@ -36,9 +37,10 @@ export const EditorTab: React.FC = () => {
     return `${effectiveProportions[percentageField]}%`;
   };
 
-  const handleScreenSelect = (screenId: string) => {
-    console.log('Selected screen:', screenId);
+  const handleScreenSelect = (screenId: string, screenParentId?: string) => {
+    console.log('Selected screen:', screenId, 'Parent:', screenParentId);
     setSelectedScreenId(screenId);
+    setSelectedScreenParentId(screenParentId || null);
   };
 
   const handleScreenExpand = (screenId: string) => {
@@ -138,6 +140,7 @@ export const EditorTab: React.FC = () => {
           <Player
             screens={scenario.screens}
             selectedScreenId={selectedScreenId}
+            selectedScreenParentId={selectedScreenParentId}
             characters={characters}
             selectedCharacterId={selectedCharacterId}
           />
