@@ -130,8 +130,8 @@ const ScreenItem: React.FC<ScreenItemProps> = ({
           pl: level === 0 ? 2 : 4 + (level * 3),
           borderLeft: level > 0 ? '2px solid' : 'none',
           borderColor: 'divider',
-          backgroundColor: isSelected ? 'primary.light' : 
-            (scrolledScreenId === screen.id ? 'warning.light' : 
+          backgroundColor: isSelected ? 'primary.light' :
+            (scrolledScreenId === screen.id ? 'warning.light' :
               (level > 0 ? 'action.hover' : 'inherit')),
           cursor: 'pointer',
           '&:hover': {
@@ -432,29 +432,27 @@ export const RootsTab: React.FC = () => {
         </Box>
       </Box>
 
-      <Paper sx={{ flex: 1, overflow: 'hidden' }}>
-        <Box sx={{ height: '100%', overflow: 'auto' }}>
-          <List>
-            {scenario.screens
-              .filter(screen => screen.type !== 'block')
-              .map((screen) => (
-                <ScreenItem
-                  key={screen.id}
-                  screen={screen}
-                  viewMode={viewMode}
-                  expanded={expandedScreens[screen.id] || allExpanded}
-                  searchResults={searchResults}
-                  selectedSearchResult={selectedSearchResult}
-                  selectedScreenId={selectedScreenId}
-                  scrolledScreenId={scrolledScreenId}
-                  onSelect={handleScreenSelect}
-                  searchQuery={searchQuery}
-                  onExpandParent={handleExpandParent}
-                />
-              ))}
-          </List>
-        </Box>
-      </Paper>
+      <Box sx={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
+        <List sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'auto' }}>
+          {scenario.screens
+            .filter(screen => screen.type !== 'block')
+            .map((screen) => (
+              <ScreenItem
+                key={screen.id}
+                screen={screen}
+                viewMode={viewMode}
+                expanded={expandedScreens[screen.id] || allExpanded}
+                searchResults={searchResults}
+                selectedSearchResult={selectedSearchResult}
+                selectedScreenId={selectedScreenId}
+                scrolledScreenId={scrolledScreenId}
+                onSelect={handleScreenSelect}
+                searchQuery={searchQuery}
+                onExpandParent={handleExpandParent}
+              />
+            ))}
+        </List>
+      </Box>
     </Box>
   );
 }; 

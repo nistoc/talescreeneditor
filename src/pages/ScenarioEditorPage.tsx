@@ -4,7 +4,6 @@ import { useScenario } from '../api/scenarios';
 import {
   Box,
   Typography,
-  Paper,
   Button,
   CircularProgress,
   Alert,
@@ -75,7 +74,12 @@ export const ScenarioEditorPage: React.FC = () => {
   };
 
   return (
-    <Box p={3} sx={{ height: isFocusMode ? 'calc(100vh - 0px)' : 'calc(100vh - 149px)', display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ 
+      height: isFocusMode ? 'calc(100vh - 0px)' : 'calc(100vh - 149px)', 
+      display: 'flex', 
+      flexDirection: 'column',
+      p: 3
+    }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
         <Box display="flex" alignItems="center" gap={2}>
           {isFocusMode && <FocusModeMenu />}
@@ -119,7 +123,7 @@ export const ScenarioEditorPage: React.FC = () => {
         </ButtonGroup>
       </Box>
 
-      <Paper sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         {!isFocusMode && (
           <Box sx={{ mb: 3 }}>
             <Typography variant="h4" component="div">
@@ -129,7 +133,7 @@ export const ScenarioEditorPage: React.FC = () => {
         )}
 
         {renderTabContent()}
-      </Paper>
+      </Box>
     </Box>
   );
 }; 
