@@ -10,7 +10,7 @@ import {
   ButtonGroup,
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { EditorTab } from '../components/editortabs/EditorTab';
+import { EditorTab } from '../components/editortabs/editortab/EditorTab';
 import { CharactersTab } from '../components/editortabs/CharactersTab';
 import { JsonTab } from '../components/editortabs/JsonTab';
 import { RootsTab } from '../components/editortabs/RootsTab';
