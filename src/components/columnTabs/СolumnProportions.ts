@@ -1,16 +1,28 @@
 import { create } from 'zustand';
 
 // Types
+type Percentage = number;
+
 interface ColumnProportions {
-  leftPercentage: number;
-  centralPercentage: number;
-  rightPercentage: number;
+  leftPercentage: Percentage;
+  centralPercentage: Percentage;
+  rightPercentage: Percentage;
 }
 
-interface ColumnCollapseState {
+interface ColumnState {
+  proportions: ColumnProportions;
   isLeftCollapsed: boolean;
   isRightCollapsed: boolean;
 }
+
+interface ColumnActions {
+  setProportions: (proportions: ColumnProportions) => void;
+  toggleLeftCollapse: () => void;
+  toggleRightCollapse: () => void;
+  getEffectiveProportions: () => ColumnProportions;
+}
+
+type ColumnStore = ColumnState & ColumnActions;
 
 // Constants
 const STORAGE_KEY = 'editor-column-proportions';
@@ -22,63 +34,65 @@ const DEFAULT_COLUMN_PERCENTAGES: ColumnProportions = {
 
 // Validation
 const validateProportions = (proportions: ColumnProportions): boolean => {
-  const sum = proportions.leftPercentage + proportions.centralPercentage + proportions.rightPercentage;
-  return Math.abs(sum - 100) < 0.01; // Allow small floating point differences
-};
-
-// Proportions Store
-interface ProportionsStore {
-  proportions: ColumnProportions;
-  setProportions: (proportions: ColumnProportions) => void;
-}
-
-const loadProportions = (): ColumnProportions => {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    try {
-      const parsed = JSON.parse(stored);
-      return validateProportions(parsed) ? parsed : DEFAULT_COLUMN_PERCENTAGES;
-    } catch {
-      return DEFAULT_COLUMN_PERCENTAGES;
-    }
+  const { leftPercentage, centralPercentage, rightPercentage } = proportions;
+  
+  // Check if all percentages are non-negative
+  if (leftPercentage < 0 || centralPercentage < 0 || rightPercentage < 0) {
+    return false;
   }
-  return DEFAULT_COLUMN_PERCENTAGES;
+
+  // Check if sum is approximately 100%
+  const sum = leftPercentage + centralPercentage + rightPercentage;
+  return Math.abs(sum - 100) < 0.01;
 };
 
-export const useProportionsStore = create<ProportionsStore>((set) => ({
+// Storage
+const loadProportions = (): ColumnProportions => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return DEFAULT_COLUMN_PERCENTAGES;
+
+    const parsed = JSON.parse(stored);
+    return validateProportions(parsed) ? parsed : DEFAULT_COLUMN_PERCENTAGES;
+  } catch (error) {
+    console.error('Failed to load column proportions:', error);
+    return DEFAULT_COLUMN_PERCENTAGES;
+  }
+};
+
+// Store
+export const useColumnStore = create<ColumnStore>((set, get) => ({
+  // State
   proportions: loadProportions(),
-  setProportions: (proportions: ColumnProportions) => {
-    if (!validateProportions(proportions)) {
-      console.warn('Invalid proportions: sum must be 100%');
-      return;
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(proportions));
-    set({ proportions });
-  },
-}));
-
-// Collapse Store
-interface CollapseStore {
-  isLeftCollapsed: boolean;
-  isRightCollapsed: boolean;
-  toggleLeftCollapse: () => void;
-  toggleRightCollapse: () => void;
-}
-
-export const useCollapseStore = create<CollapseStore>((set) => ({
   isLeftCollapsed: false,
   isRightCollapsed: false,
-  toggleLeftCollapse: () => set((state) => ({ isLeftCollapsed: !state.isLeftCollapsed })),
-  toggleRightCollapse: () => set((state) => ({ isRightCollapsed: !state.isRightCollapsed })),
-}));
 
-// Combined hook for convenience
-export const useColumnProportions = () => {
-  const proportions = useProportionsStore((state) => state.proportions);
-  const setProportions = useProportionsStore((state) => state.setProportions);
-  const { isLeftCollapsed, isRightCollapsed, toggleLeftCollapse, toggleRightCollapse } = useCollapseStore();
+  // Actions
+  setProportions: (proportions: ColumnProportions) => {
+    if (!validateProportions(proportions)) {
+      console.warn('Invalid proportions: sum must be 100% and all values must be non-negative');
+      return;
+    }
+    
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(proportions));
+      set({ proportions });
+    } catch (error) {
+      console.error('Failed to save column proportions:', error);
+    }
+  },
 
-  const getEffectiveProportions = (): ColumnProportions => {
+  toggleLeftCollapse: () => set((state) => ({ 
+    isLeftCollapsed: !state.isLeftCollapsed 
+  })),
+
+  toggleRightCollapse: () => set((state) => ({ 
+    isRightCollapsed: !state.isRightCollapsed 
+  })),
+
+  getEffectiveProportions: () => {
+    const { proportions, isLeftCollapsed, isRightCollapsed } = get();
+    
     if (!isLeftCollapsed && !isRightCollapsed) {
       return proportions;
     }
@@ -90,15 +104,14 @@ export const useColumnProportions = () => {
         : proportions.centralPercentage,
       rightPercentage: isRightCollapsed ? 0 : proportions.rightPercentage
     };
-  };
+  }
+}));
 
+// Convenience hook
+export const useColumnProportions = () => {
+  const store = useColumnStore();
   return {
-    proportions,
-    setProportions,
-    isLeftCollapsed,
-    isRightCollapsed,
-    toggleLeftCollapse,
-    toggleRightCollapse,
-    getEffectiveProportions,
+    ...store,
+    proportions: store.getEffectiveProportions()
   };
 }; 
