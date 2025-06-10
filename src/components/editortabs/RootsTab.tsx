@@ -129,14 +129,18 @@ const ScreenItem: React.FC<ScreenItemProps> = ({
         sx={{
           pl: level === 0 ? 2 : 4 + (level * 3),
           borderLeft: level > 0 ? '2px solid' : 'none',
-          borderColor: 'divider',
-          backgroundColor: isSelected ? 'primary.light' : 
-            (scrolledScreenId === screen.id ? 'warning.light' : 
+          borderColor: isSelected ? 'primary.main' : 'divider',
+          backgroundColor: isSelected ? 'action.selected' :
+            (scrolledScreenId === screen.id ? 'warning.light' :
               (level > 0 ? 'action.hover' : 'inherit')),
           cursor: 'pointer',
           '&:hover': {
-            backgroundColor: isSelected ? 'primary.light' : 'action.hover'
-          }
+            backgroundColor: isSelected ? 'action.selected' : 'action.hover'
+          },
+          border: isSelected ? '1px solid' : 'none',
+          borderRadius: 1,
+          m: 0.5,
+          transition: 'all 0.2s ease'
         }}
       >
         {(level === 0 || hasImage) && (
@@ -144,35 +148,81 @@ const ScreenItem: React.FC<ScreenItemProps> = ({
             <Avatar src={screen.image} alt={screen.type} />
           </ListItemAvatar>
         )}
-        <ListItemText
-          primary={
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Typography variant="body1" component="span">
-                {highlightText(screen.type, 'type')} - {highlightText(screen.id, 'id')}
+        <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+          <ListItemText
+            primary={
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Typography variant="body1" component="span">
+                  {highlightText(screen.type, 'type')} - {highlightText(screen.id, 'id')}
+                </Typography>
+                {hasChildren && (
+                  <Typography variant="caption" color="text.secondary">
+                    ({screen.screens.length} screens)
+                  </Typography>
+                )}
+              </Box>
+            }
+          />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 0.5 }}>
+            {highlightText(screen.content, 'content')}
+            {screen.notes && (
+              <Typography variant="caption" display="block" color="text.secondary">
+                Notes: {highlightText(screen.notes, 'notes')}
               </Typography>
-              {hasChildren && (
-                <Typography variant="caption" color="text.secondary">
-                  ({screen.screens.length} screens)
-                </Typography>
-              )}
-            </Box>
-          }
-          secondary={
-            <>
-              {highlightText(screen.content, 'content')}
-              {screen.notes && (
-                <Typography variant="caption" display="block" color="text.secondary">
-                  Notes: {highlightText(screen.notes, 'notes')}
-                </Typography>
-              )}
-              {screen.next && (
-                <Typography variant="caption" display="block" color="text.secondary">
-                  Next: {highlightText(screen.next, 'next')}
-                </Typography>
-              )}
-            </>
-          }
-        />
+            )}
+            {screen.next && (
+              <Typography variant="caption" display="block" color="text.secondary">
+                Next: {highlightText(screen.next, 'next')}
+              </Typography>
+            )}
+            {'actor' in screen && screen.actor && (
+              <Typography variant="caption" display="block" color="text.secondary">
+                Actor: {highlightText(screen.actor.playerId, 'actor')}
+              </Typography>
+            )}
+            {'options' in screen && screen.options && screen.options.length > 0 && (
+              <Typography variant="caption" display="block" color="text.secondary">
+                <Box sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 0.5,
+                  mt: 0.5,
+                  p: 1,
+                  bgcolor: 'action.hover',
+                  borderRadius: 1
+                }}>
+                  <Typography variant="caption" fontWeight="bold" color="primary">
+                    Options:
+                  </Typography>
+                  {screen.options.map((option, index) => (
+                    <Box
+                      key={option.id}
+                      sx={{
+                        pl: 1,
+                        borderLeft: '2px solid',
+                        borderColor: 'primary.main',
+                        '&:hover': {
+                          bgcolor: 'action.selected'
+                        }
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                        <Box>{highlightText(option.text, 'options')}</Box>
+                        <Box sx={{ display: 'flex', gap: 1, fontSize: '0.75rem', color: 'text.secondary' }}>
+                          {option.price && (
+                            <Typography variant="caption">
+                              Cost: {highlightText(option.price.value.toString(), 'options')}
+                            </Typography>
+                          )}
+                        </Box>
+                      </Box>
+                    </Box>
+                  ))}
+                </Box>
+              </Typography>
+            )}
+          </Box>
+        </Box>
         {hasChildren && viewMode === 'withChildren' && (
           <IconButton
             size="small"
@@ -260,6 +310,22 @@ export const RootsTab: React.FC = () => {
     if (screen.image?.toLowerCase().includes(queryLower)) matchedFields.push('image');
     if (screen.notes?.toLowerCase().includes(queryLower)) matchedFields.push('notes');
     if (screen.next?.toLowerCase().includes(queryLower)) matchedFields.push('next');
+
+    // Add actor search
+    if ('actor' in screen && screen.actor?.playerId?.toLowerCase().includes(queryLower)) {
+      matchedFields.push('actor');
+    }
+
+    // Add options search
+    if ('options' in screen && screen.options) {
+      const hasMatchingOption = screen.options.some(option =>
+        option.text.toLowerCase().includes(queryLower) ||
+        option.id.toLowerCase().includes(queryLower)
+      );
+      if (hasMatchingOption) {
+        matchedFields.push('options');
+      }
+    }
 
     // If any matches found, add to results
     if (matchedFields.length > 0) {
@@ -432,29 +498,27 @@ export const RootsTab: React.FC = () => {
         </Box>
       </Box>
 
-      <Paper sx={{ flex: 1, overflow: 'hidden' }}>
-        <Box sx={{ height: '100%', overflow: 'auto' }}>
-          <List>
-            {scenario.screens
-              .filter(screen => screen.type !== 'block')
-              .map((screen) => (
-                <ScreenItem
-                  key={screen.id}
-                  screen={screen}
-                  viewMode={viewMode}
-                  expanded={expandedScreens[screen.id] || allExpanded}
-                  searchResults={searchResults}
-                  selectedSearchResult={selectedSearchResult}
-                  selectedScreenId={selectedScreenId}
-                  scrolledScreenId={scrolledScreenId}
-                  onSelect={handleScreenSelect}
-                  searchQuery={searchQuery}
-                  onExpandParent={handleExpandParent}
-                />
-              ))}
-          </List>
-        </Box>
-      </Paper>
+      <Box sx={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
+        <List sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'auto' }}>
+          {scenario.screens
+            .filter(screen => screen.type !== 'block')
+            .map((screen) => (
+              <ScreenItem
+                key={screen.id}
+                screen={screen}
+                viewMode={viewMode}
+                expanded={expandedScreens[screen.id] || allExpanded}
+                searchResults={searchResults}
+                selectedSearchResult={selectedSearchResult}
+                selectedScreenId={selectedScreenId}
+                scrolledScreenId={scrolledScreenId}
+                onSelect={handleScreenSelect}
+                searchQuery={searchQuery}
+                onExpandParent={handleExpandParent}
+              />
+            ))}
+        </List>
+      </Box>
     </Box>
   );
 }; 
