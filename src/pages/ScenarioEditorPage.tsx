@@ -10,6 +10,7 @@ import {
   ButtonGroup,
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { IntroTab } from '../components/editortabs/IntroTab';
 import { EditorTab } from '../components/editortabs/editortab/EditorTab';
 import { CharactersTab } from '../components/editortabs/CharactersTab';
 import { JsonTab } from '../components/editortabs/JsonTab';
@@ -17,7 +18,7 @@ import { RootsTab } from '../components/editortabs/RootsTab';
 import { FocusModeMenu } from '../components/FocusModeMenu';
 import { useFocusMode } from '../contexts/FocusModeContext';
 
-type TabType = 'editor' | 'characters' | 'json' | 'roots';
+type TabType = 'intro' | 'editor' | 'characters' | 'json' | 'roots';
 
 export const ScenarioEditorPage: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
@@ -32,7 +33,7 @@ export const ScenarioEditorPage: React.FC = () => {
   // Get initial tab from URL hash or default to 'editor'
   const getInitialTab = (): TabType => {
     const hash = location.hash.replace('#', '');
-    return ['editor', 'characters', 'json', 'roots'].includes(hash) ? hash as TabType : 'editor';
+    return ['intro', 'editor', 'characters', 'json', 'roots'].includes(hash) ? hash as TabType : 'editor';
   };
 
   const [activeTab, setActiveTab] = useState<TabType>(getInitialTab());
@@ -60,6 +61,8 @@ export const ScenarioEditorPage: React.FC = () => {
 
   const renderTabContent = () => {
     switch (activeTab) {
+      case 'intro':
+        return <IntroTab />;
       case 'editor':
         return <EditorTab />;
       case 'characters':
@@ -96,6 +99,12 @@ export const ScenarioEditorPage: React.FC = () => {
           )}
         </Box>
         <ButtonGroup variant="contained">
+          <Button
+            onClick={() => setActiveTab('intro')}
+            disabled={activeTab === 'intro'}
+          >
+            Intro
+          </Button>
           <Button
             onClick={() => setActiveTab('editor')}
             disabled={activeTab === 'editor'}
