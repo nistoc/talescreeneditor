@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Typography,
@@ -41,6 +41,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { useScenario } from '../../api/scenarios';
 import { useUpdateCharacterOrder, useUpdateCharacter, useDeleteCharacter, useAddCharacter } from '../../api/scenarios.characters';
 import { Character } from '../../types/api.scenarios';
+import { getScenarioImageUrl } from '../../services/imageUtils';
 
 interface CharacterFormData {
   name: string;
@@ -66,6 +67,21 @@ interface SortableCharacterItemProps {
 }
 
 const SortableCharacterItem: React.FC<SortableCharacterItemProps> = ({ character, index, onEdit, onDelete }) => {
+  const { scenarioId } = useParams<{ scenarioId: string }>();
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadImage() {
+      if (character.image && scenarioId) {
+        const url = await getScenarioImageUrl(scenarioId, character.image);
+        setImageUrl(url);
+      } else {
+        setImageUrl(null);
+      }
+    }
+    loadImage();
+  }, [character.image, scenarioId]);
+
   const {
     attributes,
     listeners,
@@ -80,67 +96,119 @@ const SortableCharacterItem: React.FC<SortableCharacterItemProps> = ({ character
   };
 
   return (
-    <ListItem
+    <Paper
+      ref={setNodeRef}
+      {...attributes}
+      {...listeners}
       sx={{
+        width: '100%',
+        maxWidth: 200,
+        cursor: 'grab',
+        '&:active': {
+          cursor: 'grabbing',
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'visible',
+        border: '1px solid',
+        borderColor: 'divider',
         '&:hover': {
-          backgroundColor: 'rgba(0, 0, 0, 0.04)',
-          transition: 'background-color 0.2s ease',
+          boxShadow: 2,
         }
       }}
+      style={style}
     >
-      <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' }}>
-        <Box
-          ref={setNodeRef}
-          {...attributes}
-          {...listeners}
-          sx={{
+      <Box sx={{ 
+        width: '100%',
+        aspectRatio: '1',
+        position: 'relative',
+        bgcolor: 'action.hover'
+      }}>
+        {imageUrl ? (
+          <img 
+            src={imageUrl} 
+            alt={character.name}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
+            }}
+          />
+        ) : (
+          <Box sx={{
+            width: '100%',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
-            flex: 1,
-            cursor: 'grab',
-            '&:active': {
-              cursor: 'grabbing',
-            }
-          }}
-          style={style}
-        >
-          <ListItemAvatar>
-            <Avatar src={character.image} alt={character.name} />
-          </ListItemAvatar>
-          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-            <ListItemText primary={character.name} />
-            <Box sx={{ display: 'flex', gap: 1, mt: 0.5 }}>
-              <Chip
-                size="small"
-                label={character.type}
-                color={character.type === 'player' ? 'primary' : 'default'}
-              />
-              <Chip
-                size="small"
-                label={character.gender}
-                color={character.gender === 'mal' ? 'info' : 'secondary'}
-              />
-            </Box>
+            justifyContent: 'center',
+            fontSize: '3rem',
+            color: 'text.secondary'
+          }}>
+            {character.name[0]}
           </Box>
-        </Box>
-        <Box>
-          <IconButton
-            edge="end"
-            aria-label="edit"
-            onClick={() => onEdit(character, index)}
+        )}
+        <Box sx={{ 
+          position: 'absolute',
+          top: 5,
+          right: 5,
+          display: 'flex',
+          gap: 0.5,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          borderRadius: 1,
+          p: 0.5
+        }}>
+          <IconButton 
+            onMouseUp={(e) => {
+              e.stopPropagation();
+              onEdit(character, index);
+            }} 
+            size="small"
           >
-            <EditIcon />
+            <EditIcon fontSize="small" />
           </IconButton>
-          <IconButton
-            edge="end"
-            aria-label="delete"
-            onClick={() => onDelete(character.id)}
+          <IconButton 
+            onMouseUp={(e) => {
+              e.stopPropagation();
+              onDelete(character.id);
+            }} 
+            size="small"
           >
-            <DeleteIcon />
+            <DeleteIcon fontSize="small" />
           </IconButton>
         </Box>
       </Box>
-    </ListItem>
+      <Box sx={{ p: '5px 5px', minHeight: 0 }}>
+        <Typography variant="subtitle1" sx={{ wordBreak: 'break-word' }}>
+          {character.name}
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 0.5, mt: 0.5, flexWrap: 'wrap' }}>
+          <Chip
+            size="small"
+            label={character.type}
+            color={character.type === 'player' ? 'primary' : 'default'}
+          />
+          <Chip
+            size="small"
+            label={character.gender}
+            color={character.gender === 'mal' ? 'info' : 'secondary'}
+          />
+        </Box>
+        {character.notes && (
+          <Typography 
+            variant="caption" 
+            color="text.secondary"
+            sx={{
+              display: 'block',
+              mt: 0.5,
+              wordBreak: 'break-word',
+              whiteSpace: 'pre-wrap'
+            }}
+          >
+            {character.notes}
+          </Typography>
+        )}
+      </Box>
+    </Paper>
   );
 };
 
@@ -247,59 +315,74 @@ export const CharactersTab: React.FC = () => {
   if (!scenario) return null;
 
   return (
-    <Box>
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h6" component="div">Characters</Typography>
+    <Box sx={{ p: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+        <Typography variant="h6">Characters</Typography>
         <Button
           variant="contained"
           color="primary"
-          onClick={() => setIsAddDialogOpen(true)}
+          onClick={() => {
+            setFormData(defaultCharacterForm);
+            setIsAddDialogOpen(true);
+          }}
         >
           Add Character
         </Button>
       </Box>
 
-      <Paper>
-        <DndContext
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <SortableContext
+          items={scenario?.characters.map(char => char.id) || []}
+          strategy={verticalListSortingStrategy}
         >
-          <SortableContext
-            items={scenario.characters.map(char => char.id)}
-            strategy={verticalListSortingStrategy}
-          >
-            <List>
-              {scenario.characters.map((character, index) => (
-                <SortableCharacterItem
-                  key={character.id}
-                  character={character}
-                  index={index}
-                  onEdit={openEditDialog}
-                  onDelete={handleDeleteCharacter}
-                />
-              ))}
-            </List>
-          </SortableContext>
-        </DndContext>
-      </Paper>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+            gap: 2,
+            p: 1,
+            '& > *': {
+              height: 'fit-content'
+            }
+          }}>
+            {scenario?.characters.map((character, index) => (
+              <SortableCharacterItem
+                key={character.id}
+                character={character}
+                index={index}
+                onEdit={openEditDialog}
+                onDelete={handleDeleteCharacter}
+              />
+            ))}
+          </Box>
+        </SortableContext>
+      </DndContext>
 
       {/* Add Character Dialog */}
       <Dialog 
         open={isAddDialogOpen} 
         onClose={() => setIsAddDialogOpen(false)}
-        keepMounted={false}
-        disableEnforceFocus
+        maxWidth="md"
+        fullWidth
       >
-        <DialogTitle>Add New Character</DialogTitle>
+        <DialogTitle>Add Character</DialogTitle>
         <DialogContent>
-          <Box display="flex" flexDirection="column" gap={2} mt={1}>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 2,
+            mt: 1,
+            width: '100%'
+          }}>
             <TextField
               label="Name"
               value={formData.name}
               onChange={handleFormChange('name')}
               fullWidth
-              autoFocus
+              required
             />
             <TextField
               select
@@ -307,6 +390,7 @@ export const CharactersTab: React.FC = () => {
               value={formData.type}
               onChange={handleFormChange('type')}
               fullWidth
+              required
             >
               <MenuItem value="player">Player</MenuItem>
               <MenuItem value="npc">NPC</MenuItem>
@@ -317,12 +401,13 @@ export const CharactersTab: React.FC = () => {
               value={formData.gender}
               onChange={handleFormChange('gender')}
               fullWidth
+              required
             >
               <MenuItem value="mal">Male</MenuItem>
               <MenuItem value="fem">Female</MenuItem>
             </TextField>
             <TextField
-              label="Image URL"
+              label="Image"
               value={formData.image}
               onChange={handleFormChange('image')}
               fullWidth
@@ -331,15 +416,20 @@ export const CharactersTab: React.FC = () => {
               label="Notes"
               value={formData.notes}
               onChange={handleFormChange('notes')}
+              fullWidth
               multiline
               rows={4}
-              fullWidth
+              sx={{ gridColumn: '1 / -1' }}
             />
           </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setIsAddDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleAddCharacter} variant="contained" color="primary">
+          <Button 
+            onClick={handleAddCharacter} 
+            variant="contained" 
+            color="primary"
+          >
             Add
           </Button>
         </DialogActions>
@@ -349,18 +439,26 @@ export const CharactersTab: React.FC = () => {
       <Dialog 
         open={isEditDialogOpen} 
         onClose={() => setIsEditDialogOpen(false)}
-        keepMounted={false}
-        disableEnforceFocus
+        maxWidth="md"
+        fullWidth
       >
-        <DialogTitle>Edit Character</DialogTitle>
+        <DialogTitle>
+          {isAddDialogOpen ? 'Add Character' : 'Edit Character'}
+        </DialogTitle>
         <DialogContent>
-          <Box display="flex" flexDirection="column" gap={2} mt={1}>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 2,
+            mt: 1,
+            width: '100%'
+          }}>
             <TextField
               label="Name"
               value={formData.name}
               onChange={handleFormChange('name')}
               fullWidth
-              autoFocus
+              required
             />
             <TextField
               select
@@ -368,6 +466,7 @@ export const CharactersTab: React.FC = () => {
               value={formData.type}
               onChange={handleFormChange('type')}
               fullWidth
+              required
             >
               <MenuItem value="player">Player</MenuItem>
               <MenuItem value="npc">NPC</MenuItem>
@@ -378,12 +477,13 @@ export const CharactersTab: React.FC = () => {
               value={formData.gender}
               onChange={handleFormChange('gender')}
               fullWidth
+              required
             >
               <MenuItem value="mal">Male</MenuItem>
               <MenuItem value="fem">Female</MenuItem>
             </TextField>
             <TextField
-              label="Image URL"
+              label="Image"
               value={formData.image}
               onChange={handleFormChange('image')}
               fullWidth
@@ -392,15 +492,20 @@ export const CharactersTab: React.FC = () => {
               label="Notes"
               value={formData.notes}
               onChange={handleFormChange('notes')}
+              fullWidth
               multiline
               rows={4}
-              fullWidth
+              sx={{ gridColumn: '1 / -1' }}
             />
           </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleEditCharacter} variant="contained" color="primary">
+          <Button 
+            onClick={handleEditCharacter} 
+            variant="contained" 
+            color="primary"
+          >
             Save
           </Button>
         </DialogActions>
