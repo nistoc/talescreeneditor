@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
-  IconButton,
   Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-  MenuItem,
-  Chip,
   Paper,
+  Chip,
+  IconButton,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -42,22 +31,10 @@ import { useScenario } from '../../api/scenarios';
 import { useUpdateCharacterOrder, useUpdateCharacter, useDeleteCharacter, useAddCharacter } from '../../api/scenarios.characters';
 import { Character } from '../../types/api.scenarios';
 import { getScenarioImageUrl } from '../../services/imageUtils';
-
-interface CharacterFormData {
-  name: string;
-  type: 'player' | 'npc';
-  gender: 'mal' | 'fem';
-  image: string;
-  notes: string;
-}
-
-const defaultCharacterForm: CharacterFormData = {
-  name: '',
-  type: 'npc',
-  gender: 'mal',
-  image: '',
-  notes: '',
-};
+import { CharacterFormData, defaultCharacterForm } from '../../modals/types/character';
+import { CharacterAddModal } from '../../modals/CharacterAddModal';
+import { CharacterEditModal } from '../../modals/CharacterEditModal';
+import { CharacterDeleteModal } from '../../modals/CharacterDeleteModal';
 
 interface SortableCharacterItemProps {
   character: Character;
@@ -70,7 +47,7 @@ const SortableCharacterItem: React.FC<SortableCharacterItemProps> = ({ character
   const { scenarioId } = useParams<{ scenarioId: string }>();
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     async function loadImage() {
       if (character.image && scenarioId) {
         const url = await getScenarioImageUrl(scenarioId, character.image);
@@ -177,7 +154,7 @@ const SortableCharacterItem: React.FC<SortableCharacterItemProps> = ({ character
           </IconButton>
         </Box>
       </Box>
-      <Box sx={{ p: '5px 5px', minHeight: 0 }}>
+      <Box sx={{m: '10px', minHeight: 0 }}>
         <Typography variant="subtitle1" sx={{ wordBreak: 'break-word' }}>
           {character.name}
         </Typography>
@@ -308,7 +285,7 @@ export const CharactersTab: React.FC = () => {
   ) => {
     setFormData(prev => ({
       ...prev,
-      [field]: event.target.value,
+      [field]: event.target.value as CharacterFormData[keyof CharacterFormData],
     }));
   };
 
@@ -361,184 +338,31 @@ export const CharactersTab: React.FC = () => {
         </SortableContext>
       </DndContext>
 
-      {/* Add Character Dialog */}
-      <Dialog 
-        open={isAddDialogOpen} 
+      <CharacterAddModal
+        open={isAddDialogOpen}
         onClose={() => setIsAddDialogOpen(false)}
-        maxWidth="md"
-        fullWidth
-      >
-        <DialogTitle>Add Character</DialogTitle>
-        <DialogContent>
-          <Box sx={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: 2,
-            mt: 1,
-            width: '100%'
-          }}>
-            <TextField
-              label="Name"
-              value={formData.name}
-              onChange={handleFormChange('name')}
-              fullWidth
-              required
-            />
-            <TextField
-              select
-              label="Type"
-              value={formData.type}
-              onChange={handleFormChange('type')}
-              fullWidth
-              required
-            >
-              <MenuItem value="player">Player</MenuItem>
-              <MenuItem value="npc">NPC</MenuItem>
-            </TextField>
-            <TextField
-              select
-              label="Gender"
-              value={formData.gender}
-              onChange={handleFormChange('gender')}
-              fullWidth
-              required
-            >
-              <MenuItem value="mal">Male</MenuItem>
-              <MenuItem value="fem">Female</MenuItem>
-            </TextField>
-            <TextField
-              label="Image"
-              value={formData.image}
-              onChange={handleFormChange('image')}
-              fullWidth
-            />
-            <TextField
-              label="Notes"
-              value={formData.notes}
-              onChange={handleFormChange('notes')}
-              fullWidth
-              multiline
-              rows={4}
-              sx={{ gridColumn: '1 / -1' }}
-            />
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsAddDialogOpen(false)}>Cancel</Button>
-          <Button 
-            onClick={handleAddCharacter} 
-            variant="contained" 
-            color="primary"
-          >
-            Add
-          </Button>
-        </DialogActions>
-      </Dialog>
+        formData={formData}
+        onFormChange={handleFormChange}
+        onAdd={handleAddCharacter}
+      />
 
-      {/* Edit Character Dialog */}
-      <Dialog 
-        open={isEditDialogOpen} 
+      <CharacterEditModal
+        open={isEditDialogOpen}
         onClose={() => setIsEditDialogOpen(false)}
-        maxWidth="md"
-        fullWidth
-      >
-        <DialogTitle>
-          {isAddDialogOpen ? 'Add Character' : 'Edit Character'}
-        </DialogTitle>
-        <DialogContent>
-          <Box sx={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: 2,
-            mt: 1,
-            width: '100%'
-          }}>
-            <TextField
-              label="Name"
-              value={formData.name}
-              onChange={handleFormChange('name')}
-              fullWidth
-              required
-            />
-            <TextField
-              select
-              label="Type"
-              value={formData.type}
-              onChange={handleFormChange('type')}
-              fullWidth
-              required
-            >
-              <MenuItem value="player">Player</MenuItem>
-              <MenuItem value="npc">NPC</MenuItem>
-            </TextField>
-            <TextField
-              select
-              label="Gender"
-              value={formData.gender}
-              onChange={handleFormChange('gender')}
-              fullWidth
-              required
-            >
-              <MenuItem value="mal">Male</MenuItem>
-              <MenuItem value="fem">Female</MenuItem>
-            </TextField>
-            <TextField
-              label="Image"
-              value={formData.image}
-              onChange={handleFormChange('image')}
-              fullWidth
-            />
-            <TextField
-              label="Notes"
-              value={formData.notes}
-              onChange={handleFormChange('notes')}
-              fullWidth
-              multiline
-              rows={4}
-              sx={{ gridColumn: '1 / -1' }}
-            />
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
-          <Button 
-            onClick={handleEditCharacter} 
-            variant="contained" 
-            color="primary"
-          >
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
+        formData={formData}
+        onFormChange={handleFormChange}
+        onSave={handleEditCharacter}
+      />
 
-      {/* Delete Confirmation Dialog */}
-      <Dialog
+      <CharacterDeleteModal
         open={isDeleteDialogOpen}
         onClose={() => {
           setIsDeleteDialogOpen(false);
           setCharacterToDelete(null);
         }}
-        keepMounted={false}
-        disableEnforceFocus
-      >
-        <DialogTitle>Delete Character</DialogTitle>
-        <DialogContent>
-          <Typography>
-            Are you sure you want to delete character "{characterToDelete?.name}"?
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => {
-            setIsDeleteDialogOpen(false);
-            setCharacterToDelete(null);
-          }}>
-            Cancel
-          </Button>
-          <Button onClick={confirmDelete} color="error" variant="contained">
-            Delete
-          </Button>
-        </DialogActions>
-      </Dialog>
+        character={characterToDelete}
+        onConfirm={confirmDelete}
+      />
     </Box>
   );
 }; 
