@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Paper, Typography, Grid } from '@mui/material';
 import { getScenarioImageUrl } from '../../../services/imageUtils';
+import { Character } from '../../../types/api.scenarios';
 
 interface MainCharacterSelectorProps {
-  characters: any[];
+  characters: Character[];
   selectedCharacterId: string | null;
   onSelectCharacter: (id: string) => void;
   scenarioId: string | null;

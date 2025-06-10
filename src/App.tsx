@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Container, Typography, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon, Tooltip } from '@mui/material';
-import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
@@ -74,8 +74,6 @@ const Breadcrumbs: React.FC = () => {
 const AppContent: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { isFocusMode, toggleFocusMode } = useFocusMode();
-  const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <Box sx={{ flexGrow: 1 }}>

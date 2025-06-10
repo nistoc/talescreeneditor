@@ -7,13 +7,13 @@ import { useScenario } from '../../../api/scenarios';
 import { ScreenItem } from './ScreenItem';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
+import { PointViewer } from './PointViewer';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
   const { data: scenario } = useScenario(scenarioId || '');
   
   const [selectedScreenId, setSelectedScreenId] = useState<string | null>(null);
-  const [selectedScreenParentId, setSelectedScreenParentId] = useState<string | null>(null);
   const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>({});
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
@@ -42,10 +42,9 @@ export const EditorTab: React.FC = () => {
     return `${effectiveProportions[percentageField]}%`;
   };
 
-  const handleScreenSelect = (screenId: string, screenParentId?: string) => {
-    console.log('Selected screen:', screenId, 'Parent:', screenParentId);
+  const handleScreenSelect = (screenId: string) => {
+    console.log('Selected screen:', screenId);
     setSelectedScreenId(screenId);
-    setSelectedScreenParentId(screenParentId || null);
   };
 
   const handleScreenExpand = (screenId: string) => {
@@ -94,7 +93,10 @@ export const EditorTab: React.FC = () => {
         width={getColumnWidthPercentage('left')}
         buttons={defaultButtons}
       >
-        Left Content
+        <PointViewer 
+          screens={scenario.screens}
+          selectedScreenId={selectedScreenId}
+        />
       </Column>
 
       {/* Central Column */}
@@ -140,7 +142,6 @@ export const EditorTab: React.FC = () => {
           <Player
             screens={scenario.screens}
             selectedScreenId={selectedScreenId}
-            selectedScreenParentId={selectedScreenParentId}
             characters={characters}
             selectedCharacterId={selectedCharacterId}
             scenarioId={scenarioId || ''}

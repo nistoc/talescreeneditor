@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useScenario, useUpdateScenario } from '../api/scenarios';
 import { ScenarioDetails } from '../components/ScenarioDetails';
 import {
@@ -23,7 +23,6 @@ export const ScenarioPage: React.FC = () => {
     throw new Error('Scenario ID is required');
   }
   const navigate = useNavigate();
-  const location = useLocation();
   const { data: scenario, isLoading, error } = useScenario(scenarioId);
   const updateScenario = useUpdateScenario(scenarioId);
   const { isFocusMode } = useFocusMode();

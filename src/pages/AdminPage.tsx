@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Grid, Paper, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FocusModeMenu } from '../components/FocusModeMenu';
@@ -7,7 +7,6 @@ import { useFocusMode } from '../contexts/FocusModeContext';
 
 const AdminPage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const { isFocusMode } = useFocusMode();
 
   return (

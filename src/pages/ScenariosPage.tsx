@@ -1,7 +1,7 @@
 import React from 'react';
 import { useScenarios, useUpdateScenario } from '../api/scenarios';
 import { Scenario } from '../types/api.scenarios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,

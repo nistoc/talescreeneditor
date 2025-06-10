@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Paper, Button, Avatar, Grid, CircularProgress, Alert } from '@mui/material';
 import { useProfile } from '../api/profile';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -8,7 +8,6 @@ import { useFocusMode } from '../contexts/FocusModeContext';
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const userId = 1; // В реальном приложении это должно приходить из контекста авторизации
   const { data: profile, isLoading, error } = useProfile(userId);
   const { isFocusMode } = useFocusMode();

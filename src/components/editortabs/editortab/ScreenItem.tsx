@@ -14,7 +14,7 @@ interface ScreenItemProps {
   isEditing: boolean;
   isExpanded: boolean;
   selectedScreenId: string | null;
-  onSelect: (screenId: string, parentId?: string) => void;
+  onSelect: (screenId: string) => void;
   onEdit: (screenId: string) => void;
   onExpand: (screenId: string) => void;
   scenarioId: string;
@@ -125,7 +125,6 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
                   onEdit={onEdit}
                   onExpand={onExpand}
                   isExpanded={isExpanded}
-                  parentId={screen.id}
                   scenarioId={scenarioId}
                 />
               ))}
