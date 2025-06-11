@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box } from '@mui/material';
 import { Screen } from '../../types/api.scenarios';
 import { createFlattenedScreens } from './PointViewer.graphUtils';
@@ -17,6 +17,11 @@ interface PointViewerProps {
   onZoomChange?: (zoom: number) => void;
 }
 
+interface GraphState {
+  zoom: number;
+  pan: { x: number; y: number };
+}
+
 export const PointViewer: React.FC<PointViewerProps> = ({ 
   screens, 
   selectedScreenId, 
@@ -27,6 +32,10 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const [graphState, setGraphState] = useState<GraphState>({
+    zoom: 1.2,
+    pan: { x: 0, y: 0 }
+  });
 
   // Filter out block screens
   const filteredScreens = screens.filter(screen => screen.type !== 'block');
@@ -109,14 +118,31 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       } as DagreLayoutOptions
     });
 
-    // Set initial zoom and fit
-    cyRef.current.fit(cyRef.current.elements(), 50);
-    cyRef.current.zoom(1.2);
+    // Set initial zoom and fit if no saved state
+    if (graphState.zoom === 1.2 && graphState.pan.x === 0 && graphState.pan.y === 0) {
+      cyRef.current.fit(cyRef.current.elements(), 50);
+      cyRef.current.zoom(1.2);
+    } else {
+      // Restore saved state
+      cyRef.current.zoom(graphState.zoom);
+      cyRef.current.pan(graphState.pan);
+    }
 
-    // Add zoom change listener
+    // Add zoom and pan change listeners
     cyRef.current.on('zoom', () => {
-      if (onZoomChange && cyRef.current) {
-        onZoomChange(cyRef.current.zoom());
+      if (cyRef.current) {
+        const newZoom = cyRef.current.zoom();
+        setGraphState(prev => ({ ...prev, zoom: newZoom }));
+        if (onZoomChange) {
+          onZoomChange(newZoom);
+        }
+      }
+    });
+
+    cyRef.current.on('panend', () => {
+      if (cyRef.current) {
+        const newPan = cyRef.current.pan();
+        setGraphState(prev => ({ ...prev, pan: newPan }));
       }
     });
 
@@ -155,6 +181,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   useEffect(() => {
     if (cyRef.current && zoom !== undefined && zoom !== cyRef.current.zoom()) {
       cyRef.current.zoom(zoom);
+      setGraphState(prev => ({ ...prev, zoom }));
     }
   }, [zoom]);
 
