@@ -1,8 +1,6 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
-import { Screen, ScreenNarrative, ScreenDialog, ScreenScene } from '../../../types/api.scenarios';
+import { Screen } from '../../types/api.scenarios';
 
-interface FlattenedScreen {
+export interface FlattenedScreen {
   id: string;
   downs: string[];
   label: string;
@@ -10,13 +8,7 @@ interface FlattenedScreen {
   containerParentId: string | null;
 }
 
-interface PointViewerProps {
-  screens: Screen[];
-  selectedScreenId: string | null;
-  firstScreenId: string;
-}
-
-const createFlattenedScreens = (screens: Screen[]): FlattenedScreen[] => {
+export const createFlattenedScreens = (screens: Screen[]): FlattenedScreen[] => {
   const flattenedScreens: FlattenedScreen[] = [];
   const screenMap = new Map<string, FlattenedScreen>();
 
@@ -70,19 +62,4 @@ const createFlattenedScreens = (screens: Screen[]): FlattenedScreen[] => {
   });
 
   return flattenedScreens;
-};
-
-export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScreenId, firstScreenId }) => {
-  // Filter out block screens
-  const filteredScreens = screens.filter(screen => screen.type !== 'block');
-  
-  // Create flattened screens
-  const flattenedScreens = createFlattenedScreens(filteredScreens);
-  console.log('Flattened screens:', flattenedScreens);
-
-  return (
-    <Box>
-      {/* We'll implement the visualization in the next step */}
-    </Box>
-  );
 }; 

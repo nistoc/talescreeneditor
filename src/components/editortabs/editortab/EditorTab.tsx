@@ -7,7 +7,7 @@ import { useScenario } from '../../../api/scenarios';
 import { ScreenItem } from './ScreenItem';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
-import { PointViewer } from './PointViewer';
+import { PointViewer } from '../../pointViewer/PointViewer';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
