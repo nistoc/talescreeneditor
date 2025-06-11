@@ -14,7 +14,6 @@ interface PointViewerProps {
   selectedScreenId: string | null;
   firstScreenId: string;
   zoom?: number;
-  onZoomChange?: (zoom: number) => void;
 }
 
 interface GraphState {
@@ -27,8 +26,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   screens, 
   selectedScreenId, 
   firstScreenId,
-  zoom,
-  onZoomChange 
+  zoom
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
@@ -49,6 +47,9 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Store ref value to use in cleanup
+    const container = containerRef.current;
+
     // Create debug tooltip element
     const debugTooltip = document.createElement('div');
     debugTooltip.style.position = 'absolute';
@@ -61,7 +62,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     debugTooltip.style.fontSize = '12px';
     debugTooltip.style.zIndex = '1000';
     debugTooltip.style.fontFamily = 'monospace';
-    containerRef.current.appendChild(debugTooltip);
+    container.appendChild(debugTooltip);
     debugTooltipRef.current = debugTooltip;
 
     // Create tooltip element
@@ -76,28 +77,15 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     tooltip.style.zIndex = '1000';
     tooltip.style.maxWidth = '200px';
     tooltip.style.fontSize = '14px';
-    containerRef.current.appendChild(tooltip);
+    container.appendChild(tooltip);
     tooltipRef.current = tooltip;
 
     // Initialize Cytoscape
     cyRef.current = cytoscape({
-      container: containerRef.current,
+      container: container,
       elements: {
-        nodes: flattenedScreens.map(screen => ({
-          data: {
-            id: screen.id,
-            label: screen.label || screen.id,
-            selected: screen.id === selectedScreenId
-          }
-        })),
-        edges: flattenedScreens.flatMap(screen => 
-          screen.downs.map(nextScreenId => ({
-            data: {
-              source: screen.id,
-              target: nextScreenId
-            }
-          }))
-        )
+        nodes: [],
+        edges: []
       },
       style: [
         {
@@ -131,10 +119,8 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       layout: {
         name: 'dagre',
         rankDir: 'TB',
-        //padding: 50,
         spacingFactor: 1.1
       } as DagreLayoutOptions,
-      // Disable zooming gestures
       userZoomingEnabled: false,
       userPanningEnabled: true,
       boxSelectionEnabled: false
@@ -157,6 +143,12 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       // Restore saved state
       cyRef.current.zoom(graphState.zoom);
       cyRef.current.pan(graphState.pan);
+      
+      if(selectedScreenId) {
+        let centeringObject: any = null;
+        centeringObject = cyRef.current.getElementById(selectedScreenId);
+        cyRef.current.fit(centeringObject, 250);
+      }
     }
 
     // Add pan change listener
@@ -187,7 +179,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       }
     };
 
-    containerRef.current.addEventListener('wheel', handleScroll, { passive: false });
+    container.addEventListener('wheel', handleScroll, { passive: false });
 
     // Add tooltip event handlers
     cyRef.current.on('mouseover', 'node', (evt) => {
@@ -219,10 +211,56 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       if (debugTooltipRef.current && debugTooltipRef.current.parentNode) {
         debugTooltipRef.current.parentNode.removeChild(debugTooltipRef.current);
       }
-      if (containerRef.current) {
-        containerRef.current.removeEventListener('wheel', handleScroll);
-      }
+      container.removeEventListener('wheel', handleScroll);
     };
+  }, []); // Empty dependency array - only run on mount
+
+  // Effect for updating graph data
+  useEffect(() => {
+    if (!cyRef.current) return;
+
+    // Remove existing elements
+    cyRef.current.elements().remove();
+
+    // Add new nodes
+    const nodes = flattenedScreens.map(screen => ({
+      data: {
+        id: screen.id,
+        label: screen.label || screen.id,
+        selected: screen.id === selectedScreenId
+      }
+    }));
+
+    // Add new edges
+    const edges = flattenedScreens.flatMap(screen => 
+      screen.downs.map(nextScreenId => ({
+        data: {
+          source: screen.id,
+          target: nextScreenId
+        }
+      }))
+    );
+
+    // Add all elements at once
+    cyRef.current.add([...nodes, ...edges]);
+
+    // Apply layout
+    const layout = cyRef.current.layout({
+      name: 'dagre',
+      rankDir: 'TB',
+      spacingFactor: 1.1
+    } as DagreLayoutOptions);
+    layout.run();
+
+    // Center on selected node if any
+    if (selectedScreenId) {
+      const node = cyRef.current.getElementById(selectedScreenId);
+      if (node.length > 0) {
+        node.select();
+        cyRef.current.fit(node, 250);
+      }
+    }
+
   }, [flattenedScreens, selectedScreenId]);
 
   // Handle zoom changes from parent

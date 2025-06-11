@@ -118,7 +118,6 @@ export const EditorTab: React.FC = () => {
           selectedScreenId={selectedScreenId}
           firstScreenId={scenario.firstScreenId}
           zoom={graphZoom}
-          onZoomChange={handleZoomChange}
         />
       </Column>
 
