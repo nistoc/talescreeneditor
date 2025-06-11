@@ -192,16 +192,16 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       const isLeftSide = renderedPosition.x < containerCenterX;
 
       if (tooltipRef.current) {
-        tooltipRef.current.innerHTML = label;
+        tooltipRef.current.innerHTML = label + renderedPosition.x + " " + containerCenterX;
         tooltipRef.current.style.display = 'block';
         tooltipRef.current.style.left = '0px';
         tooltipRef.current.style.right = '0px';
         if(isLeftSide){
           tooltipRef.current.style.left = `${renderedPosition.x + 50}px`;
         }else{
-          tooltipRef.current.style.right = `${renderedPosition.x - 50}px`;
+          tooltipRef.current.style.right = `${-50}px`;
         }
-        tooltipRef.current.style.top = `${renderedPosition.y - 20}px`;
+        tooltipRef.current.style.top = `${renderedPosition.y + 20}px`;
       }
     });
 

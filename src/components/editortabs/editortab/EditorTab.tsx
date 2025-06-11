@@ -74,7 +74,6 @@ export const EditorTab: React.FC = () => {
   };
 
   const handleScreenSelect = (screenId: string) => {
-    console.log('Selected screen:', screenId);
     setSelectedScreenId(screenId);
   };
 
