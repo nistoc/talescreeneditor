@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, IconButton, List, Typography } from '@mui/material';
 import { Column } from '../../columnTabs/Column';
 import { useColumnProportions } from '../../columnTabs/СolumnProportions';
@@ -31,6 +31,8 @@ export const EditorTab: React.FC = () => {
 
   const effectiveProportions = getEffectiveProportions();
 
+  const listRef = useRef<HTMLUListElement>(null);
+
   React.useEffect(() => {
     if (scenario && scenario.characters) {
       setCharacters(scenario.characters);
@@ -40,6 +42,17 @@ export const EditorTab: React.FC = () => {
   React.useEffect(() => {
     if (scenario && scenario.firstScreenId && !selectedScreenId) {
       setSelectedScreenId(scenario.firstScreenId);
+    }
+
+    // Add effect to scroll to selected screen
+    if (selectedScreenId && listRef.current) {
+      const timeoutId = setTimeout(() => {
+        const selectedElement = listRef.current?.querySelector(`[data-screen-id="${selectedScreenId}"]`);
+        if (selectedElement) {
+          selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300);
+      return () => clearTimeout(timeoutId);
     }
   }, [scenario, selectedScreenId]);
 
@@ -124,25 +137,27 @@ export const EditorTab: React.FC = () => {
         width={getColumnWidthPercentage('central')}
         buttons={defaultButtons}
       >
-        <List>
-          {scenario.screens
-            .filter(screen => screen.type !== 'block')
-            .map((screen) => (
-              <ScreenItem
-                key={screen.id}
-                screen={screen}
-                level={0}
-                isSelected={selectedScreenId === screen.id}
-                isEditing={editingScreenId === screen.id}
-                isExpanded={expandedScreens[screen.id] || false}
-                selectedScreenId={selectedScreenId}
-                onSelect={handleScreenSelect}
-                onEdit={handleScreenEdit}
-                onExpand={handleScreenExpand}
-                scenarioId={scenarioId || ''}
-              />
-            ))}
-        </List>
+        <Box ref={listRef} sx={{ height: '100%', overflow: 'auto' }}>
+          <List>
+            {scenario.screens
+              .filter(screen => screen.type !== 'block')
+              .map((screen) => (
+                <ScreenItem
+                  key={screen.id}
+                  screen={screen}
+                  level={0}
+                  isSelected={selectedScreenId === screen.id}
+                  isEditing={editingScreenId === screen.id}
+                  isExpanded={expandedScreens[screen.id] || false}
+                  selectedScreenId={selectedScreenId}
+                  onSelect={handleScreenSelect}
+                  onEdit={handleScreenEdit}
+                  onExpand={handleScreenExpand}
+                  scenarioId={scenarioId || ''}
+                />
+              ))}
+          </List>
+        </Box>
       </Column>
 
       {/* Right Column */}

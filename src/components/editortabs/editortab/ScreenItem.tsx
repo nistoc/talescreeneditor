@@ -55,6 +55,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
     <React.Fragment>
       <ListItem
         onClick={handleClick}
+        data-screen-id={screen.id}
         sx={{
           pl: level === 0 ? 2 : 4 + (level * 3),
           borderLeft: level > 0 ? '2px solid' : 'none',

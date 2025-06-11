@@ -48,6 +48,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   return (
     <ListItem
       onClick={handleClick}
+      data-screen-id={screen.id}
       sx={{
         pl: 2,
         pr: 1,
