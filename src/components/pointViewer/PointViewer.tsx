@@ -11,22 +11,21 @@ cytoscape.use(dagre);
 
 interface PointViewerProps {
   screens: Screen[];
-  selectedScreenId: string | null;
-  firstScreenId: string;
+  selectedScreenId: string;
   zoom?: number;
+  onNodeClick?: (nodeId: string) => void;
 }
 
 interface GraphState {
   zoom: number;
   pan: { x: number; y: number };
-  isInitialRender: boolean;
 }
 
-export const PointViewer: React.FC<PointViewerProps> = ({ 
-  screens, 
-  selectedScreenId, 
-  firstScreenId,
-  zoom
+export const PointViewer: React.FC<PointViewerProps> = ({
+  screens,
+  selectedScreenId,
+  zoom,
+  onNodeClick
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
@@ -35,12 +34,11 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   const [graphState, setGraphState] = useState<GraphState>({
     zoom: 0.2,
     pan: { x: 0, y: 0 },
-    isInitialRender: true
   });
 
   // Filter out block screens
   const filteredScreens = screens.filter(screen => screen.type !== 'block');
-  
+
   // Create flattened screens
   const flattenedScreens = createFlattenedScreens(filteredScreens);
 
@@ -53,7 +51,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     // Create debug tooltip element
     const debugTooltip = document.createElement('div');
     debugTooltip.style.position = 'absolute';
-    debugTooltip.style.top = '10px';
+    debugTooltip.style.bottom = '10px';
     debugTooltip.style.left = '10px';
     debugTooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
     debugTooltip.style.color = 'white';
@@ -62,6 +60,8 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     debugTooltip.style.fontSize = '12px';
     debugTooltip.style.zIndex = '1000';
     debugTooltip.style.fontFamily = 'monospace';
+    debugTooltip.style.pointerEvents = 'none';
+    debugTooltip.style.display = 'block';
     container.appendChild(debugTooltip);
     debugTooltipRef.current = debugTooltip;
 
@@ -80,6 +80,15 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     container.appendChild(tooltip);
     tooltipRef.current = tooltip;
 
+    // Function to update debug tooltip content
+    const updateDebugTooltip = () => {
+      if (cyRef.current && debugTooltipRef.current) {
+        const currentPan = cyRef.current.pan();
+        const selectedNodes = cyRef.current.$('node:selected');
+        debugTooltipRef.current.innerHTML = `Pan: x=${Math.round(currentPan.x)}, y=${Math.round(currentPan.y)}<br>Selected nodes: ${selectedNodes.length}`;
+      }
+    };
+
     // Initialize Cytoscape
     cyRef.current = cytoscape({
       container: container,
@@ -91,7 +100,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
             selected: screen.id === selectedScreenId
           }
         })),
-        edges: flattenedScreens.flatMap(screen => 
+        edges: flattenedScreens.flatMap(screen =>
           screen.downs.map(nextScreenId => ({
             data: {
               source: screen.id,
@@ -132,7 +141,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       layout: {
         name: 'dagre',
         rankDir: 'TB',
-        //padding: 50,
+        //padding: 20,
         spacingFactor: 1.1
       } as DagreLayoutOptions,
       // Disable zooming gestures
@@ -141,48 +150,22 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       boxSelectionEnabled: false
     });
 
-    // Set initial zoom and fit if no saved state
-    if (graphState.isInitialRender) {
-      cyRef.current.zoom(0.2);
-
-      let centeringObject: any = null;
-      if(firstScreenId) {
-        centeringObject = cyRef.current.getElementById(firstScreenId);
-      } else {
-        centeringObject = cyRef.current.elements();
-      }
-      cyRef.current.fit(centeringObject, 250);
-      
-      setGraphState(prev => ({ ...prev, isInitialRender: false }));
-    } else {
-      // Restore saved state
-      cyRef.current.zoom(graphState.zoom);
-      cyRef.current.pan(graphState.pan);
-      
-      // if(selectedScreenId) {
-      //   let centeringObject: any = null;
-      //   centeringObject = cyRef.current.getElementById(selectedScreenId);
-      //   cyRef.current.fit(centeringObject, 250);
-      // }
-    }
+    cyRef.current.zoom(graphState.zoom);
+    cyRef.current.pan(graphState.pan);
+    
 
     // Add pan change listener
-    cyRef.current.on('pan', () => {
-      if (cyRef.current && debugTooltipRef.current) {
-        const currentPan = cyRef.current.pan();
-        debugTooltipRef.current.innerHTML = `Pan: x=${Math.round(currentPan.x)}, y=${Math.round(currentPan.y)}`;
-      }
-    });
+    cyRef.current.on('pan', updateDebugTooltip);
 
     // Handle pan end
     const handlePanEnd = () => {
       if (cyRef.current) {
         const newPan = cyRef.current.pan();
         setGraphState(prev => ({ ...prev, pan: newPan }));
+        updateDebugTooltip();
       }
     };
 
-    //cyRef.current.on('panend', handlePanEnd);
     container.addEventListener('mouseup', handlePanEnd);
 
     // Add scroll event listener for vertical panning
@@ -193,11 +176,11 @@ export const PointViewer: React.FC<PointViewerProps> = ({
         const deltaY = -event.deltaY;
         cyRef.current.pan({
           x: currentPan.x,
-          y: currentPan.y + deltaY/2
+          y: currentPan.y + deltaY / 2
         });
+        updateDebugTooltip();
       }
     };
-
     container.addEventListener('wheel', handleScroll, { passive: false });
 
     // Add tooltip event handlers
@@ -205,20 +188,47 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       const node = evt.target;
       const label = node.data('label');
       const renderedPosition = node.renderedPosition();
-      
+      const containerRect = container.getBoundingClientRect();
+      const containerCenterX = containerRect.width / 2;
+      const isLeftSide = renderedPosition.x < containerCenterX;
+
       if (tooltipRef.current) {
         tooltipRef.current.innerHTML = label;
         tooltipRef.current.style.display = 'block';
-        tooltipRef.current.style.left = `${renderedPosition.x + 50}px`;
+        tooltipRef.current.style.left = '0px';
+        tooltipRef.current.style.right = '0px';
+        if(isLeftSide){
+          tooltipRef.current.style.left = `${renderedPosition.x + 50}px`;
+        }else{
+          tooltipRef.current.style.right = `${renderedPosition.x - 50}px`;
+        }
         tooltipRef.current.style.top = `${renderedPosition.y - 20}px`;
       }
     });
 
-    cyRef.current.on('mouseout', 'node', () => {
+    cyRef.current.on('mouseout', 'node', (evt) => {
+      const node = evt.target;
       if (tooltipRef.current) {
         tooltipRef.current.style.display = 'none';
       }
     });
+
+    // Add selection change listener
+    cyRef.current.on('select', 'node', (evt) => {
+      console.log('Node selected:', evt.target.id());
+      updateDebugTooltip();
+    });
+
+    // Add click handler for nodes
+    cyRef.current.on('tap', 'node', (evt) => {
+      const nodeId = evt.target.id();
+      if (onNodeClick) {
+        onNodeClick(nodeId);
+      }
+    });
+
+    // Initial update
+    updateDebugTooltip();
 
     return () => {
       if (cyRef.current) {
@@ -233,38 +243,25 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       container.removeEventListener('wheel', handleScroll);
       container.removeEventListener('mouseup', handlePanEnd); // Clean up mouseup listener
     };
-  }, [flattenedScreens]);
-
-  // Handle zoom changes from parent
-  useEffect(() => {
-    if (cyRef.current && zoom !== undefined && zoom !== cyRef.current.zoom()) {
-      // Store current selection before zoom
-      const selectedNodes = cyRef.current.$('node:selected');
-      
-      // Apply zoom
-      cyRef.current.zoom(zoom);
-      setGraphState(prev => ({ ...prev, zoom }));
-      
-      // Restore selection after zoom
-      selectedNodes.select();
-    }
-  }, [zoom]);
+  }, []);
 
   // Update selected node when selectedScreenId changes
   useEffect(() => {
-    if (cyRef.current) {
-      // Deselect all nodes first
-      cyRef.current.$('node:selected').unselect();
-      
-      // Select the new node if selectedScreenId is provided
-      if (selectedScreenId) {
-        const node = cyRef.current.getElementById(selectedScreenId);
-        if (node.length > 0) {
-          node.select();
-        }
-      }
+    if (!cyRef.current) return;
+
+    if (zoom !== undefined && zoom !== cyRef.current.zoom()) {
+      // Apply zoom
+      cyRef.current.zoom(zoom);
+      setGraphState(prev => ({ ...prev, zoom }));
     }
-  }, [selectedScreenId]);
+    
+    // Deselect all nodes first
+    cyRef.current.$('node:selected').unselect();
+    const node = cyRef.current.getElementById(selectedScreenId);
+    if (node.length > 0) {
+      node.select();
+    }
+  }, [zoom, selectedScreenId]);
 
   return (
     <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>

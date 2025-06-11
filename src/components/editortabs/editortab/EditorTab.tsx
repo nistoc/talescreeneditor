@@ -110,9 +110,9 @@ export const EditorTab: React.FC = () => {
       >
         <PointViewer
           screens={scenario.screens}
-          selectedScreenId={selectedScreenId}
-          firstScreenId={scenario.firstScreenId}
+          selectedScreenId={selectedScreenId || scenario.firstScreenId}
           zoom={graphZoom}
+          onNodeClick={handleScreenSelect}
         />
       </Column>
 

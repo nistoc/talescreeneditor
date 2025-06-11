@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, IconButton, ListItem, Typography, Tooltip, Collapse, List } from '@mui/material';
-import { Screen } from '../../../types/api.scenarios';
+import { Screen, ScreenNarrative, ScreenDialog, ScreenScene } from '../../../types/api.scenarios';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import EditIcon from '@mui/icons-material/Edit';
@@ -20,6 +20,10 @@ interface ScreenItemProps {
   scenarioId: string;
 }
 
+const hasScreens = (screen: Screen): screen is ScreenNarrative | ScreenDialog | ScreenScene => {
+  return 'screens' in screen && Array.isArray(screen.screens);
+};
+
 export const ScreenItem: React.FC<ScreenItemProps> = ({
   screen,
   level,
@@ -32,7 +36,16 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
   onExpand,
   scenarioId
 }) => {
-  const hasChildren = 'screens' in screen && screen.screens.length > 0;
+  const hasChildren = hasScreens(screen) && screen.screens.length > 0;
+  const childScreenIds = hasChildren ? screen.screens.map(s => s.id) : [];
+
+  useEffect(() => {
+    if (selectedScreenId && hasChildren && !isExpanded) {
+      if (childScreenIds.includes(selectedScreenId)) {
+        onExpand(screen.id, childScreenIds);
+      }
+    }
+  }, [selectedScreenId]);
 
   const handleClick = () => {
     onSelect(screen.id);
@@ -62,7 +75,9 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
             size="small"
             onClick={(e) => {
               e.stopPropagation();
-              onExpand(screen.id, screen.screens?.map(screen => screen.id) ?? []);
+              if (hasChildren) {
+                onExpand(screen.id, childScreenIds);
+              }
             }}
             sx={{ mr: 1 }}
           >
