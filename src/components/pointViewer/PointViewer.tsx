@@ -18,6 +18,7 @@ interface PointViewerProps {
 export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScreenId, firstScreenId }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   // Filter out block screens
   const filteredScreens = screens.filter(screen => screen.type !== 'block');
@@ -27,6 +28,21 @@ export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScree
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    // Create tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.style.position = 'absolute';
+    tooltip.style.display = 'none';
+    tooltip.style.backgroundColor = 'white';
+    tooltip.style.padding = '8px';
+    tooltip.style.border = '1px solid #ccc';
+    tooltip.style.borderRadius = '4px';
+    tooltip.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+    tooltip.style.zIndex = '1000';
+    tooltip.style.maxWidth = '200px';
+    tooltip.style.fontSize = '14px';
+    containerRef.current.appendChild(tooltip);
+    tooltipRef.current = tooltip;
 
     // Initialize Cytoscape
     cyRef.current = cytoscape({
@@ -52,15 +68,11 @@ export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScree
         {
           selector: 'node',
           style: {
-            'label': 'data(label)',
             'text-valign': 'center',
             'text-halign': 'center',
             'background-color': '#666',
-            'text-outline-color': '#fff',
-            'text-outline-width': 2,
-            'color': '#fff',
-            'width': 'label',
-            'height': 'label',
+            'width': 80,
+            'height': 40,
             'padding': '10px'
           }
         },
@@ -89,15 +101,39 @@ export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScree
       } as DagreLayoutOptions
     });
 
+    // Add tooltip event handlers
+    cyRef.current.on('mouseover', 'node', (evt) => {
+      const node = evt.target;
+      const label = node.data('label');
+      const position = node.position();
+      const renderedPosition = node.renderedPosition();
+      
+      if (tooltipRef.current) {
+        tooltipRef.current.innerHTML = label;
+        tooltipRef.current.style.display = 'block';
+        tooltipRef.current.style.left = `${renderedPosition.x + 50}px`;
+        tooltipRef.current.style.top = `${renderedPosition.y - 20}px`;
+      }
+    });
+
+    cyRef.current.on('mouseout', 'node', () => {
+      if (tooltipRef.current) {
+        tooltipRef.current.style.display = 'none';
+      }
+    });
+
     return () => {
       if (cyRef.current) {
         cyRef.current.destroy();
+      }
+      if (tooltipRef.current && tooltipRef.current.parentNode) {
+        tooltipRef.current.parentNode.removeChild(tooltipRef.current);
       }
     };
   }, [flattenedScreens, selectedScreenId]);
 
   return (
-    <Box sx={{ width: '100%', height: '600px' }}>
+    <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>
       <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
     </Box>
   );
