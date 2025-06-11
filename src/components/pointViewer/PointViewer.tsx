@@ -33,7 +33,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   const cyRef = useRef<cytoscape.Core | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
   const [graphState, setGraphState] = useState<GraphState>({
-    zoom: 1.2,
+    zoom: 0.2,
     pan: { x: 0, y: 0 }
   });
 
@@ -119,9 +119,18 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     });
 
     // Set initial zoom and fit if no saved state
-    if (graphState.zoom === 1.2 && graphState.pan.x === 0 && graphState.pan.y === 0) {
-      cyRef.current.fit(cyRef.current.elements(), 50);
-      cyRef.current.zoom(1.2);
+    if (graphState.zoom === 0.2 && graphState.pan.x === 0 && graphState.pan.y === 0) {
+      cyRef.current.zoom(0.2);
+
+      if (selectedScreenId) {
+        cyRef.current.fit(cyRef.current.getElementById(selectedScreenId), 50);
+      } else if(firstScreenId) {
+        cyRef.current.fit(cyRef.current.getElementById(firstScreenId), 50);
+      // } else if(cyRef.current.elements()[0].data.id) {
+      //   cyRef.current.fit(cyRef.current.getElementById(cyRef.current.elements()[0].data.id), 50);
+      } else {
+        cyRef.current.fit(cyRef.current.elements(), 50);
+      }
     } else {
       // Restore saved state
       cyRef.current.zoom(graphState.zoom);
@@ -132,9 +141,12 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     cyRef.current.on('zoom', () => {
       if (cyRef.current) {
         const newZoom = cyRef.current.zoom();
-        setGraphState(prev => ({ ...prev, zoom: newZoom }));
-        if (onZoomChange) {
-          onZoomChange(newZoom);
+        // Only update state if zoom actually changed
+        if (newZoom !== graphState.zoom) {
+          setGraphState(prev => ({ ...prev, zoom: newZoom }));
+          if (onZoomChange) {
+            onZoomChange(newZoom);
+          }
         }
       }
     });
@@ -180,10 +192,33 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   // Handle zoom changes from parent
   useEffect(() => {
     if (cyRef.current && zoom !== undefined && zoom !== cyRef.current.zoom()) {
+      // Store current selection before zoom
+      const selectedNodes = cyRef.current.$('node:selected');
+      
+      // Apply zoom
       cyRef.current.zoom(zoom);
       setGraphState(prev => ({ ...prev, zoom }));
+      
+      // Restore selection after zoom
+      selectedNodes.select();
     }
   }, [zoom]);
+
+  // Update selected node when selectedScreenId changes
+  useEffect(() => {
+    if (cyRef.current) {
+      // Deselect all nodes first
+      cyRef.current.$('node:selected').unselect();
+      
+      // Select the new node if selectedScreenId is provided
+      if (selectedScreenId) {
+        const node = cyRef.current.getElementById(selectedScreenId);
+        if (node.length > 0) {
+          node.select();
+        }
+      }
+    }
+  }, [selectedScreenId]);
 
   return (
     <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>

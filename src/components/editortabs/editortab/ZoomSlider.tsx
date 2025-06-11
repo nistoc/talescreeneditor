@@ -29,12 +29,15 @@ export const ZoomSlider: React.FC<ZoomSliderProps> = ({ value, onChange }) => {
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ minWidth: 40, textAlign: 'right', mr: 1 }}>
+        {value.toFixed(2)}x
+      </Box>
       <StyledSlider
         value={value}
         onChange={handleChange}
         min={0.1}
         max={2}
-        step={0.1}
+        step={0.05}
         aria-label="Zoom"
         size="small"
       />

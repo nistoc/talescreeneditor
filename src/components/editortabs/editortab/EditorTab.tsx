@@ -19,7 +19,7 @@ export const EditorTab: React.FC = () => {
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
-  const [graphZoom, setGraphZoom] = useState<number>(1.2);
+  const [graphZoom, setGraphZoom] = useState<number>(0.2);
 
   const { 
     getEffectiveProportions,
@@ -36,6 +36,12 @@ export const EditorTab: React.FC = () => {
       setCharacters(scenario.characters);
     }
   }, [scenario]);
+
+  React.useEffect(() => {
+    if (scenario && scenario.firstScreenId && !selectedScreenId) {
+      setSelectedScreenId(scenario.firstScreenId);
+    }
+  }, [scenario, selectedScreenId]);
 
   const getColumnWidthPercentage = (column: 'left' | 'central' | 'right') => {
     if (column === 'left' && isLeftCollapsed) return '40px';
