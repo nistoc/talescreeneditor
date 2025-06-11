@@ -162,7 +162,6 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       if (cyRef.current) {
         const newPan = cyRef.current.pan();
         setGraphState(prev => ({ ...prev, pan: newPan }));
-        updateDebugTooltip();
       }
     };
 
@@ -178,7 +177,6 @@ export const PointViewer: React.FC<PointViewerProps> = ({
           x: currentPan.x,
           y: currentPan.y + deltaY / 2
         });
-        updateDebugTooltip();
       }
     };
     container.addEventListener('wheel', handleScroll, { passive: false });
@@ -207,16 +205,9 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     });
 
     cyRef.current.on('mouseout', 'node', (evt) => {
-      const node = evt.target;
       if (tooltipRef.current) {
         tooltipRef.current.style.display = 'none';
       }
-    });
-
-    // Add selection change listener
-    cyRef.current.on('select', 'node', (evt) => {
-      console.log('Node selected:', evt.target.id());
-      updateDebugTooltip();
     });
 
     // Add click handler for nodes
@@ -226,10 +217,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
         onNodeClick(nodeId);
       }
     });
-
-    // Initial update
-    updateDebugTooltip();
-
+    
     return () => {
       if (cyRef.current) {
         cyRef.current.destroy();
