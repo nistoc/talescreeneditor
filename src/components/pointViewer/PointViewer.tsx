@@ -13,9 +13,17 @@ interface PointViewerProps {
   screens: Screen[];
   selectedScreenId: string | null;
   firstScreenId: string;
+  zoom?: number;
+  onZoomChange?: (zoom: number) => void;
 }
 
-export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScreenId, firstScreenId }) => {
+export const PointViewer: React.FC<PointViewerProps> = ({ 
+  screens, 
+  selectedScreenId, 
+  firstScreenId,
+  zoom,
+  onZoomChange 
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -101,6 +109,17 @@ export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScree
       } as DagreLayoutOptions
     });
 
+    // Set initial zoom and fit
+    cyRef.current.fit(cyRef.current.elements(), 50);
+    cyRef.current.zoom(1.2);
+
+    // Add zoom change listener
+    cyRef.current.on('zoom', () => {
+      if (onZoomChange && cyRef.current) {
+        onZoomChange(cyRef.current.zoom());
+      }
+    });
+
     // Add tooltip event handlers
     cyRef.current.on('mouseover', 'node', (evt) => {
       const node = evt.target;
@@ -130,7 +149,14 @@ export const PointViewer: React.FC<PointViewerProps> = ({ screens, selectedScree
         tooltipRef.current.parentNode.removeChild(tooltipRef.current);
       }
     };
-  }, [flattenedScreens, selectedScreenId]);
+  }, [flattenedScreens, selectedScreenId, onZoomChange]);
+
+  // Handle zoom changes from parent
+  useEffect(() => {
+    if (cyRef.current && zoom !== undefined && zoom !== cyRef.current.zoom()) {
+      cyRef.current.zoom(zoom);
+    }
+  }, [zoom]);
 
   return (
     <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>

@@ -8,6 +8,7 @@ import { ScreenItem } from './ScreenItem';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
 import { PointViewer } from '../../pointViewer/PointViewer';
+import { ZoomSlider } from './ZoomSlider';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
@@ -18,6 +19,7 @@ export const EditorTab: React.FC = () => {
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
+  const [graphZoom, setGraphZoom] = useState<number>(1.2);
 
   const { 
     getEffectiveProportions,
@@ -65,8 +67,20 @@ export const EditorTab: React.FC = () => {
     setSelectedScreenId(screenId);
   };
 
+  const handleZoomChange = (newZoom: number) => {
+    setGraphZoom(newZoom);
+  };
+
   const defaultButtons = (
     <>
+      <IconButton size="small" onClick={() => {}}>➕</IconButton>
+      <IconButton size="small" onClick={() => {}}>➖</IconButton>
+    </>
+  );
+
+  const leftColumnButtons = (
+    <>
+      <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
       <IconButton size="small" onClick={() => {}}>➕</IconButton>
       <IconButton size="small" onClick={() => {}}>➖</IconButton>
     </>
@@ -91,12 +105,14 @@ export const EditorTab: React.FC = () => {
         isCollapsed={isLeftCollapsed}
         onCollapseChange={toggleLeftCollapse}
         width={getColumnWidthPercentage('left')}
-        buttons={defaultButtons}
+        buttons={leftColumnButtons}
       >
         <PointViewer 
           screens={scenario.screens}
           selectedScreenId={selectedScreenId}
           firstScreenId={scenario.firstScreenId}
+          zoom={graphZoom}
+          onZoomChange={handleZoomChange}
         />
       </Column>
 
