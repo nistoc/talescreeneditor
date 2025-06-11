@@ -84,8 +84,21 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     cyRef.current = cytoscape({
       container: container,
       elements: {
-        nodes: [],
-        edges: []
+        nodes: flattenedScreens.map(screen => ({
+          data: {
+            id: screen.id,
+            label: screen.label || screen.id,
+            selected: screen.id === selectedScreenId
+          }
+        })),
+        edges: flattenedScreens.flatMap(screen => 
+          screen.downs.map(nextScreenId => ({
+            data: {
+              source: screen.id,
+              target: nextScreenId
+            }
+          }))
+        )
       },
       style: [
         {
@@ -119,8 +132,10 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       layout: {
         name: 'dagre',
         rankDir: 'TB',
+        //padding: 50,
         spacingFactor: 1.1
       } as DagreLayoutOptions,
+      // Disable zooming gestures
       userZoomingEnabled: false,
       userPanningEnabled: true,
       boxSelectionEnabled: false
@@ -144,11 +159,11 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       cyRef.current.zoom(graphState.zoom);
       cyRef.current.pan(graphState.pan);
       
-      if(selectedScreenId) {
-        let centeringObject: any = null;
-        centeringObject = cyRef.current.getElementById(selectedScreenId);
-        cyRef.current.fit(centeringObject, 250);
-      }
+      // if(selectedScreenId) {
+      //   let centeringObject: any = null;
+      //   centeringObject = cyRef.current.getElementById(selectedScreenId);
+      //   cyRef.current.fit(centeringObject, 250);
+      // }
     }
 
     // Add pan change listener
@@ -159,12 +174,16 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       }
     });
 
-    cyRef.current.on('panend', () => {
+    // Handle pan end
+    const handlePanEnd = () => {
       if (cyRef.current) {
         const newPan = cyRef.current.pan();
         setGraphState(prev => ({ ...prev, pan: newPan }));
       }
-    });
+    };
+
+    //cyRef.current.on('panend', handlePanEnd);
+    container.addEventListener('mouseup', handlePanEnd);
 
     // Add scroll event listener for vertical panning
     const handleScroll = (event: WheelEvent) => {
@@ -174,7 +193,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
         const deltaY = -event.deltaY;
         cyRef.current.pan({
           x: currentPan.x,
-          y: currentPan.y + deltaY
+          y: currentPan.y + deltaY/2
         });
       }
     };
@@ -212,56 +231,9 @@ export const PointViewer: React.FC<PointViewerProps> = ({
         debugTooltipRef.current.parentNode.removeChild(debugTooltipRef.current);
       }
       container.removeEventListener('wheel', handleScroll);
+      container.removeEventListener('mouseup', handlePanEnd); // Clean up mouseup listener
     };
-  }, []); // Empty dependency array - only run on mount
-
-  // Effect for updating graph data
-  useEffect(() => {
-    if (!cyRef.current) return;
-
-    // Remove existing elements
-    cyRef.current.elements().remove();
-
-    // Add new nodes
-    const nodes = flattenedScreens.map(screen => ({
-      data: {
-        id: screen.id,
-        label: screen.label || screen.id,
-        selected: screen.id === selectedScreenId
-      }
-    }));
-
-    // Add new edges
-    const edges = flattenedScreens.flatMap(screen => 
-      screen.downs.map(nextScreenId => ({
-        data: {
-          source: screen.id,
-          target: nextScreenId
-        }
-      }))
-    );
-
-    // Add all elements at once
-    cyRef.current.add([...nodes, ...edges]);
-
-    // Apply layout
-    const layout = cyRef.current.layout({
-      name: 'dagre',
-      rankDir: 'TB',
-      spacingFactor: 1.1
-    } as DagreLayoutOptions);
-    layout.run();
-
-    // Center on selected node if any
-    if (selectedScreenId) {
-      const node = cyRef.current.getElementById(selectedScreenId);
-      if (node.length > 0) {
-        node.select();
-        cyRef.current.fit(node, 250);
-      }
-    }
-
-  }, [flattenedScreens, selectedScreenId]);
+  }, [flattenedScreens]);
 
   // Handle zoom changes from parent
   useEffect(() => {

@@ -84,14 +84,6 @@ export const EditorTab: React.FC = () => {
     </>
   );
 
-  const leftColumnButtons = (
-    <>
-      <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
-      <IconButton size="small" onClick={() => {}}>➕</IconButton>
-      <IconButton size="small" onClick={() => {}}>➖</IconButton>
-    </>
-  );
-
   if (!scenario) {
     return <Typography>Loading...</Typography>;
   }
@@ -111,7 +103,9 @@ export const EditorTab: React.FC = () => {
         isCollapsed={isLeftCollapsed}
         onCollapseChange={toggleLeftCollapse}
         width={getColumnWidthPercentage('left')}
-        buttons={leftColumnButtons}
+        buttons={<>
+          <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
+        </>}
       >
         <PointViewer 
           screens={scenario.screens}

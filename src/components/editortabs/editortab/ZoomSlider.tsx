@@ -48,9 +48,6 @@ export const ZoomSlider: React.FC<ZoomSliderProps> = ({ value, onChange }) => {
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ minWidth: 40, textAlign: 'right', mr: 1 }}>
-        {value.toFixed(2)}x
-      </Box>
       <StyledSlider
         ref={sliderRef}
         value={value}
@@ -61,6 +58,9 @@ export const ZoomSlider: React.FC<ZoomSliderProps> = ({ value, onChange }) => {
         aria-label="Zoom"
         size="small"
       />
+      <Box sx={{ minWidth: 40, textAlign: 'right', mr: 1 }}>
+        {value.toFixed(2)}x
+      </Box>
     </Box>
   );
 }; 
