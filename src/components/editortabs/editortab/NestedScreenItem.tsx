@@ -13,7 +13,6 @@ interface NestedScreenItemProps {
   isEditing: boolean;
   onSelect: (screenId: string) => void;
   onEdit: (screenId: string) => void;
-  onExpand: (screenId: string) => void;
   isExpanded: boolean;
   scenarioId: string;
 }
@@ -25,7 +24,6 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   isEditing,
   onSelect,
   onEdit,
-  onExpand,
   isExpanded,
   scenarioId
 }) => {

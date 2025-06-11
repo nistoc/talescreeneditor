@@ -13,7 +13,7 @@ import { ZoomSlider } from './ZoomSlider';
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
   const { data: scenario } = useScenario(scenarioId || '');
-  
+
   const [selectedScreenId, setSelectedScreenId] = useState<string | null>(null);
   const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>({});
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
@@ -21,12 +21,12 @@ export const EditorTab: React.FC = () => {
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
   const [graphZoom, setGraphZoom] = useState<number>(0.2);
 
-  const { 
+  const {
     getEffectiveProportions,
-    isLeftCollapsed, 
-    isRightCollapsed, 
-    toggleLeftCollapse, 
-    toggleRightCollapse 
+    isLeftCollapsed,
+    isRightCollapsed,
+    toggleLeftCollapse,
+    toggleRightCollapse
   } = useColumnProportions();
 
   const effectiveProportions = getEffectiveProportions();
@@ -55,10 +55,11 @@ export const EditorTab: React.FC = () => {
     setSelectedScreenId(screenId);
   };
 
-  const handleScreenExpand = (screenId: string) => {
+  const handleScreenExpand = (screenId: string, childScreenIds: string[]) => {
     setExpandedScreens(prev => {
       const newState = { ...prev };
-      if (newState[screenId]) {
+
+      if (newState[screenId] && childScreenIds.includes(selectedScreenId as string)) {
         // If we're collapsing, make sure the parent screen becomes selected
         console.log('Collapsing screen, selecting parent:', screenId);
         setSelectedScreenId(screenId);
@@ -79,8 +80,8 @@ export const EditorTab: React.FC = () => {
 
   const defaultButtons = (
     <>
-      <IconButton size="small" onClick={() => {}}>➕</IconButton>
-      <IconButton size="small" onClick={() => {}}>➖</IconButton>
+      <IconButton size="small" onClick={() => { }}>➕</IconButton>
+      <IconButton size="small" onClick={() => { }}>➖</IconButton>
     </>
   );
 
@@ -89,9 +90,9 @@ export const EditorTab: React.FC = () => {
   }
 
   return (
-    <Box sx={{ 
-      display: 'flex', 
-      height: '100%', 
+    <Box sx={{
+      display: 'flex',
+      height: '100%',
       gap: 2,
       position: 'relative'
     }}>
@@ -107,7 +108,7 @@ export const EditorTab: React.FC = () => {
           <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
         </>}
       >
-        <PointViewer 
+        <PointViewer
           screens={scenario.screens}
           selectedScreenId={selectedScreenId}
           firstScreenId={scenario.firstScreenId}
@@ -119,7 +120,7 @@ export const EditorTab: React.FC = () => {
       <Column
         title="Central"
         isCollapsed={false}
-        onCollapseChange={() => {}}
+        onCollapseChange={() => { }}
         width={getColumnWidthPercentage('central')}
         buttons={defaultButtons}
       >
