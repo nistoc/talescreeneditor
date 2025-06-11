@@ -20,6 +20,7 @@ interface PointViewerProps {
 interface GraphState {
   zoom: number;
   pan: { x: number; y: number };
+  isInitialRender: boolean;
 }
 
 export const PointViewer: React.FC<PointViewerProps> = ({ 
@@ -32,9 +33,11 @@ export const PointViewer: React.FC<PointViewerProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const debugTooltipRef = useRef<HTMLDivElement | null>(null);
   const [graphState, setGraphState] = useState<GraphState>({
     zoom: 0.2,
-    pan: { x: 0, y: 0 }
+    pan: { x: 0, y: 0 },
+    isInitialRender: true
   });
 
   // Filter out block screens
@@ -45,6 +48,21 @@ export const PointViewer: React.FC<PointViewerProps> = ({
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    // Create debug tooltip element
+    const debugTooltip = document.createElement('div');
+    debugTooltip.style.position = 'absolute';
+    debugTooltip.style.top = '10px';
+    debugTooltip.style.left = '10px';
+    debugTooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    debugTooltip.style.color = 'white';
+    debugTooltip.style.padding = '8px';
+    debugTooltip.style.borderRadius = '4px';
+    debugTooltip.style.fontSize = '12px';
+    debugTooltip.style.zIndex = '1000';
+    debugTooltip.style.fontFamily = 'monospace';
+    containerRef.current.appendChild(debugTooltip);
+    debugTooltipRef.current = debugTooltip;
 
     // Create tooltip element
     const tooltip = document.createElement('div');
@@ -113,41 +131,39 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       layout: {
         name: 'dagre',
         rankDir: 'TB',
-        padding: 50,
-        spacingFactor: 1.5
-      } as DagreLayoutOptions
+        //padding: 50,
+        spacingFactor: 1.1
+      } as DagreLayoutOptions,
+      // Disable zooming gestures
+      userZoomingEnabled: false,
+      userPanningEnabled: true,
+      boxSelectionEnabled: false
     });
 
     // Set initial zoom and fit if no saved state
-    if (graphState.zoom === 0.2 && graphState.pan.x === 0 && graphState.pan.y === 0) {
+    if (graphState.isInitialRender) {
       cyRef.current.zoom(0.2);
 
-      if (selectedScreenId) {
-        cyRef.current.fit(cyRef.current.getElementById(selectedScreenId), 50);
-      } else if(firstScreenId) {
-        cyRef.current.fit(cyRef.current.getElementById(firstScreenId), 50);
-      // } else if(cyRef.current.elements()[0].data.id) {
-      //   cyRef.current.fit(cyRef.current.getElementById(cyRef.current.elements()[0].data.id), 50);
+      let centeringObject: any = null;
+      if(firstScreenId) {
+        centeringObject = cyRef.current.getElementById(firstScreenId);
       } else {
-        cyRef.current.fit(cyRef.current.elements(), 50);
+        centeringObject = cyRef.current.elements();
       }
+      cyRef.current.fit(centeringObject, 250);
+      
+      setGraphState(prev => ({ ...prev, isInitialRender: false }));
     } else {
       // Restore saved state
       cyRef.current.zoom(graphState.zoom);
       cyRef.current.pan(graphState.pan);
     }
 
-    // Add zoom and pan change listeners
-    cyRef.current.on('zoom', () => {
-      if (cyRef.current) {
-        const newZoom = cyRef.current.zoom();
-        // Only update state if zoom actually changed
-        if (newZoom !== graphState.zoom) {
-          setGraphState(prev => ({ ...prev, zoom: newZoom }));
-          if (onZoomChange) {
-            onZoomChange(newZoom);
-          }
-        }
+    // Add pan change listener
+    cyRef.current.on('pan', () => {
+      if (cyRef.current && debugTooltipRef.current) {
+        const currentPan = cyRef.current.pan();
+        debugTooltipRef.current.innerHTML = `Pan: x=${Math.round(currentPan.x)}, y=${Math.round(currentPan.y)}`;
       }
     });
 
@@ -158,11 +174,25 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       }
     });
 
+    // Add scroll event listener for vertical panning
+    const handleScroll = (event: WheelEvent) => {
+      if (cyRef.current) {
+        event.preventDefault();
+        const currentPan = cyRef.current.pan();
+        const deltaY = -event.deltaY;
+        cyRef.current.pan({
+          x: currentPan.x,
+          y: currentPan.y + deltaY
+        });
+      }
+    };
+
+    containerRef.current.addEventListener('wheel', handleScroll, { passive: false });
+
     // Add tooltip event handlers
     cyRef.current.on('mouseover', 'node', (evt) => {
       const node = evt.target;
       const label = node.data('label');
-      const position = node.position();
       const renderedPosition = node.renderedPosition();
       
       if (tooltipRef.current) {
@@ -186,8 +216,14 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       if (tooltipRef.current && tooltipRef.current.parentNode) {
         tooltipRef.current.parentNode.removeChild(tooltipRef.current);
       }
+      if (debugTooltipRef.current && debugTooltipRef.current.parentNode) {
+        debugTooltipRef.current.parentNode.removeChild(debugTooltipRef.current);
+      }
+      if (containerRef.current) {
+        containerRef.current.removeEventListener('wheel', handleScroll);
+      }
     };
-  }, [flattenedScreens, selectedScreenId, onZoomChange]);
+  }, [flattenedScreens, selectedScreenId]);
 
   // Handle zoom changes from parent
   useEffect(() => {
