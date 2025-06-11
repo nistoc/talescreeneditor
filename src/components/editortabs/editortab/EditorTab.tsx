@@ -48,8 +48,18 @@ export const EditorTab: React.FC = () => {
     if (selectedScreenId && listRef.current) {
       const timeoutId = setTimeout(() => {
         const selectedElement = listRef.current?.querySelector(`[data-screen-id="${selectedScreenId}"]`);
-        if (selectedElement) {
-          selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (selectedElement && listRef.current) {
+          const rect = selectedElement.getBoundingClientRect();
+          const containerRect = listRef.current.getBoundingClientRect();
+          
+          // Check if element is not fully visible in the container
+          const isNotFullyVisible = 
+            rect.top < containerRect.top ||
+            rect.bottom > containerRect.bottom;
+
+          if (isNotFullyVisible) {
+            selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
         }
       }, 300);
       return () => clearTimeout(timeoutId);

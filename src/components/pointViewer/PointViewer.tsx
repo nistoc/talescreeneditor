@@ -35,6 +35,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     zoom: 0.2,
     pan: { x: 0, y: 0 },
   });
+  const clickedNodeRef = useRef<string | null>(null);
 
   // Filter out block screens
   const filteredScreens = screens.filter(screen => screen.type !== 'block');
@@ -213,6 +214,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     // Add click handler for nodes
     cyRef.current.on('tap', 'node', (evt) => {
       const nodeId = evt.target.id();
+      clickedNodeRef.current = nodeId;
       if (onNodeClick) {
         onNodeClick(nodeId);
       }
@@ -248,6 +250,18 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     const node = cyRef.current.getElementById(selectedScreenId);
     if (node.length > 0) {
       node.select();
+      // Only center if the selection wasn't triggered by a click
+      if (clickedNodeRef.current !== selectedScreenId) {
+        cyRef.current.animate({
+          center: {
+            eles: node
+          } as any,
+          duration: 500,
+          easing: 'ease-in-out-cubic'
+        });
+      }
+      // Reset the clicked node reference
+      clickedNodeRef.current = null;
     }
   }, [zoom, selectedScreenId]);
 
