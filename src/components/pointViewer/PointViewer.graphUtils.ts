@@ -6,6 +6,7 @@ export interface FlattenedScreen {
   label: string;
   upIds: string[];
   containerParentId: string | null;
+  type: string;
 }
 
 export const createFlattenedScreens = (screens: Screen[]): FlattenedScreen[] => {
@@ -34,7 +35,8 @@ export const createFlattenedScreens = (screens: Screen[]): FlattenedScreen[] => 
       id: screen.id,
       downs: downValues,
       label: screen.content || '',
-      containerParentId
+      containerParentId,
+      type: screen.type
     };
     
     screenMap.set(screen.id, flattenedScreen);

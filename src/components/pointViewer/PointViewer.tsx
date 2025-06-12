@@ -5,6 +5,7 @@ import { createFlattenedScreens } from './PointViewer.graphUtils';
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import { DagreLayoutOptions } from './PointViewer.cytoscape-dagre';
+import { getScreenTypeEmoji } from '../../services/screenUtils';
 
 // Register the dagre layout
 cytoscape.use(dagre);
@@ -97,8 +98,9 @@ export const PointViewer: React.FC<PointViewerProps> = ({
         nodes: flattenedScreens.map(screen => ({
           data: {
             id: screen.id,
-            label: screen.label || screen.id,
-            selected: screen.id === selectedScreenId
+            label: `${getScreenTypeEmoji(screen.type)} ${screen.label || screen.id}`,
+            selected: screen.id === selectedScreenId,
+            type: screen.type
           }
         })),
         edges: flattenedScreens.flatMap(screen =>
@@ -116,16 +118,59 @@ export const PointViewer: React.FC<PointViewerProps> = ({
           style: {
             'text-valign': 'center',
             'text-halign': 'center',
-            'background-color': '#666',
-            'width': 80,
-            'height': 40,
-            'padding': '10px'
+            'content': getScreenTypeEmoji('-'),
+            'width': 5,
+            'height': 5,
+            'padding': '20px',
+            'font-size': '60px',
+            'background-opacity': 0.5,
+            'background-color': 'none',
+            'border-width': 0,
+            'border-color': 'none',
           }
         },
         {
           selector: 'node:selected',
           style: {
-            'background-color': '#ff0000'
+            'background-opacity': 1,
+            'width': 90,
+            'height': 90,
+          }
+        },
+        {
+          selector: 'node.scene',
+          style: {
+            'content': getScreenTypeEmoji('scene'),
+          }
+        },
+        {
+          selector: 'node.cutscene',
+          style: {
+            'content': getScreenTypeEmoji('cutscene'),
+          }
+        },
+        {
+          selector: 'node.narrative',
+          style: {
+            'content': getScreenTypeEmoji('narrative'),
+          }
+        },
+        {
+          selector: 'node.dialog',
+          style: {
+            'content': getScreenTypeEmoji('dialog'),
+          }
+        },
+        {
+          selector: 'node.choice',
+          style: {
+            'content': getScreenTypeEmoji('choice'),
+          }
+        },
+        {
+          selector: 'node.final',
+          style: {
+            'content': getScreenTypeEmoji('final'),
           }
         },
         {
@@ -218,6 +263,10 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       if (onNodeClick) {
         onNodeClick(nodeId);
       }
+    });
+
+    cyRef.current.nodes().forEach(node => {
+      node.addClass(node.data('type'));
     });
     
     return () => {
