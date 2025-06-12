@@ -12,7 +12,9 @@ const styles = {
     transition: 'all 0.3s ease',
     overflow: 'hidden',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    maxHeight: 'calc(100vh - 113px)',
+    maxWidth: '100vw',
   },
   header: {
     p: 2,
@@ -20,26 +22,35 @@ const styles = {
     borderColor: 'divider',
     display: 'flex',
     alignItems: 'center',
-    gap: 1
+    gap: 1,
+    flexShrink: 0,
   },
   buttonsRow: {
     p: 1,
     display: 'flex',
     justifyContent: 'flex-end',
     borderBottom: '1px solid',
-    borderColor: 'divider'
+    borderColor: 'divider',
+    flexShrink: 0,
   },
   content: {
     p: 2,
     flex: 1,
     overflow: 'auto',
     transition: 'opacity 0.3s ease',
-    opacity: 1
+    opacity: 1,
+    minHeight: 0,
+    '& > *': {
+      maxWidth: '100%',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    }
   },
   contentCollapsed: {
     opacity: 0,
     height: 0,
-    padding: 0
+    padding: 0,
+    overflow: 'hidden'
   }
 } as const;
 

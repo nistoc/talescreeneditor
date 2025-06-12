@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Paper, Chip, Divider } from '@mui/material';
 import { getScenarioImageUrl } from '../../../services/imageUtils';
+import { Screen, Character } from '../../../types/api.scenarios';
 
 interface PlayerProps {
-  screens: any[];
+  screens: Screen[];
   selectedScreenId: string | null;
-  selectedScreenParentId: string | null;
-  characters: any[];
+  characters: Character[];
   selectedCharacterId: string | null;
   scenarioId: string;
 }
@@ -24,18 +24,18 @@ function findScreenById(screens: any[], id: string | null): any | undefined {
   return undefined;
 }
 
-export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selectedScreenParentId, characters, selectedCharacterId, scenarioId }) => {
-  const screen = findScreenById(screens, selectedScreenId);
-  const parentScreen = selectedScreenParentId ? findScreenById(screens, selectedScreenParentId) : undefined;
-  const actorCharacter = screen?.actor?.playerId ? characters.find(c => c.id === screen.actor.playerId) : undefined;
+export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, characters, selectedCharacterId, scenarioId }) => {
+  const selectedScreen = selectedScreenId ? findScreenById(screens, selectedScreenId) : undefined;
+  const parentScreen = selectedScreen?.parentId ? findScreenById(screens, selectedScreen.parentId) : undefined;
+  const actorCharacter = selectedScreen?.actor?.playerId ? characters.find(c => c.id === selectedScreen.actor.playerId) : undefined;
 
   const [screenImageUrl, setScreenImageUrl] = useState<string | null>(null);
   const [actorImageUrl, setActorImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadScreenImage() {
-      if (screen && screen.image) {
-        const url = await getScenarioImageUrl(scenarioId, screen.image);
+      if (selectedScreen && selectedScreen.image) {
+        const url = await getScenarioImageUrl(scenarioId, selectedScreen.image);
         setScreenImageUrl(url);
       } else if (parentScreen && parentScreen.image) {
         const url = await getScenarioImageUrl(scenarioId, parentScreen.image);
@@ -45,7 +45,7 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selec
       }
     }
     loadScreenImage();
-  }, [screen, parentScreen, scenarioId]);
+  }, [selectedScreen, parentScreen, scenarioId]);
 
   useEffect(() => {
     async function loadActorImage() {
@@ -62,7 +62,7 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selec
   return (
     <Paper sx={{ p: 2 }}>
       <Typography variant="h6">Player</Typography>
-      {screen ? (
+      {selectedScreen ? (
         <Box>
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
             {actorCharacter && actorCharacter.id === selectedCharacterId && actorImageUrl && (
@@ -71,22 +71,22 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, selec
               </Box>
             )}
             <Box sx={{ flex: 1 }}>
-              <Typography variant="subtitle1" sx={{ mb: 1 }}>Screen: {screen.title || screen.name || screen.id}</Typography>
+              <Typography variant="subtitle1" sx={{ mb: 1 }}>Screen: {selectedScreen.title || selectedScreen.name || selectedScreen.id}</Typography>
               <Divider sx={{ mb: 1 }} />
-              <Typography variant="body2"><b>ID:</b> {screen.id}</Typography>
-              <Typography variant="body2"><b>Type:</b> {screen.type}</Typography>
-              {screen.title && <Typography variant="body2"><b>Title:</b> {screen.title}</Typography>}
-              <Typography variant="body2"><b>Content:</b> {screen.content}</Typography>
+              <Typography variant="body2"><b>ID:</b> {selectedScreen.id}</Typography>
+              <Typography variant="body2"><b>Type:</b> {selectedScreen.type}</Typography>
+              {selectedScreen.title && <Typography variant="body2"><b>Title:</b> {selectedScreen.title}</Typography>}
+              <Typography variant="body2"><b>Content:</b> {selectedScreen.content}</Typography>
               {screenImageUrl && <Box sx={{ my: 1 }}><img src={screenImageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 120 }} /></Box>}
-              <Typography variant="body2"><b>Progress:</b> {screen.progress}</Typography>
-              {screen.notes && <Typography variant="body2"><b>Notes:</b> {screen.notes}</Typography>}
-              {screen.next && <Typography variant="body2"><b>Next:</b> {screen.next}</Typography>}
-              {screen.actor && <Typography variant="body2"><b>Actor:</b> {actorCharacter?.name || screen.actor.playerId}</Typography>}
-              {screen.availableFor && <Typography variant="body2"><b>Available For:</b> {screen.availableFor}</Typography>}
-              {screen.options && Array.isArray(screen.options) && screen.options.length > 0 && (
+              <Typography variant="body2"><b>Progress:</b> {selectedScreen.progress}</Typography>
+              {selectedScreen.notes && <Typography variant="body2"><b>Notes:</b> {selectedScreen.notes}</Typography>}
+              {selectedScreen.next && <Typography variant="body2"><b>Next:</b> {selectedScreen.next}</Typography>}
+              {selectedScreen.actor && <Typography variant="body2"><b>Actor:</b> {actorCharacter?.name || selectedScreen.actor.playerId}</Typography>}
+              {selectedScreen.availableFor && <Typography variant="body2"><b>Available For:</b> {selectedScreen.availableFor}</Typography>}
+              {selectedScreen.options && Array.isArray(selectedScreen.options) && selectedScreen.options.length > 0 && (
                 <Box sx={{ mt: 1 }}>
                   <Typography variant="body2"><b>Options:</b></Typography>
-                  {screen.options.map((opt: any) => (
+                  {selectedScreen.options.map((opt: any) => (
                     <Chip key={opt.id} label={opt.text || opt.id} size="small" sx={{ mr: 0.5, mb: 0.5 }} />
                   ))}
                 </Box>

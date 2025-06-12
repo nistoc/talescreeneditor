@@ -22,6 +22,44 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useUpdateScenario, useScenario } from '../../api/scenarios';
 import { useParams } from 'react-router-dom';
 
+// Common styles
+const commonStyles = {
+  fieldContainer: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: 1,
+    flexDirection: { xs: 'column', sm: 'row' },
+    borderRadius: 1,
+    transition: 'all 0.2s ease',
+    '&:hover': {
+      backgroundColor: 'action.hover'
+    }
+  },
+  label: {
+    flex: { xs: 'none', sm: '0 0 120px' },
+    minWidth: { xs: '100%', sm: '120px' },
+    fontSize: '0.875rem',
+    color: 'text.secondary'
+  },
+  contentContainer: {
+    flex: { xs: 'none', sm: 1 },
+    width: { xs: '100%', sm: 'auto' }
+  },
+  editButton: {
+    opacity: 1,
+    transition: 'all 0.2s ease',
+    '&:hover': {
+      backgroundColor: 'action.hover',
+      transform: 'scale(1.1)'
+    }
+  },
+  actionButtons: {
+    display: 'flex',
+    gap: 1,
+    justifyContent: { xs: 'flex-end', sm: 'flex-start' }
+  }
+};
+
 // Available genres and labels (you might want to move these to a separate constants file)
 const AVAILABLE_GENRES = [
   'thriller',
@@ -147,30 +185,14 @@ export const IntroTab: React.FC = () => {
   const renderEditableField = (label: string, field: string, value: any, multiline = false) => (
     <Box 
       sx={{ 
-        display: 'flex', 
-        alignItems: 'flex-start', 
-        gap: 1, 
-        flexDirection: { xs: 'column', sm: 'row' },
-        p: 1,
-        borderRadius: 1,
-        transition: 'all 0.2s ease',
-        border: editingField === field ? '1px solid' : 'none',
-        borderColor: 'primary.main',
+        ...commonStyles.fieldContainer,
         backgroundColor: editingField === field ? 'action.selected' : 'inherit',
-        '&:hover': {
-          backgroundColor: editingField === field ? 'action.selected' : 'action.hover'
-        }
       }}
     >
-      <Typography variant="subtitle2" sx={{ 
-        flex: { xs: 'none', sm: '0 0 120px' }, 
-        minWidth: { xs: '100%', sm: '120px' },
-        fontSize: '0.875rem',
-        color: 'text.secondary'
-      }}>
+      <Typography variant="subtitle2" sx={commonStyles.label}>
         {label}:
       </Typography>
-      <Box sx={{ flex: { xs: 'none', sm: 1 }, width: { xs: '100%', sm: 'auto' } }}>
+      <Box sx={commonStyles.contentContainer}>
         {editingField === field ? (
           <ClickAwayListener onClickAway={handleCancelEdit}>
             <Box sx={{ display: 'flex', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
@@ -183,7 +205,7 @@ export const IntroTab: React.FC = () => {
                 size="small"
                 autoFocus
               />
-              <Box sx={{ display: 'flex', gap: 1, justifyContent: { xs: 'flex-end', sm: 'flex-start' } }}>
+              <Box sx={commonStyles.actionButtons}>
                 <Button onClick={handleSave} variant="contained" size="small">
                   Save
                 </Button>
@@ -203,14 +225,7 @@ export const IntroTab: React.FC = () => {
                 size="small" 
                 onClick={() => handleEditClick(field, value)}
                 color={editingField === field ? 'primary' : 'default'}
-                sx={{ 
-                  opacity: 1,
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    backgroundColor: 'action.hover',
-                    transform: 'scale(1.1)'
-                  }
-                }}
+                sx={commonStyles.editButton}
               >
                 <EditIcon fontSize="small" />
               </IconButton>
@@ -232,30 +247,15 @@ export const IntroTab: React.FC = () => {
   ) => (
     <Box 
       sx={{ 
-        display: 'flex', 
-        alignItems: 'flex-start', 
-        gap: 1, 
-        flexDirection: { xs: 'column', sm: 'row' },
+        ...commonStyles.fieldContainer,
         p: 1,
-        borderRadius: 1,
-        transition: 'all 0.2s ease',
-        border: editingField === field ? '1px solid' : 'none',
-        borderColor: 'primary.main',
         backgroundColor: editingField === field ? 'action.selected' : 'inherit',
-        '&:hover': {
-          backgroundColor: editingField === field ? 'action.selected' : 'action.hover'
-        }
       }}
     >
-      <Typography variant="subtitle2" sx={{ 
-        flex: { xs: 'none', sm: '0 0 120px' }, 
-        minWidth: { xs: '100%', sm: '120px' },
-        fontSize: '0.875rem',
-        color: 'text.secondary'
-      }}>
+      <Typography variant="subtitle2" sx={commonStyles.label}>
         {label}:
       </Typography>
-      <Box sx={{ flex: { xs: 'none', sm: 1 }, width: { xs: '100%', sm: 'auto' } }}>
+      <Box sx={commonStyles.contentContainer}>
         {editingField === field ? (
           <ClickAwayListener onClickAway={handleCancelEdit}>
             <Box sx={{ display: 'flex', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
@@ -281,7 +281,7 @@ export const IntroTab: React.FC = () => {
                   ))}
                 </Select>
               </FormControl>
-              <Box sx={{ display: 'flex', gap: 1, justifyContent: { xs: 'flex-end', sm: 'flex-start' } }}>
+              <Box sx={commonStyles.actionButtons}>
                 <Button onClick={onSave} variant="contained" size="small">
                   Save
                 </Button>
@@ -303,14 +303,7 @@ export const IntroTab: React.FC = () => {
                 size="small" 
                 onClick={() => handleEditClick(field, value)}
                 color={editingField === field ? 'primary' : 'default'}
-                sx={{ 
-                  opacity: 1,
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    backgroundColor: 'action.hover',
-                    transform: 'scale(1.1)'
-                  }
-                }}
+                sx={commonStyles.editButton}
               >
                 <EditIcon fontSize="small" />
               </IconButton>
@@ -329,7 +322,7 @@ export const IntroTab: React.FC = () => {
 
       <Grid container spacing={{ xs: 1, sm: 3 }}>
         {/* Basic Information */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} xl={4}>
           <Paper sx={{ p: { xs: 1, sm: 2 } }}>
             <Typography variant="subtitle1" gutterBottom>
               Basic Information
@@ -337,7 +330,7 @@ export const IntroTab: React.FC = () => {
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               {renderEditableField('Title', 'title', scenario.title)}
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: 1 }, minWidth: { xs: '100%', sm: 'auto' } }}>
+                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: '0 0 120px' }, minWidth: { xs: '100%', sm: 'auto' } }}>
                   Status:
                 </Typography>
                 <Typography variant="body2" sx={{ flex: { xs: 'none', sm: 2 }, width: { xs: '100%', sm: 'auto' } }}>
@@ -345,7 +338,7 @@ export const IntroTab: React.FC = () => {
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: 1 }, minWidth: { xs: '100%', sm: 'auto' } }}>
+                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: '0 0 120px' }, minWidth: { xs: '100%', sm: 'auto' } }}>
                   ID:
                 </Typography>
                 <Typography variant="body2" sx={{ flex: { xs: 'none', sm: 2 }, width: { xs: '100%', sm: 'auto' } }}>
@@ -353,7 +346,7 @@ export const IntroTab: React.FC = () => {
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: 1 }, minWidth: { xs: '100%', sm: 'auto' } }}>
+                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: '0 0 120px' }, minWidth: { xs: '100%', sm: 'auto' } }}>
                   Owner ID:
                 </Typography>
                 <Typography variant="body2" sx={{ flex: { xs: 'none', sm: 2 }, width: { xs: '100%', sm: 'auto' } }}>
@@ -365,14 +358,14 @@ export const IntroTab: React.FC = () => {
         </Grid>
 
         {/* Dates and Structure */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} xl={4}>
           <Paper sx={{ p: { xs: 1, sm: 2 } }}>
             <Typography variant="subtitle1" gutterBottom>
               Dates and Structure
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: 1 }, minWidth: { xs: '100%', sm: 'auto' } }}>
+                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: '0 0 120px' }, minWidth: { xs: '100%', sm: 'auto' } }}>
                   Created Date:
                 </Typography>
                 <Typography variant="body2" sx={{ flex: { xs: 'none', sm: 2 }, width: { xs: '100%', sm: 'auto' } }}>
@@ -380,7 +373,7 @@ export const IntroTab: React.FC = () => {
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: 1 }, minWidth: { xs: '100%', sm: 'auto' } }}>
+                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: '0 0 120px' }, minWidth: { xs: '100%', sm: 'auto' } }}>
                   Updated At:
                 </Typography>
                 <Typography variant="body2" sx={{ flex: { xs: 'none', sm: 2 }, width: { xs: '100%', sm: 'auto' } }}>
@@ -389,13 +382,42 @@ export const IntroTab: React.FC = () => {
               </Box>
               {renderEditableField('First Screen ID', 'firstScreenId', scenario.firstScreenId)}
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: 1 }, minWidth: { xs: '100%', sm: 'auto' } }}>
+                <Typography variant="subtitle2" sx={{ flex: { xs: 'none', sm: '0 0 120px' }, minWidth: { xs: '100%', sm: 'auto' } }}>
                   Max Branch Length:
                 </Typography>
                 <Typography variant="body2" sx={{ flex: { xs: 'none', sm: 2 }, width: { xs: '100%', sm: 'auto' } }}>
                   {scenario.maxBranchLength}
                 </Typography>
               </Box>
+            </Box>
+          </Paper>
+        </Grid>
+
+        {/* Metadata */}
+        <Grid item xs={12} md={6} xl={4}>
+          <Paper sx={{ p: { xs: 1, sm: 2 } }}>
+            <Typography variant="subtitle1" gutterBottom>
+              Metadata
+            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              {renderMultiSelectField(
+                'Genres',
+                'genres',
+                scenario.genres || [],
+                AVAILABLE_GENRES,
+                selectedGenres,
+                setSelectedGenres,
+                handleGenresSave
+              )}
+              {renderMultiSelectField(
+                'Labels',
+                'labels',
+                scenario.labels || [],
+                AVAILABLE_LABELS,
+                selectedLabels,
+                setSelectedLabels,
+                handleLabelsSave
+              )}
             </Box>
           </Paper>
         </Grid>
@@ -444,34 +466,6 @@ export const IntroTab: React.FC = () => {
           </Paper>
         </Grid>
 
-        {/* Metadata */}
-        <Grid item xs={12}>
-          <Paper sx={{ p: { xs: 1, sm: 2 } }}>
-            <Typography variant="subtitle1" gutterBottom>
-              Metadata
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              {renderMultiSelectField(
-                'Genres',
-                'genres',
-                scenario.genres || [],
-                AVAILABLE_GENRES,
-                selectedGenres,
-                setSelectedGenres,
-                handleGenresSave
-              )}
-              {renderMultiSelectField(
-                'Labels',
-                'labels',
-                scenario.labels || [],
-                AVAILABLE_LABELS,
-                selectedLabels,
-                setSelectedLabels,
-                handleLabelsSave
-              )}
-            </Box>
-          </Paper>
-        </Grid>
       </Grid>
     </Box>
   );

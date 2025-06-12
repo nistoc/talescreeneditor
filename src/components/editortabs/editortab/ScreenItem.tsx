@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, IconButton, ListItem, Typography, Tooltip, Collapse, List } from '@mui/material';
-import { Screen } from '../../../types/api.scenarios';
+import { Screen, ScreenNarrative, ScreenDialog, ScreenScene } from '../../../types/api.scenarios';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import EditIcon from '@mui/icons-material/Edit';
@@ -14,11 +14,15 @@ interface ScreenItemProps {
   isEditing: boolean;
   isExpanded: boolean;
   selectedScreenId: string | null;
-  onSelect: (screenId: string, parentId?: string) => void;
+  onSelect: (screenId: string) => void;
   onEdit: (screenId: string) => void;
-  onExpand: (screenId: string) => void;
+  onExpand: (screenId: string, childScreenIds: string[]) => void;
   scenarioId: string;
 }
+
+const hasScreens = (screen: Screen): screen is ScreenNarrative | ScreenDialog | ScreenScene => {
+  return 'screens' in screen && Array.isArray(screen.screens);
+};
 
 export const ScreenItem: React.FC<ScreenItemProps> = ({
   screen,
@@ -32,7 +36,16 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
   onExpand,
   scenarioId
 }) => {
-  const hasChildren = 'screens' in screen && screen.screens.length > 0;
+  const hasChildren = hasScreens(screen) && screen.screens.length > 0;
+  const childScreenIds = hasChildren ? screen.screens.map(s => s.id) : [];
+
+  useEffect(() => {
+    if (selectedScreenId && hasChildren && !isExpanded) {
+      if (childScreenIds.includes(selectedScreenId)) {
+        onExpand(screen.id, childScreenIds);
+      }
+    }
+  }, [selectedScreenId]);
 
   const handleClick = () => {
     onSelect(screen.id);
@@ -42,6 +55,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
     <React.Fragment>
       <ListItem
         onClick={handleClick}
+        data-screen-id={screen.id}
         sx={{
           pl: level === 0 ? 2 : 4 + (level * 3),
           borderLeft: level > 0 ? '2px solid' : 'none',
@@ -62,7 +76,9 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
             size="small"
             onClick={(e) => {
               e.stopPropagation();
-              onExpand(screen.id);
+              if (hasChildren) {
+                onExpand(screen.id, childScreenIds);
+              }
             }}
             sx={{ mr: 1 }}
           >
@@ -123,9 +139,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
                   isEditing={isEditing}
                   onSelect={onSelect}
                   onEdit={onEdit}
-                  onExpand={onExpand}
                   isExpanded={isExpanded}
-                  parentId={screen.id}
                   scenarioId={scenarioId}
                 />
               ))}

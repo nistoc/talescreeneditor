@@ -11,11 +11,9 @@ interface NestedScreenItemProps {
   level: number;
   isSelected: boolean;
   isEditing: boolean;
-  onSelect: (screenId: string, parentId?: string) => void;
+  onSelect: (screenId: string) => void;
   onEdit: (screenId: string) => void;
-  onExpand: (screenId: string) => void;
   isExpanded: boolean;
-  parentId: string;
   scenarioId: string;
 }
 
@@ -26,9 +24,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   isEditing,
   onSelect,
   onEdit,
-  onExpand,
   isExpanded,
-  parentId,
   scenarioId
 }) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -46,12 +42,13 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   }, [screen.image, scenarioId]);
 
   const handleClick = () => {
-    onSelect(screen.id, parentId);
+    onSelect(screen.id);
   };
 
   return (
     <ListItem
       onClick={handleClick}
+      data-screen-id={screen.id}
       sx={{
         pl: 2,
         pr: 1,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, IconButton, List, Typography } from '@mui/material';
 import { Column } from '../../columnTabs/Column';
 import { useColumnProportions } from '../../columnTabs/СolumnProportions';
@@ -7,33 +7,64 @@ import { useScenario } from '../../../api/scenarios';
 import { ScreenItem } from './ScreenItem';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
+import { PointViewer } from '../../pointViewer/PointViewer';
+import { ZoomSlider } from './ZoomSlider';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
   const { data: scenario } = useScenario(scenarioId || '');
-  
+
   const [selectedScreenId, setSelectedScreenId] = useState<string | null>(null);
-  const [selectedScreenParentId, setSelectedScreenParentId] = useState<string | null>(null);
   const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>({});
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
+  const [graphZoom, setGraphZoom] = useState<number>(0.2);
 
-  const { 
+  const {
     getEffectiveProportions,
-    isLeftCollapsed, 
-    isRightCollapsed, 
-    toggleLeftCollapse, 
-    toggleRightCollapse 
+    isLeftCollapsed,
+    isRightCollapsed,
+    toggleLeftCollapse,
+    toggleRightCollapse
   } = useColumnProportions();
 
   const effectiveProportions = getEffectiveProportions();
+
+  const listRef = useRef<HTMLUListElement>(null);
 
   React.useEffect(() => {
     if (scenario && scenario.characters) {
       setCharacters(scenario.characters);
     }
   }, [scenario]);
+
+  React.useEffect(() => {
+    if (scenario && scenario.firstScreenId && !selectedScreenId) {
+      setSelectedScreenId(scenario.firstScreenId);
+    }
+
+    // Add effect to scroll to selected screen
+    if (selectedScreenId && listRef.current) {
+      const timeoutId = setTimeout(() => {
+        const selectedElement = listRef.current?.querySelector(`[data-screen-id="${selectedScreenId}"]`);
+        if (selectedElement && listRef.current) {
+          const rect = selectedElement.getBoundingClientRect();
+          const containerRect = listRef.current.getBoundingClientRect();
+          
+          // Check if element is not fully visible in the container
+          const isNotFullyVisible = 
+            rect.top < containerRect.top ||
+            rect.bottom > containerRect.bottom;
+
+          if (isNotFullyVisible) {
+            selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      }, 300);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [scenario, selectedScreenId]);
 
   const getColumnWidthPercentage = (column: 'left' | 'central' | 'right') => {
     if (column === 'left' && isLeftCollapsed) return '40px';
@@ -42,16 +73,15 @@ export const EditorTab: React.FC = () => {
     return `${effectiveProportions[percentageField]}%`;
   };
 
-  const handleScreenSelect = (screenId: string, screenParentId?: string) => {
-    console.log('Selected screen:', screenId, 'Parent:', screenParentId);
+  const handleScreenSelect = (screenId: string) => {
     setSelectedScreenId(screenId);
-    setSelectedScreenParentId(screenParentId || null);
   };
 
-  const handleScreenExpand = (screenId: string) => {
+  const handleScreenExpand = (screenId: string, childScreenIds: string[]) => {
     setExpandedScreens(prev => {
       const newState = { ...prev };
-      if (newState[screenId]) {
+
+      if (newState[screenId] && childScreenIds.includes(selectedScreenId as string)) {
         // If we're collapsing, make sure the parent screen becomes selected
         console.log('Collapsing screen, selecting parent:', screenId);
         setSelectedScreenId(screenId);
@@ -66,10 +96,14 @@ export const EditorTab: React.FC = () => {
     setSelectedScreenId(screenId);
   };
 
+  const handleZoomChange = (newZoom: number) => {
+    setGraphZoom(newZoom);
+  };
+
   const defaultButtons = (
     <>
-      <IconButton size="small" onClick={() => {}}>➕</IconButton>
-      <IconButton size="small" onClick={() => {}}>➖</IconButton>
+      <IconButton size="small" onClick={() => { }}>➕</IconButton>
+      <IconButton size="small" onClick={() => { }}>➖</IconButton>
     </>
   );
 
@@ -78,9 +112,9 @@ export const EditorTab: React.FC = () => {
   }
 
   return (
-    <Box sx={{ 
-      display: 'flex', 
-      height: '100%', 
+    <Box sx={{
+      display: 'flex',
+      height: '100%',
       gap: 2,
       position: 'relative'
     }}>
@@ -92,38 +126,47 @@ export const EditorTab: React.FC = () => {
         isCollapsed={isLeftCollapsed}
         onCollapseChange={toggleLeftCollapse}
         width={getColumnWidthPercentage('left')}
-        buttons={defaultButtons}
+        buttons={<>
+          <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
+        </>}
       >
-        Left Content
+        <PointViewer
+          screens={scenario.screens}
+          selectedScreenId={selectedScreenId || scenario.firstScreenId}
+          zoom={graphZoom}
+          onNodeClick={handleScreenSelect}
+        />
       </Column>
 
       {/* Central Column */}
       <Column
         title="Central"
         isCollapsed={false}
-        onCollapseChange={() => {}}
+        onCollapseChange={() => { }}
         width={getColumnWidthPercentage('central')}
         buttons={defaultButtons}
       >
-        <List>
-          {scenario.screens
-            .filter(screen => screen.type !== 'block')
-            .map((screen) => (
-              <ScreenItem
-                key={screen.id}
-                screen={screen}
-                level={0}
-                isSelected={selectedScreenId === screen.id}
-                isEditing={editingScreenId === screen.id}
-                isExpanded={expandedScreens[screen.id] || false}
-                selectedScreenId={selectedScreenId}
-                onSelect={handleScreenSelect}
-                onEdit={handleScreenEdit}
-                onExpand={handleScreenExpand}
-                scenarioId={scenarioId || ''}
-              />
-            ))}
-        </List>
+        <Box ref={listRef} sx={{ height: '100%', overflow: 'auto' }}>
+          <List>
+            {scenario.screens
+              .filter(screen => screen.type !== 'block')
+              .map((screen) => (
+                <ScreenItem
+                  key={screen.id}
+                  screen={screen}
+                  level={0}
+                  isSelected={selectedScreenId === screen.id}
+                  isEditing={editingScreenId === screen.id}
+                  isExpanded={expandedScreens[screen.id] || false}
+                  selectedScreenId={selectedScreenId}
+                  onSelect={handleScreenSelect}
+                  onEdit={handleScreenEdit}
+                  onExpand={handleScreenExpand}
+                  scenarioId={scenarioId || ''}
+                />
+              ))}
+          </List>
+        </Box>
       </Column>
 
       {/* Right Column */}
@@ -140,7 +183,6 @@ export const EditorTab: React.FC = () => {
           <Player
             screens={scenario.screens}
             selectedScreenId={selectedScreenId}
-            selectedScreenParentId={selectedScreenParentId}
             characters={characters}
             selectedCharacterId={selectedCharacterId}
             scenarioId={scenarioId || ''}

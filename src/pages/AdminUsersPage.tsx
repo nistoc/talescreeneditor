@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAdminStats, useUsers, useUpdateUserStatus } from '../api/admin';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -24,10 +24,8 @@ import { useFocusMode } from '../contexts/FocusModeContext';
 
 export const AdminUsersPage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [page, setPage] = React.useState(1);
   const { data: stats, isLoading: statsLoading, error: statsError } = useAdminStats();
-  const { data: users, isLoading: usersLoading, error: usersError } = useUsers(page);
+  const { data: users, isLoading: usersLoading, error: usersError } = useUsers(1);
   const updateUserStatus = useUpdateUserStatus(0); // userId будет установлен при вызове
   const { isFocusMode } = useFocusMode();
 

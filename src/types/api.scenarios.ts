@@ -27,6 +27,7 @@ interface Actor {
 // Base interface for common screen properties
 interface BaseScreen {
   id: string;
+  parentId?: string;
   progress: number;
   content: string;
   image: string;
@@ -116,9 +117,10 @@ export type {
   Scenario 
 }; 
 
-function transformScreen(screen: any): Screen {
+function transformScreen(screen: any, parentScreen?: Screen): Screen {
   const baseScreen = {
     id: screen.id,
+    parentId: parentScreen?.id,
     progress: screen.progress,
     content: screen.content,
     image: screen.image,
@@ -131,14 +133,14 @@ function transformScreen(screen: any): Screen {
       return {
         ...baseScreen,
         type: 'narrative',
-        screens: screen.screens?.map(transformScreen) || []
+        screens: screen.screens?.map((s: any) => transformScreen(s, screen)) || []
       };
     case 'dialog':
       return {
         ...baseScreen,
         type: 'dialog',
         actor: screen.actor,
-        screens: screen.screens?.map(transformScreen) || []
+        screens: screen.screens?.map((s: any) => transformScreen(s, screen)) || []
       };
     case 'choice':
       return {
@@ -160,7 +162,7 @@ function transformScreen(screen: any): Screen {
         ...baseScreen,
         type: 'scene',
         title: screen.title,
-        screens: screen.screens?.map(transformScreen) || []
+        screens: screen.screens?.map((s: any) => transformScreen(s, screen)) || []
       };
     case 'final':
       return {
@@ -180,7 +182,7 @@ export const defaultScenario: Scenario = {
     type: char.type as 'player' | 'npc',
     gender: char.gender as 'mal' | 'fem'
   })),
-  screens: defaultScenarioData.screens.map(transformScreen),
+  screens: defaultScenarioData.screens.map(s => transformScreen(s)),
   updatedAt: new Date().toISOString(),
   price: {
     type: 'credits',

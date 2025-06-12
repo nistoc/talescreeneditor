@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Box, Typography, ToggleButton, ToggleButtonGroup, Paper, List, ListItem, ListItemText, ListItemAvatar, Avatar, Collapse, IconButton, Tooltip, TextField, InputAdornment } from '@mui/material';
+import { Box, Typography, ToggleButton, ToggleButtonGroup, List, ListItem, ListItemText, ListItemAvatar, Avatar, Collapse, IconButton, Tooltip, TextField, InputAdornment } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useScenario } from '../../api/scenarios';
 import { Screen } from '../../types/api.scenarios';
