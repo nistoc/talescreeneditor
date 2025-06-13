@@ -118,7 +118,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
           style: {
             'text-valign': 'center',
             'text-halign': 'center',
-            'content': getScreenTypeEmoji('-'),
+            //'content': getScreenTypeEmoji(""),
             'width': 5,
             'height': 5,
             'padding': '20px',
@@ -127,14 +127,6 @@ export const PointViewer: React.FC<PointViewerProps> = ({
             'background-color': 'none',
             'border-width': 0,
             'border-color': 'none',
-          }
-        },
-        {
-          selector: 'node:selected',
-          style: {
-            'background-opacity': 1,
-            'width': 90,
-            'height': 90,
           }
         },
         {
@@ -152,13 +144,17 @@ export const PointViewer: React.FC<PointViewerProps> = ({
         {
           selector: 'node.narrative',
           style: {
-            'content': getScreenTypeEmoji('narrative'),
+            'width': 2,
+            'height': 2,
+            'background-color': 'lightgreen',
           }
         },
         {
           selector: 'node.dialog',
           style: {
-            'content': getScreenTypeEmoji('dialog'),
+            'width': 3,
+            'height': 3,
+            'background-color': 'lightblue',
           }
         },
         {
@@ -174,6 +170,14 @@ export const PointViewer: React.FC<PointViewerProps> = ({
           }
         },
         {
+          selector: 'node:selected',
+          style: {
+            'background-opacity': 1,
+            'width': 80,
+            'height': 80,
+          }
+        },
+        {
           selector: 'edge',
           style: {
             'width': 2,
@@ -186,8 +190,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       ],
       layout: {
         name: 'dagre',
-        rankDir: 'TB',
-        //padding: 20,
+        rankDir: 'LR',
         spacingFactor: 1.1
       } as DagreLayoutOptions,
       // Disable zooming gestures
@@ -237,7 +240,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       const isLeftSide = renderedPosition.x < containerCenterX;
 
       if (tooltipRef.current) {
-        tooltipRef.current.innerHTML = label + renderedPosition.x + " " + containerCenterX;
+        tooltipRef.current.innerHTML = label;
         tooltipRef.current.style.display = 'block';
         tooltipRef.current.style.left = '0px';
         tooltipRef.current.style.right = '0px';

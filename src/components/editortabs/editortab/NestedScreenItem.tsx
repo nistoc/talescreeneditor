@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, IconButton, ListItem, Typography, Tooltip } from '@mui/material';
-import { Screen } from '../../../types/api.scenarios';
+import { Screen, ScreenScene } from '../../../types/api.scenarios';
 import EditIcon from '@mui/icons-material/Edit';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -68,13 +68,23 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
     >
       <Box sx={{ flex: 1, minWidth: 0 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography variant="body2" noWrap>
+          <Typography variant="body2">
             {screen.type} - {screen.id}
           </Typography>
         </Box>
-        <Typography variant="caption" color="text.secondary" noWrap>
+        {screen.type === 'scene' && (screen as ScreenScene).title && (
+          <Typography variant="body2" color="text.primary">
+            {(screen as ScreenScene).title}
+          </Typography>
+        )}
+        <Typography variant="caption" color="text.secondary">
           {screen.content}
         </Typography>
+        {screen.notes && (
+          <Typography variant="caption" color="text.secondary">
+            Notes: {screen.notes}
+          </Typography>
+        )}
         {imageUrl && (
           <Box sx={{ my: 0.5 }}>
             <img src={imageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 60 }} />
