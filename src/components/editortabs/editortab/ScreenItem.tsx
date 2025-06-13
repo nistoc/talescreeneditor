@@ -96,6 +96,11 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
               </Typography>
             )}
           </Box>
+          {screen.type === 'scene' && (screen as ScreenScene).title && (
+            <Typography variant="body2" color="text.primary" sx={{ mb: 0.5 }}>
+              {(screen as ScreenScene).title}
+            </Typography>
+          )}
           <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
             {screen.content}
           </Typography>
