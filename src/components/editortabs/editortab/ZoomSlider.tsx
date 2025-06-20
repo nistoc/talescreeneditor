@@ -3,11 +3,11 @@ import { Slider, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledSlider = styled(Slider)({
-  width: 100,
-  margin: '0 8px',
+  width: 80,
+  margin: '0 4px',
   '& .MuiSlider-thumb': {
-    width: 12,
-    height: 12,
+    width: 10,
+    height: 10,
   },
   '& .MuiSlider-track': {
     height: 2,
@@ -58,7 +58,7 @@ export const ZoomSlider: React.FC<ZoomSliderProps> = ({ value, onChange }) => {
         aria-label="Zoom"
         size="small"
       />
-      <Box sx={{ minWidth: 40, textAlign: 'right', mr: 1 }}>
+      <Box sx={{ minWidth: 35, textAlign: 'right', mr: 0.5, fontSize: '0.875rem' }}>
         {value.toFixed(2)}x
       </Box>
     </Box>

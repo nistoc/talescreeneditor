@@ -72,13 +72,18 @@ export const PointViewer: React.FC<PointViewerProps> = ({
     tooltip.style.position = 'absolute';
     tooltip.style.display = 'none';
     tooltip.style.backgroundColor = 'white';
-    tooltip.style.padding = '8px';
+    tooltip.style.padding = '8px 12px';
     tooltip.style.border = '1px solid #ccc';
-    tooltip.style.borderRadius = '4px';
-    tooltip.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+    tooltip.style.borderRadius = '6px';
+    tooltip.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
     tooltip.style.zIndex = '1000';
-    tooltip.style.maxWidth = '200px';
+    tooltip.style.maxWidth = '300px';
     tooltip.style.fontSize = '14px';
+    tooltip.style.fontFamily = 'Arial, sans-serif';
+    tooltip.style.lineHeight = '1.4';
+    tooltip.style.wordWrap = 'break-word';
+    tooltip.style.overflowWrap = 'break-word';
+    tooltip.style.marginRight = '10px';
     container.appendChild(tooltip);
     tooltipRef.current = tooltip;
 
@@ -216,15 +221,15 @@ export const PointViewer: React.FC<PointViewerProps> = ({
 
     container.addEventListener('mouseup', handlePanEnd);
 
-    // Add scroll event listener for vertical panning
+    // Add scroll event listener for horizontal panning
     const handleScroll = (event: WheelEvent) => {
       if (cyRef.current) {
         event.preventDefault();
         const currentPan = cyRef.current.pan();
-        const deltaY = -event.deltaY;
+        const deltaX = -event.deltaY;
         cyRef.current.pan({
-          x: currentPan.x,
-          y: currentPan.y + deltaY / 2
+          x: currentPan.x + deltaX / 2,
+          y: currentPan.y
         });
       }
     };
@@ -235,21 +240,14 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       const node = evt.target;
       const label = node.data('label');
       const renderedPosition = node.renderedPosition();
-      const containerRect = container.getBoundingClientRect();
-      const containerCenterX = containerRect.width / 2;
-      const isLeftSide = renderedPosition.x < containerCenterX;
 
       if (tooltipRef.current) {
         tooltipRef.current.innerHTML = label;
         tooltipRef.current.style.display = 'block';
-        tooltipRef.current.style.left = '0px';
-        tooltipRef.current.style.right = '0px';
-        if(isLeftSide){
-          tooltipRef.current.style.left = `${renderedPosition.x + 50}px`;
-        }else{
-          tooltipRef.current.style.right = `${-50}px`;
-        }
-        tooltipRef.current.style.top = `${renderedPosition.y + 20}px`;
+        tooltipRef.current.style.left = `${renderedPosition.x - 50}px`;
+        tooltipRef.current.style.top = `${renderedPosition.y}px`;
+        tooltipRef.current.style.right = 'auto';
+        tooltipRef.current.style.transform = 'translateX(-100%) translateY(-50%)';
       }
     });
 
