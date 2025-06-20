@@ -12,16 +12,26 @@ import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
 import { PointViewer } from '../../pointViewer/PointViewer';
 import { ZoomSlider } from './ZoomSlider';
+import { 
+  getScenarioData, 
+  saveSelectedScreenId, 
+  saveExpandedScreens, 
+  saveSelectedCharacterId 
+} from '../../../services/localStorageUtils';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
   const { data: scenario } = useScenario(scenarioId || '');
 
-  const [selectedScreenId, setSelectedScreenId] = useState<string | null>(null);
-  const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>({});
+  // Получаем данные из localStorage при инициализации
+  const scenarioData = getScenarioData(scenarioId || '');
+
+  // Инициализация состояний с учетом localStorage
+  const [selectedScreenId, setSelectedScreenId] = useState<string | null>(scenarioData.selectedScreenId);
+  const [expandedScreens, setExpandedScreens] = useState<Record<string, boolean>>(scenarioData.expandedScreens);
   const [editingScreenId, setEditingScreenId] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
-  const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
+  const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(scenarioData.selectedCharacterId);
   const [graphZoom, setGraphZoom] = useState<number>(0.2);
   const [isBottomPanelCollapsed, setIsBottomPanelCollapsed] = useState<boolean>(false);
   const [isLeftPanelCollapsed, setIsLeftPanelCollapsed] = useState<boolean>(false);
@@ -42,6 +52,7 @@ export const EditorTab: React.FC = () => {
   React.useEffect(() => {
     if (scenario && scenario.firstScreenId && !selectedScreenId) {
       setSelectedScreenId(scenario.firstScreenId);
+      saveSelectedScreenId(scenarioId || '', scenario.firstScreenId);
     }
 
     // Add effect to scroll to selected screen
@@ -64,7 +75,7 @@ export const EditorTab: React.FC = () => {
       }, 300);
       return () => clearTimeout(timeoutId);
     }
-  }, [scenario, selectedScreenId]);
+  }, [scenario, selectedScreenId, scenarioId]);
 
   // Инициализация состояния кнопки на основе реального состояния панели
   React.useEffect(() => {
@@ -80,8 +91,17 @@ export const EditorTab: React.FC = () => {
     }
   }, []);
 
+  // Очистка localStorage при изменении scenarioId или размонтировании компонента
+  React.useEffect(() => {
+    return () => {
+      // При размонтировании компонента можно очистить данные, если нужно
+      // Но лучше оставить их для возможности восстановления состояния
+    };
+  }, [scenarioId]);
+
   const handleScreenSelect = (screenId: string) => {
     setSelectedScreenId(screenId);
+    saveSelectedScreenId(scenarioId || '', screenId);
   };
 
   const handleScreenExpand = (screenId: string, childScreenIds: string[]) => {
@@ -92,8 +112,10 @@ export const EditorTab: React.FC = () => {
         // If we're collapsing, make sure the parent screen becomes selected
         console.log('Collapsing screen, selecting parent:', screenId);
         setSelectedScreenId(screenId);
+        saveSelectedScreenId(scenarioId || '', screenId);
       }
       newState[screenId] = !newState[screenId];
+      saveExpandedScreens(scenarioId || '', newState);
       return newState;
     });
   };
@@ -101,6 +123,12 @@ export const EditorTab: React.FC = () => {
   const handleScreenEdit = (screenId: string) => {
     setEditingScreenId(screenId);
     setSelectedScreenId(screenId);
+    saveSelectedScreenId(scenarioId || '', screenId);
+  };
+
+  const handleCharacterSelect = (characterId: string | null) => {
+    setSelectedCharacterId(characterId);
+    saveSelectedCharacterId(scenarioId || '', characterId);
   };
 
   const handleZoomChange = (newZoom: number) => {
@@ -202,7 +230,7 @@ export const EditorTab: React.FC = () => {
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2, margin: '3px' }}>
                   <Typography variant="h6">
-                    Сценарии
+                    Сценарий
                   </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'horizontal', gap: 5 }}>
                     <Box sx={{ display: 'flex', gap: 1 }}>
@@ -318,6 +346,7 @@ export const EditorTab: React.FC = () => {
                           onExpand={handleScreenExpand}
                           scenarioId={scenarioId || ''}
                           viewMode={viewMode}
+                          characters={characters}
                         />
                       ))}
                   </List>
@@ -351,7 +380,7 @@ export const EditorTab: React.FC = () => {
                     <MainCharacterSelector
                       characters={characters}
                       selectedCharacterId={selectedCharacterId}
-                      onSelectCharacter={setSelectedCharacterId}
+                      onSelectCharacter={handleCharacterSelect}
                       scenarioId={scenarioId || null}
                     />
                   </Box>

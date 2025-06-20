@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Box, IconButton, ListItem, Typography, Tooltip } from '@mui/material';
-import { Screen, ScreenScene } from '../../../types/api.scenarios';
+import React from 'react';
+import { Box, IconButton, ListItem, Typography, Tooltip, Chip } from '@mui/material';
+import { Screen, ScreenScene, ScreenChoice, ChoiceOption, Character } from '../../../types/api.scenarios';
 import EditIcon from '@mui/icons-material/Edit';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { getScenarioImageUrl } from '../../../services/imageUtils';
 import { ScreenViewMode } from './ScreenItem';
+import { CompactView } from './screenitems/CompactView';
 
 interface NestedScreenItemProps {
   screen: Screen;
@@ -17,7 +17,13 @@ interface NestedScreenItemProps {
   onEdit: (screenId: string) => void;
   isExpanded: boolean;
   scenarioId: string;
+  characters?: Character[];
+  parentScreen?: Screen;
 }
+
+const hasOptions = (screen: Screen): screen is ScreenChoice => {
+  return 'options' in screen && Array.isArray(screen.options);
+};
 
 export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   screen,
@@ -28,24 +34,12 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   onSelect,
   onEdit,
   isExpanded,
-  scenarioId
+  scenarioId,
+  characters = [],
+  parentScreen
 }) => {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-  
   // Вычисляем isSelected на основе selectedScreenId и screen.id
   const isSelected = selectedScreenId === screen.id;
-
-  useEffect(() => {
-    async function loadImage() {
-      if (screen.image) {
-        const url = await getScenarioImageUrl(scenarioId, screen.image);
-        setImageUrl(url);
-      } else {
-        setImageUrl(null);
-      }
-    }
-    loadImage();
-  }, [screen.image, scenarioId]);
 
   const handleClick = () => {
     onSelect(screen.id);
@@ -53,31 +47,13 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
 
   // Функция для рендеринга компактного представления
   const renderCompactView = () => (
-    <Box sx={{ flex: 1, minWidth: 0 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-        <Typography variant="body2">
-          {screen.type} - {screen.id}
-        </Typography>
-      </Box>
-      {screen.type === 'scene' && (screen as ScreenScene).title && (
-        <Typography variant="body2" color="text.primary">
-          {(screen as ScreenScene).title}
-        </Typography>
-      )}
-      <Typography variant="caption" color="text.secondary">
-        {screen.content}
-      </Typography>
-      {screen.notes && (
-        <Typography variant="caption" color="text.secondary">
-          Notes: {screen.notes}
-        </Typography>
-      )}
-      {imageUrl && (
-        <Box sx={{ my: 0.5 }}>
-          <img src={imageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 60 }} />
-        </Box>
-      )}
-    </Box>
+    <CompactView 
+      screen={screen} 
+      scenarioId={scenarioId} 
+      characters={characters} 
+      compact={true}
+      parentScreen={parentScreen}
+    />
   );
 
   // Функция для рендеринга представления плеера с просмотром
@@ -93,10 +69,10 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
           {(screen as ScreenScene).title}
         </Typography>
       )}
-      <Box sx={{ 
-        p: 1.5, 
-        border: '1px solid', 
-        borderColor: 'divider', 
+      <Box sx={{
+        p: 1.5,
+        border: '1px solid',
+        borderColor: 'divider',
         borderRadius: 1,
         backgroundColor: 'background.paper',
         mb: 1
@@ -109,12 +85,61 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
             💡 {screen.notes}
           </Typography>
         )}
-      </Box>
-      {imageUrl && (
-        <Box sx={{ my: 0.5 }}>
-          <img src={imageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 80 }} />
+        {/* Options in player view */}
+        {hasOptions(screen) && screen.options.length > 0 && (
+          <Box sx={{ mt: 1, pt: 1, borderTop: '1px solid', borderColor: 'divider' }}>
+            <Typography variant="caption" color="text.primary" sx={{ mb: 0.5, fontWeight: 500 }}>
+              Options:
+            </Typography>
+            {screen.options.map((opt: ChoiceOption) => (
+              <Box
+                key={opt.id}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  p: 0.5,
+                  pl: 1.5,
+                  mb: 0.25,
+                  backgroundColor: 'action.hover',
+                  borderRadius: 0.5,
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  '&:last-child': { mb: 0 }
+                }}
+              >
+                <Typography variant="caption" sx={{ flex: 1, mr: 0.5, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                  {opt.text}
+                </Typography>
+                {opt.price && (
+                  <Chip
+                    label={`${opt.price.value} ${opt.price.type}`}
+                    size="small"
+                    sx={{
+                      backgroundColor: 'primary.main',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      fontSize: '0.6rem',
+                      height: '16px',
+                      flexShrink: 0
+                    }}
+                  />
+                )}
+              </Box>
+            ))}
+          </Box>
+        )}
+        {/* Compact view for background display */}
+        <Box sx={{ mt: 1 }}>
+          <CompactView 
+            screen={screen} 
+            scenarioId={scenarioId} 
+            characters={characters} 
+            compact={true}
+            parentScreen={parentScreen}
+          />
         </Box>
-      )}
+      </Box>
     </Box>
   );
 
@@ -131,10 +156,10 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
           {(screen as ScreenScene).title}
         </Typography>
       )}
-      <Box sx={{ 
-        p: 1.5, 
-        border: '2px solid', 
-        borderColor: 'secondary.main', 
+      <Box sx={{
+        p: 1.5,
+        border: '2px solid',
+        borderColor: 'secondary.main',
         borderRadius: 1,
         backgroundColor: 'background.paper',
         mb: 1,
@@ -148,10 +173,54 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
             💡 {screen.notes}
           </Typography>
         )}
-        <Box sx={{ 
-          position: 'absolute', 
-          top: 4, 
-          right: 4, 
+        {/* Options in player edit view */}
+        {hasOptions(screen) && screen.options.length > 0 && (
+          <Box sx={{ mt: 1, pt: 1, borderTop: '1px solid', borderColor: 'secondary.main' }}>
+            <Typography variant="caption" color="secondary.main" sx={{ mb: 0.5, fontWeight: 500 }}>
+              Options:
+            </Typography>
+            {screen.options.map((opt: ChoiceOption) => (
+              <Box
+                key={opt.id}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  p: 0.5,
+                  pl: 1.5,
+                  mb: 0.25,
+                  backgroundColor: 'secondary.light',
+                  borderRadius: 0.5,
+                  border: '1px solid',
+                  borderColor: 'secondary.main',
+                  '&:last-child': { mb: 0 }
+                }}
+              >
+                <Typography variant="caption" sx={{ flex: 1, mr: 0.5, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                  {opt.text}
+                </Typography>
+                {opt.price && (
+                  <Chip
+                    label={`${opt.price.value} ${opt.price.type}`}
+                    size="small"
+                    sx={{
+                      backgroundColor: 'secondary.main',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      fontSize: '0.6rem',
+                      height: '16px',
+                      flexShrink: 0
+                    }}
+                  />
+                )}
+              </Box>
+            ))}
+          </Box>
+        )}
+        <Box sx={{
+          position: 'absolute',
+          top: 4,
+          right: 4,
           backgroundColor: 'secondary.main',
           color: 'white',
           px: 0.5,
@@ -162,11 +231,6 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
           Редакт
         </Box>
       </Box>
-      {imageUrl && (
-        <Box sx={{ my: 0.5 }}>
-          <img src={imageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 80 }} />
-        </Box>
-      )}
     </Box>
   );
 
@@ -174,7 +238,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   const renderContent = () => {
     // Определяем режим на основе того, выбран ли этот экран
     const currentViewMode = isSelected ? viewMode : ScreenViewMode.COMPACT;
-    
+
     switch (currentViewMode) {
       case ScreenViewMode.COMPACT:
         return renderCompactView();
@@ -192,7 +256,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
       onClick={handleClick}
       data-screen-id={screen.id}
       sx={{
-        pl: 2,
+        pl: 5.25,
         pr: 1,
         py: 0.5,
         border: isSelected ? '1px solid' : 'none',

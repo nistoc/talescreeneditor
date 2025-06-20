@@ -273,7 +273,7 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, chara
                     >
                       <CardContent>
                         <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
-                          {selectedScreen.content + selectedScreen.content + selectedScreen.content + selectedScreen.content}
+                          {selectedScreen.content}
                         </Typography>
                       </CardContent>
                     </Card>
