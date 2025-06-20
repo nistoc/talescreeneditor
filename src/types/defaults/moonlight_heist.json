@@ -34,7 +34,7 @@
       "type": "player",
       "gender": "mal",
       "image": "character_02_base.png",
-      "notes": ""
+      "notes": "первый персонаж"
     },
     {
       "id": "player_fem_eva",
@@ -42,7 +42,7 @@
       "type": "player",
       "gender": "fem",
       "image": "character_01_base.png",
-      "notes": ""
+      "notes": "второй персонаж"
     },
     {
       "id": "npc_mal_security_guard",
@@ -50,7 +50,7 @@
       "type": "npc",
       "gender": "mal",
       "image": "character_03_base.png",
-      "notes": ""
+      "notes": "третий персонаж"
     },
     {
       "id": "npc_mal_client",
@@ -72,13 +72,15 @@
       "image": "scene_01_a.webp",
       "next": "Sc1_1",
       "progress": 0,
+      "notes": "первая сцена",
       "screens": [
         {
           "id": "Sc1_1",
           "progress": 1,
           "type": "narrative",
           "content": "Tonight’s target is the legendary Moonstone — a rare gem showcased during a high-profile gala below. The vault’s security resets every hour. The window is tight. The payout is extraordinary.",
-          "next": "Sc1_2"
+          "next": "Sc1_2",
+          "notes": "первая сцена, первый экран"
         },
         {
           "id": "Sc1_2",

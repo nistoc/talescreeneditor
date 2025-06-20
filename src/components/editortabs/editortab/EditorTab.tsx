@@ -181,12 +181,7 @@ export const EditorTab: React.FC = () => {
                     characters={characters}
                     selectedCharacterId={selectedCharacterId}
                     scenarioId={scenarioId || ''}
-                  />
-                  <MainCharacterSelector
-                    characters={characters}
-                    selectedCharacterId={selectedCharacterId}
-                    onSelectCharacter={setSelectedCharacterId}
-                    scenarioId={scenarioId || null}
+                    onScreenSelect={handleScreenSelect}
                   />
                 </Paper>
               )}
