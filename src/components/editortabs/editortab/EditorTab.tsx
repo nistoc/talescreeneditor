@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Box, IconButton, List, Typography, Paper, Button, Tooltip } from '@mui/material';
+import React, { useState, useRef } from 'react';
+import { Box, List, Typography, Paper, Button, Tooltip } from '@mui/material';
 import {
   Panel,
   PanelGroup,
@@ -24,9 +24,13 @@ export const EditorTab: React.FC = () => {
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
   const [graphZoom, setGraphZoom] = useState<number>(0.2);
   const [isBottomPanelCollapsed, setIsBottomPanelCollapsed] = useState<boolean>(false);
+  const [isLeftPanelCollapsed, setIsLeftPanelCollapsed] = useState<boolean>(false);
+  const [isRightPanelCollapsed, setIsRightPanelCollapsed] = useState<boolean>(false);
 
   const listRef = useRef<HTMLUListElement>(null);
   const bottomPanelRef = useRef<any>(null);
+  const leftPanelRef = useRef<any>(null);
+  const rightPanelRef = useRef<any>(null);
 
   React.useEffect(() => {
     if (scenario && scenario.characters) {
@@ -113,6 +117,28 @@ export const EditorTab: React.FC = () => {
     }
   };
 
+  const handleToggleLeftPanel = () => {
+    if (leftPanelRef.current) {
+      if (isLeftPanelCollapsed) {
+        leftPanelRef.current.expand();
+      } else {
+        leftPanelRef.current.collapse();
+      }
+      setIsLeftPanelCollapsed(!isLeftPanelCollapsed);
+    }
+  };
+
+  const handleToggleRightPanel = () => {
+    if (rightPanelRef.current) {
+      if (isRightPanelCollapsed) {
+        rightPanelRef.current.expand();
+      } else {
+        rightPanelRef.current.collapse();
+      }
+      setIsRightPanelCollapsed(!isRightPanelCollapsed);
+    }
+  };
+
   if (!scenario) {
     return <Typography>Loading...</Typography>;
   }
@@ -123,31 +149,42 @@ export const EditorTab: React.FC = () => {
         {/* Верхняя вертикальная панель 80% высоты */}
         <Panel defaultSize={80} minSize={20}>
           <PanelGroup direction="horizontal" autoSaveId="editor-horizontal-layout">
-            {/* Левая горизонтальная панель 20% ширины, сворачиваемая до 20px */}
-            <Panel defaultSize={20} minSize={2} collapsible={true} collapsedSize={2} style={{ padding: '2px'}}>
-              <Paper
-                sx={{
-                  height: '100%',
-                  p: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 2
-                }}
-              >
-                <Player
-                  screens={scenario.screens}
-                  selectedScreenId={selectedScreenId}
-                  characters={characters}
-                  selectedCharacterId={selectedCharacterId}
-                  scenarioId={scenarioId || ''}
-                />
-                <MainCharacterSelector
-                  characters={characters}
-                  selectedCharacterId={selectedCharacterId}
-                  onSelectCharacter={setSelectedCharacterId}
-                  scenarioId={scenarioId || null}
-                />
-              </Paper>
+            {/* Левая горизонтальная панель 20% ширины, сворачиваемая до 0px */}
+            <Panel 
+              ref={leftPanelRef}
+              defaultSize={20} 
+              minSize={0} 
+              collapsible={true} 
+              collapsedSize={0} 
+              onCollapse={() => setIsLeftPanelCollapsed(true)}
+              onExpand={() => setIsLeftPanelCollapsed(false)}
+              style={{ padding: '2px'}}
+            >
+              {!isLeftPanelCollapsed && (
+                <Paper
+                  sx={{
+                    height: '100%',
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2
+                  }}
+                >
+                  <Player
+                    screens={scenario.screens}
+                    selectedScreenId={selectedScreenId}
+                    characters={characters}
+                    selectedCharacterId={selectedCharacterId}
+                    scenarioId={scenarioId || ''}
+                  />
+                  <MainCharacterSelector
+                    characters={characters}
+                    selectedCharacterId={selectedCharacterId}
+                    onSelectCharacter={setSelectedCharacterId}
+                    scenarioId={scenarioId || null}
+                  />
+                </Paper>
+              )}
             </Panel>
 
             <PanelResizeHandle style={{ width: '4px', backgroundColor: '#f8f9fa' }} />
@@ -169,24 +206,83 @@ export const EditorTab: React.FC = () => {
                   </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'horizontal', gap: 5 }}>
                     <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Tooltip title="Левая панель">
+                        <Button
+                          size="small"
+                          variant="contained"
+                          onClick={handleToggleLeftPanel}
+                          sx={{
+                            opacity: isLeftPanelCollapsed ? 1 : 0.5,
+                            transition: 'opacity 0.2s ease-in-out',
+                            backgroundColor: 'primary.dark',
+                            '&:hover': {
+                              backgroundColor: 'primary.main',
+                            }
+                          }}
+                        >
+                          ⬅️📺
+                        </Button>
+                      </Tooltip>
                       <Tooltip title="Дерево сценария">
                         <Button
                           size="small"
-                          variant="outlined"
+                          variant="contained"
                           onClick={handleToggleBottomPanel}
                           sx={{
-                            opacity: isBottomPanelCollapsed ? 0.5 : 1,
-                            transition: 'opacity 0.2s ease-in-out'
+                            opacity: isBottomPanelCollapsed ? 1 : 0.5,
+                            transition: 'opacity 0.2s ease-in-out',
+                            backgroundColor: 'primary.dark',
+                            '&:hover': {
+                              backgroundColor: 'primary.main',
+                            }
                           }}
                         >
-                          🌳
+                          🕸️⬇️
                         </Button>
                       </Tooltip>
-                      <Button size="small" variant="outlined">Кнопка 2</Button>
+                      <Tooltip title="Правая панель">
+                        <Button
+                          size="small"
+                          variant="contained"
+                          onClick={handleToggleRightPanel}
+                          sx={{
+                            opacity: isRightPanelCollapsed ? 1 : 0.5,
+                            transition: 'opacity 0.2s ease-in-out',
+                            backgroundColor: 'primary.dark',
+                            '&:hover': {
+                              backgroundColor: 'primary.main',
+                            }
+                          }}
+                        >
+                          ➡️
+                        </Button>
+                      </Tooltip>
                     </Box>
                     <Box sx={{ display: 'flex', gap: 1 }}>
-                      <Button size="small" variant="outlined">Кнопка 3</Button>
-                      <Button size="small" variant="outlined">Кнопка 4</Button>
+                      <Button 
+                        size="small" 
+                        variant="contained"
+                        sx={{
+                          backgroundColor: 'primary.dark',
+                          '&:hover': {
+                            backgroundColor: 'primary.main',
+                          }
+                        }}
+                      >
+                        Кнопка 3
+                      </Button>
+                      <Button 
+                        size="small" 
+                        variant="contained"
+                        sx={{
+                          backgroundColor: 'primary.dark',
+                          '&:hover': {
+                            backgroundColor: 'primary.main',
+                          }
+                        }}
+                      >
+                        Кнопка 4
+                      </Button>
                     </Box>
                   </Box>
                 </Box>
@@ -216,76 +312,89 @@ export const EditorTab: React.FC = () => {
 
             <PanelResizeHandle style={{ width: '4px', backgroundColor: '#f8f9fa' }} />
 
-            {/* Правая горизонтальная панель 20% ширины, сворачиваемая до 20px */}
-            <Panel defaultSize={20} minSize={2} collapsible={true} collapsedSize={2} style={{ padding: '2px'}}>
-              <Paper
-                sx={{
-                  height: '100%',
-                  p: 2,
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <Box sx={{ flex: 1 }}>
-                  <MainCharacterSelector
-                    characters={characters}
-                    selectedCharacterId={selectedCharacterId}
-                    onSelectCharacter={setSelectedCharacterId}
-                    scenarioId={scenarioId || null}
-                  />
-                </Box>
-              </Paper>
+            {/* Правая горизонтальная панель 20% ширины, сворачиваемая до 0px */}
+            <Panel 
+              ref={rightPanelRef}
+              defaultSize={20} 
+              minSize={0} 
+              collapsible={true} 
+              collapsedSize={0} 
+              onCollapse={() => setIsRightPanelCollapsed(true)}
+              onExpand={() => setIsRightPanelCollapsed(false)}
+              style={{ padding: '2px'}}
+            >
+              {!isRightPanelCollapsed && (
+                <Paper
+                  sx={{
+                    height: '100%',
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                >
+                  <Box sx={{ flex: 1 }}>
+                    <MainCharacterSelector
+                      characters={characters}
+                      selectedCharacterId={selectedCharacterId}
+                      onSelectCharacter={setSelectedCharacterId}
+                      scenarioId={scenarioId || null}
+                    />
+                  </Box>
+                </Paper>
+              )}
             </Panel>
           </PanelGroup>
         </Panel>
 
         <PanelResizeHandle style={{ height: '4px', backgroundColor: '#f8f9fa' }} />
 
-        {/* Нижняя вертикальная панель 20% высоты, сворачиваемая до 20px */}
+        {/* Нижняя вертикальная панель 20% высоты, сворачиваемая до 0px */}
         <Panel
           ref={bottomPanelRef}
           defaultSize={20}
-          minSize={2}
+          minSize={0}
           collapsible={true}
-          collapsedSize={2}
+          collapsedSize={0}
           onCollapse={() => setIsBottomPanelCollapsed(true)}
           onExpand={() => setIsBottomPanelCollapsed(false)}
           style={{ padding: '2px'}}
         >
-          <Paper
-            sx={{
-              height: '100%',
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 2,
-              position: 'relative'
-            }}
-          >
-            <Box sx={{ flex: 1, margin: '2px', position: 'relative' }}>
-              <PointViewer
-                screens={scenario.screens}
-                selectedScreenId={selectedScreenId || scenario.firstScreenId}
-                zoom={graphZoom}
-                onNodeClick={handleScreenSelect}
-              />
-              {/* Zoom контрол поверх графа */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 8,
-                  right: 8,
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  borderRadius: 1,
-                  p: 1,
-                  boxShadow: 1,
-                  zIndex: 10
-                }}
-              >
-                <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
+          {!isBottomPanelCollapsed && (
+            <Paper
+              sx={{
+                height: '100%',
+                p: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+                position: 'relative'
+              }}
+            >
+              <Box sx={{ flex: 1, margin: '2px', position: 'relative' }}>
+                <PointViewer
+                  screens={scenario.screens}
+                  selectedScreenId={selectedScreenId || scenario.firstScreenId}
+                  zoom={graphZoom}
+                  onNodeClick={handleScreenSelect}
+                />
+                {/* Zoom контрол поверх графа */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 8,
+                    right: 8,
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    borderRadius: 1,
+                    p: 1,
+                    boxShadow: 1,
+                    zIndex: 10
+                  }}
+                >
+                  <ZoomSlider value={graphZoom} onChange={handleZoomChange} />
+                </Box>
               </Box>
-            </Box>
-          </Paper>
+            </Paper>
+          )}
         </Panel>
       </PanelGroup>
     </Box>
