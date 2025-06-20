@@ -7,7 +7,7 @@ import {
 } from 'react-resizable-panels';
 import { useParams } from 'react-router-dom';
 import { useScenario } from '../../../api/scenarios';
-import { ScreenItem } from './ScreenItem';
+import { ScreenItem, ScreenViewMode } from './ScreenItem';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
 import { PointViewer } from '../../pointViewer/PointViewer';
@@ -26,6 +26,7 @@ export const EditorTab: React.FC = () => {
   const [isBottomPanelCollapsed, setIsBottomPanelCollapsed] = useState<boolean>(false);
   const [isLeftPanelCollapsed, setIsLeftPanelCollapsed] = useState<boolean>(false);
   const [isRightPanelCollapsed, setIsRightPanelCollapsed] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<ScreenViewMode>(ScreenViewMode.COMPACT);
 
   const listRef = useRef<HTMLUListElement>(null);
   const bottomPanelRef = useRef<any>(null);
@@ -139,6 +140,10 @@ export const EditorTab: React.FC = () => {
     }
   };
 
+  const handleViewModeChange = (newViewMode: ScreenViewMode) => {
+    setViewMode(newViewMode);
+  };
+
   if (!scenario) {
     return <Typography>Loading...</Typography>;
   }
@@ -212,7 +217,7 @@ export const EditorTab: React.FC = () => {
                           variant="contained"
                           onClick={handleToggleLeftPanel}
                           sx={{
-                            opacity: isLeftPanelCollapsed ? 1 : 0.5,
+                            opacity: isLeftPanelCollapsed ? 0.5 : 1,
                             transition: 'opacity 0.2s ease-in-out',
                             backgroundColor: 'primary.dark',
                             '&:hover': {
@@ -229,7 +234,7 @@ export const EditorTab: React.FC = () => {
                           variant="contained"
                           onClick={handleToggleBottomPanel}
                           sx={{
-                            opacity: isBottomPanelCollapsed ? 1 : 0.5,
+                            opacity: isBottomPanelCollapsed ? 0.5 : 1,
                             transition: 'opacity 0.2s ease-in-out',
                             backgroundColor: 'primary.dark',
                             '&:hover': {
@@ -246,7 +251,7 @@ export const EditorTab: React.FC = () => {
                           variant="contained"
                           onClick={handleToggleRightPanel}
                           sx={{
-                            opacity: isRightPanelCollapsed ? 1 : 0.5,
+                            opacity: isRightPanelCollapsed ? 0.5 : 1,
                             transition: 'opacity 0.2s ease-in-out',
                             backgroundColor: 'primary.dark',
                             '&:hover': {
@@ -262,26 +267,41 @@ export const EditorTab: React.FC = () => {
                       <Button 
                         size="small" 
                         variant="contained"
+                        onClick={() => handleViewModeChange(ScreenViewMode.COMPACT)}
                         sx={{
-                          backgroundColor: 'primary.dark',
+                          backgroundColor: viewMode === ScreenViewMode.COMPACT ? 'primary.main' : 'primary.dark',
                           '&:hover': {
                             backgroundColor: 'primary.main',
                           }
                         }}
                       >
-                        Кнопка 3
+                        Компакт
                       </Button>
                       <Button 
                         size="small" 
                         variant="contained"
+                        onClick={() => handleViewModeChange(ScreenViewMode.PLAYER_VIEW)}
                         sx={{
-                          backgroundColor: 'primary.dark',
+                          backgroundColor: viewMode === ScreenViewMode.PLAYER_VIEW ? 'primary.main' : 'primary.dark',
                           '&:hover': {
                             backgroundColor: 'primary.main',
                           }
                         }}
                       >
-                        Кнопка 4
+                        Плеер
+                      </Button>
+                      <Button 
+                        size="small" 
+                        variant="contained"
+                        onClick={() => handleViewModeChange(ScreenViewMode.PLAYER_EDIT)}
+                        sx={{
+                          backgroundColor: viewMode === ScreenViewMode.PLAYER_EDIT ? 'primary.main' : 'primary.dark',
+                          '&:hover': {
+                            backgroundColor: 'primary.main',
+                          }
+                        }}
+                      >
+                        Редакт
                       </Button>
                     </Box>
                   </Box>
@@ -295,7 +315,6 @@ export const EditorTab: React.FC = () => {
                           key={screen.id}
                           screen={screen}
                           level={0}
-                          isSelected={selectedScreenId === screen.id}
                           isEditing={editingScreenId === screen.id}
                           isExpanded={expandedScreens[screen.id] || false}
                           selectedScreenId={selectedScreenId}
@@ -303,6 +322,7 @@ export const EditorTab: React.FC = () => {
                           onEdit={handleScreenEdit}
                           onExpand={handleScreenExpand}
                           scenarioId={scenarioId || ''}
+                          viewMode={viewMode}
                         />
                       ))}
                   </List>

@@ -64,7 +64,31 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, chara
       <Typography variant="h6">Player</Typography>
       {selectedScreen ? (
         <Box>
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+          <Box data-background sx={{ 
+            display: 'flex', 
+            gap: 2, 
+            alignItems: 'flex-start',
+            backgroundImage: screenImageUrl ? `url(${screenImageUrl})` : 'none',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            minHeight: screenImageUrl ? 200 : 'auto',
+            position: 'relative',
+            '&::before': screenImageUrl ? {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              zIndex: 0
+            } : {},
+            '& > *': screenImageUrl ? {
+              position: 'relative',
+              zIndex: 1
+            } : {}
+          }}>
             {actorCharacter && actorCharacter.id === selectedCharacterId && actorImageUrl && (
               <Box sx={{ flex: '0 0 120px' }}>
                 <img src={actorImageUrl} alt="actor" style={{ maxWidth: '100%', maxHeight: 120 }} />
@@ -73,11 +97,8 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, chara
             <Box sx={{ flex: 1 }}>
               <Typography variant="subtitle1" sx={{ mb: 1 }}>Screen: {selectedScreen.title || selectedScreen.name || selectedScreen.id}</Typography>
               <Divider sx={{ mb: 1 }} />
-              <Typography variant="body2"><b>ID:</b> {selectedScreen.id}</Typography>
-              <Typography variant="body2"><b>Type:</b> {selectedScreen.type}</Typography>
               {selectedScreen.title && <Typography variant="body2"><b>Title:</b> {selectedScreen.title}</Typography>}
               <Typography variant="body2"><b>Content:</b> {selectedScreen.content}</Typography>
-              {screenImageUrl && <Box sx={{ my: 1 }}><img src={screenImageUrl} alt="screen" style={{ maxWidth: '100%', maxHeight: 120 }} /></Box>}
               <Typography variant="body2"><b>Progress:</b> {selectedScreen.progress}</Typography>
               {selectedScreen.notes && <Typography variant="body2"><b>Notes:</b> {selectedScreen.notes}</Typography>}
               {selectedScreen.next && <Typography variant="body2"><b>Next:</b> {selectedScreen.next}</Typography>}
