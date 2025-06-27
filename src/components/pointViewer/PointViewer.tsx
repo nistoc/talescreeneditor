@@ -201,7 +201,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
       // Disable zooming gestures
       userZoomingEnabled: false,
       userPanningEnabled: true,
-      boxSelectionEnabled: false
+      boxSelectionEnabled: true
     });
 
     cyRef.current.zoom(graphState.zoom);
@@ -306,7 +306,7 @@ export const PointViewer: React.FC<PointViewerProps> = ({
           center: {
             eles: node
           } as any,
-          duration: 500,
+          duration: 1500,
           easing: 'ease-in-out-cubic'
         });
       }

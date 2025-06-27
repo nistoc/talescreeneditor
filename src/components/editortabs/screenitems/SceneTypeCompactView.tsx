@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import { Screen, Character } from '../../../../types/api.scenarios';
-import { getScenarioImageUrl } from '../../../../services/imageUtils';
+import { Screen, Character } from '../../../types/api.scenarios';
+import { getScenarioImageUrl } from '../../../services/imageUtils';
 
 interface SceneTypeCompactViewProps {
   screen: Screen;
@@ -153,7 +153,7 @@ export const SceneTypeCompactView: React.FC<SceneTypeCompactViewProps> = ({
 
         {/* Актер поверх фона */}
         {screen.type === 'dialog' && characterImageUrl && (
-          <ActorDisplay
+          <ActorDisplay data-type-one={true}
             characterImageUrl={characterImageUrl}
             characterName={actorCharacter?.name}
             isOverBackground={true}
@@ -164,7 +164,7 @@ export const SceneTypeCompactView: React.FC<SceneTypeCompactViewProps> = ({
       {/* Если нет фона, но есть актер для диалога */}
       {!imageUrl && !parentImageUrl && screen.type === 'dialog' && characterImageUrl && (
         <Box sx={{ my: marginY }}>
-          <ActorDisplay
+          <ActorDisplay data-type-two={true}
             characterImageUrl={characterImageUrl}
             characterName={actorCharacter?.name}
             isOverBackground={false}

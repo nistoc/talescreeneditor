@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { Screen, ScreenScene, ScreenChoice } from '../../../../types/api.scenarios';
+import { Screen, ScreenScene, ScreenChoice } from '../../../types/api.scenarios';
 import { OptionsCompactView } from './OptionsCompactView';
 
 interface SceneContentCompactViewProps {

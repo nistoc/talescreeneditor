@@ -1,24 +1,28 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Screen, Character } from '../../../../types/api.scenarios';
+import { Screen, Character } from '../../../types/api.scenarios';
 import { SceneTypeCompactView } from './SceneTypeCompactView';
-import { SceneContentCompactView } from './SceneContentCompactView';
 import { SceneMetaCompactView } from './SceneMetaCompactView';
+import { Player } from '../editortab/Player';
 
-interface CompactViewProps {
+interface CompactPlayerProps {
     screen: Screen;
     scenarioId: string;
     characters: Character[];
     compact?: boolean;
     parentScreen?: Screen;
+    selectedCharacterId?: string | null;
+    onScreenSelect?: (screenId: string) => void;
 }
 
-export const CompactView: React.FC<CompactViewProps> = ({
+export const CompactPlayer: React.FC<CompactPlayerProps> = ({
     screen,
     scenarioId,
     characters,
     compact = false,
-    parentScreen
+    parentScreen,
+    selectedCharacterId,
+    onScreenSelect
 }) => {
     return (
         <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, width: '100%' }}>
@@ -31,13 +35,17 @@ export const CompactView: React.FC<CompactViewProps> = ({
                     parentScreen={parentScreen}
                 />
             </Box>
-            <Box data-content sx={{ flex: 1, minWidth: 0 }}>
-                <SceneContentCompactView
-                    screen={screen}
-                    compact={compact}
+            <Box data-content sx={{ flex: 1, minWidth: 0, maxWidth: '600px', mr: 6 }}>
+                <Player
+                    screens={parentScreen ? [screen, parentScreen] : [screen]}
+                    selectedScreenId={screen.id}
+                    characters={characters}
+                    selectedCharacterId={selectedCharacterId ?? null}
+                    scenarioId={scenarioId}
+                    onScreenSelect={onScreenSelect}
                 />
             </Box>
-            <Box data-meta sx={{ flex: 0.5, maxWidth: '200px' }}>
+            <Box data-meta sx={{ flex: 0.5 }}>
                 <SceneMetaCompactView
                     screen={screen}
                     compact={compact}

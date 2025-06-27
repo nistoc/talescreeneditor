@@ -7,16 +7,17 @@ import {
 } from 'react-resizable-panels';
 import { useParams } from 'react-router-dom';
 import { useScenario } from '../../../api/scenarios';
-import { ScreenItem, ScreenViewMode } from './ScreenItem';
+import { ScreenItem } from '../screenitems/ScreenItem';
+import { ScreenViewMode } from '../screenitems/index';
 import { Player } from './Player';
 import { MainCharacterSelector } from './MainCharacterSelector';
 import { PointViewer } from '../../pointViewer/PointViewer';
 import { ZoomSlider } from './ZoomSlider';
-import { 
-  getScenarioData, 
-  saveSelectedScreenId, 
-  saveExpandedScreens, 
-  saveSelectedCharacterId 
+import {
+  getScenarioData,
+  saveSelectedScreenId,
+  saveExpandedScreens,
+  saveSelectedCharacterId
 } from '../../../services/localStorageUtils';
 
 export const EditorTab: React.FC = () => {
@@ -60,22 +61,25 @@ export const EditorTab: React.FC = () => {
       const timeoutId = setTimeout(() => {
         const selectedElement = listRef.current?.querySelector(`[data-screen-id="${selectedScreenId}"]`);
         if (selectedElement && listRef.current) {
-          const rect = selectedElement.getBoundingClientRect();
-          const containerRect = listRef.current.getBoundingClientRect();
 
-          // Check if element is not fully visible in the container
-          const isNotFullyVisible =
-            rect.top < containerRect.top ||
-            rect.bottom > containerRect.bottom;
+          let needToScrollSelectedElement = true;
+          if (viewMode === ScreenViewMode.COMPACT) {
+            const rect = selectedElement.getBoundingClientRect();
+            const containerRect = listRef.current.getBoundingClientRect();
 
-          if (isNotFullyVisible) {
+            // Check if element is not fully visible in the container
+            needToScrollSelectedElement =
+              rect.top < containerRect.top ||
+              rect.bottom > containerRect.bottom;
+          }
+          if (needToScrollSelectedElement) {
             selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
         }
       }, 300);
       return () => clearTimeout(timeoutId);
     }
-  }, [scenario, selectedScreenId, scenarioId]);
+  }, [scenario, selectedScreenId, scenarioId, viewMode]);
 
   // Инициализация состояния кнопки на основе реального состояния панели
   React.useEffect(() => {
@@ -110,7 +114,6 @@ export const EditorTab: React.FC = () => {
 
       if (newState[screenId] && childScreenIds.includes(selectedScreenId as string)) {
         // If we're collapsing, make sure the parent screen becomes selected
-        console.log('Collapsing screen, selecting parent:', screenId);
         setSelectedScreenId(screenId);
         saveSelectedScreenId(scenarioId || '', screenId);
       }
@@ -183,24 +186,21 @@ export const EditorTab: React.FC = () => {
         <Panel defaultSize={80} minSize={20}>
           <PanelGroup direction="horizontal" autoSaveId="editor-horizontal-layout">
             {/* Левая горизонтальная панель 20% ширины, сворачиваемая до 0px */}
-            <Panel 
+            <Panel
               ref={leftPanelRef}
-              defaultSize={20} 
-              minSize={0} 
-              collapsible={true} 
-              collapsedSize={0} 
+              defaultSize={20}
+              minSize={20}
+              maxSize={40}
+              collapsible={true}
+              collapsedSize={0}
               onCollapse={() => setIsLeftPanelCollapsed(true)}
               onExpand={() => setIsLeftPanelCollapsed(false)}
-              style={{ padding: '2px'}}
+              style={{ padding: '2px' }}
             >
               {!isLeftPanelCollapsed && (
                 <Paper
                   sx={{
-                    height: '100%',
                     p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 2
                   }}
                 >
                   <Player
@@ -218,7 +218,7 @@ export const EditorTab: React.FC = () => {
             <PanelResizeHandle style={{ width: '4px', backgroundColor: '#f8f9fa' }} />
 
             {/* Центральная горизонтальная панель 60% */}
-            <Panel defaultSize={60} minSize={20} style={{padding: '2px'}}>
+            <Panel defaultSize={60} minSize={20} style={{ padding: '2px' }}>
               <Paper
                 sx={{
                   height: '100%',
@@ -287,8 +287,8 @@ export const EditorTab: React.FC = () => {
                       </Tooltip>
                     </Box>
                     <Box sx={{ display: 'flex', gap: 1 }}>
-                      <Button 
-                        size="small" 
+                      <Button
+                        size="small"
                         variant="contained"
                         onClick={() => handleViewModeChange(ScreenViewMode.COMPACT)}
                         sx={{
@@ -300,8 +300,8 @@ export const EditorTab: React.FC = () => {
                       >
                         Компакт
                       </Button>
-                      <Button 
-                        size="small" 
+                      <Button
+                        size="small"
                         variant="contained"
                         onClick={() => handleViewModeChange(ScreenViewMode.PLAYER_VIEW)}
                         sx={{
@@ -313,8 +313,8 @@ export const EditorTab: React.FC = () => {
                       >
                         Плеер
                       </Button>
-                      <Button 
-                        size="small" 
+                      <Button
+                        size="small"
                         variant="contained"
                         onClick={() => handleViewModeChange(ScreenViewMode.PLAYER_EDIT)}
                         sx={{
@@ -347,6 +347,7 @@ export const EditorTab: React.FC = () => {
                           scenarioId={scenarioId || ''}
                           viewMode={viewMode}
                           characters={characters}
+                          selectedCharacterId={selectedCharacterId}
                         />
                       ))}
                   </List>
@@ -357,15 +358,15 @@ export const EditorTab: React.FC = () => {
             <PanelResizeHandle style={{ width: '4px', backgroundColor: '#f8f9fa' }} />
 
             {/* Правая горизонтальная панель 20% ширины, сворачиваемая до 0px */}
-            <Panel 
+            <Panel
               ref={rightPanelRef}
-              defaultSize={20} 
-              minSize={0} 
-              collapsible={true} 
-              collapsedSize={0} 
+              defaultSize={20}
+              minSize={0}
+              collapsible={true}
+              collapsedSize={0}
               onCollapse={() => setIsRightPanelCollapsed(true)}
               onExpand={() => setIsRightPanelCollapsed(false)}
-              style={{ padding: '2px'}}
+              style={{ padding: '2px' }}
             >
               {!isRightPanelCollapsed && (
                 <Paper
@@ -396,12 +397,13 @@ export const EditorTab: React.FC = () => {
         <Panel
           ref={bottomPanelRef}
           defaultSize={20}
-          minSize={0}
+          minSize={10}
+          maxSize={20}
           collapsible={true}
           collapsedSize={0}
           onCollapse={() => setIsBottomPanelCollapsed(true)}
           onExpand={() => setIsBottomPanelCollapsed(false)}
-          style={{ padding: '2px'}}
+          style={{ padding: '2px' }}
         >
           {!isBottomPanelCollapsed && (
             <Paper
