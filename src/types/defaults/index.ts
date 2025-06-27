@@ -1,8 +1,9 @@
-import defaultScenarioData from './moonlight_heist.json';
+import defaultScenarioDataMoonlightHeist from './moonlight_heist.json';
+import defaultScenarioDataCrimsonMasquerade from './crimson_masquerade.json';
 
-// Array of all default scenarios
 const defaultScenarios = [
-  defaultScenarioData
+  defaultScenarioDataMoonlightHeist,
+  defaultScenarioDataCrimsonMasquerade
 ];
 
-export { defaultScenarioData, defaultScenarios }; 
+export {defaultScenarios, defaultScenarioDataMoonlightHeist, defaultScenarioDataCrimsonMasquerade }; 

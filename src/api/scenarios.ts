@@ -1,6 +1,6 @@
 import { useQuery, useMutation, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
 import { ApiResponse, API_BASE_URL } from '../types/api';
-import { Scenario, defaultScenario, defaultScenarioList } from '../types/api.scenarios';
+import { Scenario, defaultScenarioList } from '../types/api.scenarios';
 
 // Функции для работы с API
 async function fetchScenarios(page: number = 1, limit: number = 10): Promise<Scenario[]> {
@@ -26,7 +26,7 @@ async function fetchScenario(scenarioId: string): Promise<Scenario> {
     const data: ApiResponse<Scenario> = await response.json();
     return data.data;
   } catch (error) {
-    return defaultScenario;
+    return defaultScenarioList.find(scenario => scenario.id === scenarioId) || defaultScenarioList[0];
   }
 }
 
