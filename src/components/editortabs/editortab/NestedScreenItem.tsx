@@ -78,7 +78,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
         mb: 1
       }}>
         <Typography variant="body2" sx={{ mb: 1 }}>
-          {screen.content}
+          {'content' in screen && screen.content && screen.content}
         </Typography>
         {screen.notes && (
           <Typography variant="caption" color="text.secondary" sx={{ fontStyle: 'italic' }}>
@@ -166,7 +166,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
         position: 'relative'
       }}>
         <Typography variant="body2" sx={{ mb: 1 }}>
-          {screen.content}
+          {'content' in screen && screen.content && screen.content}
         </Typography>
         {screen.notes && (
           <Typography variant="caption" color="text.secondary" sx={{ fontStyle: 'italic' }}>

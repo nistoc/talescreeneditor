@@ -28,7 +28,7 @@ export const SceneContentCompactView: React.FC<SceneContentCompactViewProps> = (
         color="text.secondary" 
         sx={{ mb: 0.5 }}
       >
-        {screen.content}
+        {'content' in screen && screen.content && screen.content}
       </Typography>
       {/* Options в компактном виде */}
       {hasOptions(screen) && screen.options && (

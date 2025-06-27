@@ -104,7 +104,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
         mb: 1
       }}>
         <Typography variant="body1" sx={{ mb: 1 }}>
-          {screen.content}
+          {'content' in screen && screen.content && screen.content}
         </Typography>
         {screen.notes && (
           <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
@@ -186,7 +186,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
         position: 'relative'
       }}>
         <Typography variant="body1" sx={{ mb: 1 }}>
-          {screen.content}
+          {'content' in screen && screen.content && screen.content}
         </Typography>
         {screen.notes && (
           <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>

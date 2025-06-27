@@ -29,7 +29,6 @@ interface BaseScreen {
   id: string;
   parentId?: string;
   progress: number;
-  content: string;
   image: string;
   next?: string;
   notes: string;
@@ -38,11 +37,13 @@ interface BaseScreen {
 // Specific screen type interfaces
 interface ScreenNarrative extends BaseScreen {
   type: 'narrative';
+  content: string;
   screens: Screen[];
 }
 
 interface ScreenDialog extends BaseScreen {
   type: 'dialog';
+  content: string;
   actor: Actor;
   screens: Screen[];
 }
@@ -50,11 +51,13 @@ interface ScreenDialog extends BaseScreen {
 
 interface ScreenBlock extends BaseScreen {
   type: 'block';
+  content: string;
   actor: Actor;
   availableFor: string;
 }
 interface ScreenChoice extends BaseScreen {
   type: 'choice';
+  content: string;
   actor: Actor;
   availableFor: string;
   options: ChoiceOption[];
@@ -62,16 +65,22 @@ interface ScreenChoice extends BaseScreen {
 
 interface ScreenScene extends BaseScreen {
   type: 'scene';
+  content: string;
   title: string;
   screens: Screen[];
 }
 
 interface ScreenFinal extends BaseScreen {
   type: 'final';
+  content: string;
+}
+
+interface ScreenCutscene extends BaseScreen {
+  type: 'cutscene';
 }
 
 // Union type for all screen types
-type Screen = ScreenNarrative | ScreenDialog | ScreenChoice | ScreenBlock | ScreenScene | ScreenFinal;
+type Screen = ScreenNarrative | ScreenDialog | ScreenChoice | ScreenBlock | ScreenScene | ScreenFinal | ScreenCutscene;
 
 interface IntroContent {
   content: string;
@@ -113,6 +122,7 @@ export type {
   ScreenBlock,
   ScreenScene,
   ScreenFinal,
+  ScreenCutscene,
   Screen, 
   Scenario 
 }; 
@@ -168,6 +178,11 @@ function transformScreen(screen: any, parentScreen?: Screen): Screen {
       return {
         ...baseScreen,
         type: 'final'
+      };
+    case 'cutscene':
+      return {
+        ...baseScreen,
+        type: 'cutscene'
       };
     default:
       throw new Error(`Unknown screen type: ${screen.type}`);

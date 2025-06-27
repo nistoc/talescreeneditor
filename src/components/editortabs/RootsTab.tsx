@@ -164,7 +164,7 @@ const ScreenItem: React.FC<ScreenItemProps> = ({
             }
           />
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 0.5 }}>
-            {highlightText(screen.content, 'content')}
+            {'content' in screen && screen.content && highlightText(screen.content, 'content')}
             {screen.notes && (
               <Typography variant="caption" display="block" color="text.secondary">
                 Notes: {highlightText(screen.notes, 'notes')}
@@ -306,7 +306,7 @@ export const RootsTab: React.FC = () => {
     // Check each field for matches
     if (screen.type?.toLowerCase().includes(queryLower)) matchedFields.push('type');
     if (screen.id?.toLowerCase().includes(queryLower)) matchedFields.push('id');
-    if (screen.content?.toLowerCase().includes(queryLower)) matchedFields.push('content');
+    if ('content' in screen && screen.content?.toLowerCase().includes(queryLower)) matchedFields.push('content');
     if (screen.image?.toLowerCase().includes(queryLower)) matchedFields.push('image');
     if (screen.notes?.toLowerCase().includes(queryLower)) matchedFields.push('notes');
     if (screen.next?.toLowerCase().includes(queryLower)) matchedFields.push('next');

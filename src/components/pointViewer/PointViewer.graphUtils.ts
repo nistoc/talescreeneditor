@@ -34,7 +34,7 @@ export const createFlattenedScreens = (screens: Screen[]): FlattenedScreen[] => 
       upIds: [],
       id: screen.id,
       downs: downValues,
-      label: screen.content || '',
+      label: 'content' in screen && screen.content ? screen.content : '',
       containerParentId,
       type: screen.type
     };
