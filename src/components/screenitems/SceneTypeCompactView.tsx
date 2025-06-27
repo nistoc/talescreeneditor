@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import { Screen, Character } from '../../../types/api.scenarios';
-import { getScenarioImageUrl } from '../../../services/imageUtils';
+import { Screen, Character } from '../../types/api.scenarios';
+import { getScenarioImageUrl } from '../../services/imageUtils';
 
 interface SceneTypeCompactViewProps {
   screen: Screen;

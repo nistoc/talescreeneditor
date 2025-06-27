@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Paper, Typography, Grid } from '@mui/material';
-import { getScenarioImageUrl } from '../../../services/imageUtils';
-import { Character } from '../../../types/api.scenarios';
+import { getScenarioImageUrl } from '../services/imageUtils';
+import { Character } from '../types/api.scenarios';
 
 interface MainCharacterSelectorProps {
   characters: Character[];

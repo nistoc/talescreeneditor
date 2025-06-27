@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { Screen, ScreenNarrative, ScreenDialog, ScreenScene } from '../../../types/api.scenarios';
+import { Screen, ScreenNarrative, ScreenDialog, ScreenScene } from '../../types/api.scenarios';
 
 interface SceneMetaCompactViewProps {
   screen: Screen;

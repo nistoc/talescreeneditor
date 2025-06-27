@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Chip } from '@mui/material';
-import { ChoiceOption } from '../../../types/api.scenarios';
+import { ChoiceOption } from '../../types/api.scenarios';
 
 interface OptionsCompactViewProps {
   options: ChoiceOption[];

@@ -6,7 +6,6 @@ export enum ScreenViewMode {
     PLAYER_EDIT = 'player_edit'    // В виде плеера с редактированием
   }
 
-export { NestedScreenItem } from './NestedScreenItem';
 export { CompactView } from './CompactView';
 export { CompactPlayer } from './CompactPlayer';
 export { CompactEditor } from './CompactEditor';

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { Box, IconButton, ListItem, Tooltip, Collapse, List } from '@mui/material';
-import { Screen, ScreenNarrative, ScreenDialog, ScreenScene, ScreenChoice, Character } from '../../../types/api.scenarios';
+import { Screen, ScreenNarrative, ScreenDialog, ScreenScene, Character } from '../../types/api.scenarios';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
-import { NestedScreenItem, CompactView, CompactPlayer, CompactEditor, ScreenViewMode } from './index';
-
+import { CompactView, CompactPlayer, CompactEditor, ScreenViewMode } from '../screenitems/index';
+import { NestedScreenItem } from './NestedScreenItem';
 
 interface ScreenItemProps {
+  screens: Screen[];
   screen: Screen;
-  level: number;
   isEditing: boolean;
   isExpanded: boolean;
   selectedScreenId: string | null;
@@ -27,13 +27,9 @@ const hasScreens = (screen: Screen): screen is ScreenNarrative | ScreenDialog | 
   return 'screens' in screen && Array.isArray(screen.screens);
 };
 
-const hasOptions = (screen: Screen): screen is ScreenChoice => {
-  return 'options' in screen && Array.isArray(screen.options);
-};
-
 export const ScreenItem: React.FC<ScreenItemProps> = ({
+  screens,
   screen,
-  level,
   isEditing,
   isExpanded,
   selectedScreenId,
@@ -77,6 +73,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
   // Функция для рендеринга представления плеера с просмотром
   const renderCompactPlayer = () => (
     <CompactPlayer
+      screens={screens}
       screen={screen}
       scenarioId={scenarioId}
       characters={characters}
@@ -88,6 +85,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
   // Функция для рендеринга представления плеера с редактированием
   const renderCompactEditor = () => (
     <CompactEditor
+      screens={screens}
       screen={screen}
       scenarioId={scenarioId}
       characters={characters}
@@ -119,8 +117,8 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
         onClick={handleClick}
         data-screen-id={screen.id}
         sx={{
-          pl: level === 0 ? 2 : 4 + (level * 3),
-          border: isSelected ? '1px solid' : (level > 0 ? '2px solid' : 'none'),
+          pl: 2,
+          border: isSelected ? '1px solid' : 'none',
           borderColor: isSelected ? 'primary.main' : 'divider',
           backgroundColor: isSelected ? 'action.selected' : 'inherit',
           cursor: 'pointer',
@@ -175,8 +173,8 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
               .map((childScreen) => (
                 <NestedScreenItem
                   key={childScreen.id}
+                  screens={screens}
                   screen={childScreen}
-                  level={level + 1}
                   isEditing={isEditing}
                   viewMode={viewMode}
                   selectedScreenId={selectedScreenId}

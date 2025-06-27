@@ -7,6 +7,7 @@ export interface ScenarioStorageData {
   selectedScreenId: string | null;
   expandedScreens: Record<string, boolean>;
   selectedCharacterId: string | null;
+  viewMode: string | null;
 }
 
 /**
@@ -68,7 +69,8 @@ export const getScenarioData = (scenarioId: string): ScenarioStorageData => {
     return {
       selectedScreenId: null,
       expandedScreens: {},
-      selectedCharacterId: null
+      selectedCharacterId: null,
+      viewMode: null,
     };
   }
 
@@ -86,11 +88,13 @@ export const getScenarioData = (scenarioId: string): ScenarioStorageData => {
   }
 
   const selectedCharacterId = getFromStorage(getScenarioStorageKey(scenarioId, 'selectedCharacterId'));
+  const viewMode = getFromStorage(getScenarioStorageKey(scenarioId, 'viewMode'));
 
   return {
     selectedScreenId,
     expandedScreens,
-    selectedCharacterId
+    selectedCharacterId,
+    viewMode,
   };
 };
 
@@ -123,6 +127,22 @@ export const saveExpandedScreens = (scenarioId: string, expandedScreens: Record<
 };
 
 /**
+ * Сохраняет выбранный viewMode для сценария
+ * @param scenarioId - ID сценария
+ * @param viewMode - viewMode или null для очистки
+ */
+export const saveViewMode = (scenarioId: string, viewMode: string | null): void => {
+  if (!scenarioId) return;
+
+  const key = getScenarioStorageKey(scenarioId, 'viewMode');
+  if (viewMode) {
+    saveToStorage(key, viewMode);
+  } else {
+    removeFromStorage(key);
+  }
+};
+
+/**
  * Сохраняет выбранного персонажа для сценария
  * @param scenarioId - ID сценария
  * @param characterId - ID персонажа или null для очистки
@@ -145,7 +165,7 @@ export const saveSelectedCharacterId = (scenarioId: string, characterId: string 
 export const clearScenarioData = (scenarioId: string): void => {
   if (!scenarioId) return;
   
-  const keys = ['selectedScreenId', 'expandedScreens', 'selectedCharacterId'];
+  const keys = ['selectedScreenId', 'expandedScreens', 'selectedCharacterId', 'viewMode'];
   keys.forEach(key => {
     removeFromStorage(getScenarioStorageKey(scenarioId, key));
   });

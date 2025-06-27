@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Screen, Character } from '../../../types/api.scenarios';
+import { Screen, Character } from '../../types/api.scenarios';
 import { SceneTypeCompactView } from './SceneTypeCompactView';
-import { SceneMetaCompactView } from './SceneMetaCompactView';
-import { Player } from '../editortab/Player';
+import { Player } from '../Player';
+import { ScreenPopulator } from '../fieldseditor/ScreenPopulator';
 
-interface CompactPlayerProps {
+interface CompactEditorProps {
+    screens: Screen[];
     screen: Screen;
     scenarioId: string;
     characters: Character[];
@@ -15,7 +16,8 @@ interface CompactPlayerProps {
     onScreenSelect?: (screenId: string) => void;
 }
 
-export const CompactPlayer: React.FC<CompactPlayerProps> = ({
+export const CompactEditor: React.FC<CompactEditorProps> = ({
+    screens,
     screen,
     scenarioId,
     characters,
@@ -35,9 +37,9 @@ export const CompactPlayer: React.FC<CompactPlayerProps> = ({
                     parentScreen={parentScreen}
                 />
             </Box>
-            <Box data-content sx={{ flex: 1, minWidth: 0, maxWidth: '600px', mr: 6 }}>
+            <Box data-content sx={{ flex: 2, minWidth: 0, maxWidth: '600px', mr: 6 }}>
                 <Player
-                    screens={parentScreen ? [screen, parentScreen] : [screen]}
+                    screens={screens}
                     selectedScreenId={screen.id}
                     characters={characters}
                     selectedCharacterId={selectedCharacterId ?? null}
@@ -45,10 +47,12 @@ export const CompactPlayer: React.FC<CompactPlayerProps> = ({
                     onScreenSelect={onScreenSelect}
                 />
             </Box>
-            <Box data-meta sx={{ flex: 0.5 }}>
-                <SceneMetaCompactView
+            <Box data-content sx={{ flex: 3, minWidth: 0 }}>
+                <ScreenPopulator
+                    screens={screens}
                     screen={screen}
-                    compact={compact}
+                    parentScreen={parentScreen}
+                    characters={characters}
                 />
             </Box>
         </Box>

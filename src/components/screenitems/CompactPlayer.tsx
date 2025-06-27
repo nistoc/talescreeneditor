@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Screen, Character } from '../../../types/api.scenarios';
+import { Screen, Character } from '../../types/api.scenarios';
 import { SceneTypeCompactView } from './SceneTypeCompactView';
 import { SceneMetaCompactView } from './SceneMetaCompactView';
-import { Player } from '../editortab/Player';
+import { Player } from '../Player';
 
-interface CompactEditorProps {
+interface CompactPlayerProps {
+    screens: Screen[];
     screen: Screen;
     scenarioId: string;
     characters: Character[];
@@ -15,7 +16,8 @@ interface CompactEditorProps {
     onScreenSelect?: (screenId: string) => void;
 }
 
-export const CompactEditor: React.FC<CompactEditorProps> = ({
+export const CompactPlayer: React.FC<CompactPlayerProps> = ({
+    screens,
     screen,
     scenarioId,
     characters,
@@ -37,7 +39,7 @@ export const CompactEditor: React.FC<CompactEditorProps> = ({
             </Box>
             <Box data-content sx={{ flex: 1, minWidth: 0, maxWidth: '600px', mr: 6 }}>
                 <Player
-                    screens={parentScreen ? [screen, parentScreen] : [screen]}
+                    screens={screens}
                     selectedScreenId={screen.id}
                     characters={characters}
                     selectedCharacterId={selectedCharacterId ?? null}

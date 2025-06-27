@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Screen, Character } from '../../../types/api.scenarios';
+import { Screen, Character } from '../../types/api.scenarios';
 import { SceneTypeCompactView } from './SceneTypeCompactView';
 import { SceneContentCompactView } from './SceneContentCompactView';
 import { SceneMetaCompactView } from './SceneMetaCompactView';

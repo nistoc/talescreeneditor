@@ -1,15 +1,15 @@
 import React from 'react';
 import { Box, IconButton, ListItem, Tooltip } from '@mui/material';
-import { Screen, ScreenChoice, Character } from '../../../types/api.scenarios';
+import { Screen, ScreenChoice, Character } from '../../types/api.scenarios';
 import EditIcon from '@mui/icons-material/Edit';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { CompactView, CompactPlayer, CompactEditor, ScreenViewMode } from './index';
+import { CompactView, CompactPlayer, CompactEditor, ScreenViewMode } from '../screenitems/index';
 
 interface NestedScreenItemProps {
+  screens: Screen[];
   screen: Screen;
   parentScreen?: Screen;
-  level: number;
   isEditing: boolean;
   viewMode: ScreenViewMode;
   selectedScreenId: string | null;
@@ -26,8 +26,8 @@ const hasOptions = (screen: Screen): screen is ScreenChoice => {
 };
 
 export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
+  screens,
   screen,
-  level,
   isEditing,
   viewMode,
   selectedScreenId,
@@ -62,6 +62,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   // Функция для рендеринга представления плеера с просмотром
   const renderCompactPlayer = () => (
     <CompactPlayer
+      screens={screens}
       screen={screen}
       scenarioId={scenarioId}
       characters={characters}
@@ -74,6 +75,7 @@ export const NestedScreenItem: React.FC<NestedScreenItemProps> = ({
   // Функция для рендеринга представления плеера с редактированием
   const renderCompactEditor = () => (
     <CompactEditor
+      screens={screens}
       screen={screen}
       scenarioId={scenarioId}
       characters={characters}

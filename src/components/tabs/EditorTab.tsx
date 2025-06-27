@@ -6,19 +6,20 @@ import {
   PanelResizeHandle,
 } from 'react-resizable-panels';
 import { useParams } from 'react-router-dom';
-import { useScenario } from '../../../api/scenarios';
-import { ScreenItem } from '../screenitems/ScreenItem';
+import { useScenario } from '../../api/scenarios';
+import { ScreenItem } from './ScreenItem';
 import { ScreenViewMode } from '../screenitems/index';
-import { Player } from './Player';
-import { MainCharacterSelector } from './MainCharacterSelector';
-import { PointViewer } from '../../pointViewer/PointViewer';
-import { ZoomSlider } from './ZoomSlider';
+import { Player } from '../Player';
+import { MainCharacterSelector } from '../MainCharacterSelector';
+import { PointViewer } from '../pointViewer/PointViewer';
+import { ZoomSlider } from '../ZoomSlider';
 import {
   getScenarioData,
   saveSelectedScreenId,
   saveExpandedScreens,
-  saveSelectedCharacterId
-} from '../../../services/localStorageUtils';
+  saveSelectedCharacterId,
+  saveViewMode,
+} from '../../services/localStorageUtils';
 
 export const EditorTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();
@@ -37,8 +38,7 @@ export const EditorTab: React.FC = () => {
   const [isBottomPanelCollapsed, setIsBottomPanelCollapsed] = useState<boolean>(false);
   const [isLeftPanelCollapsed, setIsLeftPanelCollapsed] = useState<boolean>(false);
   const [isRightPanelCollapsed, setIsRightPanelCollapsed] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<ScreenViewMode>(ScreenViewMode.COMPACT);
-
+  const [viewMode, setViewMode] = useState<ScreenViewMode>((scenarioData.viewMode as ScreenViewMode) || ScreenViewMode.COMPACT,);
   const listRef = useRef<HTMLUListElement>(null);
   const bottomPanelRef = useRef<any>(null);
   const leftPanelRef = useRef<any>(null);
@@ -173,6 +173,7 @@ export const EditorTab: React.FC = () => {
 
   const handleViewModeChange = (newViewMode: ScreenViewMode) => {
     setViewMode(newViewMode);
+    saveViewMode(scenarioId || '', newViewMode);
   };
 
   if (!scenario) {
@@ -336,8 +337,8 @@ export const EditorTab: React.FC = () => {
                       .map((screen) => (
                         <ScreenItem
                           key={screen.id}
+                          screens={scenario.screens}
                           screen={screen}
-                          level={0}
                           isEditing={editingScreenId === screen.id}
                           isExpanded={expandedScreens[screen.id] || false}
                           selectedScreenId={selectedScreenId}
@@ -360,8 +361,9 @@ export const EditorTab: React.FC = () => {
             {/* Правая горизонтальная панель 20% ширины, сворачиваемая до 0px */}
             <Panel
               ref={rightPanelRef}
-              defaultSize={20}
-              minSize={0}
+              defaultSize={10}
+              minSize={5}
+              maxSize={15}
               collapsible={true}
               collapsedSize={0}
               onCollapse={() => setIsRightPanelCollapsed(true)}

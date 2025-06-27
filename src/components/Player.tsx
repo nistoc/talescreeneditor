@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Typography, Paper, Chip, Divider, Container, Grid, Card, CardContent, LinearProgress, Box, Tooltip, Button } from '@mui/material';
-import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
-import { getScenarioImageUrl } from '../../../services/imageUtils';
-import { Screen, Character } from '../../../types/api.scenarios';
+import { Typography, Paper, Chip, Container, Card, CardContent, LinearProgress, Box, Tooltip, Button } from '@mui/material';
+import { getScenarioImageUrl } from '../services/imageUtils';
+import { Screen, Character } from '../types/api.scenarios';
 
 interface PlayerProps {
   screens: Screen[];
