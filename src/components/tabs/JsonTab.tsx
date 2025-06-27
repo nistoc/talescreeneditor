@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { Box, Typography, Button, Stack } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useScenarioJson, useUpdateScenarioJson } from '../../api/scenarios.json';
-import { JsonEditor } from '../../components/JsonEditor';
+import { JsonEditor } from '../JsonEditor';
 
 export const JsonTab: React.FC = () => {
   const { scenarioId } = useParams<{ scenarioId: string }>();

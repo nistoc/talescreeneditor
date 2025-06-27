@@ -1,23 +1,26 @@
 import React, { useEffect } from 'react';
-import { Box, IconButton, ListItem, Typography, Tooltip, Collapse, List } from '@mui/material';
-import { Screen, ScreenNarrative, ScreenDialog, ScreenScene } from '../../../types/api.scenarios';
+import { Box, IconButton, ListItem, Tooltip, Collapse, List } from '@mui/material';
+import { Screen, ScreenNarrative, ScreenDialog, ScreenScene, Character } from '../../types/api.scenarios';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
+import { CompactView, CompactPlayer, CompactEditor, ScreenViewMode } from '../screenitems/index';
 import { NestedScreenItem } from './NestedScreenItem';
 
 interface ScreenItemProps {
+  screens: Screen[];
   screen: Screen;
-  level: number;
-  isSelected: boolean;
   isEditing: boolean;
   isExpanded: boolean;
   selectedScreenId: string | null;
+  viewMode: ScreenViewMode;
   onSelect: (screenId: string) => void;
   onEdit: (screenId: string) => void;
   onExpand: (screenId: string, childScreenIds: string[]) => void;
   scenarioId: string;
+  characters?: Character[];
+  selectedCharacterId: string | null;
 }
 
 const hasScreens = (screen: Screen): screen is ScreenNarrative | ScreenDialog | ScreenScene => {
@@ -25,19 +28,24 @@ const hasScreens = (screen: Screen): screen is ScreenNarrative | ScreenDialog | 
 };
 
 export const ScreenItem: React.FC<ScreenItemProps> = ({
+  screens,
   screen,
-  level,
-  isSelected,
   isEditing,
   isExpanded,
   selectedScreenId,
+  selectedCharacterId,
+  viewMode,
   onSelect,
   onEdit,
   onExpand,
-  scenarioId
+  scenarioId,
+  characters = []
 }) => {
   const hasChildren = hasScreens(screen) && screen.screens.length > 0;
   const childScreenIds = hasChildren ? screen.screens.map(s => s.id) : [];
+
+  // Вычисляем isSelected на основе selectedScreenId и screen.id
+  const isSelected = selectedScreenId === screen.id;
 
   useEffect(() => {
     if (selectedScreenId && hasChildren && !isExpanded) {
@@ -48,7 +56,59 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
   }, [selectedScreenId]);
 
   const handleClick = () => {
-    onSelect(screen.id);
+    if (screen.id !== selectedScreenId) {
+      onSelect(screen.id);
+    }
+  };
+
+  // Функция для рендеринга компактного представления
+  const renderCompactView = () => (
+    <CompactView 
+      screen={screen} 
+      scenarioId={scenarioId} 
+      characters={characters} 
+    />
+  );
+
+  // Функция для рендеринга представления плеера с просмотром
+  const renderCompactPlayer = () => (
+    <CompactPlayer
+      screens={screens}
+      screen={screen}
+      scenarioId={scenarioId}
+      characters={characters}
+      onScreenSelect={onSelect}
+      selectedCharacterId={selectedCharacterId}
+    />
+  );
+
+  // Функция для рендеринга представления плеера с редактированием
+  const renderCompactEditor = () => (
+    <CompactEditor
+      screens={screens}
+      screen={screen}
+      scenarioId={scenarioId}
+      characters={characters}
+      onScreenSelect={onSelect}
+      selectedCharacterId={selectedCharacterId}
+    />
+  );
+
+  // Функция для выбора представления на основе режима
+  const renderContent = () => {
+    // Определяем режим на основе того, выбран ли этот экран
+    const currentViewMode = isSelected ? viewMode : ScreenViewMode.COMPACT;
+
+    switch (currentViewMode) {
+      case ScreenViewMode.COMPACT:
+        return renderCompactView();
+      case ScreenViewMode.PLAYER_VIEW:
+        return renderCompactPlayer();
+      case ScreenViewMode.PLAYER_EDIT:
+        return renderCompactEditor();
+      default:
+        return renderCompactView();
+    }
   };
 
   return (
@@ -57,15 +117,14 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
         onClick={handleClick}
         data-screen-id={screen.id}
         sx={{
-          pl: level === 0 ? 2 : 4 + (level * 3),
-          borderLeft: level > 0 ? '2px solid' : 'none',
+          pl: 2,
+          border: isSelected ? '1px solid' : 'none',
           borderColor: isSelected ? 'primary.main' : 'divider',
           backgroundColor: isSelected ? 'action.selected' : 'inherit',
           cursor: 'pointer',
           '&:hover': {
             backgroundColor: isSelected ? 'action.selected' : 'action.hover'
           },
-          border: isSelected ? '1px solid' : 'none',
           borderRadius: 1,
           m: 0.5,
           transition: 'all 0.2s ease'
@@ -85,31 +144,7 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
             {isExpanded ? <ExpandLess /> : <ExpandMore />}
           </IconButton>
         )}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
-            <Typography variant="body1">
-              {screen.type} - {screen.id}
-            </Typography>
-            {hasChildren && (
-              <Typography variant="caption" color="text.secondary">
-                ({screen.screens.length} screens)
-              </Typography>
-            )}
-          </Box>
-          {screen.type === 'scene' && (screen as ScreenScene).title && (
-            <Typography variant="body2" color="text.primary" sx={{ mb: 0.5 }}>
-              {(screen as ScreenScene).title}
-            </Typography>
-          )}
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
-            {screen.content}
-          </Typography>
-          {screen.notes && (
-            <Typography variant="caption" color="text.secondary">
-              Notes: {screen.notes}
-            </Typography>
-          )}
-        </Box>
+        {renderContent()}
         <Box sx={{ display: 'flex', gap: 1 }}>
           <Tooltip title="Edit">
             <IconButton
@@ -138,14 +173,18 @@ export const ScreenItem: React.FC<ScreenItemProps> = ({
               .map((childScreen) => (
                 <NestedScreenItem
                   key={childScreen.id}
+                  screens={screens}
                   screen={childScreen}
-                  level={level + 1}
-                  isSelected={selectedScreenId === childScreen.id}
                   isEditing={isEditing}
+                  viewMode={viewMode}
+                  selectedScreenId={selectedScreenId}
                   onSelect={onSelect}
                   onEdit={onEdit}
                   isExpanded={isExpanded}
                   scenarioId={scenarioId}
+                  characters={characters}
+                  parentScreen={screen}
+                  selectedCharacterId={selectedCharacterId}
                 />
               ))}
           </List>

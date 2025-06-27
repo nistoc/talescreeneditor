@@ -1,4 +1,4 @@
-import { defaultScenarioData } from './defaults';
+import { defaultScenarioDataMoonlightHeist, defaultScenarioDataCrimsonMasquerade } from './defaults';
 
 interface Character {
   id: string;
@@ -29,7 +29,6 @@ interface BaseScreen {
   id: string;
   parentId?: string;
   progress: number;
-  content: string;
   image: string;
   next?: string;
   notes: string;
@@ -38,11 +37,13 @@ interface BaseScreen {
 // Specific screen type interfaces
 interface ScreenNarrative extends BaseScreen {
   type: 'narrative';
+  content: string;
   screens: Screen[];
 }
 
 interface ScreenDialog extends BaseScreen {
   type: 'dialog';
+  content: string;
   actor: Actor;
   screens: Screen[];
 }
@@ -50,11 +51,13 @@ interface ScreenDialog extends BaseScreen {
 
 interface ScreenBlock extends BaseScreen {
   type: 'block';
+  content: string;
   actor: Actor;
   availableFor: string;
 }
 interface ScreenChoice extends BaseScreen {
   type: 'choice';
+  content: string;
   actor: Actor;
   availableFor: string;
   options: ChoiceOption[];
@@ -62,16 +65,22 @@ interface ScreenChoice extends BaseScreen {
 
 interface ScreenScene extends BaseScreen {
   type: 'scene';
+  content: string;
   title: string;
   screens: Screen[];
 }
 
 interface ScreenFinal extends BaseScreen {
   type: 'final';
+  content: string;
+}
+
+interface ScreenCutscene extends BaseScreen {
+  type: 'cutscene';
 }
 
 // Union type for all screen types
-type Screen = ScreenNarrative | ScreenDialog | ScreenChoice | ScreenBlock | ScreenScene | ScreenFinal;
+type Screen = ScreenNarrative | ScreenDialog | ScreenChoice | ScreenBlock | ScreenScene | ScreenFinal | ScreenCutscene;
 
 interface IntroContent {
   content: string;
@@ -113,6 +122,7 @@ export type {
   ScreenBlock,
   ScreenScene,
   ScreenFinal,
+  ScreenCutscene,
   Screen, 
   Scenario 
 }; 
@@ -169,33 +179,62 @@ function transformScreen(screen: any, parentScreen?: Screen): Screen {
         ...baseScreen,
         type: 'final'
       };
+    case 'cutscene':
+      return {
+        ...baseScreen,
+        type: 'cutscene'
+      };
     default:
       throw new Error(`Unknown screen type: ${screen.type}`);
   }
 }
 
-export const defaultScenario: Scenario = {
-  ...defaultScenarioData,
-  status: defaultScenarioData.status as 'draft' | 'active' | 'archived',
-  characters: defaultScenarioData.characters.map(char => ({
+export const defaultScenarioMoonlightHeist: Scenario = {
+  ...defaultScenarioDataMoonlightHeist,
+  status: defaultScenarioDataMoonlightHeist.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioDataMoonlightHeist.characters.map(char => ({
     ...char,
     type: char.type as 'player' | 'npc',
     gender: char.gender as 'mal' | 'fem'
   })),
-  screens: defaultScenarioData.screens.map(s => transformScreen(s)),
+  screens: defaultScenarioDataMoonlightHeist.screens.map(s => transformScreen(s)),
   updatedAt: new Date().toISOString(),
   price: {
     type: 'credits',
-    value: defaultScenarioData.price?.value || 0
+    value: defaultScenarioDataMoonlightHeist.price?.value || 0
   },
-  animatedCover: defaultScenarioData.animatedCover || '',
-  intro: defaultScenarioData.intro || {
+  animatedCover: defaultScenarioDataMoonlightHeist.animatedCover || '',
+  intro: defaultScenarioDataMoonlightHeist.intro || {
     mal: { content: '', image: '' },
     fem: { content: '', image: '' }
   },
-  genres: defaultScenarioData.genres || [],
-  labels: defaultScenarioData.labels || [],
-  createdDate: defaultScenarioData.createdDate || new Date().toISOString()
+  genres: defaultScenarioDataMoonlightHeist.genres || [],
+  labels: defaultScenarioDataMoonlightHeist.labels || [],
+  createdDate: defaultScenarioDataMoonlightHeist.createdDate || new Date().toISOString()
+};
+
+export const defaultScenarioCrimsonMasquerade: Scenario = {
+  ...defaultScenarioDataCrimsonMasquerade,
+  status: defaultScenarioDataCrimsonMasquerade.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioDataCrimsonMasquerade.characters.map(char => ({
+    ...char,
+    type: char.type as 'player' | 'npc',
+    gender: char.gender as 'mal' | 'fem'
+  })),
+  screens: defaultScenarioDataCrimsonMasquerade.screens.map(s => transformScreen(s)),
+  updatedAt: new Date().toISOString(),
+  price: {
+    type: 'credits',
+    value: defaultScenarioDataCrimsonMasquerade.price?.value || 0
+  },
+  animatedCover: defaultScenarioDataCrimsonMasquerade.animatedCover || '',
+  intro: defaultScenarioDataCrimsonMasquerade.intro || {
+    mal: { content: '', image: '' },
+    fem: { content: '', image: '' }
+  },
+  genres: defaultScenarioDataCrimsonMasquerade.genres || [],
+  labels: defaultScenarioDataCrimsonMasquerade.labels || [],
+  createdDate: defaultScenarioDataCrimsonMasquerade.createdDate || new Date().toISOString()
 };
 
 const scenario_01: Scenario = {
@@ -234,4 +273,4 @@ const scenario_04: Scenario = {
   screens: []
 };
 
-export const defaultScenarioList: Scenario[] = [defaultScenario, scenario_01, scenario_03, scenario_04]; 
+export const defaultScenarioList: Scenario[] = [defaultScenarioMoonlightHeist, defaultScenarioCrimsonMasquerade, scenario_01, scenario_03, scenario_04]; 

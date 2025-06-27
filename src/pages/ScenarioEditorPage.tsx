@@ -10,11 +10,11 @@ import {
   ButtonGroup,
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { IntroTab } from '../components/editortabs/IntroTab';
-import { EditorTab } from '../components/editortabs/editortab/EditorTab';
-import { CharactersTab } from '../components/editortabs/CharactersTab';
-import { JsonTab } from '../components/editortabs/JsonTab';
-import { RootsTab } from '../components/editortabs/RootsTab';
+import { IntroTab } from '../components/tabs/IntroTab';
+import { EditorTab } from '../components/tabs/EditorTab';
+import { CharactersTab } from '../components/tabs/CharactersTab';
+import { JsonTab } from '../components/tabs/JsonTab';
+import { RootsTab } from '../components/tabs/RootsTab';
 import { FocusModeMenu } from '../components/FocusModeMenu';
 import { useFocusMode } from '../contexts/FocusModeContext';
 
