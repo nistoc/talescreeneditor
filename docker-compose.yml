@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  tales-screen-editor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+      - STORAGE_PATH=/opt/render/project/taleseditorstoragedev
+    volumes:
+      # Маунтим локальную директорию для персистентных данных
+      - ./storage:/opt/render/project/taleseditorstoragedev
+    restart: unless-stopped
+    
+  # Для разработки с hot reload
+  tales-screen-editor-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      # Персистентное хранилище для разработки
+      - ./storage:/opt/render/project/taleseditorstoragedev
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - STORAGE_PATH=/opt/render/project/taleseditorstoragedev
+    stdin_open: true
+    tty: true
