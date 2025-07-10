@@ -1,0 +1,1443 @@
+{
+  "id": "passport_to_trouble",
+  "price": {
+    "type": "credits",
+    "value": 2000
+  },
+  "title": "Passport to Trouble",
+  "animatedCover": "videocover.webm",
+  "intro": {
+    "mal": {
+      "content": "a nonwritten intro",
+      "image": "cover.webp"
+    },
+    "fem": {
+      "content": "a nonwritten intro",
+      "image": "cover.webp"
+    }
+  },
+  "genres": [
+    "thriller"
+  ],
+  "labels": [
+    "promo"
+  ],
+  "createdDate": "2025-06-23",
+  "status": "draft",
+  "createdAt": "2025-06-23T12:00:00Z",
+  "updatedAt": "2025-06-23T12:00:00Z",
+  "ownerId": 1,
+  "characters": [
+    {
+      "id": "player_mal_ethan",
+      "name": "Ethan",
+      "type": "player",
+      "gender": "mal",
+      "image": "character_01_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "player_fem_melena",
+      "name": "Melena",
+      "type": "player",
+      "gender": "fem",
+      "image": "character_02_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_fem_hotel_receptionist",
+      "name": "Hotel receptionist",
+      "type": "npc",
+      "gender": "fem",
+      "image": "character_03_base.webp",
+      "notes": ""
+    }
+  ],
+  "maxBranchLength": 15,
+  "firstScreenId": "scene1",
+  "screens": [
+    {
+      "id": "scene1",
+      "type": "scene",
+      "image": "scene_01_a.webp",
+      "title": "Scene 1",
+      "content": "The Detour",
+      "next": "scene1_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Melena tightens the grip on her suitcase handle, staring at the hotel receptionist like she’s trying to bend reality. Her blazer is damp, curls frizzed by the rain, and patience worn thin.\n",
+      "next": "scene1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen2",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(thinking) </strong>This trip was scheduled down to the minute. Now, an unplanned stopover in Lisbon and no place to sleep. Great.\n</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "I’m very sorry, senhora. The storm grounded all inbound flights. We’ve had a rush of unexpected guests. But actually, there’s… only one room left.",
+      "actor": {
+        "playerId": "npc_fem_hotel_receptionist"
+      },
+      "next": "scene1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Melena exhales slowly, feeling a short-lived sense of relief. And then — a voice.",
+      "next": "scene1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen5",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(offscreen)</strong> I’ll take it.\n</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She turns sharply. The man beside her — Ethan Salvatore, sleek in a drenched black jacket, eyes like he’s already halfway out of this mess — flashes a casual smile. He’s calm. Too calm.",
+      "next": "scene1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen7",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(flatly)</strong> Excuse me?\n</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen8",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Just trying to get out of the rain. But if you insist, we can rock-paper-scissors for it.",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen9",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The absurdity enrages her. She’s this close to losing it — until Sofia chimes in.",
+      "next": "scene1_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen10",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(brightly)</strong>\nIt has two beds. Queens, top floor. Everything’s booked citywide because of the storm grounding most flights. Oh, and there´s a music festival this weekend.\n</p>",
+      "actor": {
+        "playerId": "npc_fem_hotel_receptionist"
+      },
+      "next": "scene1_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen11",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "They both look at her. Then at each other. Mutual disbelief.",
+      "next": "scene1_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen12",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(looks at Melena, clearly amused)</strong>\nMight as well. Or one of us is sleeping on the lobby floor, and I don´t think that´s fair to either of us.\n</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen13",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "I don’t share rooms. Especially not with strangers.",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen14",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(thinking)</strong>\nThis woman looks like she’s memorized a ten-year plan. \n</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen15",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "I’m not thrilled either, but I do snore less than that couch.",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen16",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(hesitantly)</strong>\n… I’ll take the bed closest to the window.\n</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen17",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Understood. ",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen18",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(handing them the key, smirking)</strong>\nRoom 602. Good luck.\n</p>",
+      "actor": {
+        "playerId": "npc_fem_hotel_receptionist"
+      },
+      "next": "scene1_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen19",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "You just had to chime in and try to claim the room for yourself.",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen20",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen20",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Had to look out for myself. No one else will. Life’s funny like that.",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen21",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "In a way, I respect that.",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen22",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen22",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "Melena and Ethan stepped into the room.\nThe door closed behind them with a muted click, swallowing the sound of the storm outside. Its howl was dulled by the walls, but its tension still pulsed in the space between them — electric, heavy. \n",
+      "next": "scene1_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen23",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "They stood there, just past the threshold, closer than either intended. Neither moved. The silence wasn’t empty; it pressed in around them, thick with everything they hadn’t said.\nThere was nowhere else to go.\nOnly here — and each other.\n",
+      "next": "scene1_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "block",
+      "image": "scene_01_b.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal_ethan",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "choice",
+      "image": "scene_01_b.webp",
+      "content": "What do you do next?",
+      "availableFor": "player_fem_melena",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "options": [
+        {
+          "id": "scene1_screen24",
+          "text": "Set ground rules immediately"
+        },
+        {
+          "id": "scene1_choice1_option2_screen1",
+          "text": "Try to ignore him and relax"
+        },
+        {
+          "id": "scene1_choice1_option3_screen1",
+          "text": "Confront him about trying to take the room"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen24",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "Here’s the deal: You keep your space, I’ll keep mine. No talking. No weirdness. I’m just here for a few hours of sleep.",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_screen25",
+      "progress": 0,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene1_screen25",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "Wow. I usually prefer a nice dinner before someone outlines their terms of engagement.",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_screen26",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen26",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "She rolls her eyes, but there’s a twitch of a smile. Maybe.",
+      "next": "scene1_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "Melena pulls out her laptop, pretending she’s still on schedule. But her fingers can’t stop drumming. Across the room, Ethan leans on the windowsill, watching the city lights blur.",
+      "next": "scene1_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "<p><strong>(casually)</strong>\nYou look like someone who’s trying very hard not to scream.\n</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "You’re not wrong.",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen4",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "It’s not much. But it’s a crack. The kind that lets in a bit of warmth — or trouble. Ethan, still watching her, heads over to his suitcase to unpack a few things.",
+      "next": "scene1_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "You just swooped in and tried to claim the last room. Like, I wasn’t even standing there. Who do you think you are?",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_choice1_option3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "<p><strong>(shrugging)</strong>\nI saw a problem and I tried to solve it.\n</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_choice1_option3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "With your entitlement?",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene1_choice1_option3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "With efficiency. But go ahead, tell me what you would´ve done better.",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene1_choice1_option3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen5",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "She scoffs and rolls her eyes. Irritated, but with a twinge of something else. The tension sparks — electric, biting. They’re oil and fire. And something about it feels… dangerous.\n",
+      "next": "scene1_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen27",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "Somewhere beneath the thunder and boutique hotel room that´s all too cozy, a night begins that neither of them saw coming. A dangerous storm that derailed everything, and two strangers with too little space between them.",
+      "next": "scene2",
+      "progress": 0,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene2",
+      "type": "scene",
+      "image": "scene_02_a.webp",
+      "title": "Scene 2",
+      "content": "<p>Shadows and Silhouettes</p>",
+      "next": "scene2_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen1",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Melena´s fingers tap anxiously on her laptop. She’s all focus and control — the kind of woman who plans everything down to the minute. </p>",
+      "next": "scene2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen2",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Meanwhile, Ethan is just trying to figure out how a storm and one last hotel room landed him stuck with the most fascinating woman he´s met in years.</p>",
+      "next": "scene2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen3",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>(thinking) She’s intense. And maybe a little too guarded. But there’s something behind those eyes — a story she’s not telling.</p><p><br></p>",
+      "next": "scene2_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "block",
+      "image": "scene_02_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_melena",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "choice",
+      "image": "scene_02_a.webp",
+      "content": "<p>How do you break the ice?</p>",
+      "availableFor": "player_mal_ethan",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "options": [
+        {
+          "id": "scene2_choice1_option1_screen1",
+          "text": "Throw down the gauntlet"
+        },
+        {
+          "id": "scene2_choice1_option2_screen1",
+          "text": "Test the waters, carefully"
+        },
+        {
+          "id": "scene2_choice1_option3_screen1",
+          "text": "Deflect with humor, keep it light"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(leaning back, voice low)</strong></p><p>You don’t do chaos. Got it. Let me guess, you´ve got a five-year plan, color-coded calendars, and a backup charger in every bag?</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(without looking up)</strong></p><p>Wrong. Three-year plan and wireless chargers. What’s your point?</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(grinning)</strong></p><p>My point is... you’re wound so tight you could form a diamond. But you're stranded. Off-script. And I'm the wildcard you didn’t plan for.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(finally looking at him)</strong></p><p>So what? You think I should just let go and hope you don’t crash the whole itinerary?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(getting up, crossing to the minibar)</strong></p><p>Nope. I think you want to let go. You’re just terrified of where it might take you.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen6",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Her jaw tightens — and then loosens. She doesn’t respond. But she doesn’t look away either.</p>",
+      "next": "scene2_choice1_option1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen7",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(softening slightly)</strong></p><p>I’m not here to wreck your plan. I’m just saying... maybe the detour’s the best part.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(gently)</strong></p><p>You know, I travel a lot. Business, mostly. Flights get canceled. Plans change. Sometimes you end up in strange cities with even stranger company.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(typing slows)</strong></p><p>Sounds inconvenient.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(smiling faintly)</strong></p><p>Sometimes. Other times, it’s exactly what you didn’t know you needed.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(turning to him)</strong></p><p>You think being stranded with a stranger is some kind of cosmic gift?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option2_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen5",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(shrugging)</strong></p><p>I think the universe rarely gives second chances. Maybe this is one. Maybe not. But for what it’s worth... the company’s intriguing.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen6",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>She blinks — not flattered, not flustered. Just... thrown for a second. She closes the laptop.</p>",
+      "next": "scene2_choice1_option2_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen7",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(quietly)</strong></p><p>I hate not knowing what comes next.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option2_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen8",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p>Good thing I’m pretty good at winging it.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(grinning)</strong></p><p>Look, I’m just saying, if you’re a crossword puzzle, I’m inexperienced in that field. But luckily, I´m very persistent.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(eyeing him sideways)</strong></p><p>And what clues have you picked up so far?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(mock serious)</strong></p><p>You’re Type A with a side of espresso. You hate wet socks. And I’m guessing you write your trip itineraries down to the smallest details.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(cracks a small laugh)</strong></p><p>Guilty. And you?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen5",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p>Me? I’m a chronic overpacker who lives off airport burritos and likes to charm his way out of messes he probably caused in the first place.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option3_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen6",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(tilting her head)</strong></p><p>At least you’re self-aware.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene2_choice1_option3_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen7",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(with a wink)</strong></p><p>It’s one of my finer qualities.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene2_choice1_option3_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option3_screen8",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>She exhales — the closest thing to a laugh he’s gotten all night. Progress.</p>",
+      "next": "scene2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen4",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>The silence stretches between them, charged but not uncomfortable. For the first time all night, neither of them is trying to win.</p>",
+      "next": "scene2_screen5",
+      "progress": 0,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene2_screen5",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Outside, the storm starts to break — not fully gone, but softer now. Like even the weather’s giving them permission to try something unexpected.</p>",
+      "next": "scene2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen6",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Somewhere between her clenched jaw and his easy grin, a new possibility slips into the room. Neither of them names it, but it lingers.</p>",
+      "next": "scene3",
+      "progress": 0
+    },
+    {
+      "id": "scene3",
+      "type": "scene",
+      "image": "scene_03_a.webp",
+      "title": "Scene 3",
+      "content": "<p>The Late Night Adventure</p>",
+      "next": "scene3_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen1",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(thinking)</strong></p><p>He’s too calm. Like nothing fazes him. I don’t know if I want to slap him or...</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>God, I need a drink.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>C´mon. Let´s go.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>Go where? We were lucky enough to get the last room here.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen5",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>For a drink. It´ll help you relax. There´s a jazz bar just around the corner.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen6",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(quietly)</strong></p><p>One hour. That’s all I’m asking. If it’s awful, we leave. You go back to managing your perfectly planned meltdown, and I’ll pretend I didn’t just offer to walk into a bar with someone who looks like they bite.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen7",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(coolly)</strong></p><p>Maybe I do.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen8",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(grinning, hands her a flyer)</strong></p><p>I knew it.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "block",
+      "image": "scene_03_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal_ethan",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "choice",
+      "image": "scene_03_a.webp",
+      "content": "<p>Do you go with him?</p>",
+      "availableFor": "player_fem_melena",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "options": [
+        {
+          "id": "scene3_choice1_option1_screen1",
+          "text": "Say yes, but only for 1 drink"
+        },
+        {
+          "id": "scene3_choice1_option2_screen1",
+          "text": "Say no, stick to your plan"
+        },
+        {
+          "id": "scene3_choice1_option3_screen1",
+          "text": "Counter with your terms"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(looking over the flyer)</strong></p><p>One drink. No games. No “surprise, I play piano here” nonsense. And if I say I’m done, I leave.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(smirking)</strong></p><p>Noted. I’ll cancel the surprise trumpet solo.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(dry)</strong></p><p>Please do.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(softening, a beat more sincere)</strong></p><p>Hey, I’m not trying to mess with your night. I just thought... we’re both stuck. Might as well share a table instead of this tension-filled silence.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(reluctantly amused)</strong></p><p>So you’re offering emotional aid... with jazz?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen6",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>That, and I heard they serve excellent port wine.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen7",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>She hesitates for one final breath. Then slides the flyer into her coat and walks toward the door. He follows quietly.</p>",
+      "next": "scene3_choice1_option1_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen8",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(thinking)</strong></p><p>It’s just a drink. A minor detour. It doesn´t have to be more than that.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(flatly)</strong></p><p>I appreciate the attempt. But I came here to pitch a project, not get derailed by cocktails and conversational foreplay.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(raising a brow)</strong></p><p>“Conversational foreplay”? That’s a new one.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>I call it like I see it.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(smiling faintly)</strong></p><p>Fair. Still... storms delay more than flights. Sometimes they shake things loose that you didn’t realize were stuck.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option2_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen5",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(cool, deflecting)</strong></p><p>And sometimes they’re just storms.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen6",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>She doesn’t move from her seat. Ethan heads out the door and swiftly looks back at her.</p>",
+      "next": "scene3_choice1_option2_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen7",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(quietly)</strong></p><p>Alright. No pressure. But for what it’s worth, you don’t seem like someone who lets life just... pass by.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option2_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen8",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(curt)</strong></p><p>You don’t know me.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option2_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen9",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>Not yet.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option2_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen10",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>He hears the elevator ding down the hall and closes the room door behind him. Still in the room, she looks down at the flyer in her hand. Still not crumpled. Still not thrown away.</p>",
+      "next": "scene3_choice1_option2_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen11",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(thinking)</strong></p><p>I’m being smart. Disciplined. So why do I feel like I just missed something? Why do I want to go?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option2_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen12",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>Slightly regretting her decision not to go, she nevertheless got up and, slightly slowing down, headed towards the bar, catching up with Ethan.</p>",
+      "next": "scene3_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(meeting his gaze)</strong></p><p>Fine. We go. But here are the rules — I pick the drinks, we sit by the window, and we’re back before midnight. No deep questions.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(smiling, intrigued)</strong></p><p>Wow. Is this a date or an operation?</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>Consider it... damage control.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(tilting his head)</strong></p><p>Do you always negotiate like this?</p><p><br></p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen5",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>Only when I sense trouble.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_choice1_option3_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen6",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p>And I´m the trouble?</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_choice1_option3_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen7",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(a breath of honesty)</strong></p><p>Let’s just say my instincts don’t usually yell it out loud.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen9",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "<p>He opens the hotel door for her. She steps out first, rain cool on her cheeks. The scent of wet stone and citrus fills the air. He joins her, his umbrella sheltering them both.</p>",
+      "next": "scene3_screen10",
+      "progress": 0,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene3_screen10",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(quietly)</strong></p><p>For the record, I like your rules. But something tells me you’ll break a few before the night’s over.</p><p><br></p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene3_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen11",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(smirking)</strong></p><p>Not a chance.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene3_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen12",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "<p>She says it like a shield. But something inside her already knows, this night won’t follow the script.</p>",
+      "next": "scene4",
+      "progress": 0
+    },
+    {
+      "id": "scene4",
+      "type": "scene",
+      "image": "scene_04_a.webp",
+      "title": "Scene 4",
+      "content": "<p>The Jazz Bar</p>",
+      "next": "scene4_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Ethan reaches the door first, opens it, and waits for her to enter. She pauses and looks at him suspiciously, but not before he catches her smiling slightly. They step into an atmosphere bustling with laughter and clinking glasses.</p>",
+      "next": "scene4_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen2",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>You know, you look different when you’re not angry at hotel receptionists.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen3",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>Must be the exhaustion.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene4_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen4",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>Could be me.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen5",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(laughs)</strong></p><p>Keep dreaming, Ethan!</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen6",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Ethan smirks nervously. He peers at her from the corner of his eye as she walks in front of him to take a seat.</p>",
+      "next": "scene4_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen7",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>I haven’t had an unscheduled evening out in two years.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene4_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen8",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>Then we’re rewriting history.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen9",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Melena orders a glass of wine while Ethan opts for a whiskey neat.</p>",
+      "next": "scene4_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen10",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>Tell me something no one at your office knows.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen11",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>...Sometimes I imagine quitting. Buying a bookstore in a coastal town. Silence. Peace.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene4_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen12",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>Wow... I wasn´t expecting that.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen13",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>I can be surprising. It´s rare, but it happens.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene4_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen14",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Melena swirls her wine, watching the condensation bead down the side of the glass. Across from her, Ethan leans forward, elbows on the small round table between them, like he’s waiting for her to say something that matters.</p>",
+      "next": "scene4_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen15",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>You’re full of surprises, Melena.</p>",
+      "actor": {
+        "playerId": "player_mal_ethan"
+      },
+      "next": "scene4_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen16",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p>Don’t get used to it.</p>",
+      "actor": {
+        "playerId": "player_fem_melena"
+      },
+      "next": "scene4_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen17",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>A saxophone starts to sing softly in the background. The vibe shifts. Slower. Intimate. Ethan studies her as the candlelight flickers between them.</p>",
+      "next": "scene1_screen24",
+      "progress": 0
+    }
+  ]
+}

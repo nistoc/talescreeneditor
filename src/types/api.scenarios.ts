@@ -1,4 +1,10 @@
-import { defaultScenarioDataMoonlightHeist, defaultScenarioDataCrimsonMasquerade } from './defaults';
+import { 
+  defaultScenarioDataMoonlightHeist,
+  defaultScenarioDataCrimsonMasquerade, 
+  defaultScenarioDataDaughterOfTheFlame, 
+  defaultScenarioDataPassportToTrouble,
+  defaultScenarioDataThreadsOfTheMoon
+ } from './defaults';
 
 interface Character {
   id: string;
@@ -237,6 +243,78 @@ export const defaultScenarioCrimsonMasquerade: Scenario = {
   createdDate: defaultScenarioDataCrimsonMasquerade.createdDate || new Date().toISOString()
 };
 
+export const defaultScenarioDaughterOfTheFlame: Scenario = {
+  ...defaultScenarioDataDaughterOfTheFlame,
+  status: defaultScenarioDataDaughterOfTheFlame.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioDataDaughterOfTheFlame.characters.map(char => ({
+    ...char,
+    type: char.type as 'player' | 'npc',
+    gender: char.gender as 'mal' | 'fem'
+  })),
+  screens: defaultScenarioDataDaughterOfTheFlame.screens.map(s => transformScreen(s)),
+  updatedAt: new Date().toISOString(),
+  price: {
+    type: 'credits',
+    value: defaultScenarioDataDaughterOfTheFlame.price?.value || 0
+  },
+  animatedCover: defaultScenarioDataDaughterOfTheFlame.animatedCover || '',
+  intro: defaultScenarioDataDaughterOfTheFlame.intro || {
+    mal: { content: '', image: '' },
+    fem: { content: '', image: '' }
+  },
+  genres: defaultScenarioDataDaughterOfTheFlame.genres || [],
+  labels: defaultScenarioDataDaughterOfTheFlame.labels || [],
+  createdDate: defaultScenarioDataDaughterOfTheFlame.createdDate || new Date().toISOString()
+};
+
+export const defaultScenarioPassportToTrouble: Scenario = {
+  ...defaultScenarioDataPassportToTrouble,
+  status: defaultScenarioDataPassportToTrouble.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioDataPassportToTrouble.characters.map(char => ({
+    ...char,
+    type: char.type as 'player' | 'npc',
+    gender: char.gender as 'mal' | 'fem'
+  })),
+  screens: defaultScenarioDataPassportToTrouble.screens.map(s => transformScreen(s)),
+  updatedAt: new Date().toISOString(),
+  price: {
+    type: 'credits',
+    value: defaultScenarioDataPassportToTrouble.price?.value || 0
+  },
+  animatedCover: defaultScenarioDataPassportToTrouble.animatedCover || '',
+  intro: defaultScenarioDataPassportToTrouble.intro || {
+    mal: { content: '', image: '' },
+    fem: { content: '', image: '' }
+  },
+  genres: defaultScenarioDataPassportToTrouble.genres || [],
+  labels: defaultScenarioDataPassportToTrouble.labels || [],
+  createdDate: defaultScenarioDataPassportToTrouble.createdDate || new Date().toISOString()
+};
+
+export const defaultScenarioThreadsOfTheMoon: Scenario = {
+  ...defaultScenarioDataThreadsOfTheMoon,
+  status: defaultScenarioDataThreadsOfTheMoon.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioDataThreadsOfTheMoon.characters.map(char => ({
+    ...char,
+    type: char.type as 'player' | 'npc',
+    gender: char.gender as 'mal' | 'fem'
+  })),
+  screens: defaultScenarioDataThreadsOfTheMoon.screens.map(s => transformScreen(s)),
+  updatedAt: new Date().toISOString(),
+  price: {
+    type: 'credits',
+    value: defaultScenarioDataThreadsOfTheMoon.price?.value || 0
+  },
+  animatedCover: defaultScenarioDataThreadsOfTheMoon.animatedCover || '',
+  intro: defaultScenarioDataThreadsOfTheMoon.intro || {
+    mal: { content: '', image: '' },
+    fem: { content: '', image: '' }
+  },
+  genres: defaultScenarioDataThreadsOfTheMoon.genres || [],
+  labels: defaultScenarioDataThreadsOfTheMoon.labels || [],
+  createdDate: defaultScenarioDataThreadsOfTheMoon.createdDate || new Date().toISOString()
+};
+
 const scenario_01: Scenario = {
   id: 'scenario_01',
   title: 'My First Project',
@@ -273,4 +351,12 @@ const scenario_04: Scenario = {
   screens: []
 };
 
-export const defaultScenarioList: Scenario[] = [defaultScenarioMoonlightHeist, defaultScenarioCrimsonMasquerade, scenario_01, scenario_03, scenario_04]; 
+export const defaultScenarioList: Scenario[] = [
+  defaultScenarioMoonlightHeist, 
+  defaultScenarioCrimsonMasquerade, 
+  defaultScenarioDaughterOfTheFlame, 
+  defaultScenarioPassportToTrouble, 
+  defaultScenarioThreadsOfTheMoon,
+  scenario_01, 
+  scenario_03, 
+  scenario_04]; 

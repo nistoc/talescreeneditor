@@ -3,7 +3,7 @@ const serverCache = new Map<string, string>();
 
 // Список всех возможных серверов
 const servers = [
-  '/scenarios',
+  '/assets',
   'http://screen-editor-dev.onrender.com/projects',
   'http://screen-editor-prep.onrender.com/projects'
 ];

@@ -53,6 +53,7 @@ export const CompactEditor: React.FC<CompactEditorProps> = ({
                     screen={screen}
                     parentScreen={parentScreen}
                     characters={characters}
+                    scenarioId={scenarioId}
                 />
             </Box>
         </Box>

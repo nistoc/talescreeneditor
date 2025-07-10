@@ -258,9 +258,15 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, chara
                 }}
               >
                 <CardContent>
-                  <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
-                    {selectedScreen.content}
-                  </Typography>
+                  <div
+                    style={{ 
+                      whiteSpace: 'pre-wrap',
+                      fontSize: '1rem',
+                      lineHeight: 1.5,
+                      fontFamily: '"Roboto","Helvetica","Arial",sans-serif'
+                    }}
+                    dangerouslySetInnerHTML={{ __html: selectedScreen.content }}
+                  />
                 </CardContent>
               </Card>
             </Box>
@@ -277,9 +283,15 @@ export const Player: React.FC<PlayerProps> = ({ screens, selectedScreenId, chara
               }}
             >
               <CardContent>
-                <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
-                  {selectedScreen.content}
-                </Typography>
+                <div
+                  style={{ 
+                    whiteSpace: 'pre-wrap',
+                    fontSize: '1rem',
+                    lineHeight: 1.5,
+                    fontFamily: '"Roboto","Helvetica","Arial",sans-serif'
+                  }}
+                  dangerouslySetInnerHTML={{ __html: selectedScreen.content }}
+                />
               </CardContent>
             </Card>
           )}

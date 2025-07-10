@@ -1,0 +1,2930 @@
+{
+  "id": "daughter_of_the_flame",
+  "price": {
+    "type": "credits",
+    "value": 2000
+  },
+  "title": "Daughter of the Flame",
+  "animatedCover": "videocover.webm",
+  "intro": {
+    "mal": {
+      "content": "empty",
+      "image": "cover.webp"
+    },
+    "fem": {
+      "content": "empty",
+      "image": "cover.webp"
+    }
+  },
+  "genres": [
+    "thriller"
+  ],
+  "labels": [
+    "promo"
+  ],
+  "createdDate": "2025-06-11",
+  "status": "draft",
+  "createdAt": "2025-06-05T12:00:00Z",
+  "updatedAt": "2025-06-05T12:00:00Z",
+  "ownerId": 1,
+  "characters": [
+    {
+      "id": "player_fem_kaela",
+      "name": "Kaela",
+      "type": "player",
+      "gender": "fem",
+      "image": "character_01_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "player_fem_rael",
+      "name": "Rael",
+      "type": "player",
+      "gender": "fem",
+      "image": "character_02_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_soldier",
+      "name": "Soldier",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_03_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_knight",
+      "name": "Knight",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_04_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_tavian",
+      "name": "Tavian",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_05_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_fem_rebel_girl",
+      "name": "Rebel Girl",
+      "type": "npc",
+      "gender": "fem",
+      "image": "character_06_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_regent",
+      "name": "Regent",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_07_base.webp",
+      "notes": ""
+    }
+  ],
+  "maxBranchLength": 155,
+  "firstScreenId": "Sc1",
+  "screens": [
+    {
+      "id": "scene1",
+      "type": "scene",
+      "image": "scene_01_a.webp",
+      "title": "Scene 1",
+      "content": "The Spark Unseen",
+      "next": "scene1_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Kaela keeps to the edge of the grounds, cloak drawn close. Her boots are caked in red dirt, her jaw tight. She watches the soldiers train — brutal, efficient, predictable.",
+      "next": "scene1_screen2",
+      "progress": 1
+    },
+    {
+      "id": "scene1_screen2",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(thinking) \nThey fight like it’s all muscle. No instinct.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_screen3",
+      "progress": 2
+    },
+    {
+      "id": "scene1_screen3",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "A crack of steel jolts her. Two knights break formation — too eager, too green. One throws a spear. It slips. Spins. Fast.",
+      "next": "scene1_screen4",
+      "progress": 3
+    },
+    {
+      "id": "scene1_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Too fast! It’s coming right at her!",
+      "next": "scene1_screen5",
+      "progress": 4
+    },
+    {
+      "id": "scene1_screen5",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She doesn’t think. Her palm shoots up — and the air shimmers. Heat explodes in her chest. A golden flame bursts out, catching the weapon mid-flight. The spear hovers, suspended in a circle of fire.",
+      "next": "scene1_screen6",
+      "progress": 5
+    },
+    {
+      "id": "scene1_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Silence falls. Training halts. All eyes turn.",
+      "next": "scene1_screen7",
+      "progress": 6
+    },
+    {
+      "id": "scene1_screen7",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(stunned) \nShe — she stopped it…by fire!",
+      "actor": {
+        "playerId": "npc_mal_soldier"
+      },
+      "next": "scene1_screen8",
+      "progress": 7
+    },
+    {
+      "id": "scene1_screen8",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(shouting)\nShe’s Fireborn!",
+      "actor": {
+        "playerId": "npc_mal_knight"
+      },
+      "next": "scene1_screen9",
+      "progress": 8
+    },
+    {
+      "id": "scene1_screen9",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The word lands like a curse. Kaela stumbles back. Her breath comes hard. Hands trembling, eyes burning. The fire is still humming under her skin — and it hurts. Her veins feel singed.",
+      "next": "scene1_screen10",
+      "progress": 9
+    },
+    {
+      "id": "scene1_screen10",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "No time for reasoning! Whatever it is, she has to run!",
+      "next": "scene1_screen11",
+      "progress": 10
+    },
+    {
+      "id": "scene1_screen11",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She turns to run —and slams into someone solid. A man. Calm, dark-haired, steady as stone. Not a soldier. Not panicking. Not surprised.",
+      "next": "scene1_screen12",
+      "progress": 11
+    },
+    {
+      "id": "scene1_screen12",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "If you want to live, come with me.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_screen13",
+      "progress": 12
+    },
+    {
+      "id": "scene1_screen13",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "His voice is low. Urgent, but not afraid. There’s something familiar in his gaze — not recognition, exactly. More like... purpose.",
+      "next": "scene1_screen14",
+      "progress": 13
+    },
+    {
+      "id": "scene1_screen14",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(glaring) \nWho the hell are you?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_screen15",
+      "progress": 14
+    },
+    {
+      "id": "scene1_screen15",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "A friend. One who knows exactly what they’ll do to you if you stay. The Regent’s laws are clear. Magic burns — or gets burned.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_screen16",
+      "progress": 15
+    },
+    {
+      "id": "scene1_screen16",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Behind her, boots are coming. She hears her name shouted. Her heartbeat thrums in her fingertips. The fire inside her flares — uncontrolled.",
+      "next": "scene1_screen17",
+      "progress": 16
+    },
+    {
+      "id": "scene1_screen17",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(thinking) \nIt’s not just power. It’s heat. Pain. If I don’t move — I’ll collapse.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1",
+      "progress": 17
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "block",
+      "image": "scene_01_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_rael",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "progress": 18
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "choice",
+      "image": "scene_01_a.webp",
+      "content": "What do you do?",
+      "availableFor": "player_fem_kaela",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "options": [
+        {
+          "id": "scene1_choice1_option1_screen1",
+          "text": "Trust the stranger"
+        },
+        {
+          "id": "scene1_choice1_option2_screen1",
+          "text": "Say that the fire is not yours"
+        },
+        {
+          "id": "scene1_choice1_option3_screen1",
+          "text": "Stall him. You want answers first"
+        }
+      ],
+      "progress": 18
+    },
+    {
+      "id": "scene1_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "If this is a trick, I swear — I’ll make sure you burn before me.",
+      "next": "scene1_choice1_option1_screen2",
+      "progress": 19
+    },
+    {
+      "id": "scene1_choice1_option1_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She grabs his arm. No more questions. Just movement. He pulls her behind a weapons tent, down a slope, through thick underbrush. Their breaths stay low, feet silent.",
+      "next": "scene1_choice1_option1_screen3",
+      "progress": 20
+    },
+    {
+      "id": "scene1_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "I’m Rael. You’ll be safe — for now.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_choice1_option1_screen4",
+      "progress": 21
+    },
+    {
+      "id": "scene1_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "We’ll see about that. ",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1_option1_screen5",
+      "progress": 22
+    },
+    {
+      "id": "scene1_choice1_option1_screen5",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The guards are behind them, distant now. But Kaela’s pulse is still running. And the stranger beside her — calm, focused, already planning the next step — doesn’t feel like a stranger anymore.",
+      "next": "scene1_screen18",
+      "progress": 23
+    },
+    {
+      "id": "scene1_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "No… no, I didn’t—",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1_option2_screen2",
+      "progress": 19
+    },
+    {
+      "id": "scene1_choice1_option2_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She stares at her hands like they belong to someone else. The flame’s gone, but its echo still hums in her chest. Her fingers ache — as if scorched from inside.",
+      "next": "scene1_choice1_option2_screen3",
+      "progress": 20
+    },
+    {
+      "id": "scene1_choice1_option2_screen3",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The word strikes like thunder. She’s read it in stories: curses, warnings, old myths — but never saw anything like this.",
+      "next": "scene1_choice1_option2_screen4",
+      "progress": 21
+    },
+    {
+      "id": "scene1_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(hoarse) \nI didn’t mean to. I didn’t even know I —",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1_option2_screen5",
+      "progress": 22
+    },
+    {
+      "id": "scene1_choice1_option2_screen5",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(firmly)\nKaela. Look at me. You need to run. You need to live.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_choice1_option2_screen6",
+      "progress": 23
+    },
+    {
+      "id": "scene1_choice1_option2_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "And something in his voice cuts through the fear. She nods, shaky, stunned, then bolts. He follows close behind. The garrison erupts behind them — horns, orders, confusion.",
+      "next": "scene1_choice1_option2_screen7",
+      "progress": 24
+    },
+    {
+      "id": "scene1_choice1_option2_screen7",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "And Kaela runs, not because she understands, but because she no longer has a choice.",
+      "next": "scene1_screen18",
+      "progress": 25
+    },
+    {
+      "id": "scene1_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "You show up out of nowhere, know my name, and now you want me to follow you?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1_option3_screen2",
+      "progress": 19
+    },
+    {
+      "id": "scene1_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "We don’t have time for this. You used fire — they’ll treat you like a weapon, not a person.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_choice1_option3_screen3",
+      "progress": 20
+    },
+    {
+      "id": "scene1_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "So what? You’ll do better?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1_option3_screen4",
+      "progress": 21
+    },
+    {
+      "id": "scene1_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(quietly) \nI already have.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_choice1_option3_screen5",
+      "progress": 22
+    },
+    {
+      "id": "scene1_choice1_option3_screen5",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The sincerity in his voice stops her. He isn’t trying to manipulate her. He’s… worried.",
+      "next": "scene1_choice1_option3_screen6",
+      "progress": 23
+    },
+    {
+      "id": "scene1_choice1_option3_screen6",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Fine. One answer. Are you like me?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene1_choice1_option3_screen7",
+      "progress": 24
+    },
+    {
+      "id": "scene1_choice1_option3_screen7",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Not exactly. But I’ve bled for someone who was. And I won’t let that happen again.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene1_choice1_option3_screen8",
+      "progress": 25
+    },
+    {
+      "id": "scene1_choice1_option3_screen8",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Her hesitation cracks. The shouts grow closer. She curses — and follows.",
+      "next": "scene1_screen18",
+      "progress": 26
+    },
+    {
+      "id": "scene1_screen18",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The wind picks up as they disappear beyond the walls. Behind them, the garrison is in chaos. But ahead, there is something Kaela hasn’t felt in years.",
+      "next": "scene1_screen19",
+      "progress": 26
+    },
+    {
+      "id": "scene1_screen19",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Hope.",
+      "next": "scene2",
+      "progress": 27
+    },
+    {
+      "id": "scene2",
+      "type": "scene",
+      "image": "scene_02_a.webp",
+      "title": "Scene 2",
+      "content": "A Pact in the Shadows",
+      "next": "scene2_screen1",
+      "progress": 28
+    },
+    {
+      "id": "scene2_screen1",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "They’ve been walking for hours, the noise of pursuit long faded behind them. Trees stretch like silent sentinels, and Kaela's steps begin to slow, not from exhaustion, but from the storm behind her ribs.",
+      "next": "scene2_screen2",
+      "progress": 29
+    },
+    {
+      "id": "scene2_screen2",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "Rael glances at her, then nods toward a hollow beneath a leaning tree, half-sheltered and hidden.",
+      "next": "scene2_screen3",
+      "progress": 30
+    },
+    {
+      "id": "scene2_screen3",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "We can rest here. Just for the night.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen4",
+      "progress": 31
+    },
+    {
+      "id": "scene2_screen4",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "Kaela doesn’t argue. She sinks to the ground, folding her knees tight. Her cloak smells of smoke now. Of something ancient, something dangerous. Her pulse hasn’t settled. Her hands won’t stop shaking.",
+      "next": "scene2_screen5",
+      "progress": 32
+    },
+    {
+      "id": "scene2_screen5",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The fire is small, controlled. Not hers, yet. Rael keeps his distance but watches her closely.",
+      "next": "scene2_screen6",
+      "progress": 33
+    },
+    {
+      "id": "scene2_screen6",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "You don’t have to be afraid of it.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen7",
+      "progress": 34
+    },
+    {
+      "id": "scene2_screen7",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "It almost killed someone. It almost... (She stops herself) It doesn’t feel like mine. It feels like it’s waiting to take control.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen8",
+      "progress": 35
+    },
+    {
+      "id": "scene2_screen8",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Because it isn’t just yours. That fire runs through your bloodline. Fireborn were never meant to carry it alone.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen9",
+      "progress": 36
+    },
+    {
+      "id": "scene2_screen9",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(sharply) \nThat’s supposed to make me feel better? I know better than anyone that the fireborn are forbidden!!",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen10",
+      "progress": 37
+    },
+    {
+      "id": "scene2_screen10",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "No. It’s supposed to remind you that you're not cursed. You’re inherited.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen11",
+      "progress": 38
+    },
+    {
+      "id": "scene2_screen11",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "She meets his eyes across the fire. Something in her posture dares him to keep talking.",
+      "next": "scene2_screen12",
+      "progress": 39
+    },
+    {
+      "id": "scene2_screen12",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Part of the kingdom has never stopped believing in the Fireborn. Quietly. Carefully. And when the signs returned, when the rumors of heat and flame began again… We hoped. We waited. For someone like you.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen13",
+      "progress": 40
+    },
+    {
+      "id": "scene2_screen13",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(quiet) \nDid you know that the one with the power... is me?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen14",
+      "progress": 41
+    },
+    {
+      "id": "scene2_screen14",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I didn’t know you were the one. But I knew someone existed — someone who could bring back what was lost. ",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_choice1",
+      "progress": 42
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "block",
+      "image": "scene_02_b.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_kaela",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "progress": 43
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "choice",
+      "image": "scene_02_b.webp",
+      "content": "What do you offer next?",
+      "availableFor": "player_fem_rael",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "options": [
+        {
+          "id": "scene2_choice1_option1_screen1",
+          "text": "Offer protection"
+        },
+        {
+          "id": "scene2_choice1_option2_screen1",
+          "text": "Invite her into the rebellion"
+        },
+        {
+          "id": "scene2_choice1_option3_screen1",
+          "text": "Offer a pact of trust"
+        }
+      ],
+      "progress": 43
+    },
+    {
+      "id": "scene2_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I don’t expect you to lead, Kaela. Not yet. But I can protect you. Teach you what they won’t. If you let me.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_choice1_option1_screen2",
+      "progress": 44
+    },
+    {
+      "id": "scene2_choice1_option1_screen2",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "She doesn’t answer right away. Her gaze drops to the flame from which she feels called, and thinking about the man from whom she feels salvation.",
+      "next": "scene2_choice1_option1_screen3",
+      "progress": 45
+    },
+    {
+      "id": "scene2_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I will not tolerate lies and omissions. I am afraid. I lived a life that belonged to me, and now my life belongs to what is forbidden in the kingdom.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_choice1_option1_screen4",
+      "progress": 46
+    },
+    {
+      "id": "scene2_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(softly) \nI will always be on your side if you trust me.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen15",
+      "progress": 47
+    },
+    {
+      "id": "scene2_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I won’t lie to you. This won’t be safe. But there are people — hundreds of them — who would follow you, who believe your flame could turn the tide.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_choice1_option2_screen2",
+      "progress": 44
+    },
+    {
+      "id": "scene2_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I’m not ready to lead anyone. These forces that captured me were forbidden, and I do not know how to handle them.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_choice1_option2_screen3",
+      "progress": 45
+    },
+    {
+      "id": "scene2_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "You’re not alone anymore. That’s what matters.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_choice1_option2_screen4",
+      "progress": 46
+    },
+    {
+      "id": "scene2_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(after a beat) \nThen don’t let me burn alone.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_choice1_option2_screen5",
+      "progress": 47
+    },
+    {
+      "id": "scene2_choice1_option2_screen5",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Never, I promise.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen15",
+      "progress": 48
+    },
+    {
+      "id": "scene2_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "You don’t have to decide anything tonight. But let’s make a pact. You don’t run from what’s inside you, and I don’t leave your side.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_choice1_option3_screen2",
+      "progress": 44
+    },
+    {
+      "id": "scene2_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "And if I do both?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_choice1_option3_screen3",
+      "progress": 45
+    },
+    {
+      "id": "scene2_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Then I’ll find you again. And remind you who you are.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_choice1_option3_screen4",
+      "progress": 46
+    },
+    {
+      "id": "scene2_choice1_option3_screen4",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "For the first time, her posture eases. Just slightly.",
+      "next": "scene2_choice1_option3_screen5",
+      "progress": 47
+    },
+    {
+      "id": "scene2_choice1_option3_screen5",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Alright. Then it’s a pact.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen15",
+      "progress": 48
+    },
+    {
+      "id": "scene2_screen15",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The fire is dying now. The forest exhales around them. The night grows deeper. Rael stands and nods towards the tents, which have obviously been prepared in advance.",
+      "next": "scene2_screen16",
+      "progress": 48
+    },
+    {
+      "id": "scene2_screen16",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "That one’s yours. I’ll keep watch.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen17",
+      "progress": 49
+    },
+    {
+      "id": "scene2_screen17",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(rising) \nAre you always this prepared?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen18",
+      "progress": 50
+    },
+    {
+      "id": "scene2_screen18",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(smirking) \nOnly when legends start falling from the sky.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen19",
+      "progress": 51
+    },
+    {
+      "id": "scene2_screen19",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Kaela lies curled on a field bed, eyes open. The warmth of the fire still clings to her skin. Her breath comes unevenly.",
+      "next": "scene2_screen20",
+      "progress": 52
+    },
+    {
+      "id": "scene2_screen20",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "(thinking) \nThey’re wrong about me. I’m not brave. I’m terrified. Of this power, of what it wants from me. And if they’re waiting for a hero — they’ll be disappointed.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen21",
+      "progress": 53
+    },
+    {
+      "id": "scene2_screen21",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "(thinking) \nI was trained to protect the kingdom, and now I have become the main forbidden element. Fireborn or not… I don’t know who I’m supposed to be.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene2_screen22",
+      "progress": 54
+    },
+    {
+      "id": "scene2_screen22",
+      "type": "narrative",
+      "image": "scene_02_d.webp",
+      "content": "Rael sits cross-legged, blade within reach, gaze on the canopy above.",
+      "next": "scene2_screen23",
+      "progress": 55
+    },
+    {
+      "id": "scene2_screen23",
+      "type": "dialog",
+      "image": "scene_02_d.webp",
+      "content": "(thinking) \nShe doesn’t trust me. Not yet. But she’s stronger than she knows. The rebellion believes she’s the spark.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen24",
+      "progress": 56
+    },
+    {
+      "id": "scene2_screen24",
+      "type": "dialog",
+      "image": "scene_02_d.webp",
+      "content": "(thinking)  \nI just hope... she doesn’t burn us all before she chooses a side.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene2_screen25",
+      "progress": 57
+    },
+    {
+      "id": "scene2_screen25",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "A branch cracks in the distance. Something low rustles beyond the camp. From the edge of the trees, yellow eyes gleam — a lone wolf, watching.",
+      "next": "scene2_screen26",
+      "progress": 58
+    },
+    {
+      "id": "scene2_screen26",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Then it vanishes. And the fire fades to embers.",
+      "next": "scene3",
+      "progress": 59
+    },
+    {
+      "id": "scene3",
+      "type": "scene",
+      "image": "scene_03_a.webp",
+      "title": "Scene 3",
+      "content": "Rebels",
+      "next": "scene3_screen1",
+      "progress": 60
+    },
+    {
+      "id": "scene3_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The walk is quiet. Too quiet. Rael leads with practiced ease, his cloak brushing the undergrowth. Kaela trails behind, half-listening, half-burning. The fire hasn’t stirred again since the training ground… but it hasn’t gone away either.",
+      "next": "scene3_screen2",
+      "progress": 61
+    },
+    {
+      "id": "scene3_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(thinking) \nEvery step feels like a test. Every branch overhead — a jury. And I’m still not sure what I’m guilty of.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen3",
+      "progress": 62
+    },
+    {
+      "id": "scene3_screen3",
+      "type": "narrative",
+      "image": "scene_03_b.webp",
+      "content": "They step through a veil of leaves — and the world opens. Dozens of eyes turn to her. Some wide with awe, others wary. A boy drops a bucket. A woman straightens from the fire. A man with braided hair and a scarred jaw rises slowly, almost reverently.",
+      "next": "scene3_screen4",
+      "progress": 63
+    },
+    {
+      "id": "scene3_screen4",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "(to Kaela) \nWelcome to the Ashen Circle.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen5",
+      "progress": 64
+    },
+    {
+      "id": "scene3_screen5",
+      "type": "narrative",
+      "image": "scene_03_b.webp",
+      "content": "Voices begin to rise. Not hostile, but hopeful. Too hopeful. A young woman touches Kaela’s arm, whispering: “Flameborn.”",
+      "next": "scene3_screen6",
+      "progress": 65
+    },
+    {
+      "id": "scene3_screen6",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "(to Rael, tense) \nThey’re looking at me like I’m a prophecy.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen7",
+      "progress": 66
+    },
+    {
+      "id": "scene3_screen7",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "They’ve been surviving on the scraps of one for years. You’re the first spark that’s real.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen8",
+      "progress": 67
+    },
+    {
+      "id": "scene3_screen8",
+      "type": "narrative",
+      "image": "scene_03_b.webp",
+      "content": "From the edge of the crowd, a figure steps forward. He’s older, gray at the temples, but his eyes are like molten amber. Authority without shouting.",
+      "next": "scene3_screen9",
+      "progress": 68
+    },
+    {
+      "id": "scene3_screen9",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "I am Tavian, one of the first rebels born after the purge. I’ve bled to keep our flame alive. And you, Kaela… you’re the fire we were promised.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene3_screen10",
+      "progress": 69
+    },
+    {
+      "id": "scene3_screen10",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "It seems to me that you are forgetting that worship of fire and such magic that has opened up in me is forbidden!",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen11",
+      "progress": 70
+    },
+    {
+      "id": "scene3_screen11",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "We know your blood. We know your gift. You think that makes you dangerous. But to us? It makes you our hope.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene3_screen12",
+      "progress": 71
+    },
+    {
+      "id": "scene3_screen12",
+      "type": "narrative",
+      "image": "scene_03_b.webp",
+      "content": "Around her, the murmurs of others rise. Some share stories — of fathers executed for suspicion of flame, of sisters who vanished into smoke, of friends turned to ash when caught lighting a candle wrong.",
+      "next": "scene3_screen13",
+      "progress": 72
+    },
+    {
+      "id": "scene3_screen13",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "(thinking) \nThey talk like I’m a savior. But I’m not even sure I’m not a threat.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_choice1",
+      "progress": 73
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "block",
+      "image": "scene_03_b.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_rael",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "progress": 74
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "choice",
+      "image": "scene_03_b.webp",
+      "content": "How do you respond to the rebels' plea?",
+      "availableFor": "player_fem_kaela",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "options": [
+        {
+          "id": "scene3_choice1_option1_screen1",
+          "text": "Accept their trust, cautiously"
+        },
+        {
+          "id": "scene3_choice1_option2_screen1",
+          "text": "Refuse their expectations, but offer to help"
+        },
+        {
+          "id": "scene3_choice1_option3_screen1",
+          "text": "Question everything and ask for proof"
+        }
+      ],
+      "progress": 74
+    },
+    {
+      "id": "scene3_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "Fine. I’ll stay. I’ll listen. But don’t worship me. I’m not fire made flesh. I’m just… learning to survive it.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_choice1_option1_screen2",
+      "progress": 75
+    },
+    {
+      "id": "scene3_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "(smiling faintly) \nSurvival is the first step toward leading.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene3_choice1_option1_screen3",
+      "progress": 76
+    },
+    {
+      "id": "scene3_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_03_b.webp",
+      "content": "The crowd stirs. Rael gives a subtle nod, eyes steady.",
+      "next": "scene3_screen14",
+      "progress": 77
+    },
+    {
+      "id": "scene3_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "I’m not your symbol. I won’t burn for your legends. But if you need someone who can fight for the weak — someone who can try — then I’m here.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_choice1_option2_screen2",
+      "progress": 75
+    },
+    {
+      "id": "scene3_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "Not every fire leads. Some protect. Some destroy. All we ask is that you burn with us, not against us.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene3_screen14",
+      "progress": 76
+    },
+    {
+      "id": "scene3_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "All this talk of destiny and prophecy — what if you’re wrong? What if fire was banned for your protection?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_choice1_option3_screen2",
+      "progress": 75
+    },
+    {
+      "id": "scene3_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "Then we will have given that spark a chance. And if it fades, we’ll still have walked beside you.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene3_choice1_option3_screen3",
+      "progress": 76
+    },
+    {
+      "id": "scene3_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_03_b.webp",
+      "content": "(quietly) \nBut I don’t think you’ll fade. Just give us time to bring you up to speed later.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen14",
+      "progress": 77
+    },
+    {
+      "id": "scene3_screen14",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "Later, the others settle into tents. Kaela remains behind, half-curious, half-restless. Rael returns with two wooden staffs, but sets one aside.",
+      "next": "scene3_screen15",
+      "progress": 77
+    },
+    {
+      "id": "scene3_screen15",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "To make you a fire controller, we'll have to start emergency training. Theory first. You can’t control what you don’t understand.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen16",
+      "progress": 78
+    },
+    {
+      "id": "scene3_screen16",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "He kneels beside the fire, motioning for her to join. She does, reluctantly. The fire crackles between them.",
+      "next": "scene3_screen17",
+      "progress": 79
+    },
+    {
+      "id": "scene3_screen17",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "Fire obeys balance. It needs air — but not too much. Fuel — but not forever. Control is about listening, not commanding.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen18",
+      "progress": 80
+    },
+    {
+      "id": "scene3_screen18",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "(quiet) \nIs that how you live, Rael? Controlled? Measured?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen19",
+      "progress": 81
+    },
+    {
+      "id": "scene3_screen19",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "(smiling faintly) \nI try. Doesn’t always work.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen20",
+      "progress": 82
+    },
+    {
+      "id": "scene3_screen20",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "He lifts a hand. The fire bends slightly — not flaring, not wild. Just following his motion.",
+      "next": "scene3_screen21",
+      "progress": 83
+    },
+    {
+      "id": "scene3_screen21",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "Now you. Don’t force it. Breathe with it.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen22",
+      "progress": 84
+    },
+    {
+      "id": "scene3_screen22",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "Kaela reaches out. At first, nothing. Then — a flicker. The flame stretches toward her, like recognition. Her fingers tremble — but the fire doesn’t lash. It leans.",
+      "next": "scene3_screen23",
+      "progress": 85
+    },
+    {
+      "id": "scene3_screen23",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "(softly) \nIt feels warm. Not wild.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen24",
+      "progress": 86
+    },
+    {
+      "id": "scene3_screen24",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "Because you're not afraid of it. Not right now.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen25",
+      "progress": 87
+    },
+    {
+      "id": "scene3_screen25",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "The moment lingers. The flames bathe their faces in amber. His eyes meet hers — gentle, curious, unwavering.",
+      "next": "scene3_screen26",
+      "progress": 88
+    },
+    {
+      "id": "scene3_screen26",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "(half-whisper)\nThank you. For not running.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen27",
+      "progress": 89
+    },
+    {
+      "id": "scene3_screen27",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "You lit a fire in front of twenty soldiers and didn’t flinch. I’d follow that into the dark.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen28",
+      "progress": 90
+    },
+    {
+      "id": "scene3_screen28",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "She doesn’t answer. Just looks at him. The silence between them softens. The distance shrinks — not gone, but flickering.",
+      "next": "scene3_screen29",
+      "progress": 91
+    },
+    {
+      "id": "scene3_screen29",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "And before thought can intervene, before fear can name it, she leans in.",
+      "next": "scene3_screen30",
+      "progress": 92
+    },
+    {
+      "id": "scene3_screen30",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "Their lips meet — soft, uncertain, but real. The kind of kiss born not from planning, but from pressure, emotion, and the flame that’s been building quietly between them.",
+      "next": "scene3_screen31",
+      "progress": 93
+    },
+    {
+      "id": "scene3_screen31",
+      "type": "cutscene",
+      "image": "cutscene_2.webp",
+      "next": "scene3_screen32",
+      "progress": 94
+    },
+    {
+      "id": "scene3_screen32",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "When they part, just barely, her forehead rests against his. Her voice is low. Measured.",
+      "next": "scene3_screen33",
+      "progress": 95
+    },
+    {
+      "id": "scene3_screen33",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "Everything in my life feels like it’s moving too fast. I think… I need to slow down. Sleep, maybe.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene3_screen34",
+      "progress": 96
+    },
+    {
+      "id": "scene3_screen34",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "Rael nods, though his voice is caught somewhere in his chest. He lets her pull back — not with regret, but with understanding.",
+      "next": "scene3_screen35",
+      "progress": 97
+    },
+    {
+      "id": "scene3_screen35",
+      "type": "dialog",
+      "image": "scene_03_c.webp",
+      "content": "(softly)\nRight. Of course.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene3_screen36",
+      "progress": 98
+    },
+    {
+      "id": "scene3_screen36",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "She offers a faint smile — one that says more than words — and disappears into the dark between tents.",
+      "next": "scene3_screen37",
+      "progress": 99
+    },
+    {
+      "id": "scene3_screen37",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "Rael stays behind. The fire crackles on. His fingers touch his lips — absently. Like they still remember.",
+      "next": "scene3_screen38",
+      "progress": 100
+    },
+    {
+      "id": "scene3_screen38",
+      "type": "narrative",
+      "image": "scene_03_c.webp",
+      "content": "He doesn’t move for a long time. Just sits in the warmth she left behind.",
+      "next": "scene4",
+      "progress": 101
+    },
+    {
+      "id": "scene4",
+      "type": "scene",
+      "image": "scene_04_a.webp",
+      "title": "Scene 4",
+      "content": "The Fire Remembers",
+      "next": "scene4_screen1",
+      "progress": 102
+    },
+    {
+      "id": "scene4_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "They descend into the heart of the mountain, to the rebels’ sanctum, just before dawn. The warmth is ancient, not hostile — like a memory that never left.",
+      "next": "scene4_screen2",
+      "progress": 103
+    },
+    {
+      "id": "scene4_screen2",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Kaela walks in silence, flanked by Rael and Tavian, her boots echoing softly against obsidian stone.",
+      "next": "scene4_screen3",
+      "progress": 104
+    },
+    {
+      "id": "scene4_screen3",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(thinking) \nI’ve felt fire all my life. But never like this. Never from inside me.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen4",
+      "progress": 105
+    },
+    {
+      "id": "scene4_screen4",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "At the center of the chamber stands a stone basin, glowing faintly with runes. Behind it, the mural — a woman with burning eyes and hair like flame, arms outstretched as if summoning the dawn.",
+      "next": "scene4_screen5",
+      "progress": 106
+    },
+    {
+      "id": "scene4_screen5",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(whispering) \nWho is she?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen6",
+      "progress": 107
+    },
+    {
+      "id": "scene4_screen6",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "The First Flame. Serina of the Emberblood. Your ancestor. The last queen before the Kingdom outlawed magic.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene4_screen7",
+      "progress": 108
+    },
+    {
+      "id": "scene4_screen7",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "She stood for a world where power was shared — not hoarded. They feared her. Feared that if the people remembered what lived in their blood, they’d never bow again.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_screen8",
+      "progress": 109
+    },
+    {
+      "id": "scene4_screen8",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "They tried to erase her. But some embers never die.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene4_screen9",
+      "progress": 110
+    },
+    {
+      "id": "scene4_screen9",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "He gestures to the basin. Inside it: a single ember, nestled in blackened ash.",
+      "next": "scene4_screen10",
+      "progress": 111
+    },
+    {
+      "id": "scene4_screen10",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "This ember has never gone out. Only a true Flameborn can awaken it. Touch it. Let it know you are here.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene4_screen11",
+      "progress": 112
+    },
+    {
+      "id": "scene4_screen11",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Kaela hesitates. The cavern is quiet. Even the fire seems to hold its breath. Then, slowly, she places her palm above the ember. A beat. Then a glow. Then —",
+      "next": "scene4_screen12",
+      "progress": 113
+    },
+    {
+      "id": "scene4_screen12",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "A flash. A pulse of heat surges through the chamber. The ember bursts into golden flame, licking the edges of the basin, flaring high — not wild, but joyous. And the mural behind it ignites, each carved flame glowing softly. The entire sanctum responds.",
+      "next": "scene4_screen13",
+      "progress": 114
+    },
+    {
+      "id": "scene4_screen13",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(staggering back) \nI didn’t know… I didn’t ask for this.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen14",
+      "progress": 115
+    },
+    {
+      "id": "scene4_screen14",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(softly) \nAnd yet it asked for you.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_screen15",
+      "progress": 116
+    },
+    {
+      "id": "scene4_screen15",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She stares at her hand. And in her mind — visions:\n",
+      "next": "scene4_screen16",
+      "progress": 117
+    },
+    {
+      "id": "scene4_screen16",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "A line of women and men aflame, walking through ash. A city split by rebellion, fire on one side, silence on the other. A sword plunged into molten ground. ",
+      "next": "scene4_screen17",
+      "progress": 118
+    },
+    {
+      "id": "scene4_screen17",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "A crumbling area. And Kaela alone in its place.",
+      "next": "scene4_screen18",
+      "progress": 119
+    },
+    {
+      "id": "scene4_screen18",
+      "type": "dialog",
+      "image": "scene_04_b.webp",
+      "content": "(thinking) \nThey’ve been waiting for this. For me. But I’m not a queen. I’m a girl with a gift she never wanted.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen19",
+      "progress": 120
+    },
+    {
+      "id": "scene4_screen19",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "A young rebel steps forward — a girl, maybe twelve. Thin, soot-smudged, wide-eyed.",
+      "next": "scene4_screen20",
+      "progress": 121
+    },
+    {
+      "id": "scene4_screen20",
+      "type": "dialog",
+      "image": "scene_04_b.webp",
+      "content": "They say when the Fireborn returns, the tyrant’s fall begins. Is that… really you?",
+      "actor": {
+        "playerId": "npc_fem_rebel_girl"
+      },
+      "next": "scene4_screen21",
+      "progress": 122
+    },
+    {
+      "id": "scene4_screen21",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "Kaela kneels. She takes the girl’s hand, still warm from the cavern air.",
+      "next": "scene4_screen22",
+      "progress": 123
+    },
+    {
+      "id": "scene4_screen22",
+      "type": "dialog",
+      "image": "scene_04_b.webp",
+      "content": "I’m no savior. But if your people burn in silence, I’ll burn louder. If they chain your magic — I’ll break it.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen23",
+      "progress": 124
+    },
+    {
+      "id": "scene4_screen23",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "The girl nods once — not with awe, but with understanding. Kaela straightens. Her decision has already lit itself.",
+      "next": "scene4_screen24",
+      "progress": 125
+    },
+    {
+      "id": "scene4_screen24",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "Kaela stands with Rael, the noise of the camp distant, the glow of rebellion below.",
+      "next": "scene4_screen25",
+      "progress": 126
+    },
+    {
+      "id": "scene4_screen25",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "Tell me the truth. Have you been watching me? Did you know about my hidden power?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen26",
+      "progress": 127
+    },
+    {
+      "id": "scene4_screen26",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(exhaling) \nI read about people like you and made an assumption. I was preparing myself for the fact that I would need to pass on knowledge about fire, but it was theoretical. Now I feel your warmth, and I do not doubt your destiny.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_screen27",
+      "progress": 128
+    },
+    {
+      "id": "scene4_screen27",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "A pause. The stars burn quietly.",
+      "next": "scene4_screen28",
+      "progress": 129
+    },
+    {
+      "id": "scene4_screen28",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(looking out) \nWhen I was a boy, I saw my brother taken. He had magic. Wind-born. They caught him before he ever used it. Said they were “protecting order.” They burned him. And made my parents watch.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_screen29",
+      "progress": 130
+    },
+    {
+      "id": "scene4_screen29",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(quietly) \nGods...",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen30",
+      "progress": 131
+    },
+    {
+      "id": "scene4_screen30",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "Since then, I swore: no more silence. No more hiding. That’s why I joined Tavian. Why I fought.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_screen31",
+      "progress": 132
+    },
+    {
+      "id": "scene4_screen31",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "He turns to her — not with a plea, but with belief.",
+      "next": "scene4_screen32",
+      "progress": 133
+    },
+    {
+      "id": "scene4_screen32",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "But now you are the reason we might win. You’re not just magic, Kaela. You’re memory. The proof that we were never broken — only buried.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_choice1",
+      "progress": 134
+    },
+    {
+      "id": "scene4_choice1",
+      "type": "block",
+      "image": "scene_04_c.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_kaela",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "progress": 135
+    },
+    {
+      "id": "scene4_choice1",
+      "type": "choice",
+      "image": "scene_04_c.webp",
+      "content": "What do you believe about Kaela now?",
+      "availableFor": "player_fem_rael",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "options": [
+        {
+          "id": "scene4_choice1_option1_screen1",
+          "text": "She is the leader they need"
+        },
+        {
+          "id": "scene4_choice1_option2_screen1",
+          "text": "She deserves to choose for herself"
+        },
+        {
+          "id": "scene4_choice1_option3_screen1",
+          "text": "Fear what her power could do"
+        }
+      ],
+      "progress": 135
+    },
+    {
+      "id": "scene4_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "You think you’re not ready. But the fire chose you because you already are. And if you walk into battle — I’ll follow. Anywhere.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_choice1_option1_screen2",
+      "progress": 136
+    },
+    {
+      "id": "scene4_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "Even into the flames?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_choice1_option1_screen3",
+      "progress": 137
+    },
+    {
+      "id": "scene4_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(smiling) \nEspecially there.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_choice1_option1_screen4",
+      "progress": 138
+    },
+    {
+      "id": "scene4_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "Kaela felt his faith in herself, it gave her inner strength and confidence that they were doing everything right.",
+      "next": "scene4_screen33",
+      "progress": 139
+    },
+    {
+      "id": "scene4_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "Whatever happens tomorrow… You owe no one a crown. Not me. Not Tavian. Not even the rebels. Only yourself. ",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_choice1_option2_screen2",
+      "progress": 136
+    },
+    {
+      "id": "scene4_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "But if you do choose this — I’ll stand beside you. Not because you lead… But because I believe you.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_choice1_option2_screen3",
+      "progress": 137
+    },
+    {
+      "id": "scene4_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "That’s more than most ever gave me.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_choice1_option2_screen4",
+      "progress": 138
+    },
+    {
+      "id": "scene4_choice1_option2_screen4",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "Kaela was left with doubts because what happens next will be the result of her own choice.",
+      "next": "scene4_screen33",
+      "progress": 139
+    },
+    {
+      "id": "scene4_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(lower) \nI want to believe in you. I do. But I’ve seen power twist even the kindest hands. If you burn too bright — I just hope I can bring you back.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_choice1_option3_screen2",
+      "progress": 136
+    },
+    {
+      "id": "scene4_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(after a beat) \nThen I guess you'd better keep your hands close.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_choice1_option3_screen3",
+      "progress": 137
+    },
+    {
+      "id": "scene4_choice1_option3_screen3",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "Kaela felt fear for the world around her. This conversation did not give her peace and only increased her doubts about tomorrow.",
+      "next": "scene4_screen33",
+      "progress": 138
+    },
+    {
+      "id": "scene4_screen33",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "They stand in silence. But something has shifted. Not just trust — not just mission. Connection.",
+      "next": "scene4_screen34",
+      "progress": 139
+    },
+    {
+      "id": "scene4_screen34",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "The wind picks up. Kaela lifts her hand — and a gentle flame curls in her palm. Rael steps closer. Their hands touch in the heat that doesn’t burn.",
+      "next": "scene4_screen35",
+      "progress": 140
+    },
+    {
+      "id": "scene4_screen35",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(whispering)\nTomorrow I am called to revolt to defend the people and my existence. But tonight — I just needed to know… someone sees me.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene4_screen36",
+      "progress": 141
+    },
+    {
+      "id": "scene4_screen36",
+      "type": "dialog",
+      "image": "scene_04_c.webp",
+      "content": "(quietly) \nI always did.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene4_screen37",
+      "progress": 142
+    },
+    {
+      "id": "scene4_screen37",
+      "type": "narrative",
+      "image": "scene_04_c.webp",
+      "content": "The way their foreheads touch — the way his hand stays over hers — says enough. The fire between them is still growing. But for now, it’s warm. Safe. Home.",
+      "next": "scene5",
+      "progress": 143
+    },
+    {
+      "id": "scene5",
+      "type": "scene",
+      "image": "scene_05_a.webp",
+      "title": "Scene 5",
+      "content": "The Flame Awakens",
+      "next": "scene5_screen1",
+      "progress": 144
+    },
+    {
+      "id": "scene5_screen1",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Morning breaks like a breath held too long. No more hiding. No more questions. Today, Kaela steps into the truth of her bloodline — or turns from it forever.",
+      "next": "scene5_screen2",
+      "progress": 145
+    },
+    {
+      "id": "scene5_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "She stands barefoot in the old circle, the wind curling around her ankles like a whispered challenge. Her palms are open. Her shoulders squared. Rael watches from the edge, silent. Respectful.",
+      "next": "scene5_screen3",
+      "progress": 146
+    },
+    {
+      "id": "scene5_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(thinking) \nThey say this is where the first Fireborn unlocked their true gift. Not with rage. Not with fear. But with purpose.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_screen4",
+      "progress": 147
+    },
+    {
+      "id": "scene5_screen4",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "She closes her eyes. And listens. At first — nothing. Then, the flicker. A warmth behind her ribcage. Not a flame, but a memory of one.",
+      "next": "scene5_screen5",
+      "progress": 148
+    },
+    {
+      "id": "scene5_screen5",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Then — ignition. Fire coils from the earth. From the stones. From her skin. Not burning — blooming. Ribbons of light, ancient and golden, swirl around her like dancers.",
+      "next": "scene5_screen6",
+      "progress": 149
+    },
+    {
+      "id": "scene5_screen6",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Kaela stumbles — then steadies. The flame doesn’t hurt. It welcomes. And in it, she sees: A woman facing a throne with chains at her feet. A child screaming as fire is silenced by soldiers.",
+      "next": "scene5_screen7",
+      "progress": 150
+    },
+    {
+      "id": "scene5_screen7",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "A circle of rebels in prayer. A battlefield. A city. A funeral. And finally — herself, stepping through palace gates, alone. Her hands were glowing. Her people were watching.",
+      "next": "scene5_screen8",
+      "progress": 151
+    },
+    {
+      "id": "scene5_screen8",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(calling) \nKaela. Can you hear it?",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene5_screen9",
+      "progress": 152
+    },
+    {
+      "id": "scene5_screen9",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(opening her eyes) \nYes. And it’s louder than anything I’ve ever known.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_screen10",
+      "progress": 153
+    },
+    {
+      "id": "scene5_screen10",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The fire recedes, but doesn’t vanish. It hums now — within her. She looks down. Symbols have formed across her forearms — sigils of the Flame Line, glowing and alive.",
+      "next": "scene5_screen11",
+      "progress": 154
+    },
+    {
+      "id": "scene5_screen11",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(reverently) \nIt’s real. You’re not just descended from Fireborn. You are the Fireborn.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene5_screen12",
+      "progress": 155
+    },
+    {
+      "id": "scene5_screen12",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Then it's time to choose what that means.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_choice1",
+      "progress": 156
+    },
+    {
+      "id": "scene5_choice1",
+      "type": "block",
+      "image": "scene_05_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_rael",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "progress": 157
+    },
+    {
+      "id": "scene5_choice1",
+      "type": "choice",
+      "image": "scene_05_a.webp",
+      "content": "What kind of Fireborn will you become?",
+      "availableFor": "player_fem_kaela",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "options": [
+        {
+          "id": "scene5_choice1_option1_screen1",
+          "text": "Lead the rebellion openly. Claim the Fireborn title!",
+          "price": {
+            "type": "credits",
+            "value": 10
+          }
+        },
+        {
+          "id": "scene6_choice0_option2_screen1",
+          "text": "Stay hidden and strike strategically"
+        },
+        {
+          "id": "scene7_choice0_option3_screen1",
+          "text": "Choose to build, not to overthrow"
+        }
+      ],
+      "progress": 157
+    },
+    {
+      "id": "scene5_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Let the whole realm see. I won’t fight from the shadows. I’ll rise through the front gates — fire in hand — and burn down the lie they built.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_choice1_option1_screen2",
+      "progress": 158
+    },
+    {
+      "id": "scene5_choice1_option1_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Rael steps closer. Not to stop her — but to stand beside her.",
+      "next": "scene5_choice1_option1_screen3",
+      "progress": 159
+    },
+    {
+      "id": "scene5_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "They’ll call you dangerous. Unstable. Too powerful.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene5_choice1_option1_screen4",
+      "progress": 160
+    },
+    {
+      "id": "scene5_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(fierce) \nGood. Let them learn the difference between fear and justice.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_choice1_option1_screen5",
+      "progress": 161
+    },
+    {
+      "id": "scene5_choice1_option1_screen5",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "As Kaela’s voice fades, the fire along her arms pulses brighter, casting gold against the stone. Around her, silence stretches — reverent, heavy. ",
+      "next": "scene5_choice1_option1_screen6",
+      "progress": 162
+    },
+    {
+      "id": "scene5_choice1_option1_screen6",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Then Tavian steps forward from the shadows, his expression unreadable.",
+      "next": "scene5_choice1_option1_screen7",
+      "progress": 163
+    },
+    {
+      "id": "scene5_choice1_option1_screen7",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "So it’s true. You’ve claimed the title aloud.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene5_choice1_option1_screen8",
+      "progress": 164
+    },
+    {
+      "id": "scene5_choice1_option1_screen8",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "I didn’t claim it. I accepted it.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_choice1_option1_screen9",
+      "progress": 165
+    },
+    {
+      "id": "scene5_choice1_option1_screen9",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "He studies her — then inclines his head.",
+      "next": "scene5_choice1_option1_screen10",
+      "progress": 166
+    },
+    {
+      "id": "scene5_choice1_option1_screen10",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Then the kingdom should be warned. Fire is coming.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene5_choice1_option1_screen11",
+      "progress": 167
+    },
+    {
+      "id": "scene5_choice1_option1_screen11",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The next hours move like thunder. The plan is discussed — Kaela goes ahead and uses fire as a force. All approaches are perfected, the rebels and their Fire are ready!",
+      "next": "scene5_choice1_option1_screen12",
+      "progress": 168
+    },
+    {
+      "id": "scene5_choice1_option1_screen12",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Messengers ride. Weapons are checked. Allies gather in flickering tents. By midnight, the camp breathes like a creature about to leap.",
+      "next": "scene5_choice1_option1_screen13",
+      "progress": 169
+    },
+    {
+      "id": "scene5_choice1_option1_screen13",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Rael finds her alone beneath a tree, wrapping her hands in cloth.",
+      "next": "scene5_choice1_option1_screen14",
+      "progress": 170
+    },
+    {
+      "id": "scene5_choice1_option1_screen14",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "You sure you want to lead from the front?",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene5_choice1_option1_screen15",
+      "progress": 171
+    },
+    {
+      "id": "scene5_choice1_option1_screen15",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Would you follow me if I didn’t?",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene5_choice1_option1_screen16",
+      "progress": 172
+    },
+    {
+      "id": "scene5_choice1_option1_screen16",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(smirking) \nI’d follow you anywhere. But I like this version best.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene5_choice1_option1_screen17",
+      "progress": 173
+    },
+    {
+      "id": "scene5_choice1_option1_screen17",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Dawn breaks not in quiet — but in movement. The rebels march under a banner forged in the night: a flame within a circle. The old sigil of the Fireborn.",
+      "next": "scene5_choice1_option1_screen18",
+      "progress": 174
+    },
+    {
+      "id": "scene5_choice1_option1_screen18",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Kaela walks at the front — not as a symbol, but as a spearhead.",
+      "next": "scene6",
+      "progress": 175
+    },
+    {
+      "id": "scene6",
+      "type": "scene",
+      "image": "scene_06_a.webp",
+      "title": "Scene 6",
+      "content": "Fire Rebellion",
+      "next": "scene6_choice0_option1_screen20",
+      "progress": 176
+    },
+    {
+      "id": "scene6_choice0_option1_screen20",
+      "type": "dialog",
+      "image": "scene_06_a.webp",
+      "content": "You called us traitors. Ghosts. Myths. But we are the flames. And we remember what you buried!",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen21",
+      "progress": 177
+    },
+    {
+      "id": "scene6_choice0_option1_screen21",
+      "type": "narrative",
+      "image": "scene_06_a.webp",
+      "content": "Pointing her hands, she sets the gate on fire, which a few minutes later falls with a crash. ",
+      "next": "scene6_choice0_option1_screen22",
+      "progress": 178
+    },
+    {
+      "id": "scene6_choice0_option1_screen22",
+      "type": "narrative",
+      "image": "scene_06_a.webp",
+      "content": "The rebellion is advancing at breakneck speed. The goal is to get to the deceitful regent, who is to blame for the suffering of the people!",
+      "next": "scene6_choice0_option1_screen23",
+      "progress": 179
+    },
+    {
+      "id": "scene6_choice0_option1_screen23",
+      "type": "narrative",
+      "image": "scene_06_b.webp",
+      "content": "A clear plan for the rebellion led Kaela to the throne room while the rebels dealt with the guards. All that remained was the final battle.",
+      "next": "scene6_choice0_option1_screen24",
+      "progress": 180
+    },
+    {
+      "id": "scene6_choice0_option1_screen24",
+      "type": "dialog",
+      "image": "scene_06_b.webp",
+      "content": "You think fire makes you queen? You weren’t there when magic ruled. You don’t know what it did. Entire cities vanished in a night. Nobles turned into gods.",
+      "actor": {
+        "playerId": "npc_mal_regent"
+      },
+      "next": "scene6_choice0_option1_screen25",
+      "progress": 181
+    },
+    {
+      "id": "scene6_choice0_option1_screen25",
+      "type": "dialog",
+      "image": "scene_06_b.webp",
+      "content": "Bloodlines declared themselves divine. We brought order out of ashes — and we’ve kept it that way.",
+      "actor": {
+        "playerId": "npc_mal_regent"
+      },
+      "next": "scene6_choice0_option1_screen26",
+      "progress": 182
+    },
+    {
+      "id": "scene6_choice0_option1_screen26",
+      "type": "dialog",
+      "image": "scene_06_b.webp",
+      "content": "Fire is what you used to scare people in your conspiracy. The kingdom belonged to my family, and you took it away and killed those who were gifted with power.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen27",
+      "progress": 183
+    },
+    {
+      "id": "scene6_choice0_option1_screen27",
+      "type": "narrative",
+      "image": "scene_06_b.webp",
+      "content": "She lifts her hand. The flames dance upward — not destructive, but clear. Light, not rage. Her army pours in behind her, weapons drawn, faces lit with purpose.",
+      "next": "scene6_choice0_option1_screen28",
+      "progress": 184
+    },
+    {
+      "id": "scene6_choice0_option1_screen28",
+      "type": "dialog",
+      "image": "scene_06_b.webp",
+      "content": "If you strike me down, you become what I am.",
+      "actor": {
+        "playerId": "npc_mal_regent"
+      },
+      "next": "scene6_choice0_option1_screen29",
+      "progress": 185
+    },
+    {
+      "id": "scene6_choice0_option1_screen29",
+      "type": "dialog",
+      "image": "scene_06_b.webp",
+      "content": "I’ll strike what you sit on. You? I leave for the people.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen30",
+      "progress": 186
+    },
+    {
+      "id": "scene6_choice0_option1_screen30",
+      "type": "narrative",
+      "image": "scene_06_b.webp",
+      "content": "She turns her palm toward the throne. With a single motion, it bursts — elegant, final. The fire does not rage. It consumes. And when it fades, nothing remains but stone and ash.",
+      "next": "scene6_choice0_option1_screen31",
+      "progress": 187
+    },
+    {
+      "id": "scene6_choice0_option1_screen31",
+      "type": "narrative",
+      "image": "scene_06_b.webp",
+      "content": "The Regent, damaged by the heat from the throne, falls. His face does not show a shadow of remorse for the people he killed before.",
+      "next": "scene6_choice0_option1_screen32",
+      "progress": 188
+    },
+    {
+      "id": "scene6_choice0_option1_screen32",
+      "type": "narrative",
+      "image": "scene_06_c.webp",
+      "content": "Kaela stands before them, soot still on her cheeks. Her voice carries without force.",
+      "next": "scene6_choice0_option1_screen33",
+      "progress": 189
+    },
+    {
+      "id": "scene6_choice0_option1_screen33",
+      "type": "dialog",
+      "image": "scene_06_c.webp",
+      "content": "You don’t need a ruler of blood. You need a ruler of truth. I am Fireborn. I will not wear a crown to rule — but to rebuild.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen34",
+      "progress": 190
+    },
+    {
+      "id": "scene6_choice0_option1_screen34",
+      "type": "narrative",
+      "image": "scene_06_c.webp",
+      "content": "The crowd doesn’t cheer. They kneel. She was a legend, talked about so much, and finally came as a salvation from the shooting range.",
+      "next": "scene6_choice0_option1_screen35",
+      "progress": 191
+    },
+    {
+      "id": "scene6_choice0_option1_screen35",
+      "type": "narrative",
+      "image": "scene_06_c.webp",
+      "content": "The rebellion went well. The people were not harmed; they were waiting for this salvation.",
+      "next": "scene6_choice0_option1_screen36",
+      "progress": 192
+    },
+    {
+      "id": "scene6_choice0_option1_screen36",
+      "type": "narrative",
+      "image": "scene_06_d.webp",
+      "content": "Weeks later. Tavian unrolls maps beside her.",
+      "next": "scene6_choice0_option1_screen37",
+      "progress": 193
+    },
+    {
+      "id": "scene6_choice0_option1_screen37",
+      "type": "dialog",
+      "image": "scene_06_d.webp",
+      "content": "The west border's in flux. But they’ll fall in line soon enough.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene6_choice0_option1_screen38",
+      "progress": 194
+    },
+    {
+      "id": "scene6_choice0_option1_screen38",
+      "type": "dialog",
+      "image": "scene_06_d.webp",
+      "content": "We don’t conquer. We don’t silence. We listen. And we protect.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen39",
+      "progress": 195
+    },
+    {
+      "id": "scene6_choice0_option1_screen39",
+      "type": "narrative",
+      "image": "scene_06_d.webp",
+      "content": "Rael steps into the room, wearing new armor marked by the sigil of flame.",
+      "next": "scene6_choice0_option1_screen40",
+      "progress": 196
+    },
+    {
+      "id": "scene6_choice0_option1_screen40",
+      "type": "dialog",
+      "image": "scene_06_d.webp",
+      "content": "Your guard is ready, my queen. But they’re waiting for your orders.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene6_choice0_option1_screen41",
+      "progress": 197
+    },
+    {
+      "id": "scene6_choice0_option1_screen41",
+      "type": "dialog",
+      "image": "scene_06_d.webp",
+      "content": "(smiling) \nThen let them hear this — no more walls without windows.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen42",
+      "progress": 198
+    },
+    {
+      "id": "scene6_choice0_option1_screen42",
+      "type": "narrative",
+      "image": "scene_06_d.webp",
+      "content": "She walks through the chamber, Rael matching her step. Outside, the kingdom rises — not in fear, but in firelight.",
+      "next": "scene6_choice0_option1_screen43",
+      "progress": 199
+    },
+    {
+      "id": "scene6_choice0_option1_screen43",
+      "type": "narrative",
+      "image": "scene_06_e.webp",
+      "content": "Kaela and Rael lean on the stone ledge, the stars above sharp and close.",
+      "next": "scene6_choice0_option1_screen44",
+      "progress": 200
+    },
+    {
+      "id": "scene6_choice0_option1_screen44",
+      "type": "dialog",
+      "image": "scene_06_e.webp",
+      "content": "You ever think about who you used to be?",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene6_choice0_option1_screen45",
+      "progress": 201
+    },
+    {
+      "id": "scene6_choice0_option1_screen45",
+      "type": "dialog",
+      "image": "scene_06_e.webp",
+      "content": "Every day. And I hope she’d be proud of this version.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen46",
+      "progress": 202
+    },
+    {
+      "id": "scene6_choice0_option1_screen46",
+      "type": "dialog",
+      "image": "scene_06_e.webp",
+      "content": "(soft) \nI know I am.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene6_choice0_option1_screen47",
+      "progress": 203
+    },
+    {
+      "id": "scene6_choice0_option1_screen47",
+      "type": "narrative",
+      "image": "scene_06_e.webp",
+      "content": "Their hands touch. No spark explodes. Just warmth — steady, sure. Fire, not as a weapon, but comforting, like home.",
+      "next": "scene6_choice0_option1_screen48",
+      "progress": 204
+    },
+    {
+      "id": "scene6_choice0_option1_screen48",
+      "type": "dialog",
+      "image": "scene_06_e.webp",
+      "content": "(thinking) \nThey’ll remember my name. But I’ll remember this — the quiet after the burning. The choice to stay. The hand that never pulled away.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option1_screen49",
+      "progress": 205
+    },
+    {
+      "id": "scene6_choice0_option1_screen49",
+      "type": "narrative",
+      "image": "scene_06_e.webp",
+      "content": "And for the first time in generations, the Fireborn does not burn alone, and with faith and truth, rules the kingdom and its power, which is no longer a secret. ",
+      "next": "scene6_choice0_option1_screen50",
+      "progress": 206
+    },
+    {
+      "id": "scene6_choice0_option1_screen50",
+      "type": "narrative",
+      "image": "scene_06_e.webp",
+      "content": "Their world will face many changes, and the search for other gifted ones will begin. However, it is known that love and the fire that drives them will help. ",
+      "next": "scene6_choice0_option1_screen51",
+      "progress": 207
+    },
+    {
+      "id": "scene6_choice0_option1_screen51",
+      "type": "final",
+      "image": "scene_06_e.webp",
+      "content": "Discuss this story in the chat, and what the path of Fire was for you!",
+      "progress": 208
+    },
+    {
+      "id": "scene6_choice0_option2_screen1",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "I’ll be Fireborn in truth — but they don’t need to know. Not yet. Let them whisper and wonder. I’ll be the storm they never saw coming.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option2_screen2",
+      "progress": 158
+    },
+    {
+      "id": "scene6_choice0_option2_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Rael watches her closely. Then nods.",
+      "next": "scene6_choice0_option2_screen3",
+      "progress": 159
+    },
+    {
+      "id": "scene6_choice0_option2_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "The silent fire burns longest.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene6_choice0_option2_screen4",
+      "progress": 160
+    },
+    {
+      "id": "scene6_choice0_option2_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(grim smile) \nAnd hottest, when it finally breathes.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option2_screen5",
+      "progress": 161
+    },
+    {
+      "id": "scene6_choice0_option2_screen5",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The flames at Kaela’s arms dim to a steady glow, then recede, leaving only faint sigils — like scars that choose when to shine. Around her, the wind quiets. Rael doesn’t speak. He only watches her with a kind of reverence — or maybe concern.",
+      "next": "scene6_choice0_option2_screen6",
+      "progress": 162
+    },
+    {
+      "id": "scene6_choice0_option2_screen6",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Then we move into the shadows. But not in fear.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene6_choice0_option2_screen7",
+      "progress": 163
+    },
+    {
+      "id": "scene6_choice0_option2_screen7",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "No fear. Just fire with patience.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option2_screen8",
+      "progress": 164
+    },
+    {
+      "id": "scene6_choice0_option2_screen8",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "That night, they do not rally troops or raise banners. Instead, maps are marked in secret. Names whispered. Messengers dispatched in the dark. Tavian appears at the edge of the fire, a scroll in hand.",
+      "next": "scene6_choice0_option2_screen9",
+      "progress": 165
+    },
+    {
+      "id": "scene6_choice0_option2_screen9",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "There’s a gap in the palace’s records. A trail of servants and lesser courtiers who’ve vanished over the years. I think they’re alive. Hiding. Waiting.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene6_choice0_option2_screen10",
+      "progress": 166
+    },
+    {
+      "id": "scene6_choice0_option2_screen10",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Then it’s time we give them something worth waiting for.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene6_choice0_option2_screen11",
+      "progress": 167
+    },
+    {
+      "id": "scene6_choice0_option2_screen11",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "For weeks, they searched for the people who had fled from the palace, learning more and more information about the Regent's movements. The plan was simple - an attack during one of his quests.",
+      "next": "scene7",
+      "progress": 168
+    },
+    {
+      "id": "scene7",
+      "type": "scene",
+      "image": "scene_07_a.webp",
+      "title": "Scene 6",
+      "content": "Attack on the Regent",
+      "next": "scene7_choice0_option2_screen13",
+      "progress": 169
+    },
+    {
+      "id": "scene7_choice0_option2_screen13",
+      "type": "narrative",
+      "image": "scene_07_a.webp",
+      "content": "The rebels were waiting for the royal carriage to appear, and now it finally did. With the rebels' support, Kaela stood right in front of it.",
+      "next": "scene7_choice0_option2_screen14",
+      "progress": 170
+    },
+    {
+      "id": "scene7_choice0_option2_screen14",
+      "type": "narrative",
+      "image": "scene_07_a.webp",
+      "content": "The door swung open, but afraid to see the tyrant's face, Kaela directed her power at the carriage, which burned down in a matter of seconds along with the regent.",
+      "next": "scene7_choice0_option2_screen15",
+      "progress": 171
+    },
+    {
+      "id": "scene7_choice0_option2_screen15",
+      "type": "narrative",
+      "image": "scene_07_a.webp",
+      "content": "Evil was defeated, although no one saw its face.",
+      "next": "scene7_choice0_option2_screen16",
+      "progress": 172
+    },
+    {
+      "id": "scene7_choice0_option2_screen16",
+      "type": "narrative",
+      "image": "scene_07_b.webp",
+      "content": "The rebels seized power, but handed it over to the Senoad. Kaela went off to forge her path, choosing to remain a nameless Fireborn.",
+      "next": "scene7_choice0_option2_screen17",
+      "progress": 173
+    },
+    {
+      "id": "scene7_choice0_option2_screen17",
+      "type": "narrative",
+      "image": "scene_07_b.webp",
+      "content": "Rael and Tavian led the council. The kingdom has a new life, but no one knows what the future will be for the gifted.",
+      "next": "scene7_choice0_option2_screen18",
+      "progress": 174
+    },
+    {
+      "id": "scene7_choice0_option2_screen18",
+      "type": "final",
+      "image": "scene_07_b.webp",
+      "content": "Discuss this story of rebellion and the future of the kingdom in the chat!",
+      "progress": 175
+    },
+    {
+      "id": "scene7_choice0_option3_screen1",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "This flame — it’s not for crowns. It is not to take over the kingdom, but to support a new beginning.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene7_choice0_option3_screen2",
+      "progress": 158
+    },
+    {
+      "id": "scene7_choice0_option3_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Rael blinks — surprised. Then a slow, genuine smile spreads.",
+      "next": "scene7_choice0_option3_screen3",
+      "progress": 159
+    },
+    {
+      "id": "scene7_choice0_option3_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "That’s what they never understood. True fire spreads.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene7_choice0_option3_screen4",
+      "progress": 160
+    },
+    {
+      "id": "scene7_choice0_option3_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(softly) \nAnd it never bows.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene7_choice0_option3_screen5",
+      "progress": 161
+    },
+    {
+      "id": "scene7_choice0_option3_screen5",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The wind picks up across the plateau, scattering ash like petals. Kaela lowers her hand, the fire around her dimming but not dying — as if it, too, heard her vow and approved in silence.",
+      "next": "scene7_choice0_option3_screen6",
+      "progress": 162
+    },
+    {
+      "id": "scene7_choice0_option3_screen6",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "You’ll scare them more with that truth than any throne ever could.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene7_choice0_option3_screen7",
+      "progress": 163
+    },
+    {
+      "id": "scene7_choice0_option3_screen7",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Good. Let them be scared. I decided that only by showing my magic could I build a new society.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene7_choice0_option3_screen8",
+      "progress": 164
+    },
+    {
+      "id": "scene7_choice0_option3_screen8",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "That night, the camp shifts. Tavian argues — not out of ego, but fear. Fear of chaos without a leader, fear of what happens when the old power is torn down without a clear successor.",
+      "next": "scene7_choice0_option3_screen9",
+      "progress": 165
+    },
+    {
+      "id": "scene7_choice0_option3_screen9",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Without a queen, we risk collapse. The fire that appeared could support us, but since this is the case, we will have to cope on our own.",
+      "actor": {
+        "playerId": "npc_mal_tavian"
+      },
+      "next": "scene7_choice0_option3_screen10",
+      "progress": 166
+    },
+    {
+      "id": "scene7_choice0_option3_screen10",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(firm)\nThen we build something new. Not around the crown. But form a council. A voice for every hand that bled for this.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene7_choice0_option3_screen11",
+      "progress": 167
+    },
+    {
+      "id": "scene7_choice0_option3_screen11",
+      "type": "narrative",
+      "image": "scene_08_a.webp",
+      "content": "The new system forms slowly. Too slow for some. But it breathes. Grows. Learns. The council rotates. No name holds more weight than the next.",
+      "next": "scene7_choice0_option3_screen12",
+      "progress": 168
+    },
+    {
+      "id": "scene7_choice0_option3_screen12",
+      "type": "narrative",
+      "image": "scene_08_a.webp",
+      "content": "Kaela becomes a traveler. An emissary. A symbol. She walks the roads. Speaks to the people. Helps them build — not follow.",
+      "next": "scene7_choice0_option3_screen13",
+      "progress": 169
+    },
+    {
+      "id": "scene7_choice0_option3_screen13",
+      "type": "dialog",
+      "image": "scene_08_a.webp",
+      "content": "(meeting her outside a gathering)\nYou could’ve had a crown.",
+      "actor": {
+        "playerId": "player_fem_rael"
+      },
+      "next": "scene7_choice0_option3_screen14",
+      "progress": 170
+    },
+    {
+      "id": "scene7_choice0_option3_screen14",
+      "type": "dialog",
+      "image": "scene_08_a.webp",
+      "content": "(smiling)\nI’ve got better shoes now. That’s enough.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene7_choice0_option3_screen15",
+      "progress": 171
+    },
+    {
+      "id": "scene7_choice0_option3_screen15",
+      "type": "narrative",
+      "image": "scene_08_b.webp",
+      "content": "They walk together through the square, no guards, no fanfare. Just flame-lit lanterns and laughter from the people.",
+      "next": "scene7_choice0_option3_screen16",
+      "progress": 172
+    },
+    {
+      "id": "scene7_choice0_option3_screen16",
+      "type": "dialog",
+      "image": "scene_08_b.webp",
+      "content": "(thinking)\nThe fire was never meant to rule. It was meant to remind. Of heat. Of truth. Of change.",
+      "actor": {
+        "playerId": "player_fem_kaela"
+      },
+      "next": "scene7_choice0_option3_screen17",
+      "progress": 173
+    },
+    {
+      "id": "scene7_choice0_option3_screen17",
+      "type": "narrative",
+      "image": "scene_08_b.webp",
+      "content": "And wherever she walks, sparks follow. Not to burn down what is, but to light the way for what might be.",
+      "next": "scene7_choice0_option3_screen18",
+      "progress": 174
+    },
+    {
+      "id": "scene7_choice0_option3_screen18",
+      "type": "final",
+      "image": "scene_08_b.webp",
+      "content": "Who knows, maybe the flame of hope will one day overthrow the dictator. Discuss this story with your partner in the chat! ",
+      "progress": 175
+    }
+  ]
+}

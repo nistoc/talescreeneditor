@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Box, TextField, Typography, Select, MenuItem, FormControl, InputLabel, Button, IconButton, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import { Add as AddIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { Screen, Character, ChoiceOption } from '../../types/api.scenarios';
+import { getScenarioImageUrl } from '../../services/imageUtils';
 
 interface ScreenPopulatorProps {
     screens: Screen[];
     screen: Screen;
     parentScreen?: Screen;
     characters: Character[];
+    scenarioId: string;
 }
 
 const allScreenTypeFieldsSets: Record<string, Set<string>> = {
@@ -34,11 +36,27 @@ export const ScreenPopulator: React.FC<ScreenPopulatorProps> = ({
     screen,
     parentScreen,
     characters,
+    scenarioId,
 }) => {
     const [formData, setFormData] = useState<Partial<Screen>>(screen);
     const [possibleScreenTypes, setPossibleScreenTypes] = useState<string[]>([]);
     const [showIsFinalToggle, setShowIsFinalToggle] = useState(false);
     const [isFinal, setIsFinal] = useState(false);
+    const [bgImageUrl, setBgImageUrl] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            let url: string | null = null;
+            if (screen.image) {
+                url = await getScenarioImageUrl(scenarioId, screen.image);
+            } else if (parentScreen?.image) {
+                url = await getScenarioImageUrl(scenarioId, parentScreen.image);
+            }
+            setBgImageUrl(url);
+        };
+
+        fetchImage();
+    }, [screen, parentScreen, scenarioId]);
 
     useEffect(() => {
         const filledKeys = new Set(
@@ -137,106 +155,145 @@ export const ScreenPopulator: React.FC<ScreenPopulatorProps> = ({
     const currentType = possibleScreenTypes.length === 1 ? possibleScreenTypes[0] : 'Ambiguous';
 
     return (
-        <Box component="form" noValidate autoComplete="off" sx={{ m: 1, p: 2, border: '1px dashed grey' }}>
-            <Typography variant="h5" gutterBottom>
-                Editing Screen: {screen.id}
-            </Typography>
-            <Box sx={{ p: 2, mb: 2, border: '1px solid #eee', background: '#f9f9f9' }}>
-                <Typography variant="h6">Possible Screen Types</Typography>
-                <Typography variant="body1">
-                    {possibleScreenTypes.length > 0 ? possibleScreenTypes.join(', ') : 'No matching types found for the filled fields.'}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    (Save is enabled when only one type is possible)
-                </Typography>
+        <Box sx={{ m: 1 }}>
+            <Box sx={{ display: 'flex', gap: 2, mb: 2, width: 600 }}>
+                <TextField name="id" label="ID" value={formData.id || ''} fullWidth disabled />
+                <TextField name="parentId" label="Parent ID" value={formData.parentId || ''} fullWidth disabled />
+                <TextField name="progress" label="Progress" type="number" value={formData.progress || 0} fullWidth disabled />
             </Box>
-
-            <Typography variant="h6">Base Fields</Typography>
-            <TextField name="id" label="ID" value={formData.id || ''} onChange={handleInputChange} fullWidth margin="normal" />
-            <TextField name="parentId" label="Parent ID" value={formData.parentId || ''} fullWidth margin="normal" disabled />
-            <TextField name="progress" label="Progress" type="number" value={formData.progress || 0} onChange={handleInputChange} fullWidth margin="normal" />
-            <TextField name="image" label="Image URL" value={formData.image || ''} onChange={handleInputChange} fullWidth margin="normal" />
-            <FormControl fullWidth margin="normal">
-                <InputLabel>Next Screen</InputLabel>
-                <Select name="next" value={formData.next || ''} label="Next Screen" onChange={handleSelectChange}>
-                    <MenuItem value=""><em>None</em></MenuItem>
-                    {screens.filter(s => s.id !== screen.id).map(s => <MenuItem key={s.id} value={s.id}>{s.id}</MenuItem>)}
-                </Select>
-            </FormControl>
-            <TextField name="notes" label="Notes" value={formData.notes || ''} onChange={handleInputChange} fullWidth margin="normal" multiline />
-            
-            <hr style={{ margin: '20px 0' }}/>
-            <Typography variant="h6">Type-Specific Fields</Typography>
-
-            <TextField name="title" label="Title (for Scene)" value={(formData as any).title || ''} onChange={handleInputChange} fullWidth margin="normal" />
-            <TextField name="content" label="Content (for Narrative, Dialog, etc.)" value={(formData as any).content || ''} onChange={handleInputChange} fullWidth margin="normal" multiline />
-            {showIsFinalToggle && (
-                <FormGroup>
-                    <FormControlLabel 
-                        control={<Checkbox checked={isFinal} onChange={(e) => setIsFinal(e.target.checked)} />} 
-                        label="Is Final" 
-                    />
-                </FormGroup>
-            )}
-            
-            <FormControl fullWidth margin="normal">
-                <InputLabel>Actor (for Dialog, Choice)</InputLabel>
-                <Select value={(formData as any).actor?.playerId || ''} label="Actor (for Dialog, Choice, Block)" onChange={handleActorChange}>
-                    <MenuItem value=""><em>None</em></MenuItem>
-                    {characters.map(char => <MenuItem key={char.id} value={char.id}>{char.name}</MenuItem>)}
-                </Select>
-            </FormControl>
-            
-            <TextField name="availableFor" label="Available For (for Choice)" value={(formData as any).availableFor || ''} onChange={handleInputChange} fullWidth margin="normal" />
-            
-            <Box sx={{ mt: 2, p: 2, border: '1px solid #eee' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                    <Typography variant="h6" sx={{ flexGrow: 1 }}>Options (for Choice)</Typography>
-                    {(formData as any).options === undefined && (
-                        <IconButton onClick={handleAddOptionsContainer} color="primary" title="Add options section">
-                            <AddIcon />
-                        </IconButton>
-                    )}
-                </Box>
-
-                {(formData as any).options?.map((option: ChoiceOption, index: number) => (
-                    <Box key={index} sx={{ display: 'flex', alignItems: 'center', border: '1px dashed grey', p: 1, mb: 1 }}>
-                        <Box sx={{ flexGrow: 1, mr: 1 }}>
-                            <TextField 
-                                label={`Option ${index + 1} Text`}
-                                value={option.text} 
-                                onChange={(e) => handleOptionChange(index, 'text', e.target.value)}
-                                fullWidth 
-                                margin="dense" />
-                            <TextField 
-                                label={`Option ${index + 1} Next Screen ID`}
-                                value={option.id}
-                                onChange={(e) => handleOptionChange(index, 'id', e.target.value)}
-                                fullWidth 
-                                margin="dense" />
-                        </Box>
-                        <IconButton onClick={() => handleRemoveOption(index)} color="warning" title="Remove option">
-                            <DeleteIcon />
-                        </IconButton>
+            <Box component="form" noValidate autoComplete="off" sx={{
+                p: 2, border: '1px dashed grey', width: 600, height: 900, position: 'relative',
+                backgroundImage: bgImageUrl ? `url(${bgImageUrl})` : 'none',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    zIndex: 0,
+                }
+            }}>
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
+                    <Box sx={{ position: 'absolute', top: 20, left: 20, width: 270 }}>
+                        <TextField name="image" label="Image URL" value={formData.image || ''} onChange={handleInputChange} fullWidth />
                     </Box>
-                ))}
-                
-                {(formData as any).options !== undefined && (
-                    <Button onClick={handleAddNewOption} startIcon={<AddIcon />} sx={{ mt: 1 }}>
-                        Add New Option
-                    </Button>
-                )}
+
+                    <Box sx={{ position: 'absolute', top: 20, left: 310, width: 270 }}>
+                        <FormControl fullWidth>
+                            <InputLabel>Next Screen</InputLabel>
+                            <Select name="next" value={formData.next || ''} label="Next Screen" onChange={handleSelectChange}>
+                                <MenuItem value=""><em>None</em></MenuItem>
+                                {screens.filter(s => s.id !== screen.id).map(s => <MenuItem key={s.id} value={s.id}>{s.id}</MenuItem>)}
+                            </Select>
+                        </FormControl>
+                    </Box>
+                    
+                    <Box sx={{ position: 'absolute', top: 90, left: 20, width: 560 }}>
+                        <TextField name="notes" label="Notes" value={formData.notes || ''} onChange={handleInputChange} fullWidth multiline rows={2} />
+                    </Box>
+
+                    <Box sx={{ position: 'absolute', top: 180, left: 20, width: 560 }}>
+                        <Typography variant="h6">Type-Specific Fields</Typography>
+                    </Box>
+
+                    <Box sx={{ position: 'absolute', top: 220, left: 20, width: 270 }}>
+                        <TextField name="title" label="Title (for Scene)" value={(formData as any).title || ''} onChange={handleInputChange} fullWidth />
+                    </Box>
+                    
+                    <Box sx={{ position: 'absolute', top: 290, left: 20, width: 560 }}>
+                        <TextField name="content" label="Content (for Narrative, Dialog, etc.)" value={(formData as any).content || ''} onChange={handleInputChange} fullWidth multiline rows={3} />
+                    </Box>
+
+                    {showIsFinalToggle && (
+                        <Box sx={{ position: 'absolute', top: 220, left: 310, width: 270 }}>
+                            <FormGroup>
+                                <FormControlLabel 
+                                    control={<Checkbox checked={isFinal} onChange={(e) => setIsFinal(e.target.checked)} />} 
+                                    label="Is Final" 
+                                />
+                            </FormGroup>
+                        </Box>
+                    )}
+                    
+                    <Box sx={{ position: 'absolute', top: 400, left: 20, width: 270 }}>
+                        <FormControl fullWidth>
+                            <InputLabel>Actor (for Dialog, Choice)</InputLabel>
+                            <Select value={(formData as any).actor?.playerId || ''} label="Actor (for Dialog, Choice, Block)" onChange={handleActorChange}>
+                                <MenuItem value=""><em>None</em></MenuItem>
+                                {characters.map(char => <MenuItem key={char.id} value={char.id}>{char.name}</MenuItem>)}
+                            </Select>
+                        </FormControl>
+                    </Box>
+                    
+                    <Box sx={{ position: 'absolute', top: 400, left: 310, width: 270 }}>
+                        <TextField name="availableFor" label="Available For (for Choice)" value={(formData as any).availableFor || ''} onChange={handleInputChange} fullWidth />
+                    </Box>
+                    
+                    <Box sx={{ position: 'absolute', top: 470, left: 20, width: 560, p: 2, border: '1px solid #eee' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                            <Typography variant="h6" sx={{ flexGrow: 1 }}>Options (for Choice)</Typography>
+                            {(formData as any).options === undefined && (
+                                <IconButton onClick={handleAddOptionsContainer} color="primary" title="Add options section">
+                                    <AddIcon />
+                                </IconButton>
+                            )}
+                        </Box>
+
+                        {(formData as any).options?.map((option: ChoiceOption, index: number) => (
+                            <Box key={index} sx={{ display: 'flex', alignItems: 'center', border: '1px dashed grey', p: 1, mb: 1 }}>
+                                <Box sx={{ flexGrow: 1, mr: 1 }}>
+                                    <TextField 
+                                        label={`Option ${index + 1} Text`}
+                                        value={option.text} 
+                                        onChange={(e) => handleOptionChange(index, 'text', e.target.value)}
+                                        fullWidth 
+                                        margin="dense" />
+                                    <TextField 
+                                        label={`Option ${index + 1} Next Screen ID`}
+                                        value={option.id}
+                                        onChange={(e) => handleOptionChange(index, 'id', e.target.value)}
+                                        fullWidth 
+                                        margin="dense" />
+                                </Box>
+                                <IconButton onClick={() => handleRemoveOption(index)} color="warning" title="Remove option">
+                                    <DeleteIcon />
+                                </IconButton>
+                            </Box>
+                        ))}
+                        
+                        {(formData as any).options !== undefined && (
+                            <Button onClick={handleAddNewOption} startIcon={<AddIcon />} sx={{ mt: 1 }}>
+                                Add New Option
+                            </Button>
+                        )}
+                    </Box>
+                    
+                    <Box sx={{ position: 'absolute', top: 750, left: 20, width: 560, p: 2, border: '1px solid #eee', background: '#f9f9f9' }}>
+                        <Typography variant="h6">Possible Screen Types</Typography>
+                        <Typography variant="body1">
+                            {possibleScreenTypes.length > 0 ? possibleScreenTypes.join(', ') : 'No matching types found for the filled fields.'}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            (Save is enabled when only one type is possible)
+                        </Typography>
+                    </Box>
+
+                    <Box sx={{ position: 'absolute', top: 840, left: 20 }}>
+                        <Button 
+                            variant="contained" 
+                            color="primary"
+                            disabled={possibleScreenTypes.length !== 1} 
+                            onClick={() => console.log('Saving:', {...formData, type: currentType })}
+                        >
+                            Save
+                        </Button>
+                    </Box>
+                </Box>
             </Box>
-            
-            <Button 
-                variant="contained" 
-                color="primary"
-                disabled={possibleScreenTypes.length !== 1} 
-                sx={{ mt: 2 }}
-                onClick={() => console.log('Saving:', {...formData, type: currentType })}
-            >
-                Save
-            </Button>
         </Box>
     );
 };
