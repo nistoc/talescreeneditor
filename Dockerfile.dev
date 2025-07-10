@@ -1,0 +1,17 @@
+# Dockerfile для разработки с hot reload
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Устанавливаем зависимости
+COPY package*.json ./
+RUN npm install
+
+# Копируем исходный код
+COPY . .
+
+# Открываем порт для dev сервера
+EXPOSE 3000
+
+# Запускаем dev сервер
+CMD ["npm", "start"]
