@@ -2,13 +2,24 @@
 const serverCache = new Map<string, string>();
 
 // Список всех возможных серверов
-const servers = [
-  '/assets',
-  'http://screen-editor-dev.onrender.com/projects',
-  'http://screen-editor-prep.onrender.com/projects'
-];
+
+// Если нужна поддержка переменных окружения
+const getServers = () => {
+  const baseServers = ['/assets'];
+  
+  // Добавляем внешние серверы только если приложение имеет доступ к интернету
+  if (process.env.REACT_APP_ENABLE_EXTERNAL_ASSETS !== 'false') {
+    baseServers.push(
+      'http://screen-editor-dev.onrender.com/projects',
+      'http://screen-editor-prep.onrender.com/projects'
+    );
+  }
+  
+  return baseServers;
+};
 
 export async function getScenarioImageUrl(scenarioId: string, imageName: string): Promise<string | null> {
+  const servers = getServers();
   // Проверяем, есть ли в кэше рабочий сервер для этого scenarioId
   const cachedServer = serverCache.get(scenarioId);
   if (cachedServer) {

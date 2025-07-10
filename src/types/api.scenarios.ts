@@ -2,7 +2,7 @@ import {
   defaultScenarioDataMoonlightHeist,
   defaultScenarioDataCrimsonMasquerade, 
   defaultScenarioDataDaughterOfTheFlame, 
-  defaultScenarioDataPassportToTrouble,
+  defaultScenarioDataShareTheBed,
   defaultScenarioDataThreadsOfTheMoon
  } from './defaults';
 
@@ -267,28 +267,28 @@ export const defaultScenarioDaughterOfTheFlame: Scenario = {
   createdDate: defaultScenarioDataDaughterOfTheFlame.createdDate || new Date().toISOString()
 };
 
-export const defaultScenarioPassportToTrouble: Scenario = {
-  ...defaultScenarioDataPassportToTrouble,
-  status: defaultScenarioDataPassportToTrouble.status as 'draft' | 'active' | 'archived',
-  characters: defaultScenarioDataPassportToTrouble.characters.map(char => ({
+export const defaultScenarioShareTheBed: Scenario = {
+  ...defaultScenarioDataShareTheBed,
+  status: defaultScenarioDataShareTheBed.status as 'draft' | 'active' | 'archived',
+  characters: defaultScenarioDataShareTheBed.characters.map(char => ({
     ...char,
     type: char.type as 'player' | 'npc',
     gender: char.gender as 'mal' | 'fem'
   })),
-  screens: defaultScenarioDataPassportToTrouble.screens.map(s => transformScreen(s)),
+  screens: defaultScenarioDataShareTheBed.screens.map(s => transformScreen(s)),
   updatedAt: new Date().toISOString(),
   price: {
     type: 'credits',
-    value: defaultScenarioDataPassportToTrouble.price?.value || 0
+    value: defaultScenarioDataShareTheBed.price?.value || 0
   },
-  animatedCover: defaultScenarioDataPassportToTrouble.animatedCover || '',
-  intro: defaultScenarioDataPassportToTrouble.intro || {
+  animatedCover: defaultScenarioDataShareTheBed.animatedCover || '',
+  intro: defaultScenarioDataShareTheBed.intro || {
     mal: { content: '', image: '' },
     fem: { content: '', image: '' }
   },
-  genres: defaultScenarioDataPassportToTrouble.genres || [],
-  labels: defaultScenarioDataPassportToTrouble.labels || [],
-  createdDate: defaultScenarioDataPassportToTrouble.createdDate || new Date().toISOString()
+  genres: defaultScenarioDataShareTheBed.genres || [],
+  labels: defaultScenarioDataShareTheBed.labels || [],
+  createdDate: defaultScenarioDataShareTheBed.createdDate || new Date().toISOString()
 };
 
 export const defaultScenarioThreadsOfTheMoon: Scenario = {
@@ -355,7 +355,7 @@ export const defaultScenarioList: Scenario[] = [
   defaultScenarioMoonlightHeist, 
   defaultScenarioCrimsonMasquerade, 
   defaultScenarioDaughterOfTheFlame, 
-  defaultScenarioPassportToTrouble, 
+  defaultScenarioShareTheBed, 
   defaultScenarioThreadsOfTheMoon,
   scenario_01, 
   scenario_03, 

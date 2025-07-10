@@ -29,5 +29,4 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 node_modules
-.env
 build/

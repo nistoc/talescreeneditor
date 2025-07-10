@@ -13,6 +13,9 @@ RUN npm ci --only=production --silent
 # Копируем весь исходный код
 COPY . .
 
+# Копируем файл окружения для Docker
+COPY .env.docker .env
+
 # Собираем приложение для production
 RUN npm run build
 
