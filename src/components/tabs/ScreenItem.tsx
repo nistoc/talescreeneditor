@@ -1,0 +1,195 @@
+import React, { useEffect } from 'react';
+import { Box, IconButton, ListItem, Tooltip, Collapse, List } from '@mui/material';
+import { Screen, ScreenNarrative, ScreenDialog, ScreenScene, Character } from '../../types/api.scenarios';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from '@mui/icons-material/Add';
+import { CompactView, CompactPlayer, CompactEditor, ScreenViewMode } from '../screenitems/index';
+import { NestedScreenItem } from './NestedScreenItem';
+
+interface ScreenItemProps {
+  screens: Screen[];
+  screen: Screen;
+  isEditing: boolean;
+  isExpanded: boolean;
+  selectedScreenId: string | null;
+  viewMode: ScreenViewMode;
+  onSelect: (screenId: string) => void;
+  onEdit: (screenId: string) => void;
+  onExpand: (screenId: string, childScreenIds: string[]) => void;
+  scenarioId: string;
+  characters?: Character[];
+  selectedCharacterId: string | null;
+}
+
+const hasScreens = (screen: Screen): screen is ScreenNarrative | ScreenDialog | ScreenScene => {
+  return 'screens' in screen && Array.isArray(screen.screens);
+};
+
+export const ScreenItem: React.FC<ScreenItemProps> = ({
+  screens,
+  screen,
+  isEditing,
+  isExpanded,
+  selectedScreenId,
+  selectedCharacterId,
+  viewMode,
+  onSelect,
+  onEdit,
+  onExpand,
+  scenarioId,
+  characters = []
+}) => {
+  const hasChildren = hasScreens(screen) && screen.screens.length > 0;
+  const childScreenIds = hasChildren ? screen.screens.map(s => s.id) : [];
+
+  // Вычисляем isSelected на основе selectedScreenId и screen.id
+  const isSelected = selectedScreenId === screen.id;
+
+  useEffect(() => {
+    if (selectedScreenId && hasChildren && !isExpanded) {
+      if (childScreenIds.includes(selectedScreenId)) {
+        onExpand(screen.id, childScreenIds);
+      }
+    }
+  }, [selectedScreenId]);
+
+  const handleClick = () => {
+    if (screen.id !== selectedScreenId) {
+      onSelect(screen.id);
+    }
+  };
+
+  // Функция для рендеринга компактного представления
+  const renderCompactView = () => (
+    <CompactView 
+      screen={screen} 
+      scenarioId={scenarioId} 
+      characters={characters} 
+    />
+  );
+
+  // Функция для рендеринга представления плеера с просмотром
+  const renderCompactPlayer = () => (
+    <CompactPlayer
+      screens={screens}
+      screen={screen}
+      scenarioId={scenarioId}
+      characters={characters}
+      onScreenSelect={onSelect}
+      selectedCharacterId={selectedCharacterId}
+    />
+  );
+
+  // Функция для рендеринга представления плеера с редактированием
+  const renderCompactEditor = () => (
+    <CompactEditor
+      screens={screens}
+      screen={screen}
+      scenarioId={scenarioId}
+      characters={characters}
+      onScreenSelect={onSelect}
+      selectedCharacterId={selectedCharacterId}
+    />
+  );
+
+  // Функция для выбора представления на основе режима
+  const renderContent = () => {
+    // Определяем режим на основе того, выбран ли этот экран
+    const currentViewMode = isSelected ? viewMode : ScreenViewMode.COMPACT;
+
+    switch (currentViewMode) {
+      case ScreenViewMode.COMPACT:
+        return renderCompactView();
+      case ScreenViewMode.PLAYER_VIEW:
+        return renderCompactPlayer();
+      case ScreenViewMode.PLAYER_EDIT:
+        return renderCompactEditor();
+      default:
+        return renderCompactView();
+    }
+  };
+
+  return (
+    <React.Fragment>
+      <ListItem
+        onClick={handleClick}
+        data-screen-id={screen.id}
+        sx={{
+          pl: 2,
+          border: isSelected ? '1px solid' : 'none',
+          borderColor: isSelected ? 'primary.main' : 'divider',
+          backgroundColor: isSelected ? 'action.selected' : 'inherit',
+          cursor: 'pointer',
+          '&:hover': {
+            backgroundColor: isSelected ? 'action.selected' : 'action.hover'
+          },
+          borderRadius: 1,
+          m: 0.5,
+          transition: 'all 0.2s ease'
+        }}
+      >
+        {hasChildren && (
+          <IconButton
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (hasChildren) {
+                onExpand(screen.id, childScreenIds);
+              }
+            }}
+            sx={{ mr: 1 }}
+          >
+            {isExpanded ? <ExpandLess /> : <ExpandMore />}
+          </IconButton>
+        )}
+        {renderContent()}
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Tooltip title="Edit">
+            <IconButton
+              size="small"
+              onClick={(e) => {
+                e.stopPropagation();
+                onEdit(screen.id);
+              }}
+              color={isEditing ? 'primary' : 'default'}
+            >
+              <EditIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Add Child">
+            <IconButton size="small">
+              <AddIcon />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </ListItem>
+      {hasChildren && (
+        <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding sx={{ pl: 2 }}>
+            {screen.screens
+              .filter(childScreen => childScreen.type !== 'block')
+              .map((childScreen) => (
+                <NestedScreenItem
+                  key={childScreen.id}
+                  screens={screens}
+                  screen={childScreen}
+                  isEditing={isEditing}
+                  viewMode={viewMode}
+                  selectedScreenId={selectedScreenId}
+                  onSelect={onSelect}
+                  onEdit={onEdit}
+                  isExpanded={isExpanded}
+                  scenarioId={scenarioId}
+                  characters={characters}
+                  parentScreen={screen}
+                  selectedCharacterId={selectedCharacterId}
+                />
+              ))}
+          </List>
+        </Collapse>
+      )}
+    </React.Fragment>
+  );
+}; 

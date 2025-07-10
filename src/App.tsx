@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Box, Container, Typography, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon, Tooltip } from '@mui/material';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import { ProjectsPage } from './pages/ProjectsPage';
+import OpenInFullIcon from '@mui/icons-material/OpenInFull';
+import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { AdminUsersPage } from './pages/AdminUsersPage';
 import ProfilePage from './pages/ProfilePage';
-import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
-import { ProfileEditorPage } from './pages/ProfileEditorPage';
+import { ScenariosPage } from './pages/ScenariosPage';
+import { ScenarioPage } from './pages/ScenarioPage';
+import { ScenarioEditorPage } from './pages/ScenarioEditorPage';
+import { ProfileEditorPage } from './pages/ProfileEditorPage'; 
 import AdminPage from './pages/AdminPage';
+import { FocusModeProvider, useFocusMode } from './contexts/FocusModeContext';
+import { FocusModeMenu } from './components/FocusModeMenu';
 
 const NavigationDrawer: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
   const menuItems = [
-    { text: 'Projects', path: '/projects', icon: <DashboardIcon /> },
+    { text: 'Scenarios', path: '/scenarios', icon: <DashboardIcon /> },
     { text: 'Admin', path: '/admin', icon: <AdminPanelSettingsIcon /> },
     { text: 'Profile', path: '/profile', icon: <PersonIcon /> },
   ];
@@ -66,12 +71,13 @@ const Breadcrumbs: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { isFocusMode, toggleFocusMode } = useFocusMode();
 
   return (
-    <Router>
-      <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
+      {!isFocusMode && (
         <AppBar position="static">
           <Toolbar>
             <IconButton
@@ -86,32 +92,88 @@ const App: React.FC = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Tales Screen Editor
             </Typography>
+            <Tooltip title={isFocusMode ? "Exit Focus Mode" : "Enter Focus Mode"}>
+              <IconButton color="inherit" onClick={toggleFocusMode}>
+                {isFocusMode ? <CloseFullscreenIcon /> : <OpenInFullIcon />}
+              </IconButton>
+            </Tooltip>
           </Toolbar>
         </AppBar>
-        <NavigationDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
-        <Container maxWidth="lg" sx={{ mt: 4 }}>
-          <Breadcrumbs />
+      )}
+      {!isFocusMode && <NavigationDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
+      <Container 
+        maxWidth={isFocusMode ? false : "lg"} 
+        sx={{ 
+          mt: isFocusMode ? 0 : 4,
+          px: isFocusMode ? 0 : 2,
+          width: '100%',
+          '& .MuiBox-root': {
+            px: isFocusMode ? 0 : undefined,
+            py: undefined
+          }
+        }}
+      >
+        {!isFocusMode && <Breadcrumbs />}
+        <Box sx={{ position: 'relative' }}>
+          {isFocusMode && (
+            <Tooltip title="Exit Focus Mode">
+              <IconButton
+                onClick={toggleFocusMode}
+                sx={{
+                  position: 'fixed',
+                  top: 16,
+                  right: 16,
+                  zIndex: 1000,
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                  },
+                }}
+              >
+                <CloseFullscreenIcon />
+              </IconButton>
+            </Tooltip>
+          )}
           <Routes>
             <Route path="/" element={
               <Box>
-                <Typography variant="h4" component="h1" gutterBottom>
-                  Welcome to Tales Screen Editor
-                </Typography>
+                {isFocusMode && (
+                  <Box display="flex" alignItems="center" gap={2} mb={3}>
+                    <FocusModeMenu />
+                    <Typography variant="h5" component="div">
+                      Welcome to Tales Screen Editor
+                    </Typography>
+                  </Box>
+                )}
+                {!isFocusMode && (
+                  <Typography variant="h4" component="h1" gutterBottom>
+                    Welcome to Tales Screen Editor
+                  </Typography>
+                )}
                 <Typography variant="body1">
                   This is your new React application with TypeScript and Material UI.
                 </Typography>
               </Box>
             } />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
+            <Route path="/scenarios" element={<ScenariosPage />} />
+            <Route path="/scenarios/:scenarioId" element={<ScenarioPage />} />
+            <Route path="/scenarios/:scenarioId/editor" element={<ScenarioEditorPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/users" element={<AdminUsersPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/profile/edit" element={<ProfileEditorPage />} />
           </Routes>
-        </Container>
-      </Box>
-    </Router>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <FocusModeProvider>
+      <AppContent />
+    </FocusModeProvider>
   );
 };
 

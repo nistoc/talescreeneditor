@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAdminStats, useUsers, useUpdateUserStatus } from '../api/admin';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -17,12 +18,16 @@ import {
   Card,
   CardContent,
 } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FocusModeMenu } from '../components/FocusModeMenu';
+import { useFocusMode } from '../contexts/FocusModeContext';
 
 export const AdminUsersPage: React.FC = () => {
-  const [page, setPage] = React.useState(1);
+  const navigate = useNavigate();
   const { data: stats, isLoading: statsLoading, error: statsError } = useAdminStats();
-  const { data: users, isLoading: usersLoading, error: usersError } = useUsers(page);
+  const { data: users, isLoading: usersLoading, error: usersError } = useUsers(1);
   const updateUserStatus = useUpdateUserStatus(0); // userId будет установлен при вызове
+  const { isFocusMode } = useFocusMode();
 
   const handleStatusChange = (userId: number, newStatus: 'active' | 'inactive' | 'banned') => {
     updateUserStatus.mutate(newStatus, {
@@ -43,24 +48,41 @@ export const AdminUsersPage: React.FC = () => {
   if (statsError || usersError) {
     return (
       <Box p={2}>
-        <Alert severity="error">Ошибка загрузки данных</Alert>
+        <Alert severity="error">Error loading data</Alert>
       </Box>
     );
   }
 
   return (
-    <Box p={3}>
-      <Typography variant="h4" gutterBottom>
-        Управление пользователями
-      </Typography>
+    <Box sx={{ p: isFocusMode ? 0 : 3 }}>
+      <Box display="flex" alignItems="center" gap={2} mb={3}>
+        {isFocusMode && <FocusModeMenu />}
+        <Button
+          startIcon={<ArrowBackIcon />}
+          onClick={() => navigate('/admin')}
+        >
+          Back to Admin
+        </Button>
+        {isFocusMode && (
+          <Typography variant="h5" component="div">
+            User Management
+          </Typography>
+        )}
+      </Box>
 
-      {/* Статистика */}
+      {!isFocusMode && (
+        <Typography variant="h4" gutterBottom>
+          User Management
+        </Typography>
+      )}
+
+      {/* Statistics */}
       <Grid container spacing={3} mb={4}>
         <Grid item xs={12} sm={6} md={3}>
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Всего пользователей
+                Total Users
               </Typography>
               <Typography variant="h5">{stats?.totalUsers}</Typography>
             </CardContent>
@@ -70,7 +92,7 @@ export const AdminUsersPage: React.FC = () => {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Активных пользователей
+                Active Users
               </Typography>
               <Typography variant="h5">{stats?.activeUsers}</Typography>
             </CardContent>
@@ -80,9 +102,9 @@ export const AdminUsersPage: React.FC = () => {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Всего проектов
+                Total Projects
               </Typography>
-              <Typography variant="h5">{stats?.totalProjects}</Typography>
+              <Typography variant="h5">{stats?.totalScenarios}</Typography>
             </CardContent>
           </Card>
         </Grid>
@@ -90,25 +112,30 @@ export const AdminUsersPage: React.FC = () => {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Активных проектов
+                Active Projects
               </Typography>
-              <Typography variant="h5">{stats?.activeProjects}</Typography>
+              <Typography variant="h5">{stats?.activeScenarios}</Typography>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
 
-      {/* Таблица пользователей */}
-      <TableContainer component={Paper}>
+      {/* Users Table */}
+      <TableContainer component={Paper} sx={{ 
+        '& .MuiTableCell-root': {
+          px: isFocusMode ? 1 : 2,
+          py: isFocusMode ? 1 : 2
+        }
+      }}>
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>Имя</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Роль</TableCell>
-              <TableCell>Статус</TableCell>
-              <TableCell>Действия</TableCell>
+              <TableCell>Role</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -127,7 +154,7 @@ export const AdminUsersPage: React.FC = () => {
                       color={user.status === 'active' ? 'error' : 'success'}
                       onClick={() => handleStatusChange(user.id, user.status === 'active' ? 'inactive' : 'active')}
                     >
-                      {user.status === 'active' ? 'Деактивировать' : 'Активировать'}
+                      {user.status === 'active' ? 'Deactivate' : 'Activate'}
                     </Button>
                     <Button
                       size="small"
@@ -135,7 +162,7 @@ export const AdminUsersPage: React.FC = () => {
                       color="error"
                       onClick={() => handleStatusChange(user.id, 'banned')}
                     >
-                      Забанить
+                      Ban
                     </Button>
                   </Box>
                 </TableCell>

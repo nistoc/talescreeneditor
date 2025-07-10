@@ -1,0 +1,2838 @@
+{
+  "id": "threads_of_the_moon",
+  "price": {
+    "type": "credits",
+    "value": 2000
+  },
+  "title": "Threads of the Moon",
+  "animatedCover": "videocover.webm",
+  "intro": {
+    "mal": {
+      "content": "empty",
+      "image": "cover.webp"
+    },
+    "fem": {
+      "content": "empty",
+      "image": "cover.webp"
+    }
+  },
+  "genres": [
+    "thriller"
+  ],
+  "labels": [
+    "promo"
+  ],
+  "createdDate": "2025-06-11",
+  "status": "draft",
+  "createdAt": "2025-06-05T12:00:00Z",
+  "updatedAt": "2025-06-05T12:00:00Z",
+  "ownerId": 1,
+  "characters": [
+    {
+      "id": "player_fem_lilia",
+      "name": "Lilia",
+      "type": "player",
+      "gender": "fem",
+      "image": "character_01_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "player_mal_arthur",
+      "name": "Arthur",
+      "type": "player",
+      "gender": "mal",
+      "image": "character_02_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_noah",
+      "name": "Noah",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_03_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_fem_lady_syrra",
+      "name": "Lady Syrra",
+      "type": "npc",
+      "gender": "fem",
+      "image": "character_04_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_fem_lady_mirea",
+      "name": "Lady Mirea",
+      "type": "npc",
+      "gender": "fem",
+      "image": "character_05_base.webp",
+      "notes": ""
+    }
+  ],
+  "maxBranchLength": 155,
+  "firstScreenId": "scene1",
+  "screens": [
+    {
+      "id": "scene1",
+      "type": "scene",
+      "image": "scene_01_a.webp",
+      "title": "Scene 1",
+      "content": "<p>The Thread That Danced</p>",
+      "next": "scene1_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia works in silence. Her fingers move with calm precision, coaxing silk and linen into shape. The world is asleep, but her thoughts are racing — the wedding dress must be finished by morning. Not hers, of course. Someone else’s dream.",
+      "next": "scene1_screen2",
+      "progress": 1
+    },
+    {
+      "id": "scene1_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She hums faintly under her breath — an old seamstress tune her mother used to sing. The motion of the needle calms her… until it doesn’t.",
+      "next": "scene1_screen3",
+      "progress": 2
+    },
+    {
+      "id": "scene1_screen3",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Reaching beneath the table, she finds an old basket — one she doesn't remember placing there. Inside, nestled among faded lace and moth-bitten velvet, something gleams.",
+      "next": "scene1_screen4",
+      "progress": 3
+    },
+    {
+      "id": "scene1_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "A spool of silver thread, impossibly fine. It glows faintly, as if aware it’s been seen.",
+      "next": "scene1_screen5",
+      "progress": 4
+    },
+    {
+      "id": "scene1_screen5",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(softly) </strong>Where did this come from…?</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_screen6",
+      "progress": 5
+    },
+    {
+      "id": "scene1_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Something inside her shifts — a pull. Not fear, but recognition. Before she understands what she’s doing, her needle slips through the silver. It moves like liquid light, binding silk to silk in a seam that hums beneath her fingertips.",
+      "next": "scene1_screen7",
+      "progress": 6
+    },
+    {
+      "id": "scene1_screen7",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Then — the mannequin shivers. The fabric ripples like breath. The air stills.",
+      "next": "scene1_screen8",
+      "progress": 7
+    },
+    {
+      "id": "scene1_screen8",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "A knock at the door. Not hurried. Not shy. Just… inevitable.",
+      "next": "scene1_screen9",
+      "progress": 8
+    },
+    {
+      "id": "scene1_screen9",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia hesitates — then opens it. A tall man stands there, wrapped in a deep traveling cloak. Pale hair curls at his collar. His eyes — gray-blue, ancient, like thunder over calm water — rest on her without blinking.",
+      "next": "scene1_screen10",
+      "progress": 9
+    },
+    {
+      "id": "scene1_screen10",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "You used the silver thread.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen11",
+      "progress": 10
+    },
+    {
+      "id": "scene1_screen11",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "What?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_screen12",
+      "progress": 11
+    },
+    {
+      "id": "scene1_screen12",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "It answered. And so I came.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen13",
+      "progress": 12
+    },
+    {
+      "id": "scene1_screen13",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He steps inside without waiting. Behind her, the dress stirs again — unmistakably — like someone invisible turning toward him.",
+      "next": "scene1_screen14",
+      "progress": 13
+    },
+    {
+      "id": "scene1_screen14",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(nervous) </strong>Who are you?</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_screen15",
+      "progress": 14
+    },
+    {
+      "id": "scene1_screen15",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(quietly) </strong>Arthur. Crown Prince of the Court of Threads. And the one your magic just summoned.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen16",
+      "progress": 15
+    },
+    {
+      "id": "scene1_screen16",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The realization hits Lilia belatedly. She had heard of this place, but it was a fairy tale her mother told her to teach her the trade.",
+      "next": "scene1_screen17",
+      "progress": 16
+    },
+    {
+      "id": "scene1_screen17",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "His cloak slips from one shoulder. But it’s not just his clothes that come undone.",
+      "next": "scene1_screen18",
+      "progress": 17
+    },
+    {
+      "id": "scene1_screen18",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The skin along his forearm shimmers strangely — not like flesh, but like woven fabric thinning under strain. Threads of light drift upward from his fingertips, glowing faintly in the candlelight, rising like mist or memory.",
+      "next": "scene1_screen19",
+      "progress": 18
+    },
+    {
+      "id": "scene1_screen19",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "His body is unraveling. Slowly. Elegantly. Terrifyingly.",
+      "next": "scene1_screen20",
+      "progress": 19
+    },
+    {
+      "id": "scene1_screen20",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "A curse made not only visible — but intimate. As if he’s being pulled apart stitch by stitch, and still somehow standing whole.",
+      "next": "scene1_screen21",
+      "progress": 20
+    },
+    {
+      "id": "scene1_screen21",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He doesn’t seem in pain. But he doesn’t look whole, either.",
+      "next": "scene1_screen22",
+      "progress": 21
+    },
+    {
+      "id": "scene1_screen22",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia's eyes widen. She instinctively steps closer — not in fear, but in shock.",
+      "next": "scene1_screen23",
+      "progress": 22
+    },
+    {
+      "id": "scene1_screen23",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(quietly) </strong>Your skin… It’s— Are those threads?</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_screen24",
+      "progress": 23
+    },
+    {
+      "id": "scene1_screen24",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Her voice is barely more than a whisper. She reaches out — then stops herself, fingers hovering uncertainly in the air.",
+      "next": "scene1_screen25",
+      "progress": 24
+    },
+    {
+      "id": "scene1_screen25",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "What’s happening to you?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_screen26",
+      "progress": 25
+    },
+    {
+      "id": "scene1_screen26",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Arthur’s posture shifts. For a moment, he almost seems… exposed, not just in body, but in spirit. He turns slightly, pulling the edge of his cloak back over his arm with deliberate grace, as if to hide not just the curse — but the shame of it.",
+      "next": "scene1_screen27",
+      "progress": 26
+    },
+    {
+      "id": "scene1_screen27",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(low, with a flicker of embarrassment) </strong>It’s nothing. Not now.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen28",
+      "progress": 27
+    },
+    {
+      "id": "scene1_screen28",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He straightens, jaw tightening.",
+      "next": "scene1_screen29",
+      "progress": 28
+    },
+    {
+      "id": "scene1_screen29",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "There’s no time to explain every fray. You’ll understand soon enough.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen30",
+      "progress": 29
+    },
+    {
+      "id": "scene1_screen30",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He steps away, just a pace — but it feels like more. The space between them tugs at Lilia, like an unfinished seam pulling taut.",
+      "next": "scene1_screen31",
+      "progress": 30
+    },
+    {
+      "id": "scene1_screen31",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She watches him in silence. The silver thread behind her still glows, but now it feels colder.",
+      "next": "scene1_screen32",
+      "progress": 31
+    },
+    {
+      "id": "scene1_screen32",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia’s breath catches. The room feels warmer — no, tighter. Like the fabric itself is pulling inward, recognizing him.",
+      "next": "scene1_screen33",
+      "progress": 32
+    },
+    {
+      "id": "scene1_screen33",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Because here, in this moon-bound world… thread remembers. And those attuned to it — the Moonborn — obey its call. Even if they don’t know it yet.",
+      "next": "scene1_screen34",
+      "progress": 33
+    },
+    {
+      "id": "scene1_screen34",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Arthur speaks again — softer this time.",
+      "next": "scene1_screen35",
+      "progress": 34
+    },
+    {
+      "id": "scene1_screen35",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "In the Kingdom of Threads, the silver line binds ruler to weaver. You stitched it into life. Now you’re connected to me.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen36",
+      "progress": 35
+    },
+    {
+      "id": "scene1_screen36",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "<p>Her mouth goes dry. She should scream. Should run. But the air feels thick with something… ancient. And his presence wraps around her like a half-finished cloak.</p>",
+      "next": "scene1_choice1",
+      "progress": 36
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "block",
+      "image": "scene_01_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal_arthur",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "progress": 37
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "choice",
+      "image": "scene_01_a.webp",
+      "content": "<p>What do you do?</p>",
+      "availableFor": "player_fem_lilia",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "options": [
+        {
+          "id": "scene1_choice1_option1_screen1",
+          "text": "Demand answers"
+        },
+        {
+          "id": "scene1_choice1_option2_screen1",
+          "text": "Run"
+        },
+        {
+          "id": "scene1_choice1_option3_screen1",
+          "text": "Let him stay"
+        }
+      ],
+      "progress": 37
+    },
+    {
+      "id": "scene1_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "You have ten seconds to explain. What is this thread? Why is my dress… alive?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_choice1_option1_screen2",
+      "progress": 39
+    },
+    {
+      "id": "scene1_choice1_option1_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Arthur meets her gaze with a tired sort of gravity.",
+      "next": "scene1_choice1_option1_screen3",
+      "progress": 42
+    },
+    {
+      "id": "scene1_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Because you’re not just a seamstress. And that dress is listening.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_choice1_option1_screen4",
+      "progress": 44
+    },
+    {
+      "id": "scene1_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "<p>The candlelight flares. Somewhere outside, a wolf howls. Lilia doesn’t flinch. She just narrows her eyes.</p>",
+      "next": "scene1_screen37",
+      "progress": 47
+    },
+    {
+      "id": "scene1_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia grabs the shears. Her instincts scream louder than logic.",
+      "next": "scene1_choice1_option2_screen2",
+      "progress": 38
+    },
+    {
+      "id": "scene1_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(shaking) </strong>Get out. Whatever you are — I don’t want this.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_choice1_option2_screen3",
+      "progress": 39
+    },
+    {
+      "id": "scene1_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(calm) </strong>It’s not a question of want. You’re already woven into it.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_choice1_option2_screen4",
+      "progress": 40
+    },
+    {
+      "id": "scene1_choice1_option2_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She bolts past him, dress swaying in her wake. The night outside is heavy, saturated with moonlight.",
+      "next": "scene1_choice1_option2_screen5",
+      "progress": 41
+    },
+    {
+      "id": "scene1_choice1_option2_screen5",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "She runs — across the square, past shuttered windows, deeper into the village’s narrow alleys. But something’s wrong.",
+      "next": "scene1_choice1_option2_screen6",
+      "progress": 42
+    },
+    {
+      "id": "scene1_choice1_option2_screen6",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "The streets twist. Corners she’s known since childhood fold strangely. Shadows stretch into shapes she doesn’t recognize. Her footsteps echo where they shouldn’t. The village is… shifting.",
+      "next": "scene1_choice1_option2_screen7",
+      "progress": 43
+    },
+    {
+      "id": "scene1_choice1_option2_screen7",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "She realizes, breath ragged: she isn’t in her village anymore. Not truly.",
+      "next": "scene1_choice1_option2_screen8",
+      "progress": 44
+    },
+    {
+      "id": "scene1_choice1_option2_screen8",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "She’s in the in-between. A space made of magic and thread. A threshold.",
+      "next": "scene1_choice1_option2_screen9",
+      "progress": 45
+    },
+    {
+      "id": "scene1_choice1_option2_screen9",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "And at the end of the alley, lit by silver mist — a door. She opens it.",
+      "next": "scene1_choice1_option2_screen10",
+      "progress": 46
+    },
+    {
+      "id": "scene1_choice1_option2_screen10",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Inside: her workshop. Her dress. And Arthur, waiting.",
+      "next": "scene1_choice1_option2_screen11",
+      "progress": 47
+    },
+    {
+      "id": "scene1_choice1_option2_screen11",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "<p><strong>(gently) </strong>You can’t escape the thread once it knows your name.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen37",
+      "progress": 48
+    },
+    {
+      "id": "scene1_choice1_option3_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia doesn’t move. Something about him — broken, strange, magnetic — holds her still.",
+      "next": "scene1_choice1_option3_screen2",
+      "progress": 39
+    },
+    {
+      "id": "scene1_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "…You look like someone who’s been unraveling a long time.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene1_choice1_option3_screen3",
+      "progress": 41
+    },
+    {
+      "id": "scene1_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "You have no idea.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_choice1_option3_screen4",
+      "progress": 43
+    },
+    {
+      "id": "scene1_choice1_option3_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The air between them shifts — not colder, not warmer. Just closer.",
+      "next": "scene1_choice1_option3_screen5",
+      "progress": 45
+    },
+    {
+      "id": "scene1_choice1_option3_screen5",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "<p>She closes the door behind him. The silver thread on the dress gleams faintly — like it recognizes him. Or them both.</p>",
+      "next": "scene1_screen37",
+      "progress": 47
+    },
+    {
+      "id": "scene1_screen37",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Outside, clouds drift past the moon. Inside, two strangers — one fraying, one just beginning to awaken — share a silence that feels stitched together by something older than either of them.",
+      "next": "scene1_screen38",
+      "progress": 49,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene1_screen38",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lilia doesn’t understand the rules yet. But something in her — or in the thread — has already chosen.",
+      "next": "scene1_screen39",
+      "progress": 50
+    },
+    {
+      "id": "scene1_screen39",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Arthur speaks at last.",
+      "next": "scene1_screen40",
+      "progress": 51
+    },
+    {
+      "id": "scene1_screen40",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "There’s a place you need to see. A court made of cloth and moonlight. And a loom that’s been waiting for you.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene1_screen41",
+      "progress": 52
+    },
+    {
+      "id": "scene1_screen41",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She hesitates. Then nods. Just once.",
+      "next": "scene1_screen42",
+      "progress": 53
+    },
+    {
+      "id": "scene1_screen42",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He extends his hand. She doesn’t take it — but she follows.",
+      "next": "scene1_screen43",
+      "progress": 54
+    },
+    {
+      "id": "scene1_screen43",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Outside, the path is no longer a village road, but a ribbon of light unfolding into darkness.",
+      "next": "scene1_screen44",
+      "progress": 55
+    },
+    {
+      "id": "scene1_screen44",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "<p>And so begins the journey to the <strong>Court of Threads</strong>—where magic is sewn, power is worn, and nothing unravels without reason.</p>",
+      "next": "scene2",
+      "progress": 56
+    },
+    {
+      "id": "scene2",
+      "type": "scene",
+      "image": "scene_02_a.webp",
+      "title": "Scene 2",
+      "content": "<p>Court of Threads</p>",
+      "next": "scene2_screen1",
+      "progress": 57
+    },
+    {
+      "id": "scene2_screen1",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>The journey was a blur — a carriage that moved without wheels, a road of glowing thread, stars bending closer with every mile.</p>",
+      "next": "scene2_screen2",
+      "progress": 58
+    },
+    {
+      "id": "scene2_screen2",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Now, Lilia stands in the Moon Court, too stunned to speak. The magic here is not loud — it hums, constant, like a pulse through the fabric of the world.</p>",
+      "next": "scene2_screen3",
+      "progress": 59
+    },
+    {
+      "id": "scene2_screen3",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>Next to her, Arthur seems paler than before. His left sleeve has vanished — the fabric gone, unraveled, exposing a bare arm that fades faintly at the fingertips.</p>",
+      "next": "scene2_screen4",
+      "progress": 60
+    },
+    {
+      "id": "scene2_screen4",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>The skin beneath looks unreal — translucent and finely woven, as though his body itself were made of enchanted thread beginning to fray.</p>",
+      "next": "scene2_screen5",
+      "progress": 61
+    },
+    {
+      "id": "scene2_screen5",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p>You didn’t tell me this place was… magic.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_screen6",
+      "progress": 62
+    },
+    {
+      "id": "scene2_screen6",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "<p><strong>(smiling faintly) </strong>You’d have believed me?</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen7",
+      "progress": 63
+    },
+    {
+      "id": "scene2_screen7",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "<p>They walk under a sky of silk. Nobles glance at Lilia with curiosity — not hostility, but something sharper: recognition. She’s not one of them, not yet. But the thread has marked her.</p>",
+      "next": "scene2_screen8",
+      "progress": 64
+    },
+    {
+      "id": "scene2_screen8",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Inside the throne room, Arthur speaks to the Council — a circle of figures in glimmering robes, their garments rippling with life.",
+      "next": "scene2_screen9",
+      "progress": 65
+    },
+    {
+      "id": "scene2_screen9",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "<p>They murmur about “bloodlines,” “echoes in the thread,” and “the pulse that answered.” Lilia is told to wait near the edge of the chamber.</p>",
+      "next": "scene2_screen10",
+      "progress": 66
+    },
+    {
+      "id": "scene2_screen10",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Before the Council dismisses, Arthur raises his voice — calm but firm.",
+      "next": "scene2_screen11",
+      "progress": 67
+    },
+    {
+      "id": "scene2_screen11",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "If she’s to learn, she’ll need guidance. Not political lectures. Not pressure. A real teacher. Someone with patience. And needlework.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen12",
+      "progress": 68
+    },
+    {
+      "id": "scene2_screen12",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "A pause. Then one man, older but with sharp, dancing eyes, rises from his seat.",
+      "next": "scene2_screen13",
+      "progress": 69
+    },
+    {
+      "id": "scene2_screen13",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I’ll do it. She’ll need more than a teacher. She’ll need a translator — for the language of living thread.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen14",
+      "progress": 70
+    },
+    {
+      "id": "scene2_screen14",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "And I’ve always liked difficult cases.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen15",
+      "progress": 71
+    },
+    {
+      "id": "scene2_screen15",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Several Council members nod, somewhat surprised. Noah’s robe shifts — a deep sapphire weave that moves like liquid.",
+      "next": "scene2_screen16",
+      "progress": 72
+    },
+    {
+      "id": "scene2_screen16",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Later, in a private chamber hung with pale fabric that rustles like breathing, Arthur removes his outer coat. His tunic is almost gone — just strands now. His collarbone is faintly glowing through near-invisible skin. The lines of his body ripple slightly, like cloth in wind.",
+      "next": "scene2_screen17",
+      "progress": 73
+    },
+    {
+      "id": "scene2_screen17",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "You said you needed me. Why?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_screen18",
+      "progress": 74
+    },
+    {
+      "id": "scene2_screen18",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<p><strong>(gently) </strong>Because I’m cursed. Because they believe you’re the last Moonborn Seamstress. Because… I’m tired of unraveling alone.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen19",
+      "progress": 75
+    },
+    {
+      "id": "scene2_screen19",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "He sits across from her, elbows on the table, hands bare. One strand from his wrist pulls loose and floats upward, vanishing into the air like a sigh.",
+      "next": "scene2_screen20",
+      "progress": 76
+    },
+    {
+      "id": "scene2_screen20",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "What happened to you?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_screen21",
+      "progress": 77
+    },
+    {
+      "id": "scene2_screen21",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Arthur pauses — something in his face tightens. When he speaks again, his voice is low.",
+      "next": "scene2_screen22",
+      "progress": 78
+    },
+    {
+      "id": "scene2_screen22",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "The curse began years ago — subtle at first. My body weakened. My memory blurred. There was a woman. She tried to save me. She could weave directly into flesh, pull magic from the moonlight itself.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen23",
+      "progress": 79
+    },
+    {
+      "id": "scene2_screen23",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "But the court forbade her. Said she was meddling. She didn’t care. She gave everything. All her power, her thread, her soul.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen24",
+      "progress": 80
+    },
+    {
+      "id": "scene2_screen24",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "She burned herself out trying to hold me together. And when she died… the unraveling returned. Faster. Angrier.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen25",
+      "progress": 81
+    },
+    {
+      "id": "scene2_screen25",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "He closes his eyes briefly — a flicker of something raw behind his controlled posture.",
+      "next": "scene2_choice1",
+      "progress": 82
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "block",
+      "image": "scene_02_c.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_lilia",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "progress": 83
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "choice",
+      "image": "scene_02_c.webp",
+      "content": "<p>What do you do?</p>",
+      "availableFor": "player_mal_arthur",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "options": [
+        {
+          "id": "scene2_choice1_option1_screen1",
+          "text": "Confess the truth"
+        },
+        {
+          "id": "scene2_choice1_option2_screen1",
+          "text": "Keep your distance"
+        },
+        {
+          "id": "scene2_choice1_option3_screen1",
+          "text": "Ask her to help you self-preserve"
+        }
+      ],
+      "progress": 83
+    },
+    {
+      "id": "scene2_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Arthur looks at her for a long moment. The mask slips.",
+      "next": "scene2_choice1_option1_screen2",
+      "progress": 84
+    },
+    {
+      "id": "scene2_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<p><strong>(quietly) </strong>This curse has a cost. Memory. Body. Name. I don’t know how many days I have left. But I know I’d rather spend them near someone who understands me.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_choice1_option1_screen3",
+      "progress": 85
+    },
+    {
+      "id": "scene2_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Lilia watches him, stunned. Then — slowly — reaches into her satchel and pulls out a needle. Her hand trembles, but she doesn’t lower it.",
+      "next": "scene2_choice1_option1_screen4",
+      "progress": 86
+    },
+    {
+      "id": "scene2_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Something between them hums. The connection with the Thread Prince tugs at her ribs like an invisible line.",
+      "next": "scene2_choice1_option1_screen5",
+      "progress": 87
+    },
+    {
+      "id": "scene2_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<p>I don’t know how exactly… but I feel your pain. I want to help. I just don’t know if the magic in me is as strong as you believe.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_screen26",
+      "progress": 88
+    },
+    {
+      "id": "scene2_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Arthur forces a smile, hiding the tremor in his fingers.",
+      "next": "scene2_choice1_option2_screen2",
+      "progress": 84
+    },
+    {
+      "id": "scene2_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "It’s not your burden. You didn’t ask for this. You should be free to leave.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_choice1_option2_screen3",
+      "progress": 85
+    },
+    {
+      "id": "scene2_choice1_option2_screen3",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Lilia frowns, folding her arms.",
+      "next": "scene2_choice1_option2_screen4",
+      "progress": 86
+    },
+    {
+      "id": "scene2_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "I feel it. A call — like a thread pulling me forward. You say I don’t owe you anything, but I feel like we’re already stitched together.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_choice1_option2_screen5",
+      "progress": 87
+    },
+    {
+      "id": "scene2_choice1_option2_screen5",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<p><strong>(softly) </strong>That’s what the curse does. It pulls in kindness… and feeds on it. And I’d rather unravel alone than let it take someone else.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_choice1_option2_screen6",
+      "progress": 88
+    },
+    {
+      "id": "scene2_choice1_option2_screen6",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<p>You don’t get to make that choice for me. If I’m woven into this, I’ll decide where the seam goes.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_screen26",
+      "progress": 89
+    },
+    {
+      "id": "scene2_choice1_option3_screen1",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Arthur stands, moving to the wall where bolts of magical fabric hang like waterfalls. He pulls down a shimmering piece that thrums with stored energy.",
+      "next": "scene2_choice1_option3_screen2",
+      "progress": 84
+    },
+    {
+      "id": "scene2_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "They say Moonborns can weave with will alone. Let’s see what kind of will you have.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_choice1_option3_screen3",
+      "progress": 85
+    },
+    {
+      "id": "scene2_choice1_option3_screen3",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Lilia blinks at him.",
+      "next": "scene2_choice1_option3_screen4",
+      "progress": 86
+    },
+    {
+      "id": "scene2_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "You want me to sew you back together?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene2_choice1_option3_screen5",
+      "progress": 87
+    },
+    {
+      "id": "scene2_choice1_option3_screen5",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<p><strong>(with a crooked grin) </strong>Not yet. But maybe you can learn to slow the unraveling… before I vanish completely.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen26",
+      "progress": 88
+    },
+    {
+      "id": "scene2_screen26",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "<p>The moonlight in the chamber shifts. Outside, a loom hums to life in another tower — a signal.</p>",
+      "next": "scene2_screen27",
+      "progress": 90,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene2_screen27",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "The court has begun watching. The thread between two fates tightens.",
+      "next": "scene2_screen28",
+      "progress": 91
+    },
+    {
+      "id": "scene2_screen28",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "A knock. Then the door opens — and Noah enters, arms crossed, expression unreadable.",
+      "next": "scene2_screen29",
+      "progress": 92
+    },
+    {
+      "id": "scene2_screen29",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "Apologies, Highness. But we’re starting early.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen30",
+      "progress": 93
+    },
+    {
+      "id": "scene2_screen30",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<strong>(standing reluctantly) </strong>Already?",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene2_screen31",
+      "progress": 94
+    },
+    {
+      "id": "scene2_screen31",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "The loom in the east tower just sang. We don’t ignore that. Besides — your presence tends to distract students.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen32",
+      "progress": 95
+    },
+    {
+      "id": "scene2_screen32",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Arthur looks at Lilia one last time. Their eyes meet — something between warmth and warning. Then he leaves without another word.",
+      "next": "scene2_screen33",
+      "progress": 96
+    },
+    {
+      "id": "scene2_screen33",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "Noah turns to Lilia, and his tone softens.",
+      "next": "scene2_screen34",
+      "progress": 97
+    },
+    {
+      "id": "scene2_screen34",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "Well. Let’s stitch you into your first lesson. Thread magic isn’t spells or symbols. It’s intent. Emotion. Pattern.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen35",
+      "progress": 98
+    },
+    {
+      "id": "scene2_screen35",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "<strong>(walking to the table) </strong>You think, you feel, and the thread answers. Sometimes in whispers. Sometimes with fire.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen36",
+      "progress": 99
+    },
+    {
+      "id": "scene2_screen36",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "He places a small piece of living fabric in front of her. It curls slightly, like a sleeping animal.",
+      "next": "scene2_screen37",
+      "progress": 100
+    },
+    {
+      "id": "scene2_screen37",
+      "type": "dialog",
+      "image": "scene_02_c.webp",
+      "content": "Let’s see what it says to you. In the Moon Kingdom, thread is never just material. It’s memory, promise, and path. Even the walls remember who wove them.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene2_screen38",
+      "progress": 101
+    },
+    {
+      "id": "scene2_screen38",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "<p>Lilia breathes in, picks up the needle — and the fabric shifts under her touch.</p>",
+      "next": "scene2_screen39",
+      "progress": 102
+    },
+    {
+      "id": "scene2_screen39",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "The first thread pulls tight.",
+      "next": "scene2_screen40",
+      "progress": 103
+    },
+    {
+      "id": "scene2_screen40",
+      "type": "narrative",
+      "image": "scene_02_c.webp",
+      "content": "<p>And her training begins.</p>",
+      "next": "scene3",
+      "progress": 104
+    },
+    {
+      "id": "scene3",
+      "type": "scene",
+      "image": "scene_03_a.webp",
+      "title": "Scene 3",
+      "content": "<p>The Loom of Secrets</p>",
+      "next": "scene3_screen1",
+      "progress": 105
+    },
+    {
+      "id": "scene3_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Three weeks pass. And in that time, Lilia becomes something else. Something more. Her fingers no longer just sew — they command.",
+      "next": "scene3_screen2",
+      "progress": 106
+    },
+    {
+      "id": "scene3_screen2",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Every movement stitches intent into matter. Even when idle, she leaks magic — a shimmering trail, like dust from a comet.",
+      "next": "scene3_screen3",
+      "progress": 107
+    },
+    {
+      "id": "scene3_screen3",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The gown she wears tonight is hers alone. Sewn by hand, in secret. Threaded with moon-blessed silk. Lined with quiet promises.",
+      "next": "scene3_screen4",
+      "progress": 108
+    },
+    {
+      "id": "scene3_screen4",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "And alive with every piece of magic she didn’t know she still had. It clings to her curves like it knows her. It listens — and waits.",
+      "next": "scene3_screen5",
+      "progress": 109
+    },
+    {
+      "id": "scene3_screen5",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Arthur watches from the base of the staircase. He looks… better. For now. His coat remains intact. The threads don’t drift from his fingers. Not tonight.",
+      "next": "scene3_screen6",
+      "progress": 110
+    },
+    {
+      "id": "scene3_screen6",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "But the look in his eyes is still cautious. A man not yet allowed to hope.",
+      "next": "scene3_screen7",
+      "progress": 111
+    },
+    {
+      "id": "scene3_screen7",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(quietly) </strong>You’ll be fine. Just… don’t catch fire.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen8",
+      "progress": 112
+    },
+    {
+      "id": "scene3_screen8",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(smirking) </strong>Is that a real danger?</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene3_screen9",
+      "progress": 113
+    },
+    {
+      "id": "scene3_screen9",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(mock-serious) </strong>With you? Absolutely. …And honestly, they might deserve a little smoke.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen10",
+      "progress": 114
+    },
+    {
+      "id": "scene3_screen10",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "She smiles — but only briefly. The weight of the evening presses on her chest like embroidery hoops stacked too high.",
+      "next": "scene3_screen11",
+      "progress": 115
+    },
+    {
+      "id": "scene3_screen11",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(lower, more serious) </strong>Listen. You need to know something before you walk in there. Most of them — the Council — they wanted me gone. Not all, but enough.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen12",
+      "progress": 116
+    },
+    {
+      "id": "scene3_screen12",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "They believed I was unraveling too fast. That my days were numbered. And if I disappeared, well… succession would fall to someone more… pliable. Someone who wouldn’t question their grip on power.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen13",
+      "progress": 117
+    },
+    {
+      "id": "scene3_screen13",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "His voice tightens, but he forces calm.",
+      "next": "scene3_screen14",
+      "progress": 118
+    },
+    {
+      "id": "scene3_screen14",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "But now you’re here. The girl with the thread-born gift. The Moon-marked touch. And they’ve seen it — felt it.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen15",
+      "progress": 119
+    },
+    {
+      "id": "scene3_screen15",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "Your magic doesn’t just glow, Lilia. It binds. You mend what they thought broken.They think you might be able to save me. And that terrifies them.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen16",
+      "progress": 120
+    },
+    {
+      "id": "scene3_screen16",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He pauses. His gaze softens.",
+      "next": "scene3_screen17",
+      "progress": 121
+    },
+    {
+      "id": "scene3_screen17",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "So whatever you do out there… Be magnificent. For both of us.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen18",
+      "progress": 122
+    },
+    {
+      "id": "scene3_screen18",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lilia descends the stairs. Her gown seems to breathe with her. With each step, the hem lifts like a tide pulling forward. Threads in the air drift toward her like pollen to a flame. Whispers rise like steam.",
+      "next": "scene3_screen19",
+      "progress": 123
+    },
+    {
+      "id": "scene3_screen19",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(whispered) </strong>That’s her. The one from the Eastern Loom.</p>",
+      "actor": {
+        "playerId": "npc_fem_lady_syrra"
+      },
+      "next": "scene3_screen20",
+      "progress": 124
+    },
+    {
+      "id": "scene3_screen20",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "They say her threads answer before she speaks.",
+      "actor": {
+        "playerId": "npc_fem_lady_mirea"
+      },
+      "next": "scene3_screen21",
+      "progress": 125
+    },
+    {
+      "id": "scene3_screen21",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "They say her gift isn’t just moon-blessed — it’s the only one that could anchor him.",
+      "actor": {
+        "playerId": "npc_fem_lady_syrra"
+      },
+      "next": "scene3_screen22",
+      "progress": 126
+    },
+    {
+      "id": "scene3_screen22",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "A noblewoman cloaked in black velvet twitches her enchanted scarf. It lashes forward like a whip — a petty test. A cruel little game. But Lilia doesn’t even flinch.",
+      "next": "scene3_screen23",
+      "progress": 127
+    },
+    {
+      "id": "scene3_screen23",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Her gown rises in response. Threads stretch outward like wings — sheer, silver, shimmering.",
+      "next": "scene3_screen24",
+      "progress": 128
+    },
+    {
+      "id": "scene3_screen24",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The scarf hits the barrier midair — and burns to ash. No sound. No effort. Just instant consequence.",
+      "next": "scene3_screen25",
+      "progress": 129
+    },
+    {
+      "id": "scene3_screen25",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Gasps. Then silence. Then — wild applause.",
+      "next": "scene3_screen26",
+      "progress": 130
+    },
+    {
+      "id": "scene3_screen26",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Arthur appears beside her, emerging from the crowd. He offers his hand — this time not to guide, but to stand with her. His coat is still whole. But his fingers shake just slightly.",
+      "next": "scene3_screen27",
+      "progress": 131
+    },
+    {
+      "id": "scene3_screen27",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(low, almost proud) </strong>They’ll never forget that.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen28",
+      "progress": 132
+    },
+    {
+      "id": "scene3_screen28",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(still breathless) </strong>Neither will I.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene3_choice1",
+      "progress": 133
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "block",
+      "image": "scene_03_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal_arthur",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "progress": 134
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "choice",
+      "image": "scene_03_a.webp",
+      "content": "<p>What do you do?</p>",
+      "availableFor": "player_fem_lilia",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "options": [
+        {
+          "id": "scene3_choice1_option1_screen1",
+          "text": "Trust Arthur"
+        },
+        {
+          "id": "scene3_choice1_option2_screen1",
+          "text": "Pull away and act alone"
+        },
+        {
+          "id": "scene3_choice1_option3_screen1",
+          "text": "Use the moment politically"
+        }
+      ],
+      "progress": 134
+    },
+    {
+      "id": "scene3_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lilia places her hand in his. The moment it happens, something shifts in the room. The threads around them slow — as if watching.",
+      "next": "scene3_choice1_option1_screen2",
+      "progress": 135
+    },
+    {
+      "id": "scene3_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "Dance with me. Even if you disappear.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene3_choice1_option1_screen3",
+      "progress": 136
+    },
+    {
+      "id": "scene3_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He doesn't hesitate. He pulls her close, one arm steady at her back, the other guiding her hand upward.",
+      "next": "scene3_choice1_option1_screen4",
+      "progress": 137
+    },
+    {
+      "id": "scene3_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Their bodies align like pieces in a long-lost pattern.",
+      "next": "scene3_choice1_option1_screen5",
+      "progress": 138
+    },
+    {
+      "id": "scene3_choice1_option1_screen5",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The music swells — and everything else fades.",
+      "next": "scene3_choice1_option1_screen6",
+      "progress": 139
+    },
+    {
+      "id": "scene3_choice1_option1_screen6",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "As they move, the magic between them wakes. Her dress pulses. His coat settles.  Where her palm touches his chest, a glowing seam forms — binding magic to his threadbare form. Where their fingers meet, sparks drift down like spun stars.",
+      "next": "scene3_choice1_option1_screen7",
+      "progress": 140
+    },
+    {
+      "id": "scene3_choice1_option1_screen7",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "They twirl once. Twice. And with each step, the ballroom bends toward them — enchanted, enchanted, enchanted. No one dares interrupt. Not even the shadows.",
+      "next": "scene3_choice1_option1_screen8",
+      "progress": 141
+    },
+    {
+      "id": "scene3_choice1_option1_screen8",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He meets her eyes. She holds his gaze. And in that silence between heartbeats, something unspoken hangs — a question, a promise… a plea.",
+      "next": "scene3_choice1_option1_screen9",
+      "progress": 142
+    },
+    {
+      "id": "scene3_choice1_option1_screen9",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>And perhaps… the first note of love.</p>",
+      "next": "scene3_screen29",
+      "progress": 143
+    },
+    {
+      "id": "scene3_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lilia steps back, the magic dimming slightly.",
+      "next": "scene3_choice1_option2_screen2",
+      "progress": 136
+    },
+    {
+      "id": "scene3_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(calm, firm) </strong>I didn’t need saving. Neither do you.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene3_choice1_option2_screen3",
+      "progress": 138
+    },
+    {
+      "id": "scene3_choice1_option2_screen3",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "She turns, walks the length of the ballroom with the gown flowing like a battle banner. Nobles part, speechless. The Council leans forward. She stands alone — and somehow, taller than them all.",
+      "next": "scene3_choice1_option2_screen4",
+      "progress": 140
+    },
+    {
+      "id": "scene3_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(quietly, to himself) </strong>Moon help me. She’s already leading.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen29",
+      "progress": 142
+    },
+    {
+      "id": "scene3_choice1_option3_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lilia keeps her posture regal, but lets her voice ring clear.",
+      "next": "scene3_choice1_option3_screen2",
+      "progress": 135
+    },
+    {
+      "id": "scene3_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "If this Court fears what I am… Perhaps they should ask why the Moon chose me.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene3_choice1_option3_screen3",
+      "progress": 137
+    },
+    {
+      "id": "scene3_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "Not them.Not even you.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene3_choice1_option3_screen4",
+      "progress": 139
+    },
+    {
+      "id": "scene3_choice1_option3_screen4",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "A sharp intake of breath. Movement at the edges of the room. Arthur watches — admiration mingled with uncertainty.",
+      "next": "scene3_choice1_option3_screen5",
+      "progress": 140
+    },
+    {
+      "id": "scene3_choice1_option3_screen5",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>She doesn’t look at him. But he can feel the space growing between them.</p>",
+      "next": "scene3_screen29",
+      "progress": 142
+    },
+    {
+      "id": "scene3_screen29",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The music dims. The magic calms. But somewhere deeper in the castle — in the hidden loom that spins fate — something begins to stir.",
+      "next": "scene3_screen30",
+      "progress": 143,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene3_screen30",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "A test is coming.",
+      "next": "scene3_screen31",
+      "progress": 144
+    },
+    {
+      "id": "scene3_screen31",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Noah appears, cutting through the crowd like a thread through fabric.",
+      "next": "scene3_screen32",
+      "progress": 145
+    },
+    {
+      "id": "scene3_screen32",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(low, smiling) </strong>Well, that was dramatic. You’ve officially terrified half the Council and seduced the other half.</p>",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene3_screen33",
+      "progress": 146
+    },
+    {
+      "id": "scene3_screen33",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He pauses.",
+      "next": "scene3_screen34",
+      "progress": 147
+    },
+    {
+      "id": "scene3_screen34",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(sober) </strong>But hope isn't enough.</p>",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene3_screen35",
+      "progress": 148
+    },
+    {
+      "id": "scene3_screen35",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(sober) </strong>Arthur still unravels. Slowly, yes. But the curse holds. Every day he draws magic from someone — you, maybe, or others.</p>",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene3_screen36",
+      "progress": 149
+    },
+    {
+      "id": "scene3_screen36",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "It keeps him from disappearing. But it doesn’t heal him. It empties everyone else.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene3_screen37",
+      "progress": 150
+    },
+    {
+      "id": "scene3_screen37",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lilia swallows. The shimmer in her dress flutters once — uncertain.",
+      "next": "scene3_screen38",
+      "progress": 151
+    },
+    {
+      "id": "scene3_screen38",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Arthur reappears.",
+      "next": "scene3_screen39",
+      "progress": 152
+    },
+    {
+      "id": "scene3_screen39",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(gently) </strong>You were… astonishing.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen40",
+      "progress": 153
+    },
+    {
+      "id": "scene3_screen40",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "<p>He drops to one knee. Takes her hand. And presses a reverent kiss to her knuckles.</p>",
+      "next": "scene3_screen41",
+      "progress": 154
+    },
+    {
+      "id": "scene3_screen41",
+      "type": "cutscene",
+      "image": "Ñutscene_01.webp",
+      "next": "scene3_screen42",
+      "progress": 155
+    },
+    {
+      "id": "scene3_screen42",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(softly) </strong>Thank you. For giving them hope.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene3_screen43",
+      "progress": 156
+    },
+    {
+      "id": "scene3_screen43",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Then — before she can respond — he rises and turns. Gone again, like a ghost made of velvet.",
+      "next": "scene3_screen44",
+      "progress": 157
+    },
+    {
+      "id": "scene3_screen44",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Gasps ripple. A few noblewomen clutch their hearts. Lilia stands still — cheeks flushed, lips parted. Then she lets out a tiny laugh.",
+      "next": "scene3_screen45",
+      "progress": 158
+    },
+    {
+      "id": "scene3_screen45",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "<p><strong>(muttering) </strong>He really knows how to exit a room.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4",
+      "progress": 159
+    },
+    {
+      "id": "scene4",
+      "type": "scene",
+      "image": "scene_04_a.webp",
+      "title": "Scene 4",
+      "content": "<p>Secret Pattern</p>",
+      "next": "scene4_screen1",
+      "progress": 160
+    },
+    {
+      "id": "scene4_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The thread calls her. Not with words. With tension. With pull. It tugs behind her ribs. Gentle, but insistent — like homesickness for something she never understood. She follows.",
+      "next": "scene4_screen2",
+      "progress": 161
+    },
+    {
+      "id": "scene4_screen2",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Through the east corridor. Past sealed doors and faded murals. Until she reaches a locked door. She touches the thread — and it opens.",
+      "next": "scene4_screen3",
+      "progress": 162
+    },
+    {
+      "id": "scene4_screen3",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "It smells of lavender, ash, and time. Her fingers brush across the table — old sketches, faded blueprints, half-sewn cloths. There — nestled in velvet — a silver needle.",
+      "next": "scene4_screen4",
+      "progress": 163
+    },
+    {
+      "id": "scene4_screen4",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "When she touches it, the world shifts.",
+      "next": "scene4_screen5",
+      "progress": 164
+    },
+    {
+      "id": "scene4_screen5",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "The room glows gold. She sees a woman — proud posture, gentle hands, moonthread braid in her dark hair.",
+      "next": "scene4_screen6",
+      "progress": 165
+    },
+    {
+      "id": "scene4_screen6",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "She’s stitching with purpose, with pain. Each thread a part of her. Across from her — a younger Arthur. Eyes wide, fingers trembling. His body flickers at the edges.",
+      "next": "scene4_screen7",
+      "progress": 166
+    },
+    {
+      "id": "scene4_screen7",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "He doesn’t reach for her. He bows his head. She smiles. And begins to sew — her magic wrapping around his form like a shield.",
+      "next": "scene4_screen8",
+      "progress": 167
+    },
+    {
+      "id": "scene4_screen8",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "And then — she vanishes. Not into darkness, but into thread and light.",
+      "next": "scene4_screen9",
+      "progress": 168
+    },
+    {
+      "id": "scene4_screen9",
+      "type": "dialog",
+      "image": "scene_04_b.webp",
+      "content": "<strong>(breathless) </strong>So that's where mom went..",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen10",
+      "progress": 169
+    },
+    {
+      "id": "scene4_screen10",
+      "type": "narrative",
+      "image": "scene_04_b.webp",
+      "content": "Tears rise unbidden. Her hands shake.",
+      "next": "scene4_screen11",
+      "progress": 170
+    },
+    {
+      "id": "scene4_screen11",
+      "type": "dialog",
+      "image": "scene_04_b.webp",
+      "content": "<p><strong>(whispers) </strong>Father said you were sent to serve the king. But it seems that he didn’t know that this was the Kingdom of Threads. But he never knew it was this.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen12",
+      "progress": 171
+    },
+    {
+      "id": "scene4_screen12",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Inside the loom’s drawer, wrapped in yellowed silk, lies a journal. And beneath it — a folded letter, addressed: To my Lilia, if ever you find this.",
+      "next": "scene4_screen13",
+      "progress": 172
+    },
+    {
+      "id": "scene4_screen13",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(reading) </strong>He was already unraveling when I met him. Not just in body — in spirit. But he was kind. Brave. I saw the boy behind the curse. And I tried to help. I stitched my magic into him. Not out of love… but duty. </p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen14",
+      "progress": 173
+    },
+    {
+      "id": "scene4_screen14",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>Lilia: (reading) </strong>They say only the threads of love can hold him. Real love. Not pity. Not fate. And if that love exists… I pray it is yours.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen15",
+      "progress": 174
+    },
+    {
+      "id": "scene4_screen15",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Behind her — soft footsteps. She doesn’t turn.",
+      "next": "scene4_screen16",
+      "progress": 175
+    },
+    {
+      "id": "scene4_screen16",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(quiet) </strong>You knew.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen17",
+      "progress": 176
+    },
+    {
+      "id": "scene4_screen17",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(gently) </strong>I did.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_screen18",
+      "progress": 177
+    },
+    {
+      "id": "scene4_screen18",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She turns — anger, grief, wonder in her eyes.",
+      "next": "scene4_screen19",
+      "progress": 178
+    },
+    {
+      "id": "scene4_screen19",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Her dress glows — subtly, woven with her own magic. Each seam a shimmer of stardust.",
+      "next": "scene4_screen20",
+      "progress": 179
+    },
+    {
+      "id": "scene4_screen20",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "She was my mother.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen21",
+      "progress": 180
+    },
+    {
+      "id": "scene4_screen21",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "And she was more than that to me. She tried to protect me when no one else dared. She was my anchor. My friend.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_screen22",
+      "progress": 181
+    },
+    {
+      "id": "scene4_screen22",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The loom begins to hum. Arthur’s cloak slips from his shoulder. His skin flickers — not with wounds, but unraveling. Like translucent fabric pulled loose at the edges.",
+      "next": "scene4_screen23",
+      "progress": 182
+    },
+    {
+      "id": "scene4_screen23",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "From his fingertips, glowing threads drift upward — shimmering, weightless.",
+      "next": "scene4_screen24",
+      "progress": 183
+    },
+    {
+      "id": "scene4_screen24",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(quietly) </strong>The Council wanted me gone. They believed I was dying — and saw a chance to seize power. Your mother stopped that, for a time.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_screen25",
+      "progress": 184
+    },
+    {
+      "id": "scene4_screen25",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "And now it’s happening again.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen26",
+      "progress": 185
+    },
+    {
+      "id": "scene4_screen26",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "I didn’t want you to walk her path. Didn’t want you to become the next sacrifice.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_screen27",
+      "progress": 186
+    },
+    {
+      "id": "scene4_screen27",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "But what if I choose to stand here? What if I don’t want to run?",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen28",
+      "progress": 187
+    },
+    {
+      "id": "scene4_screen28",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The air stills. The loom spins gently — ticking like a heart. A glow forms between them — not yet magic, but its invitation.",
+      "next": "scene4_screen29",
+      "progress": 188
+    },
+    {
+      "id": "scene4_screen29",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>The air stills. The loom spins gently — ticking like a heart. A glow forms between them — not yet magic, but its invitation.</p>",
+      "next": "scene4_choice1",
+      "progress": 189
+    },
+    {
+      "id": "scene4_choice1",
+      "type": "block",
+      "image": "scene_04_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_lilia",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "progress": 190
+    },
+    {
+      "id": "scene4_choice1",
+      "type": "choice",
+      "image": "scene_04_a.webp",
+      "content": "<p>What do you do?</p>",
+      "availableFor": "player_mal_arthur",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "options": [
+        {
+          "id": "scene4_choice1_option1_screen1",
+          "text": "Stay and trust her."
+        },
+        {
+          "id": "scene4_choice1_option2_screen1",
+          "text": "Push her away"
+        },
+        {
+          "id": "scene4_screen30",
+          "text": "Ask her to run away"
+        }
+      ],
+      "progress": 190
+    },
+    {
+      "id": "scene4_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Arthur crosses the room. He takes her hand.</p>",
+      "next": "scene4_choice1_option1_screen2",
+      "progress": 192
+    },
+    {
+      "id": "scene4_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "Then I’ll stay. Not as your burden. As your equal.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_choice1_option1_screen3",
+      "progress": 193
+    },
+    {
+      "id": "scene4_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She places his hand on her chest. Her heartbeat threads into his palm. Then — a kiss. Soft. Luminous. A bond forming from threads they both carry.",
+      "next": "scene4_choice1_option1_screen4",
+      "progress": 194
+    },
+    {
+      "id": "scene4_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "From Lilia’s dress, light spills — pouring into Arthur like threads stitching his soul. His hand stabilizes. His body no longer flickers. The unraveling halts. They breathe, connected. Not cursed — chosen.",
+      "next": "scene4_choice1_option1_screen5",
+      "progress": 195
+    },
+    {
+      "id": "scene4_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "We’ll finish what she started. But our way.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_choice1_option1_screen6",
+      "progress": 197
+    },
+    {
+      "id": "scene4_choice1_option1_screen6",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(barely audible) </strong>Together.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_choice1_merge_point",
+      "progress": 198
+    },
+    {
+      "id": "scene4_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Arthur withdraws.</p>",
+      "next": "scene4_choice1_option2_screen2",
+      "progress": 191
+    },
+    {
+      "id": "scene4_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "I can't let you do what she did. I won't let you disappear.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_choice1_option2_screen3",
+      "progress": 192
+    },
+    {
+      "id": "scene4_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "You don’t get to make that call.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_choice1_option2_screen4",
+      "progress": 193
+    },
+    {
+      "id": "scene4_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "Then forgive me for walking away.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_choice1_option2_screen5",
+      "progress": 194
+    },
+    {
+      "id": "scene4_choice1_option2_screen5",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She steps forward. Reaches into her satchel.",
+      "next": "scene4_choice1_option2_screen6",
+      "progress": 195
+    },
+    {
+      "id": "scene4_choice1_option2_screen6",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "She left this for you. A binding token. I’ve finished the spell with my own hands.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_choice1_option2_screen7",
+      "progress": 196
+    },
+    {
+      "id": "scene4_choice1_option2_screen7",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She gives him a handkerchief — delicate, embroidered in gold. He presses it to his chest. The threads hold. His skin no longer drifts apart.",
+      "next": "scene4_choice1_option2_screen8",
+      "progress": 197
+    },
+    {
+      "id": "scene4_choice1_option2_screen8",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(whispers) </strong>Thank you. Even if I’m not brave enough to stay.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_choice1_merge_point",
+      "progress": 198
+    },
+    {
+      "id": "scene4_screen30",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Arthur leans against the loom, the shimmer of threadlight dimming around his hands. His shoulders sag — not from pain, but from the weight of a decision long postponed.</p>",
+      "next": "scene4_screen31",
+      "progress": 199,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene4_screen31",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(quietly) </strong>What if we just… left? No courts, no titles. Just air and space and you.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_screen32",
+      "progress": 200
+    },
+    {
+      "id": "scene4_screen32",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lilia looks at him — really looks. Her lips part to argue, but something stops her. He’s not trying to escape the kingdom. He’s trying to escape being the reason she suffers.",
+      "next": "scene4_screen33",
+      "progress": 201
+    },
+    {
+      "id": "scene4_screen33",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "The curse wouldn’t care about doors. Or borders. But maybe it would care… about connection.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen34",
+      "progress": 202
+    },
+    {
+      "id": "scene4_screen34",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She steps into the shadows and opens a carved chest. Inside — a finished square of enchanted cloth, stitched with care and trembling hope.",
+      "next": "scene4_screen35",
+      "progress": 203
+    },
+    {
+      "id": "scene4_screen35",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "She started this for you — my mother. But I finished it. A protection charm. For hearts too fragile to stay stitched alone.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene4_screen36",
+      "progress": 204
+    },
+    {
+      "id": "scene4_screen36",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She ties the charm gently around his wrist. Her touch is steady, but her eyes are full of what she doesn’t say aloud.",
+      "next": "scene4_screen37",
+      "progress": 205
+    },
+    {
+      "id": "scene4_screen37",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "You felt it. You knew I wanted to run because I thought I’d lose you. But you stayed… and somehow, that’s enough.",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_screen38",
+      "progress": 206
+    },
+    {
+      "id": "scene4_screen38",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "He takes a breath — a full one, free of the unraveling tremor. Then he straightens.",
+      "next": "scene4_ch1_o3_last",
+      "progress": 207
+    },
+    {
+      "id": "scene4_ch1_o3_last",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "<p><strong>(softly, with a smile) </strong>Then let’s not run away. Let’s run forward — together.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene4_choice1_merge_point",
+      "progress": 208
+    },
+    {
+      "id": "scene4_choice1_merge_point",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>The loom begins to spin faster — no longer clinging to the past. Threads shimmer in the air, waiting for new design. Arthur is whole again.</p>",
+      "next": "scene4_screen41",
+      "progress": 209
+    },
+    {
+      "id": "scene4_screen41",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "And Lilia — no longer drained. Her magic returns, stronger, richer. Not unraveling. But weaving.",
+      "next": "scene4_screen42",
+      "progress": 210
+    },
+    {
+      "id": "scene4_screen42",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "<p>Together.</p>",
+      "next": "scene5",
+      "progress": 211
+    },
+    {
+      "id": "scene5",
+      "type": "scene",
+      "image": "scene_05_a.webp",
+      "title": "Scene 5",
+      "content": "<p>Moonwoven Fate</p>",
+      "next": "scene5_screen1",
+      "progress": 212
+    },
+    {
+      "id": "scene5_screen1",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The chamber holds its breath.  Around — Council members in robes like woven constellations. Lilia enters, dressed not as a girl who wandered into fate — but as a woman who has chosen hers.",
+      "next": "scene5_screen2",
+      "progress": 213
+    },
+    {
+      "id": "scene5_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Arthur stands near the altar of threads, fully whole now. No longer fading, no longer unraveling — alive, because of what they did together.",
+      "next": "scene5_screen3",
+      "progress": 214
+    },
+    {
+      "id": "scene5_screen3",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Noah steps forward, his voice calm, official — echoing through the sacred chamber like a bell at dawn.",
+      "next": "scene5_screen4",
+      "progress": 215
+    },
+    {
+      "id": "scene5_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "His Highness has informed the Council that he wishes to seal this bond — not to preserve his form, but to honor the one who made it possible. A Moonwoven Binding will serve as testament — not of need, but of will. It is not a rescue. It is a promise.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene5_screen5",
+      "progress": 216
+    },
+    {
+      "id": "scene5_screen5",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "This ritual is ancient. Rare. Once woven, it binds two threads with mutual consent. A shared fate. A shared legacy.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene5_screen6",
+      "progress": 217
+    },
+    {
+      "id": "scene5_screen6",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(pauses, then continues) </strong>The old world is fading. Prince Arthur — son of a father who died far from the Moon Kingdom… Lilia — daughter of a man who passed from the world of the living…Now stand before us, not as orphans of broken realms, but as heirs to something new.</p>",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene5_screen7",
+      "progress": 218
+    },
+    {
+      "id": "scene5_screen7",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "A prince, abandoned by his mother at birth, yet shielded by the hands of Lilia’s. And Lilia — who saved our realm from unraveling alongside him. The loom awaits, Lilia. It is your hand that must weave this future.",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene5_screen8",
+      "progress": 219
+    },
+    {
+      "id": "scene5_screen8",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Lilia steps forward. The loom hums, recognizing her not as heir or servant, but as its equal.",
+      "next": "scene5_screen9",
+      "progress": 220
+    },
+    {
+      "id": "scene5_screen9",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(gently) </strong>You’ve already done more than anyone ever asked.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene5_screen10",
+      "progress": 221
+    },
+    {
+      "id": "scene5_screen10",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(softly) </strong>Then let this one be something I want.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene5_screen11",
+      "progress": 222
+    },
+    {
+      "id": "scene5_screen11",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "<p>She touches the loom. Threads rise like breath. Silver and white... and a single red strand from her dress. They pulse — not with desperation, but devotion.</p>",
+      "next": "scene5_choice1",
+      "progress": 223
+    },
+    {
+      "id": "scene5_choice1",
+      "type": "block",
+      "image": "scene_05_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal_arthur",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "progress": 224
+    },
+    {
+      "id": "scene5_choice1",
+      "type": "choice",
+      "image": "scene_05_a.webp",
+      "content": "<p>What do you weave?</p>",
+      "availableFor": "player_fem_lilia",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "options": [
+        {
+          "id": "scene5_choice1_option1_screen1",
+          "text": "The Bond of the Moon - Connection with Arthur and the Kingdom of Threads",
+          "price": {
+            "type": "credits",
+            "value": 1000
+          }
+        },
+        {
+          "id": "scene5_choice1_option2_screen1",
+          "text": "The Thread of Understanding - Accept Arthur, but without obligation"
+        },
+        {
+          "id": "scene5_choice1_option3_screen1",
+          "text": "The Sacrifice Stitch - Give yourself to the kingdom!"
+        }
+      ],
+      "progress": 224
+    },
+    {
+      "id": "scene5_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "She weaves slowly — reverently. Two figures under a moon. A spiral of thread that curves, loops, and joins. Not a chain — but a constellation. Each star, a vow.",
+      "next": "scene5_choice1_option1_screen2",
+      "progress": 225
+    },
+    {
+      "id": "scene5_choice1_option1_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "As the last stitch tightens, a glow bursts from the center — not blinding, but soft, encompassing.",
+      "next": "scene5_choice1_option1_screen3",
+      "progress": 226
+    },
+    {
+      "id": "scene5_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Arthur steps closer. The light reflects in his eyes.",
+      "next": "scene5_choice1_option1_screen4",
+      "progress": 227
+    },
+    {
+      "id": "scene5_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(quietly, in awe) </strong>You didn’t just bind us. You... believed in us.</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene5_choice1_option1_screen5",
+      "progress": 228
+    },
+    {
+      "id": "scene5_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(smiling) </strong>And you chose to stand by me — not as someone who needed saving. But as someone worth walking beside.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene5_choice1_option1_screen6",
+      "progress": 229
+    },
+    {
+      "id": "scene5_choice1_option1_screen6",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "They take each other’s hands. The court rises. The threads above knot into the shape of a crescent — glowing, eternal.",
+      "next": "scene5_choice1_option1_screen7",
+      "progress": 230
+    },
+    {
+      "id": "scene5_choice1_option1_screen7",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "<p>A prince and a weaver. Not pulled together by fate — but joined by choice.</p>",
+      "next": "scene5_screen12",
+      "progress": 231
+    },
+    {
+      "id": "scene5_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Lilia weaves something softer — deliberate, elegant. A mirrored pattern, stitched with care. It holds no magic of binding, no promises. Only recognition. Mutual respect.",
+      "next": "scene5_choice1_option2_screen2",
+      "progress": 226
+    },
+    {
+      "id": "scene5_choice1_option2_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The Council accepts it. A thread glows faintly between them — not a tether, but a gesture. A mark of choice, not of fate.",
+      "next": "scene5_choice1_option2_screen3",
+      "progress": 227
+    },
+    {
+      "id": "scene5_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(quietly) </strong>This... isn’t a bond, is it?</p>",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene5_choice1_option2_screen4",
+      "progress": 228
+    },
+    {
+      "id": "scene5_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "No. It’s a thread of understanding. You walk your path. I’ll walk mine. But if our threads cross again — let it be by choice, not duty.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene5_choice1_option2_screen5",
+      "progress": 230
+    },
+    {
+      "id": "scene5_choice1_option2_screen5",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "<p>Arthur bows his head, not in sorrow, but in thanks. A quiet connection remains — not to bind, but to honor what they shared.</p>",
+      "next": "scene5_screen12",
+      "progress": 231
+    },
+    {
+      "id": "scene5_choice1_option3_screen1",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Instead of weaving a union — Lilia binds herself to the loom, one final time. A gift not of love, but of release. Her magic is poured into the fabric of the Court, ensuring peace — not connection.",
+      "next": "scene5_choice1_option3_screen2",
+      "progress": 225
+    },
+    {
+      "id": "scene5_choice1_option3_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Arthur senses it immediately. His magic is untouched, but hers… is gone.",
+      "next": "scene5_choice1_option3_screen3",
+      "progress": 226
+    },
+    {
+      "id": "scene5_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "Why?",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene5_choice1_option3_screen4",
+      "progress": 227
+    },
+    {
+      "id": "scene5_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(quietly) </strong>Because what you needed wasn’t a tether — it was a world that no longer asked you to disappear.</p>",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene5_choice1_option3_screen5",
+      "progress": 228
+    },
+    {
+      "id": "scene5_choice1_option3_screen5",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "And what about you?",
+      "actor": {
+        "playerId": "player_mal_arthur"
+      },
+      "next": "scene5_choice1_option3_screen6",
+      "progress": 229
+    },
+    {
+      "id": "scene5_choice1_option3_screen6",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "I’ll find myself again. Maybe not with thread. But with time.",
+      "actor": {
+        "playerId": "player_fem_lilia"
+      },
+      "next": "scene5_choice1_option3_screen7",
+      "progress": 230
+    },
+    {
+      "id": "scene5_choice1_option3_screen7",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "He wraps his arms around her. No glow. No bond. Just warmth. And in that, a new kind of magic.",
+      "next": "scene5_screen12",
+      "progress": 231
+    },
+    {
+      "id": "scene5_screen12",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "<p><strong>(solemnly, with a bow) </strong>By completing the binding, you are no longer merely a weaver — you are the Heiress of Threads. This realm now knows your name, and its fate is tied to yours.</p>",
+      "actor": {
+        "playerId": "npc_mal_noah"
+      },
+      "next": "scene5_screen13",
+      "progress": 232,
+      "isMergePoint": true
+    },
+    {
+      "id": "scene5_screen13",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "And so, the ritual was complete. Not to save — but to choose. The threads no longer held them hostage. They bound them, gently, willingly.",
+      "next": "scene5_screen14",
+      "progress": 233
+    },
+    {
+      "id": "scene5_screen14",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "A connection — not forged by fate, but woven by choice — now shimmers in the fabric of their shared future.",
+      "next": "scene5_screen15",
+      "progress": 234
+    },
+    {
+      "id": "scene5_screen15",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Lilia and Arthur are no longer characters in someone else’s tale. They’ve spun their own —  where each of them is not just a role or a title, but an essential pattern in the same tapestry.",
+      "next": "scene5_screen16",
+      "progress": 235
+    },
+    {
+      "id": "scene5_screen16",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "<p>The path ahead may twist. But it will be theirs — together.</p>",
+      "next": "scene5_screen17",
+      "progress": 236
+    },
+    {
+      "id": "scene5_screen17",
+      "type": "final",
+      "image": "scene_05_a.webp",
+      "content": "<p>And now — it’s your turn.  What do you think of Lilia and Arthur’s fate? Join the chat to share your thoughts. This story lives on — in your voice!</p>",
+      "progress": 237
+    }
+  ]
+}

@@ -1,0 +1,3140 @@
+{
+  "id": "crimson_masquerade",
+  "price": {
+    "type": "credits",
+    "value": 2000
+  },
+  "title": "Crimson Masquerade",
+  "animatedCover": "videocover.webm",
+  "intro": {
+    "mal": {
+      "content": "a nonwritten intro",
+      "image": "cover.webp"
+    },
+    "fem": {
+      "content": "a nonwritten intro",
+      "image": "cover.webp"
+    }
+  },
+  "genres": [
+    "thriller"
+  ],
+  "labels": [
+    "promo"
+  ],
+  "createdDate": "2025-06-23",
+  "status": "draft",
+  "createdAt": "2025-06-23T12:00:00Z",
+  "updatedAt": "2025-06-23T12:00:00Z",
+  "ownerId": 1,
+  "characters": [
+    {
+      "id": "player_fem_sera",
+      "name": "Sera",
+      "type": "player",
+      "gender": "fem",
+      "image": "character_01_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "player_mal__dorian",
+      "name": "Dorian",
+      "type": "player",
+      "gender": "mal",
+      "image": "character_02_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_lucien",
+      "name": "Lucien",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_03_base.webp",
+      "notes": ""
+    },
+    {
+      "id": "npc_mal_stranger",
+      "name": "Stranger",
+      "type": "npc",
+      "gender": "mal",
+      "image": "character_04_base.webp",
+      "notes": ""
+    }
+  ],
+  "maxBranchLength": 15,
+  "firstScreenId": "scene1",
+  "screens": [
+    {
+      "id": "scene1",
+      "type": "scene",
+      "image": "scene_01_a.webp",
+      "title": "Scene 1",
+      "content": "Night Shift Tension",
+      "next": "scene1_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen1",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The ballroom glows with old money and older secrets. Music spills like warm wine from the strings of a live quartet, curling through candlelit air heavy with perfume and danger. Every guest wears a mask. Some wear more than one.",
+      "next": "scene1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Most guests wear their masks like second skin. A few — the old bloods, the watchers — hold theirs in hand, as if the pretense no longer serves them.",
+      "next": "scene1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen3",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Sera Vale steps onto the marble floor, heart ticking louder than the violins. ",
+      "next": "scene1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen4",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(to herself)\nThis was a mistake.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen5",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Her emerald gown clings like a secret she forgot to keep. Her invitation said midnight. It didn’t mention how every pair of eyes would tilt her way — curious, amused, hungry.",
+      "next": "scene1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She told herself she came out of curiosity. But that wasn’t the truth. The moment she held the card, something shifted — a tug in her chest, quiet and certain, like she was being pulled somewhere she’d already been.",
+      "next": "scene1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen7",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Not remembered. Not explained. Just… known.",
+      "next": "scene1_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen8",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "But the card had felt so… deliberate. Gilded edges, a wax seal pressed with something floral and old. No name. No sender. Only a line that still lingers in her mind: ”Come see what you’ve forgotten.”",
+      "next": "scene1_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen9",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Across the ballroom, Dorian Kael watches. His posture is practiced — hands behind his back, face unreadable.",
+      "next": "scene1_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen10",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "…",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene1_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen11",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The moment she entered, he went still. He’s seen death in velvet before. But she’s not that. She’s something else.",
+      "next": "scene1_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen12",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(to himself)\nHuman. And completely unaware. Someone is playing a game.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene1_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen13",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He shouldn’t intervene. Not yet. But he can feel the distance between them like a thread winding tighter with every second. She doesn’t know the rules. And she doesn’t know who’s watching.",
+      "next": "scene1_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen14",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The masked crowd shifts like a tide. And from its center emerges a man as smooth as the violin’s final note — Lucien Thorne. Tall, in a tailored brocade coat the color of dried blood, a silver-threaded mask resting elegantly across sharp cheekbones.",
+      "next": "scene1_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen15",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Miss Sera Vale. You came. The night just got far more interesting.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen16",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He extends a hand — gloved in black, ringed in silver. The music seems to soften. Or maybe the hush is in her ears alone.",
+      "next": "scene1_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen17",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Dorian’s shoulders stiffen across the room. He can’t hear the words, but he sees the gesture. The invitation. The pull.",
+      "next": "scene1_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen18",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(low, to Sera)\nWill you join me? I’ve been waiting.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen19",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The air between them thick with something older than charm. But Sera’s gaze flickers — drawn by the unmistakable sense of being watched.",
+      "next": "scene1_screen20",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen20",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Across the ballroom, beyond the candlelight and silk and ceremony, Dorian takes a single step forward. His eyes lock with hers. Urgent. Intent. Warning.",
+      "next": "scene1_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen21",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Every instinct tells her to run. But something in his voice — in his eyes — tells her something else entirely: she is already part of this, and there is no safe way out.",
+      "next": "scene1_screen22",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen22",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Two men. One masked in velvet. The other in control. And every choice she makes tonight will echo longer than she knows.",
+      "next": "scene1_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "block",
+      "image": "scene_01_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal__dorian",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1",
+      "type": "choice",
+      "image": "scene_01_a.webp",
+      "content": "How do you respond to Lucien’s invitation — and Dorian’s stare?",
+      "availableFor": "player_fem_sera",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "options": [
+        {
+          "id": "scene1_choice1_option1_screen1",
+          "text": "Accept Lucien’s hand"
+        },
+        {
+          "id": "scene1_choice1_option2_screen1",
+          "text": "Walk straight toward Dorian"
+        },
+        {
+          "id": "scene1_choice1_option3_screen1",
+          "text": "Politely excuse yourself"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen1",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(quietly)\nAll right. Just for one dance.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She slips her hand into his. It fits too easily, like this moment was rehearsed long before she arrived.",
+      "next": "scene1_choice1_option1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lucien smiles — not in victory, but in inevitability — and leads her onto the floor. The music swells. Around them, masked figures sway, shimmer, and turn… yet none drift too close.",
+      "next": "scene1_choice1_option1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "His hand finds the small of her back. The other cradles hers with practiced ease. He moves like someone who’s danced this waltz a hundred times, in a hundred centuries.",
+      "next": "scene1_choice1_option1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(low)\nYou move well. Even without remembering the steps.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_choice1_option1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen6",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(trying to steady her breath)\nYou talk like I’m supposed to know you.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen7",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Not me. Just the rhythm.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_choice1_option1_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen8",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She wants to ask more. But the room has shifted. The chandeliers seem dimmer. The other dancers blur — masks without faces, figures without voices. Only Lucien remains in full color.",
+      "next": "scene1_choice1_option1_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen9",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "After a final turn, he draws her just beyond the edge of the floor. Toward a veiled arch, half-hidden in shadow. She doesn’t remember walking. Just the feel of his fingers still resting against hers.",
+      "next": "scene1_choice1_option1_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen10",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Come. The real questions are answered away from music.",
+      "next": "scene1_choice1_option1_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen11",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "They pass through crimson curtains into a smaller, firelit salon. Gold-framed mirrors line the walls. The air smells of cedar and cloves.",
+      "next": "scene1_choice1_option1_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen12",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "Why me? Why this invitation?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option1_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen13",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "(watching her carefully)\nBecause something in you has been waking. And the ballroom was never going to hold it.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_choice1_option1_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen14",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "Her reflection in the mirror flickers — her posture not quite her own. Her eyes too ancient. She blinks, and it’s gone.",
+      "next": "scene1_choice1_option1_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen15",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "And then — A scream. High. Human. From the ballroom.",
+      "next": "scene1_choice1_option1_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen16",
+      "type": "narrative",
+      "image": "scene_01_b.webp",
+      "content": "Lucien doesn’t turn. He only watches her.",
+      "next": "scene1_choice1_option1_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option1_screen17",
+      "type": "dialog",
+      "image": "scene_01_b.webp",
+      "content": "(softly)\nRight on time.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen1",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(quietly, more to herself than to Lucien)\nI think someone else has been waiting longer.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She steps back from Lucien’s extended hand. His smile doesn’t falter, but something behind his eyes hardens. The crowd parts once more — this time not for Lucien, but for her.",
+      "next": "scene1_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen3",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Sera crosses the ballroom with slow precision, the hem of her gown whispering over marble. She doesn’t look back. She doesn’t need to. She can feel Lucien’s eyes on her spine.",
+      "next": "scene1_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She stops in front of Dorian. He’s taller than she expected, broad-shouldered, still — like a statue waiting to move.",
+      "next": "scene1_choice1_option2_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen5",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(softly)\nYou’ve been watching me since I walked in. Why?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Dorian’s jaw tightens. Up close, his eyes are darker than the night. Measured. Sharp. But when she speaks, something flickers behind them — a note of concern not easily faked.",
+      "next": "scene1_choice1_option2_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen7",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(low)\nBecause you don’t belong here. And neither does whatever brought you.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene1_choice1_option2_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen8",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Her breath catches — not from fear, but recognition. Not of him, but of the feeling: that someone has just named the thing she couldn’t say out loud.",
+      "next": "scene1_choice1_option2_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen9",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "Then why are you here?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option2_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen10",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(after a beat)\nBecause I was sent to stop what’s coming. And I didn’t think it would look like you.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene1_choice1_option2_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen11",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "His hand hovers near his coat — not a threat, but a reflex. He’s guarding her already. And it’s clear he doesn’t know why.",
+      "next": "scene1_choice1_option2_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen12",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Behind them, the ballroom hums. Lucien hasn’t moved. But the tension has — warped the music, frayed the air. Something is building.",
+      "next": "scene1_choice1_option2_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen13",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(lower now, urgent)\nDon’t drink anything here. Don’t go anywhere alone. If you trust no one else tonight… trust me.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene1_choice1_option2_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option2_screen14",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She wants to ask more. But then — a scream slices through the music like a knife through silk. Guests turn. Masks snap toward the sound. A glass shatters somewhere out of sight.",
+      "next": "scene1_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen1",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(evenly)\nForgive me. I need a moment before I commit to anything.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen2",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Lucien’s smile doesn’t falter. If anything, it deepens — as if her deflection is exactly what he hoped for.",
+      "next": "scene1_choice1_option3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(silken)\nOf course. The night is young. We all find our way eventually.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_choice1_option3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen4",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "She gives a slight nod and turns, careful not to show how fast her pulse is beating. Every step away from him feels like stepping off a ledge.",
+      "next": "scene1_choice1_option3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen5",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(to herself)\nJust breathe. Keep moving. Don’t look back.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option3_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen6",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The crowd shifts around her — masks nod politely, bodies glide past in rhythm with the music. No one stops her, but she can feel them watching.",
+      "next": "scene1_choice1_option3_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen7",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "At the far edge of the ballroom, she spots it: a velvet curtain, half-drawn, barely hiding a doorway. A bored-looking guest sips from a crystal goblet nearby, too distracted to notice her slip behind it.",
+      "next": "scene1_choice1_option3_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen8",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "Cool air greets her like a second wind. The hallway beyond is quiet and long, the sconces flickering as if struggling to stay awake. It smells of candle wax and something faintly metallic.",
+      "next": "scene1_choice1_option3_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen9",
+      "type": "dialog",
+      "image": "scene_01_c.webp",
+      "content": "Better. Quieter. Maybe I can think for five seconds now.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option3_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen10",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "She walks slowly, heels echoing on black-and-white marble tiles. The walls are lined with oil portraits — nobles, warriors, women with eyes too alive for canvas.",
+      "next": "scene1_choice1_option3_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen11",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "One stops her cold.",
+      "next": "scene1_choice1_option3_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen12",
+      "type": "dialog",
+      "image": "scene_01_c.webp",
+      "content": "What the hell…",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option3_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen13",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "A woman in a green gown. Auburn hair. Pale, elegant features. A ring at her throat that looks exactly like the one Sera found in her grandmother’s drawer years ago. Lady Vale, the plaque reads.",
+      "next": "scene1_choice1_option3_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen14",
+      "type": "dialog",
+      "image": "scene_01_c.webp",
+      "content": "(shaken)\nThat’s my last name. That’s… not a coincidence.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option3_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen15",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "She takes a step back — and nearly bumps into someone rounding the corner.",
+      "next": "scene1_choice1_option3_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen16",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "He’s masked. His smile is too wide. His voice is wrong — too smooth, like a blade hidden in silk.",
+      "next": "scene1_choice1_option3_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen17",
+      "type": "dialog",
+      "image": "scene_01_c.webp",
+      "content": "(tense)\nI’m just looking for some air. I didn’t mean to—",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene1_choice1_option3_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen18",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "But the words die in her throat. A scream rips through the quiet — raw and unmistakably human. Somewhere behind them.",
+      "next": "scene1_choice1_option3_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene1_choice1_option3_screen19",
+      "type": "narrative",
+      "image": "scene_01_c.webp",
+      "content": "The man stiffens. His head tilts, animal-sharp. Then, without a word, he vanishes into the dark like smoke.",
+      "next": "scene1_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen23",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "The music has stopped. Cut clean like a wire pulled too hard. The ballroom is hushed now, but not still. Guests whisper behind gloved hands. Some press closer to the center of the ballroom. Others inch quietly toward the exits.",
+      "next": "scene1_screen24",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen24",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "And there, at the edge of the marble floor — a body. Crumpled. Mask shattered. A smear of blood glinting under the chandeliers like spilled wine.",
+      "next": "scene1_screen25",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen25",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(calmly)\nPlease remain where you are. The matter is… being handled.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_screen26",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen26",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "He moves with eerie grace, kneeling beside the fallen guest without so much as wrinkling his coat. A silver ring touches the victim’s neck. His expression doesn’t change.",
+      "next": "scene1_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen27",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Dorian reaches Sera’s side in three long strides, voice low and hard. His hand rests on the small of her back — protective, not possessive.",
+      "next": "scene1_screen28",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen28",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "(to Sera)\nThat wasn’t random. You need to stay close to me now. No questions.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene1_screen29",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen29",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Sera’s throat is dry. Her eyes lock on the blood, then on Lucien, who’s standing again. His gaze lifts — to her. As if nothing else in the room matters.",
+      "next": "scene1_screen30",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen30",
+      "type": "dialog",
+      "image": "scene_01_a.webp",
+      "content": "A tragedy. But no need to disrupt the celebration. No one will leave until we understand what happened.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene1_screen31",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen31",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Gasps ripple through the crowd. Murmurs swell. The exits darken as two masked guards quietly pull the doors closed. A lockdown. ",
+      "next": "scene1_screen32",
+      "progress": 0
+    },
+    {
+      "id": "scene1_screen32",
+      "type": "narrative",
+      "image": "scene_01_a.webp",
+      "content": "Gasps ripple through the crowd. Murmurs swell. The exits darken as two masked guards quietly pull the doors closed. A lockdown. ",
+      "next": "scene2",
+      "progress": 0
+    },
+    {
+      "id": "scene2",
+      "type": "scene",
+      "image": "scene_02_a.webp",
+      "title": "Scene 2",
+      "content": "Whispers in the Dark",
+      "next": "scene2_screen1",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen1",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "The body is gone. The blood cleaned. The music has resumed — slower now, like a lullaby trying too hard to forget what it just witnessed. But no one has left…",
+      "next": "scene2_screen2",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen2",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "Sera walks beside Dorian down a narrow corridor branching from the ballroom. The candlelight here burns lower, and the shadows stretch longer between the doors. It feels like the part of the estate that was never meant to entertain.",
+      "next": "scene2_screen3",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen3",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "(quietly)\nThey just… erased it. Like it didn’t happen.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen4",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen4",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "That’s the point. You can’t start a panic — not at a party like this. And not when the wrong people are still watching.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen5",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen5",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "She glances over her shoulder. No one follows, but the feeling hasn’t left. That cold press between her shoulder blades. That sense of being catalogued.",
+      "next": "scene2_screen6",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen6",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "Was it Lucien?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen7",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen7",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "(flat)\nIf it was, he wouldn’t have made it so public.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen8",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen8",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "They stop outside a tall wooden door. A crest is carved into the wood — unfamiliar, but almost familiar. Dorian checks the handle. Unlocked.",
+      "next": "scene2_screen9",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen9",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "(half-laughing, a little breathless)\nWe’re walking through secret doors and talking about monsters, and I don’t even know your name.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen10",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen10",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "(after a beat)\nDorian. And you’re Sera Vale.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen11",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen11",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "(surprised)\nYou already knew that?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen12",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen12",
+      "type": "dialog",
+      "image": "scene_02_a.webp",
+      "content": "(low)\nI knew the name on the invitation that wasn’t supposed to exist.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen13",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen13",
+      "type": "narrative",
+      "image": "scene_02_a.webp",
+      "content": "He pushes the door open and gestures for her to step inside.",
+      "next": "scene2_screen14",
+      "notes": "WRONG BG!!!",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen14",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The room is warmer than the corridor, but it doesn’t feel safer.",
+      "next": "scene2_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen15",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Do you always know where the secret rooms are?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen16",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(dry)\nI’m paid to find places like this. And to survive what happens inside them.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen17",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "He closes the door behind them. The hush settles thick between their words. This close, she can see the tension in his shoulders — restrained, coiled. Not aimed at her… but not relaxed either.",
+      "next": "scene2_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen18",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "So who are you really, Dorian?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen19",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "He meets her eyes. The firelight flickers across the curve of his mask, but it doesn’t soften his voice.",
+      "next": "scene2_screen20",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen20",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Lucien Thorne is a vampire. Not the charming kind from books. The kind that’s ruled this city’s underworld for over a century. He doesn’t throw parties — he selects prey.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen21",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The words hit harder than she expects. Real, heavy, impossible. But not unbelievable.",
+      "next": "scene2_screen22",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen22",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(barely audible)\nAre you one too?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen23",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Dorian blinks — just once. He almost laughs. Almost.",
+      "next": "scene2_screen24",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen24",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(dry)\nNo. I hunt them. That’s why I’m here. ",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen25",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen25",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Her breath hitches. She takes a half-step back, processing.",
+      "next": "scene2_screen26",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen26",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Then why were you watching me like you knew something? Like you’d seen me before?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen27",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(quiet)\nBecause I don’t know what you are. And neither does he. Which makes you dangerous — to both of us.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_screen28",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen28",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "He shouldn’t care. He never lets himself care. But something about the way she looks at him — confused, defiant, still standing — makes it harder to draw the line.",
+      "next": "scene2_screen29",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen29",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "She turns toward the fire. Its warmth feels artificial now. Like a trick — just another part of the illusion.",
+      "next": "scene2_screen30",
+      "progress": 0
+    },
+    {
+      "id": "scene2_screen30",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Then why this masquerade?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "block",
+      "image": "scene_02_b.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_sera",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1",
+      "type": "choice",
+      "image": "scene_02_b.webp",
+      "content": "What are you ready to reveal?",
+      "availableFor": "player_mal__dorian",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "options": [
+        {
+          "id": "scene2_choice1_option1_screen1",
+          "text": "Tell her about the past incident"
+        },
+        {
+          "id": "scene2_choice1_option2_screen1",
+          "text": "Tell her that masquerade is a trap"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Dorian leans back slightly, studying her. As if deciding whether she can handle what he’s kept buried.",
+      "next": "scene2_choice1_option1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(quietly)\nThree years ago, a vampire nest surfaced in Bucharest. I was sent to dismantle it. Burn it out. We thought we’d contained it.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "He steps closer to the fire. His silhouette is sharp against the flames, like a statue starting to crack.",
+      "next": "scene2_choice1_option1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen4",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "But there was one we didn’t know about. She walked into it by accident — a civilian. She wasn’t supposed to be there.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen5",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "His voice tightens. Not from control. From memory.",
+      "next": "scene2_choice1_option1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen6",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "She didn’t make it out. Not fully.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen7",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(gently)\nSomeone you knew?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option1_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen8",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(a beat)\nSomeone I loved.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen9",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The words land heavy in the room. No performance. No bitterness. Just truth.",
+      "next": "scene2_choice1_option1_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen10",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I hesitated. Thought I could save her and finish the job. I lost both. I swore if I ever saw that pattern again — the same ritual, the same monster behind it — I’d stop it before it began.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen11",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The words land heavy in the room. No performance. No bitterness. Just truth. He looks at her now like he’s afraid he’s already too late.",
+      "next": "scene2_choice1_option1_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen12",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "And then I saw you walk into Lucien’s court like it was nothing.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen13",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(softly)\nYou think Lucien’s planning something?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option1_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen14",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Lucien is repeating the cycle. Same setting, same symbols. This time, I’m not hesitating. If killing him is what it takes to stop the ritual and keep you alive — I’ll do it.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen15",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "His eyes meet hers. Steady. No seduction. Just clarity.",
+      "next": "scene2_choice1_option1_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen16",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Whatever you are… You’re not what you think. And I’m not leaving without you.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option1_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option1_screen17",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The silence that follows isn’t empty. It’s full — of tension, of questions, of something she hasn’t yet named. But finally, she doesn’t feel alone anymore.",
+      "next": "scene2_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Dorian doesn’t answer right away. He turns toward the fire, jaw clenched, calculating.",
+      "next": "scene2_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(controlled)\nBecause Lucien doesn’t kill without purpose. And he doesn’t gather this many powerful creatures in one place unless he’s testing something.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Testing what?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "You.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen5",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "She stares at him, uncertain whether to be angry or terrified.",
+      "next": "scene2_choice1_option2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen6",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "I’m not… anything. I’m not even supposed to be here.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen7",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Exactly. Which makes you the most important variable in the room. Everyone else came with masks. Power. Bloodlines. You walked in with nothing but your name. And he let you stay.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen8",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "He begins pacing — not nervously, but like someone building a theory out loud.",
+      "next": "scene2_choice1_option2_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen9",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Masquerades are distractions. Ritual dressed as decadence. What you saw back there — the body, the lockdown — it wasn’t a mistake. It was staged.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen10",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Three years ago, another masquerade. Different city. Same symbols. Same structure. A girl walked into it unaware — like you. And didn’t walk out.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen11",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Lucien?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen12",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(nods)\nHe was behind it then, too. I tried to stop it. I was too late. I won’t make that mistake again.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen13",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "So what’s he trying to see in me now?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen14",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "How you react. How others react to you.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen15",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "A long pause. Then, quieter...",
+      "next": "scene2_choice1_option2_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen16",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "Or maybe… whether you’ll awaken.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen17",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(startled)\nWhat?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen18",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(level)\nI’ve seen something like this before. Not often. When old blood wakes up in someone new — people like Lucien notice. And they circle.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen19",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The pendant on the desk glints in the firelight. The symbol almost pulses.",
+      "next": "scene2_choice1_option2_screen20",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen20",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Dorian’s gaze flicks to the pendant. For the first time, something unreadable crosses his face — not fear, exactly, but recognition.",
+      "next": "scene2_choice1_option2_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen21",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(more quietly)\nThat mark… I’ve seen it before. Once. Years ago. It belonged to a line that was supposed to be extinct.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen22",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen22",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "My grandmother gave it to me. She said it was… old.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen23",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "It’s more than old. It’s a blood key. A tether. If Lucien invited you — it’s because of that symbol.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen24",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen24",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(firm)\nThis isn’t a party. It’s a ritual in disguise. And you’re at the center of it.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen25",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen25",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(quietly)\nWhat happens now?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene2_choice1_option2_screen26",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen26",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(flat)\nNow, Lucien will tighten the net. He’ll pretend nothing’s wrong — until he’s sure what you are. And when he is… he won’t let you leave.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene2_choice1_option2_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen27",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The fire dims, shadows stretching like claws across the walls. The pendant still glows faintly beside them, as if listening. A gust rattles the windows.",
+      "next": "scene2_choice1_option2_screen28",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen28",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Somewhere below, the murmur of voices sharpens — urgent, clipped, scared. Footsteps echo through the marble halls. The masquerade has cracked. Then — a knock. Three sharp raps against the salon door. ",
+      "next": "scene2_choice1_option2_screen29",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen29",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "The door creaks open. A masked servant in bone-white robes steps in, head bowed.",
+      "next": "scene2_choice1_option2_screen30",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen30",
+      "type": "narrative",
+      "image": "scene_02_b.webp",
+      "content": "Dorian’s jaw tightens. The candle flames bend toward the door, as if drawn by unseen breath.",
+      "next": "scene2_choice1_option2_screen31",
+      "progress": 0
+    },
+    {
+      "id": "scene2_choice1_option2_screen31",
+      "type": "dialog",
+      "image": "scene_02_b.webp",
+      "content": "(low, to Sera)\nThis is it. Whatever he’s planned — it starts now. Whatever happens… don’t trust the music.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene3",
+      "progress": 0
+    },
+    {
+      "id": "scene3",
+      "type": "scene",
+      "image": "scene_03_a.webp",
+      "title": "Scene 3",
+      "content": "The Awakening",
+      "next": "scene3_choice0_option2_screen33",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen33",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The ballroom is no more. In its place: a temple masked as celebration. Guests gather beneath the vaulted ceiling, their masks still in place, their steps drawn by something none dare name aloud. The air tastes of wax, smoke, and anticipation.",
+      "next": "scene3_choice0_option2_screen34",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen34",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The chandeliers have dimmed. The music has changed — not played, but pulsing, like something alive beneath the floor.",
+      "next": "scene3_choice0_option2_screen35",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen35",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Sera and Dorian arrive near the edge of the circle. She scans the crowd — not for faces, but for presence. Everyone who matters is already here.",
+      "next": "scene3_choice0_option2_screen36",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen36",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(quietly)\nWhy does it feel like a trap dressed as a ceremony?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice0_option2_screen37",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen37",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(dry)\nBecause that’s exactly what it is. And it’s worked before.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene3_choice0_option2_screen38",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen38",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "A hush falls. The candles flicker once — as if exhaling — and then stabilize. From the far side of the hall, Lucien enters alone. No mask. No smile. For the first time tonight, his face is bare. The mask he once carried is gone — discarded, or perhaps never truly needed.",
+      "next": "scene3_choice0_option2_screen39",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen39",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "His coat is darker now, trimmed in silver thread that catches even the faintest light.",
+      "next": "scene3_choice0_option2_screen40",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen40",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lucien’s gaze flicks past Sera — just for a moment — to someone across the circle. His eyes narrow, thoughtful.",
+      "next": "scene3_choice0_option2_screen41",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen41",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(smooth, amplified)\nNot all of you received an invitation… and yet some arrive right on time. ",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice0_option2_screen42",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen42",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(to himself)\nLady Vale brought company. Who are you, I wonder — and why does she trust you?",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice0_option2_screen43",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen43",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Gasps ripple quietly through the crowd. Lucien descends the marble steps toward the center, and with a graceful motion, raises one hand.",
+      "next": "scene3_choice0_option2_screen44",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen44",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(amplified voice, resonant)\nHonored guests. Tonight, we stand at the threshold of remembrance. Not all of you know why you’re here. But all of you will know soon enough.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice0_option2_screen45",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen45",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Gasps ripple quietly through the crowd. Lucien descends the marble steps toward the center, and with a graceful motion, raises one hand.",
+      "next": "scene3_choice0_option2_screen46",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen46",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "You were not invited by chance. Something ancient stirs beneath our feet — and one among us has the key to unlock it.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice0_option2_screen47",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen47",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "A low, rhythmic sound begins — not music, not yet — more like breath given form. The symbols on the floor pulse faintly in time.",
+      "next": "scene3_choice0_option2_screen48",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen48",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(with a glance to Sera)\nLet the Dance begin.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice0_option2_screen49",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen49",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "They move as one — not couples, but a living pattern. Circles within circles. Robes shimmer. Masks gleam. And as Sera joins in, the steps are familiar. ",
+      "next": "scene3_choice0_option2_screen50",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen50",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(whispers)\nI’ve danced this before. How?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice0_option2_screen51",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen51",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Dorian reaches for her — but the tide of bodies pulls them apart. Not roughly. Elegantly. Inevitably.",
+      "next": "scene3_choice0_option2_screen52",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen52",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "In the next slow turn, a different hand finds hers. Cool. Certain.",
+      "next": "scene3_choice0_option2_screen53",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice0_option2_screen53",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(near her ear)\nCareful, my dear. Some threads unravel when pulled too soon.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "block",
+      "image": "scene_03_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_mal__dorian",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1",
+      "type": "choice",
+      "image": "scene_03_a.webp",
+      "content": "How will you dance with Lucian?",
+      "availableFor": "player_fem_sera",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "options": [
+        {
+          "id": "scene3_choice1_option1_screen1",
+          "text": "Play along to learn more"
+        },
+        {
+          "id": "scene3_choice1_option2_screen1",
+          "text": "Use the dance to push back"
+        },
+        {
+          "id": "scene3_choice1_option3_screen1",
+          "text": "Let yourself feel the pull"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "She places her hand in Lucien’s with a half-smile. If he wants a performance, she’ll give him one — but she’ll be watching every step.",
+      "next": "scene3_choice1_option1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(smiling)\nYou wear curiosity like perfume. It suits you.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "I figured if I can’t leave, I might as well ask questions while we dance.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice1_option1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He twirls her once, slowly — like unwrapping something delicate.",
+      "next": "scene3_choice1_option1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen5",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(low)\nDo you know how long I’ve waited to see the fire like this wake in one’s eyes?",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option1_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen6",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(flat)\nYou make it sound like I belong to you.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice1_option1_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen7",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(with a gleam)\nNot to me. But with me? That remains to be seen.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option1_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option1_screen8",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The candles dim as the music swells. The rhythm thickens — like it wants something from her. Like it remembers her better than she remembers herself.",
+      "next": "scene3_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Sera accepts Lucien’s hand but keeps her spine straight, her fingers taut. If this is a game, she’ll play it her way.",
+      "next": "scene3_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(chuckling)\nStill so sharp. Even when the melody calls you.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "I don’t bend to music. Or to men who speak in riddles.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "Oh, but you’ve already bent. You just haven’t noticed.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option2_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen5",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "They pivot through the crowd, each turn more dizzying than the last. Her heels scrape the marble — not clumsy, but defiant.",
+      "next": "scene3_choice1_option2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen6",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "Why this masquerade? What are you hiding?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice1_option2_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen7",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(close)\nWhat makes you think it’s me who’s hiding?",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option2_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen8",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He leans in, lips brushing near her ear. The words settle like smoke.",
+      "next": "scene3_choice1_option2_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option2_screen9",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(whisper)\nWhat you fear waking in you… has already stirred.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Her body moves before her thoughts catch up. The dance is slow, winding — and Lucien’s touch is careful, like he’s afraid of breaking something inside her.",
+      "next": "scene3_choice1_option3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(soft)\nYou feel it, don’t you?",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen3",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(quietly)\nI don’t know what I feel.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_choice1_option3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "You will. Soon. The fire in you is older than you imagine.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen5",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He spins her again. The room fades, as if the world narrows to two masks, two bodies, one rhythm. Her pulse hammers.",
+      "next": "scene3_choice1_option3_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen6",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(lower)\nDon’t run from it, Sera. Let it rise. Let it burn.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_choice1_option3_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_choice1_option3_screen7",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The music thickens around her — velvet and gold and blood. She’s never felt so alive… and so lost.",
+      "next": "scene3_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen1",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Sera’s pulse is no longer her own. Her limbs float. Her thoughts scatter. Lucien is close — too close — and his voice curls inside her mind like heat.",
+      "next": "scene3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen2",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(low, coaxing)\nLet it rise. The fire beneath your skin. You were made for this.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen3",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Sera blinks — once, twice — but the ballroom blurs. Dancers become silhouettes. The violins scrape like bone on bone. Her limbs feel light, her will heavy.",
+      "next": "scene3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen4",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Lucien’s hand brushes her waist again — and this time, her body leans in without her consent.",
+      "next": "scene3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen5",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(distant, inside)\nNo. That’s not mine. That’s not me.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen6",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Then — a jolt. Fingers clamp around her wrist. The heat breaks. The trance shatters.",
+      "next": "scene3_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen7",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Dorian yanks her through the crush of masked bodies and velvet air. The spell tears like paper. ",
+      "next": "scene3_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen8",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "For a second, he doesn’t recognize his own urgency — the way his hand trembled when she leaned into Lucien. He tells himself it was the trance. The ritual. The danger.",
+      "next": "scene3_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen9",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "But he knows better.",
+      "next": "scene3_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen10",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Behind them, Lucien’s voice calls out — not surprised. Amused.",
+      "next": "scene3_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen11",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(calling)\nYou can run from the fire, but it’s already in your veins.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen12",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Sera stumbles, breath hitching, heart hammering with someone else’s rhythm. She clutches Dorian’s coat like an anchor. His face is pale, stunned — but his hands are firm.",
+      "next": "scene3_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen13",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "I almost… I couldn’t stop it.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen14",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(hoarse)\nThat’s what he does. He gets inside you. Twists what’s already there.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene3_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen15",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "She meets his gaze — and something in her stirs. Not fear. Not confusion. Recognition.",
+      "next": "scene3_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen16",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(quietly)\nHave we met before? Like in other lives? ",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen17",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Before he can answer, she’s already moving — cupping his face like she’s done it in a dream, or a memory, or a life she can’t name.",
+      "next": "scene3_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen18",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Their lips meet — not tentative, but inevitable. The moment they touch, it’s like a bell rings beneath her skin. A sound she didn’t know she missed.",
+      "next": "scene3_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen19",
+      "type": "cutscene",
+      "image": "cutscene_01.webp",
+      "next": "scene3_screen20",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen20",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "He pulls back first. Barely breathing.",
+      "next": "scene3_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen21",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(stunned)\nYou felt that too?",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene3_screen22",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen22",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(whispers)\nI’ve known that kiss. Somehow… I’ve known you.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene3_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen23",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Silence. Then — a deep tolling bell. The music cuts off. A door groans open across the ballroom.",
+      "next": "scene3_screen24",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen24",
+      "type": "dialog",
+      "image": "scene_03_a.webp",
+      "content": "(from afar, calm)\nIt’s time.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene3_screen25",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen25",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "They stand frozen — past, present, and prophecy colliding in the dark.",
+      "next": "scene3_screen26",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen26",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "The masquerade is over. The summoning has begun.",
+      "next": "scene3_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen27",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "They tried to move — to escape through the side hall, maybe find another exit. But the music found them first. Not in sound, this time — but in rhythm. In breath.",
+      "next": "scene3_screen28",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen28",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Whatever had cracked during the dance hadn’t shattered fully. It only paused.",
+      "next": "scene3_screen29",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen29",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "And when the masked servant appeared again — whispering of the Master’s summons, of the ritual beginning — it was already too late. The trance hadn’t broken. It had only deepened, hiding beneath the illusion of choice.",
+      "next": "scene3_screen30",
+      "progress": 0
+    },
+    {
+      "id": "scene3_screen30",
+      "type": "narrative",
+      "image": "scene_03_a.webp",
+      "content": "Sera’s feet moved without thought. Dorian called her name — once, twice — but her eyes didn’t register. Not until they were already among the procession.",
+      "next": "scene4",
+      "progress": 0
+    },
+    {
+      "id": "scene4",
+      "type": "scene",
+      "image": "scene_04_a.webp",
+      "title": "Scene 4",
+      "content": "The Grave of Echoes",
+      "next": "scene4_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The guests move as one — silent, graceful, wrong. A procession of velvet and porcelain masks, winding down the garden path as if pulled by strings. At the front, Lucien leads them, each step measured, theatrical… triumphant.",
+      "next": "scene4_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen2",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Sera walks among them. Not by choice, but by pull — her limbs not quite her own, her breath caught somewhere behind her ribs. The pendant pulses warm at her throat, faster with every step. ",
+      "next": "scene4_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen3",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian stays close behind. He pushes through the fog with effort — eyes sharp, resisting the trance that clings to the others. He watches Sera, sees the tremble in her steps, and clenches his fists.",
+      "next": "scene4_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen4",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "They pass through the iron gates and into the graveyard. Fog thickens, candlelight shivers. At the heart of it all waits a raised altar of ancient stone — worn by centuries, whispering with power. Lucien turns, arms wide.",
+      "next": "scene4_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen5",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(resonant, echoing)\nWe gather beneath the old moon. Blood remembers. Power waits. The flame returns.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen6",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The guests sway, lips moving silently. A ritual chant without words. His eyes lock on Sera. ",
+      "next": "scene4_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen7",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(to Sera)\nYou feel it, don’t you? That hum beneath your skin? That’s your inheritance. That pendant — do you know what it is?",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen8",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(barely audible)\nMy grandmother gave it to me.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene4_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen9",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(to Sera)\nThere was a time when blood carried more than lineage — it carried flame. Divinity buried in mortal shells. Your line was the last to bear it.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen10",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(to Sera)\nThey called it fire-born. Once used to crown kings… and burn them. For centuries, I searched for a vessel strong enough to awaken it. ",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen11",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "Not just any mortal. A spark untouched by ritual, but born of it. And then you walked through my door — wearing the key around your neck.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen12",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "Because your grandmother knew what you are. She felt it. This— (gestures to the circle) —is your birthright. And with you at the center, it begins.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen13",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian’s pulse spikes. He feels it in his teeth, in his scars, in the hunter’s mark burned into memory. He can’t let this happen. Not again.",
+      "next": "scene4_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen14",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(to the crowd)\nYou wonder why I brought you all here — vampires of bloodlines old and powerful. You think I wanted an audience? No. I needed vessels. Witnesses. Fuses.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen15",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(raising hands)\nThe old gods demand sacrifice. The girl awakens the flame. And through her — through all of you — I become not just eternal… but divine.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen16",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lucien steps forward, fingers extended — ready to draw the power from Sera, ready to finish what began long before she was born. The ground beneath the circle begins to shimmer. Symbols glow in red and silver.",
+      "next": "scene4_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen17",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Inside the circle, Sera’s body begins to sway — not to the music, but to something deeper. Her eyes glaze. The pendant around her neck pulses violently, brighter than fire.",
+      "next": "scene4_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen18",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lucien’s voice coils like smoke. ",
+      "next": "scene4_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen19",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "Let it flow, child! You were born for this!",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen20",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen20",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Sera’s fingers twitch. Her pulse thins. Dorian sees it — her essence being pulled through blood and bone, into something far older. If he waits too long, there won’t be a Sera left to save.",
+      "next": "scene4_choice1",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1",
+      "type": "block",
+      "image": "scene_04_a.webp",
+      "content": "Your partner is making their choice - please, wait...",
+      "availableFor": "player_fem_sera",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1",
+      "type": "choice",
+      "image": "scene_04_a.webp",
+      "content": "How do you prevent the ritual?",
+      "availableFor": "player_mal__dorian",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "options": [
+        {
+          "id": "scene4_choice1_option1_screen1",
+          "text": " Distract Lucien"
+        },
+        {
+          "id": "scene4_choice1_option2_screen1",
+          "text": "Call her — try to reach what’s still her"
+        },
+        {
+          "id": "scene4_choice1_option3_screen1",
+          "text": "Step into the circle — disrupt the ritual"
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option1_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian draws the stake. No warnings. No speeches. He launches toward Lucien like a blade thrown by fate.",
+      "next": "scene4_choice1_option1_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option1_screen2",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(grinning)\nToo late.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_choice1_option1_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option1_screen3",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "But Dorian’s faster. Fueled by rage. By fear.  And by something he hasn't let himself name — not since the last time it cost him everything.",
+      "next": "scene4_choice1_option1_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option1_screen4",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "He slams into Lucien, knocking him back. The ritual cracks. The candles go out. A gust of wind tears through the chamber.",
+      "next": "scene4_choice1_option1_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option1_screen5",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Sera collapses, the pendant smoking. Dorian is already moving.",
+      "next": "scene4_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option2_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian takes a step forward, eyes locked on her. Her lips still move in rhythm with Lucien’s chant — but he sees the tremble in her fingers. The part of her that’s still fighting.",
+      "next": "scene4_choice1_option2_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option2_screen2",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(urgent)\nSera. Look at me. You’re not his. You’re not this.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene4_choice1_option2_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option2_screen3",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Her head jerks slightly. A flicker. Her breath stutters. The pendant flashes again — this time not red, but silver-blue. For a moment, the chant falters.",
+      "next": "scene4_choice1_option2_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option2_screen4",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(cold)\nDon’t you dare to distract her!",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_choice1_option2_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option2_screen5",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "But Dorian sees it: she’s still in there. For a second, her eyes meet his — wide, confused, hers. But then the light surges from the pendant, blinding and raw.",
+      "next": "scene4_choice1_option2_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option2_screen6",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She cries out — and collapses.",
+      "next": "scene4_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option3_screen1",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian doesn’t hesitate. He crosses the outer ring, ignoring the fire that licks at his boots, the shimmer in the air like breaking glass.",
+      "next": "scene4_choice1_option3_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option3_screen2",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(furious)\nHunter?! You again?! I wish I had killed you back then in Budapest!",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_choice1_option3_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option3_screen3",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "But Dorian is already moving, already drawing the silver dagger from his coat. The circle shudders. Sera gasps — the pendant flares violently, sparks snapping across her skin.",
+      "next": "scene4_choice1_option3_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option3_screen4",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "It ends tonight!",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene4_choice1_option3_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene4_choice1_option3_screen5",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "It’s working. Something’s breaking. But so is she. The pendant erupts in silver flame. She reaches toward him — and crumples like silk cut loose from bone.",
+      "next": "scene4_screen21",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen21",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian catches Sera before she hits the stone. Her pendant pulses erratically, as if trying to restart her heartbeat.",
+      "next": "scene4_screen22",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen22",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Around them, the ritual unravels. The circle of masked guests falters, symbols fade, and the crimson glow at Lucien’s back dims to shadow.",
+      "next": "scene4_screen23",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen23",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lucien stumbles, breath hitching. His hand grips the edge of the altar for balance. The power that once poured through him now flickers and dies.",
+      "next": "scene4_screen24",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen24",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(hoarse)\nNo… this wasn’t— She was meant to rise. She was meant to make me the strongest of living vampires!!!",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen25",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen25",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian lowers Sera gently onto the grass. Then he rises — swift, precise — and draws the hunter’s stake from his coat.",
+      "next": "scene4_screen26",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen26",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(quietly)\nYou should’ve never touched her.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene4_screen27",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen27",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lucien turns — too slow. Too human now. And with one sure thrust, Dorian drives the stake into his chest.",
+      "next": "scene4_screen28",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen28",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lucien gasps — a sound more like wind than breath. He looks down at the weapon lodged in his heart, then up at Dorian.",
+      "next": "scene4_screen29",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen29",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(softly, almost amused)\nYou succeeded now… but don’t think it’s over.",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen30",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen30",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Lucien collapses. The light dies with him. Then his body crumbles into ash.",
+      "next": "scene4_screen31",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen31",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Even as his body fades, his voice echoes faintly — not defiant, but mournful.",
+      "next": "scene4_screen32",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen32",
+      "type": "dialog",
+      "image": "scene_04_a.webp",
+      "content": "(whisper, vanishing) \nI was meant to become more than this. I waited... centuries. She was the last spark. The last god-fire. And I… I failed the flame.\n",
+      "actor": {
+        "playerId": "npc_mal_lucien"
+      },
+      "next": "scene4_screen33",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen33",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The ash settles, but the air doesn’t clear. It hums — faintly, like the echo of something unfinished.",
+      "next": "scene4_screen34",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen34",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Silence. Real silence — no chants, no wind, no whispers.",
+      "next": "scene4_screen35",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen35",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "Dorian drops the stake. Falls to his knees beside Sera. Her skin is pale, lips parted, eyes barely moving beneath closed lids.",
+      "next": "scene4_screen36",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen36",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "She blinks up at him. He lifts her into his arms. The pendant between them still glows — faint, but steady now. As if whatever was breaking… has begun to mend.",
+      "next": "scene4_screen37",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen37",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "The guests begin to stir behind them — dazed, no longer enchanted, the trance broken. Some collapse. Some flee. The masquerade is over.",
+      "next": "scene4_screen38",
+      "progress": 0
+    },
+    {
+      "id": "scene4_screen38",
+      "type": "narrative",
+      "image": "scene_04_a.webp",
+      "content": "But Dorian isn’t watching. He’s already carrying her away from the broken circle, the shattered ritual, and the ashes of an ancient monster.",
+      "next": "scene5",
+      "progress": 0
+    },
+    {
+      "id": "scene5",
+      "type": "scene",
+      "image": "scene_05_a.webp",
+      "title": "Scene 5",
+      "content": "The Morning After the Ritual",
+      "next": "scene5_screen1",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen1",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Dawn brushes the sky with colors neither of them thought they’d live to see. The air is quiet — no music, no whispers, just the slow return of breath.",
+      "next": "scene5_screen2",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen2",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Sera stirs, eyelashes fluttering, and her hand finds Dorian’s where it rests beside her.",
+      "next": "scene5_screen3",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen3",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(soft)\nDid we stop it?",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene5_screen4",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen4",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(smiling faintly)\nWe stopped him.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene5_screen5",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen5",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "She looks down at the pendant still glowing faintly at her chest.",
+      "next": "scene5_screen6",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen6",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "But this… it’s still here.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene5_screen7",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen7",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "So are you.",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene5_screen8",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen8",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "For a long moment, neither of them speaks. Just the wind. Just the sunrise and the quiet estate below.",
+      "next": "scene5_screen9",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen9",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(quietly)\nWhen I fell… I saw something. Not the past. The future. Us — again. Together. I think I knew that kiss… because it already belonged to me.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene5_screen10",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen10",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(still, overwhelmed)\nYou saw our future?",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene5_screen11",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen11",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(smiling faintly)\nNot all of it. Just enough to know… this wasn’t the end. It was the beginning.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene5_screen12",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen12",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Their eyes meet — and it feels like the first time and the hundredth all at once. Some truths don’t need to be remembered. Just chosen.",
+      "next": "scene5_screen13",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen13",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(gently teasing)\nSo, do we live happily ever after? Or is that part still loading?",
+      "actor": {
+        "playerId": "player_mal__dorian"
+      },
+      "next": "scene5_screen14",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen14",
+      "type": "dialog",
+      "image": "scene_05_a.webp",
+      "content": "(dryly)\nI can’t see the future on demand. Try me after coffee.",
+      "actor": {
+        "playerId": "player_fem_sera"
+      },
+      "next": "scene5_screen15",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen15",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "He laughs — the sound surprised out of him. And when she leans into his chest, his arms are already there.",
+      "next": "scene5_screen16",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen16",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "Below, the estate lies still. The masquerade is over. The masks are off. But somewhere deep in the bones of the manor, something stirs. A symbol that never stopped glowing. A chant half-remembered.",
+      "next": "scene5_screen17",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen17",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "The ritual was broken. But not erased.",
+      "next": "scene5_screen18",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen18",
+      "type": "narrative",
+      "image": "scene_05_a.webp",
+      "content": "And in cities far from here, those who once served Lucien raise their heads — wondering where the fire went. And whether it might one day call someone else.",
+      "next": "scene5_screen19",
+      "progress": 0
+    },
+    {
+      "id": "scene5_screen19",
+      "type": "final",
+      "image": "scene_05_a.webp",
+      "content": "But the story? Just beginning. You’ve played the roles — now go to chat and write the next chapter together.",
+      "progress": 0
+    }
+  ]
+}

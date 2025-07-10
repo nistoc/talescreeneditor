@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: tales-screen-editor-dev
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: STORAGE_PATH
+        value: /opt/render/project/taleseditorstoragedev
+    disk:
+      name: editorstoragedev
+      mountPath: /opt/render/project/taleseditorstoragedev
+      sizeGB: 1
+    plan: starter
+    healthCheckPath: /
+    autoDeploy: true 
